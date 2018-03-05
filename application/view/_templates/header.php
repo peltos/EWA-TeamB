@@ -7,22 +7,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
     </head>
-    <body class="dark-theme">
+    <body class="light-theme">
         <!-- logo -->
         <header>
             <div class="header--inner">
                 <div class="logo">
                     <a href="<?php echo URL; ?>">
-                        <img src="img/logo--white.svg">
+                        <img src="<?php echo URL?>img/logo--white.svg">
                     </a>
                 </div>
 
                 <!-- navigation -->
                 <div class="navigation">
-                    <a href="<?php echo URL; ?>">home</a>
-                    <a href="<?php echo URL; ?>home/exampleone">subpage</a>
-                    <a href="<?php echo URL; ?>home/exampletwo">subpage 2</a>
-                    <a href="<?php echo URL; ?>songs">songs</a>
+                    <a href="<?php echo URL; ?>">Home</a>
+                    <a href="<?php echo URL; ?>home/events">Events</a>
+                    <a href="<?php echo URL; ?>home/streamers">Streamers</a>
+                    <a href="<?php echo URL; ?>songs">Songs</a>
                     <a href="<?php echo URL; ?>login"><i class="fas fa-sign-in-alt"></i></a>
                 </div>
             </div>
