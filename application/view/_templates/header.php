@@ -24,6 +24,11 @@
                     <a href="<?php echo URL; ?>home/streamers">Streamers</a>
                     <a href="<?php echo URL; ?>songs">Songs</a>
                     <a href="<?php echo URL; ?>login"><i class="fas fa-sign-in-alt"></i></a>
+                    <a class="menu-icon" onclick="myFunction(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </a>
                 </div>
             </div>
         </header>
