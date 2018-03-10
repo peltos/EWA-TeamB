@@ -19,11 +19,11 @@
 
                 <!-- navigation -->
                 <div class="navigation">
-                    <a class="navigation--item" href="<?php echo URL; ?>">Home</a>
+                    <a class="navigation--item" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
                     <a class="navigation--item" href="<?php echo URL; ?>home/events">Events</a>
                     <a class="navigation--item" href="<?php echo URL; ?>home/streamers">Streamers</a>
                     <a class="navigation--item" href="<?php echo URL; ?>songs">Songs</a>
-                    <a class="navigation--item" href="<?php echo URL; ?>login">Login <i class="fas fa-sign-in-alt"></i></a>
+                    <a class="navigation--item" href="<?php echo URL; ?>login">Sign In <i class="fas fa-sign-in-alt"></i></a>
 
                 </div>
                 <div class="navigation-menu-icon" onclick="menuAnimation(this)">
