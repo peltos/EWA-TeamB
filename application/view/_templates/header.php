@@ -9,7 +9,7 @@
     </head>
     <body class="light-theme">
         <!-- logo -->
-        <header>
+        <header id="header">
             <div class="header--inner">
                 <div class="logo">
                     <a href="<?php echo URL; ?>">
@@ -19,16 +19,17 @@
 
                 <!-- navigation -->
                 <div class="navigation">
-                    <a href="<?php echo URL; ?>">Home</a>
-                    <a href="<?php echo URL; ?>home/events">Events</a>
-                    <a href="<?php echo URL; ?>home/streamers">Streamers</a>
-                    <a href="<?php echo URL; ?>songs">Songs</a>
-                    <a href="<?php echo URL; ?>login"><i class="fas fa-sign-in-alt"></i></a>
-                    <a class="menu-icon" onclick="myFunction(this)">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </a>
+                    <a class="navigation--item" href="<?php echo URL; ?>">Home</a>
+                    <a class="navigation--item" href="<?php echo URL; ?>home/events">Events</a>
+                    <a class="navigation--item" href="<?php echo URL; ?>home/streamers">Streamers</a>
+                    <a class="navigation--item" href="<?php echo URL; ?>songs">Songs</a>
+                    <a class="navigation--item" href="<?php echo URL; ?>login">Login <i class="fas fa-sign-in-alt"></i></a>
+
+                </div>
+                <div class="navigation-menu-icon" onclick="menuAnimation(this)">
+                    <div class="menu-icon__line"></div>
+                    <div class="menu-icon__line"></div>
+                    <div class="menu-icon__line"></div>
                 </div>
             </div>
         </header>

@@ -63,14 +63,14 @@ h4{
 }
 
 /* *****************
-        MENU
+        HEADER
 ******************** */
 
 header{
     font-size: 2em;
     background-color: var(--primary-color);
     color: var(--nav-color);
-    padding:.25em 1em;
+    padding:.25em .25em;
     height: 2em;
 }
 
@@ -80,33 +80,7 @@ header{
     margin:0 auto;
     max-width:1200px;
     height: 100%;
-    position:relative;  
-}
-
-/* menu button */
-
-.menu-icon {
-    display: inline-block;
-    cursor: pointer;
-}
-.menu-icon .bar1, .bar2, .bar3 {
-    width: 2em;
-    height: .125em;
-    background-color: var(--nav-color);
-    margin: .5em 0;
-    transition: 0.4s;
-}
-
-.menu-icon.change .bar1 {
-    -webkit-transform: rotate(-45deg) translate(-0.125em, 0.125em);
-    transform: rotate(-45deg) translate(-0.5em, 0.5em);
-}
-
-.menu-icon.change .bar2 {opacity: 0;}
-
-.menu-icon.change .bar3 {
-    -webkit-transform: rotate(45deg) translate(-0.4em, -0.5em);
-    transform: rotate(45deg) translate(-0.4em, -0.5em);
+    position:relative;
 }
 
 /* logo menu */
@@ -118,20 +92,40 @@ header{
 .logo img{
     height:100%;
     width: 5.5em;
-    
+
 }
-/* *********************
-        NAVIGATION
-************************ */
+
+/* navigation */
 
 .navigation {
     display:flex;
     justify-content: flex-end   ;
     align-items: center;
     width:100%;
+    transition:400ms;
 }
-.navigation a {
+
+.navigation .navigation--item {
+    display: none;
+    padding: .75em 1em;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: var(--primary-color);
+    color: var(--nav-color);
+}
+
+.navigation .navigation--item:hover {
+    color: white;
+    background: var(--secondary-color);
+}
+
+/* menu button */
+
+.navigation-menu-icon {
     display: inline-block;
+    cursor: pointer;
     padding: 10px 15px;
     text-decoration: none;
     font-size: 14px;
@@ -140,9 +134,66 @@ header{
     background: var(--primary-color);
     color: var(--nav-color);
 }
-.navigation a:hover {
-    color: white;
-    background: var(--secondary-color);
+
+.navigation-menu-icon .menu-icon__line:nth-child(1),
+.navigation-menu-icon .menu-icon__line:nth-child(2),
+.navigation-menu-icon .menu-icon__line:nth-child(3) {
+    width: 2em;
+    height: .125em;
+    background-color: var(--nav-color);
+    margin: .5em 0;
+    transition: 0.4s;
+}
+
+/* active elements */
+
+.active .navigation{
+    position:fixed;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background: var(--primary-color);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 3em;
+    opacity: 0.8;
+}
+
+.active .navigation .navigation--item {
+    display: inline-block;
+    font-size:1em;
+    background: transparent;
+
+}
+
+.active .navigation-menu-icon .menu-icon__line:nth-child(1) {
+    -webkit-transform: rotate(-45deg) translate(-0.125em, 0.125em);
+    transform: rotate(-45deg) translate(-0.5em, 0.5em);
+}
+
+.active .navigation-menu-icon .menu-icon__line:nth-child(2) {
+    opacity: 0;
+}
+
+.active .navigation-menu-icon .menu-icon__line:nth-child(3) {
+    -webkit-transform: rotate(45deg) translate(-0.4em, -0.5em);
+    transform: rotate(45deg) translate(-0.4em, -0.5em);
+}
+
+.active .navigation-menu-icon {
+    position:absolute;
+    top:0;
+    right:0;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: var(--primary-color);
+    color: var(--nav-color);
 }
 
 /* *********************
@@ -150,7 +201,7 @@ header{
 ************************ */
 
 .main-container{
-    
+
 }
 
 .main-container--inner{
@@ -221,12 +272,26 @@ header{
 ************************ */
 
 .footer {
-    padding: 20px;
-    margin: 33px;
-    text-align: right;
-    font-size: 11px;
-    opacity: 0.5;
 }
 .footer a {
-    color: #454545;
+}
+
+/* **************************************
+        MEDIA QUERIES / RESPONSIVE
+***************************************** */
+
+@media only screen and (min-width: 768px) {
+    .navigation-menu-icon {
+        display: none;
+    }
+    .navigation .navigation--item {
+        display: inline-block;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    header {
+        padding:.25em 1em;
+    }
+
 }
