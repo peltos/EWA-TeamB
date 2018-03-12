@@ -1,27 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,900);
 
-/* *********************
-        HEADERS
-************************ */
-
-h1{
-    color: var(--heading-color);
-    font-size:2em;
-}
-
-h2{
-    color: var(--heading-color);
-    font-size:1.5em;
-}
-h3{
-    color: var(--heading-color);
-    font-size:1.25em;
-}
-h4{
-    color: var(--heading-color);
-    font-size:1.125em;
-}
-
 
 .timeline-container .hexa {
   border: 0px;
@@ -56,7 +34,7 @@ h4{
   height: 0;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-top: 15px solid #f0f0f0;
+  border-top: 15px solid #f48c00;
   bottom: -15px;
 }
 
@@ -68,13 +46,14 @@ h4{
   list-style-type: none;
 }
 
+/* Vertical Linewire */
 .timeline-container .timeline:before {
   position: absolute;
   left: 50%;
   top: 0;
   content: ' ';
   display: block;
-  width: 2px;
+  width: 1.7px;
   height: 100%;
   margin-left: -1px;
   background: rgb(213, 213, 213);
@@ -83,7 +62,7 @@ h4{
   background: -webkit-linear-gradient(top, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
   background: -o-linear-gradient(top, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
   background: -ms-linear-gradient(top, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
-  background: linear-gradient(to bottom, rgba(213, 213, 213, 0) 0%, rgb(213, 213, 213) 8%, rgb(213, 213, 213) 92%, rgba(213, 213, 213, 0) 100%);
+  background: var(--linewire-color);
   z-index: 5;
 }
 
@@ -91,31 +70,34 @@ h4{
   padding: 2em 0;
 }
 
+/* Hexa: Mid Square */
 .timeline-container .timeline .hexa {
   width: 16px;
   height: 10px;
   position: absolute;
-  background: #f48c00;
+  background: var(--orange-color);
   z-index: 5;
   left: 0;
   right: 0;
   margin-left: auto;
   margin-right: auto;
   top: -30px;
-  margin-top: 0;
+  margin-top: 4px;
 }
 
+/* Hexa: Top Triangle */
 .timeline-container .timeline .hexa:before {
-  border-bottom: 4px solid #f48c00;
+  border-bottom: 4px solid var(--orange-color);
   border-left-width: 8px;
   border-right-width: 8px;
   top: -4px;
 }
 
+/* Hexa: Bottom Triangle */
 .timeline-container .timeline .hexa:after {
   border-left-width: 8px;
   border-right-width: 8px;
-  border-top: 4px solid #f48c00;
+  border-top: 4px solid var(--orange-color);
   bottom: -4px;
 }
 
@@ -140,7 +122,7 @@ h4{
   z-index: 15;
   padding: 6px 10px;
   text-align: left;
-  border: 0.8px solid #f48c00;
+  border: 1px solid var(--orange-color);
   border-radius: 5px;
 }
 
@@ -149,12 +131,12 @@ h4{
   content: "";
   position: absolute;
   left: 50%;
-  top: -15px;
+  top: -16px;
   height: 0;
   width: 0;
   margin-left: -8px;
   border: solid transparent;
-  border-bottom-color: rgb(27, 40, 54);
+  border-bottom-color: var(--orange-color);
   border-width: 8px;
   pointer-events: none;
 }
@@ -171,6 +153,7 @@ h4{
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15), 0 0 1px rgba(0, 0, 0, 0.15);
 }
 
+/* Timestamp flag */
 .timeline-container .time-wrapper {
   display: block;
   position: relative;
@@ -190,11 +173,12 @@ h4{
 }
 
 .timeline-container .time {
-  background: #f48c00;
+  background: var(--orange-color);
   display: inline-block;
   padding: 8px;
 }
 
+/* Description Box */
 .timeline-container .desc {
   color: var(--font-color);
   position: relative;
@@ -205,7 +189,7 @@ h4{
   -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.20);
   z-index: 15;
-  border: 1.4px solid black;
+  border: var(--desc-border-width) solid black;
   border-radius: 5px;
 }
 
@@ -215,6 +199,10 @@ h4{
   padding: 1em;
   z-index: 15;
 }
+
+/* **************************************
+        MEDIA QUERIES / RESPONSIVE
+***************************************** */
 
 @media(min-width: 768px) {
   .timeline-container .timeline {
@@ -256,20 +244,24 @@ h4{
   .timeline-container .flag {
     font-size: 18px;
   }
+
+  /* Left Flag: Side Triangle */
   .timeline-container .direction-l .flag:after {
     left: auto;
     right: -16px;
     top: 50%;
     margin-top: -8px;
     border: solid transparent;
-    border-left-color: rgb(254, 254, 254);
+    border-left-color: var(--orange-color);
     border-width: 8px;
   }
+
+  /* right Flag: Side Triangle */
   .timeline-container .direction-r .flag:after {
     top: 50%;
     margin-top: -8px;
     border: solid transparent;
-    border-right-color: rgb(254, 254, 254);
+    border-right-color: var(--orange-color);
     border-width: 8px;
     left: -8px;
   }
@@ -313,5 +305,5 @@ h4{
 }
 
 .timeline-container img {
-  width: 10%;
+  width: 20%;
 }
