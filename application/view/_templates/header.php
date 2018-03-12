@@ -5,8 +5,7 @@
         <title>Ziggo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
-        <link href="<?php echo URL; ?>css/timeline.css" rel="stylesheet">
+        <link href="<?php echo URL; ?>css/manifest.css" rel="stylesheet">
     </head>
     <body class="light-theme">
         <!-- logo -->
