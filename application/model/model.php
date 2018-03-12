@@ -128,7 +128,7 @@ class Model
     }
 
     public function timelineNoFilter(){
-        $url = 'https://api.pandascore.co/matches?page[number]=2&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+        $url = 'https://api.pandascore.co/matches/upcoming?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
         $json = file_get_contents($url);
         $timeline_array = json_decode($json, true);
 
