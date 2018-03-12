@@ -1,4 +1,4 @@
-<div class="container results" data-url="<?php if (!empty($url)) echo $url ?>">
+<div class="container timeline-container" data-url="<?php if (!empty($url)) echo $url ?>">
 
     <ul class="timeline">
         <?php
