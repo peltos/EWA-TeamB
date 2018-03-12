@@ -122,7 +122,6 @@ header{
 .active .navigation .navigation--item {
     display: inline-block;
     font-size:1em;
-    color:red;
     background: transparent;
 
 }
