@@ -1,4 +1,25 @@
 <div class="container">
-    <h2>You are in the View: application/view/home/streamers.php (everything in the box comes from this file)</h2>
-    <p>In a real application this could be a normal page.</p>
+  <div id="tbody" class="text-center">
+    <h1>Single Streamers</h1>
+
+  </div>
+<div class="input">
+  <h1 id="fccStatus"></h1>
+</div>
+<div class="row">
+  <h1>
+  <div class="col-md-4">
+    Logo:
+  </div>
+  <div class="col-md-4">
+    Display Name:
+  </div>
+  <div class="col-md-4">
+    Status:
+  </div>
+</h1>
+
+</div>
+<div id="followInfo">
+</div>
 </div>

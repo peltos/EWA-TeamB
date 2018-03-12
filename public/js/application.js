@@ -37,3 +37,18 @@ $(function() {
     }
 
 });
+
+$(document).ready(function()){
+  var url= "http://api.twitch.tv/kraken/streams/freecodecamp";
+  $.getJSON(url,function(data1)){
+
+  if(data1.stream==null){
+    $("fccStatus").html("Free code camp is currently OFFLINE!");
+  }
+  else{
+      $("fccStatus").html("Free code camp is currently ONLINE!");
+
+    }
+  });
+
+});
