@@ -228,7 +228,16 @@
 }
 .timeline-container .timeline-desc--matchup__item + .timeline-desc--matchup__item{
     border-left:1px solid var(--linewire-color);
+    position:relative;
 
+}
+.timeline-container .timeline-desc--matchup__item + .timeline-desc--matchup__item:after{
+    content:'vs';
+    position:absolute;
+    font-size:2em;
+    top:calc(50% - .875em);
+    left:-.5em;
+    background: var(--desc-color);
 }
 
 .timeline-container .timeline-desc--matchup__img{
