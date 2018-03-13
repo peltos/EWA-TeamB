@@ -31,6 +31,10 @@ header{
     padding:.25em .25em;
     height: 1.4em;
 }
+header.active{
+    position:relative;
+    z-index:2000;
+}
 
 .header--inner{
     display:flex;
