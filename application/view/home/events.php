@@ -6,9 +6,7 @@
         <?php
         $counter = 0;
         if (!empty($timeline)) {
-            foreach ($timeline
-
-                     as $key => $item) { ?>
+            foreach ($timeline as $key => $item) { ?>
                 <li>
                     <?php
                     if ($counter % 2 == 0) {
@@ -19,31 +17,57 @@
                     ?>
                     <div class="flag-wrapper">
                         <span class="hexa"></span>
-                        <span class="flag"> <?php echo $item["name"] ?></span>
+                        <div class="flag">
+                            <span class="flag-title-league">
+                                <img class="flag-title-league__image" src=" <?php echo $item["league"]["image_url"] ?> "/>
+                                <p class="flag-title-league__name"><?php echo $item["league"]['name'] ?></p>
+                            </span>
+                            <span class="flag-title-match">
+                                <span class="game">
+                                    <?php if($item["videogame"]['name'] == 'LoL'){
+                                        echo  'League of Legends';
+                                    }else{
+                                        echo  $item["videogame"]['name'];
+                                    }?>
+                                </span>
+                                 -
+                                <?php echo $item["name"] ?>
+                            </span>
+                            <span class="flag-title-season">
+                                Tournament: <?php echo $item["tournament"]['name'] ?>
+                            </span>
+                        </div>
                         <span class="time-wrapper">
-                            <span class="time"><?php echo date('d F H:i', strtotime($item["begin_at"])) ?></span>
-                        </span>
+                        <span class="time"><?php echo date('d F H:i', strtotime($item["begin_at"])) ?></span>
+                    </span>
                     </div>
-                    <div class="desc">
-                        <?php if (!$item["opponents"] == null || !$item["opponents"] == "") { ?>
-                            <p class="game"><?php echo $item["opponents"][0]['opponent']['name'] ?> vs. </p>
-                            <p class="game"><?php echo $item["opponents"][1]['opponent']['name'] ?> </p>
-                            <?php if (!$item["opponents"][0]["opponent"]["image_url"] == null || !$item["opponents"][0]["opponent"]["image_url"] == "") { ?>
-                                <img src="<?php echo $item["opponents"][0]['opponent']["image_url"] ?>"/>
-                                <img src="<?php echo $item["opponents"][1]['opponent']["image_url"] ?>"/>
-                            <?php }
-                        } ?>
+                    <div class="timeline-desc">
 
+
+
+                        <div class="timeline-desc--matchup">
+                        <?php if (!$item["opponents"] == null || !$item["opponents"] == "") { ?>
+                                <?php foreach ($item["opponents"] as $key => $itemOpponents) { ?>
+                                    <div class="timeline-desc--matchup__item">
+                                        <?php if (!$itemOpponents["opponent"]["image_url"] == null || !$itemOpponents["opponent"]["image_url"] == "") { ?>
+                                            <img class="timeline-desc--matchup__img"
+                                                 src="<?php echo $itemOpponents['opponent']["image_url"] ?>"/>
+                                        <?php } ?>
+                                        <p class="game"><?php echo $itemOpponents['opponent']['name'] ?> </p>
+                                    </div>
+                                <?php } ?>
+                        <?php }
+
+                        else{ ?>
+                            <p>No opponents available</p>
+
+                        <?php } ?>
+
+                        </div>
                         <?php if (!$item["league"]['url'] == null) { ?>
-                            <span class="league-name"><?php echo $item["league"]['name'] ?></span>
                             <a href="<?php echo $item["league"]['url'] ?>" target="_blank"> Go to league
                                 website</a></br>
                         <?php } ?>
-
-                        <span class="game"><?php echo $item["videogame"]['name'] ?></span>
-                        <span class="rounds"><?php echo $item["number_of_games"] ?></span>
-                        <span class="season"><?php echo $item["tournament"]['name'] ?></span>
-                        <img src="<?php echo $item["league"]["image_url"] ?>"/>
                     </div>
 
                 </li>

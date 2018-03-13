@@ -188,7 +188,6 @@ header.active{
     font-size: 14px;
     text-transform: uppercase;
     font-weight: bold;
-    background: var(--primary-color);
 }
 .container table {
     font-size: 11px;
