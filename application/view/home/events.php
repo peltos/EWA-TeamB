@@ -43,7 +43,7 @@
                     </div>
                     <div class="timeline-desc">
 
-
+                        <p class="timeline-desc--title"><?php echo $item["league"]['name'] ?></p>
 
                         <div class="timeline-desc--matchup">
                         <?php if (!$item["opponents"] == null || !$item["opponents"] == "") { ?>

@@ -107,7 +107,7 @@
     text-align: center;
 }
 
-.timeline-container.flag-wrapper {
+.timeline-container .flag-wrapper {
     text-align: center;
     position: relative;
 }
@@ -208,6 +208,11 @@
     display:flex;
     align-items: center;
     flex-direction: column;
+}
+.timeline-container .timeline-desc--title{
+    font-size:1.5em;
+    font-weight: 900;
+    margin:.25em;
 }
 .timeline-container .timeline-desc--matchup{
     display:flex;
