@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<div class="container">
-    <h2>You are in the View: application/view/home/events.php (everything in the box comes from this file)</h2>
-    <p>In a real application this could be a normal page.</p>
-=======
 <div class="container timeline-container" data-url="<?php if (!empty($url)) echo $url ?>">
 
     <h2>Tournament Events</h2></br>
@@ -25,21 +20,20 @@
                         <div class="flag">
                             <span class="flag-title-league">
                                 <img class="flag-title-league__image" src=" <?php echo $item["league"]["image_url"] ?> "/>
-                                <p class="flag-title-league__name"><?php echo $item["league"]['name'] ?></p>
+                                <p class="flag-title-league__name"> &nbsp <?php echo $item["league"]['name'] ?></p>
                             </span>
                             <span class="flag-title-match">
-                                <span class="game">
+                                <span class="game-name">
                                     <?php if($item["videogame"]['name'] == 'LoL'){
                                         echo  'League of Legends';
                                     }else{
                                         echo  $item["videogame"]['name'];
                                     }?>
                                 </span>
-                                 -
-                                <?php echo $item["name"] ?>
+                                <span class="event-name">&nbsp (<?php echo $item["name"] ?>) </span>
                             </span>
-                            <span class="flag-title-season">
-                                Tournament: <?php echo $item["tournament"]['name'] ?>
+                            <span class="flag-title-season season-name">
+                                TOURNAMENT: <?php echo $item["tournament"]['name'] ?>
                             </span>
                         </div>
                         <span class="time-wrapper">
@@ -64,11 +58,12 @@
                         <?php }
 
                         else{ ?>
-                            <p>No match available</p>
+                            <p>No match data available</p>
 
                         <?php } ?>
 
                         </div>
+                        <span class="rounds"><?php echo $item["number_of_games"] ?> ROUND(S) </span>
                         <?php if (!$item["league"]['url'] == null) { ?>
                             <a href="<?php echo $item["league"]['url'] ?>" target="_blank"> Go to league
                                 website</a></br>
@@ -81,5 +76,4 @@
         }
         ?>
     </ul>
->>>>>>> parent of 52e2b84... Timeline stylesheet changes + PHP variable (game rounds) added.
 </div>

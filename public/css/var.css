@@ -16,8 +16,10 @@
     --action-color:     var(--primary-color); /* orange */
     --action-hover:     #f5f5f5; /* soft white */
     --desc-color:       #f5f5f5; /* soft white */
-    --linewire-color:   #565454;  /* matterhorn grey */
-    --desc-border-width: 0.98px;
+    --linewire-color:   #565454; /* matterhorn grey */
+    --flag-color:       #f4a169; /* sandy brown */
+    --flag-text-color:  black;
+    --desc-border-width: 1px;
 }
 
 :root body.dark-theme {
@@ -34,6 +36,8 @@
     --action-hover:     #f5f5f5; /* soft white */
     --desc-color:       var(--primary-color); /* midnight */
     --linewire-color:   rgba(213, 213, 213, 0.4);  /* light grey */
+    --flag-color:       #ce6c0c; /* chocolate */
+    --flag-text-color:  #e6ecf0; /* solitude */
     --desc-border-width: 1.4px;
 }
 
