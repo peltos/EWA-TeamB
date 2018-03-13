@@ -59,7 +59,7 @@
                         <?php }
 
                         else{ ?>
-                            <p>No opponents available</p>
+                            <p>No match available</p>
 
                         <?php } ?>
 
