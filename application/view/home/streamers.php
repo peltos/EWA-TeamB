@@ -1,25 +1,20 @@
-<div class="container">
-  <div id="tbody" class="text-center">
-    <h1>Single Streamers</h1>
+<div class="container streamers">
+  <h2>streamers</h2>
 
-  </div>
-<div class="input">
-  <h1 id="fccStatus"></h1>
-</div>
-<div class="row">
-  <h1>
-  <div class="col-md-4">
-    Logo:
-  </div>
-  <div class="col-md-4">
-    Display Name:
-  </div>
-  <div class="col-md-4">
-    Status:
-  </div>
-</h1>
-
-</div>
-<div id="followInfo">
-</div>
+  <ul class="timeline">
+      <?php
+      if (!empty($streamers)) {
+          foreach ($streamers as $key => $item) {
+            // if($item["type"]["name"] == "League of Legends"){
+              echo $item["id"] . '</br>';
+              echo $item["type"]["name"] . '</br>';
+              echo $item["name"] . '</br>';
+              echo $item["audience"] . '</br>';
+              echo '<img src="' . $item["type"]["coverUrl"] . '" </br>';
+              echo '</br>';
+            // }
+          }
+      }
+      ?>
+  </ul>
 </div>
