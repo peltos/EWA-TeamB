@@ -126,14 +126,11 @@ class Model
         // fetch() is the PDO method that get exactly one result
         return $query->fetch()->amount_of_songs;
     }
-
-    public function timelineNoFilter(){
-        $url = 'https://api.pandascore.co/matches/upcoming?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+    public function getStreamers(){
+        $url = 'https://mixer.com/api/v1/channels';
         $json = file_get_contents($url);
-        $timeline_array = json_decode($json, true);
+        $streamers_array = json_decode($json, true);
 
-        return $timeline_array;
+        return $streamers_array;
     }
-
-
 }

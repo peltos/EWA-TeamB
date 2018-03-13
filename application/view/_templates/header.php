@@ -5,9 +5,9 @@
         <title>Ziggo</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="<?php echo URL; ?>css/manifest.css" rel="stylesheet">
+        <link href="<?php echo URL; ?>css/style.css" rel="stylesheet">
     </head>
-    <body class="dark-theme">
+    <body class="light-theme">
         <!-- logo -->
         <header id="header">
             <div class="header--inner">
@@ -19,11 +19,11 @@
 
                 <!-- navigation -->
                 <div class="navigation">
-                    <a class="navigation--item" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
+                    <a class="navigation--item" href="<?php echo URL; ?>">Home</a>
                     <a class="navigation--item" href="<?php echo URL; ?>home/events">Events</a>
                     <a class="navigation--item" href="<?php echo URL; ?>home/streamers">Streamers</a>
                     <a class="navigation--item" href="<?php echo URL; ?>songs">Songs</a>
-                    <a class="navigation--item" href="<?php echo URL; ?>login">Sign In <i class="fas fa-sign-in-alt"></i></a>
+                    <a class="navigation--item" href="<?php echo URL; ?>login">Login <i class="fas fa-sign-in-alt"></i></a>
 
                 </div>
                 <div class="navigation-menu-icon" onclick="menuAnimation(this)">

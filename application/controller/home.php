@@ -29,15 +29,12 @@ class Home extends Controller
      */
     public function events()
     {
-
-        $timeline = $this->model->timelineNoFilter();
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/events.php';
         require APP . 'view/_templates/footer.php';
-
-
     }
+
 
     /**
      * PAGE: exampletwo
@@ -46,14 +43,10 @@ class Home extends Controller
      */
     public function streamers()
     {
+        $streamers = $this->model->getStreamers();
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/streamers.php';
         require APP . 'view/_templates/footer.php';
     }
-
-
-
-
-
 }
