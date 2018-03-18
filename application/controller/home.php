@@ -27,14 +27,15 @@ class Home extends Controller
      * This method handles what happens when you move to http://yourproject/home/exampleone
      * The camelCase writing is just for better readability. The method name is case-insensitive.
      */
-    public function events()
-    {
-        $timeline = $this->model->timelineNoFilter();
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/home/events.php';
-        require APP . 'view/_templates/footer.php';
-    }
+     
+    // public function events()
+    // {
+    //     $timeline = $this->model->timelineNoFilter();
+    //     // load views
+    //     require APP . 'view/_templates/header.php';
+    //     require APP . 'view/tournaments/events.php';
+    //     require APP . 'view/_templates/footer.php';
+    // }
 
 
     /**

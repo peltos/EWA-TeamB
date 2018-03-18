@@ -71,8 +71,7 @@ header.active{
     display: none;
     padding: .75em 1em;
     text-decoration: none;
-    font-size: 14px;
-    text-transform: uppercase;
+    font-size: 16px;
     font-weight: bold;
     background: var(--primary-color);
     color: var(--nav-color);
@@ -81,7 +80,7 @@ header.active{
 .navigation .navigation--item:hover {
     color: var(--ziggo-color);
     border-bottom: 2px solid var(--ziggo-color);
-    line-height: 2;
+    line-height: 1.6;
 }
 
 /* menu button */
@@ -174,8 +173,7 @@ header.active{
 }
 
 .container {
-    border-top: 5px solid var(--primary-color);
-    border-bottom: 5px solid var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
     padding: 20px;
     width:100%;
     margin:1em  0;

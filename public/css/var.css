@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 /* ************************
         MAIN VARIABLES
 *************************** */
@@ -18,7 +19,9 @@
     --desc-color:       #f5f5f5; /* soft white */
     --linewire-color:   #565454; /* matterhorn grey */
     --flag-color:       #f4a169; /* sandy brown */
+    --filterIcon-color: #333333; /* soft black */
     --flag-text-color:  black;
+    --filter-border-width: 0px;
     --desc-border-width: 1px;
 }
 
@@ -34,15 +37,17 @@
     --background-shade: #888888; /* light grey */
     --action-color:     #f9c57f; /* light orange */
     --action-hover:     #f5f5f5; /* soft white */
+    --filterIcon-color: #f48c00; /* orange */
     --desc-color:       var(--primary-color); /* midnight */
     --linewire-color:   rgba(213, 213, 213, 0.4);  /* light grey */
     --flag-color:       #ce6c0c; /* chocolate */
     --flag-text-color:  #e6ecf0; /* solitude */
+    --filter-border-width: 0.5px;
     --desc-border-width: 1.4px;
 }
 
 body {
-    font-family: Arial;
+    font-family: "ubuntu";
     font-size: 14px;
     padding:0;
     margin:0;

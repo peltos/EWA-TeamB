@@ -1,6 +1,17 @@
+
 <div class="container timeline-container" data-url="<?php if (!empty($url)) echo $url ?>">
 
-    <h2>Tournament Events</h2></br>
+  <div class="filterBar-container">
+    <div class="filterBar--inner">
+      <div class="dateFilter">
+        <a class="dateFilter--item" href="<?php echo URL; ?>tournaments"><i class="filter-icon fas fa-filter"></i></a>
+        <a class="dateFilter--item" href="<?php echo URL; ?>tournaments">upcoming</a>
+        <a class="dateFilter--item" href="<?php echo URL; ?>tournaments/running">running</a>
+        <a class="dateFilter--item" href="<?php echo URL; ?>tournaments/past">past</a>
+      </div>
+    </div>
+  </div>
+  <div class="resultFilter"><?php echo count($timeline); ?> Result(s)</div>
 
     <ul class="timeline">
         <?php
@@ -8,6 +19,10 @@
         if (!empty($timeline)) {
             foreach ($timeline as $key => $item) { ?>
                 <li>
+                  <?php
+                  if ($item["videogame"]['name'] == 'LoL') { ?>
+
+
                     <?php
                     if ($counter % 2 == 0) {
                         echo '<div class="direction-r">';
@@ -73,6 +88,7 @@
                 </li>
                 <?php $counter++;
             }
+          }
         }
         ?>
     </ul>

@@ -127,8 +127,33 @@ class Model
         return $query->fetch()->amount_of_songs;
     }
 
+    /**
+     * Get all upcoming matches data.
+     */
     public function timelineNoFilter(){
         $url = 'https://api.pandascore.co/matches/upcoming?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+        $json = file_get_contents($url);
+        $timeline_array = json_decode($json, true);
+
+        return $timeline_array;
+    }
+
+    /**
+     * Get all running matches data.
+     */
+    public function timelineRunning(){
+        $url = 'https://api.pandascore.co/matches/running?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+        $json = file_get_contents($url);
+        $timeline_array = json_decode($json, true);
+
+        return $timeline_array;
+    }
+
+    /**
+     * Get all past matches data.
+     */
+    public function timelinePast(){
+        $url = 'https://api.pandascore.co/matches/past?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
         $json = file_get_contents($url);
         $timeline_array = json_decode($json, true);
 
