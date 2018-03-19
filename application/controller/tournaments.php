@@ -33,7 +33,7 @@ class Tournaments extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/tournaments/events.php';
+        require APP . 'view/tournaments/eventsscore.php';
         require APP . 'view/_templates/footer.php';
     }
 
@@ -47,13 +47,13 @@ class Tournaments extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/tournaments/events.php';
+        require APP . 'view/tournaments/eventsscore.php';
         require APP . 'view/_templates/footer.php';
     }
 
 
     /**
-     * PAGE: past events
+     * PAGE: league of legends events
      * This method handles what happens when you move to http://yourproject/tournaments/lol
      */
     public function lol()
@@ -67,7 +67,7 @@ class Tournaments extends Controller
     }
 
     /**
-     * PAGE: past events
+     * PAGE: Dota 2 events
      * This method handles what happens when you move to http://yourproject/tournaments/dota2
      */
     public function dota2()
@@ -81,7 +81,7 @@ class Tournaments extends Controller
     }
 
     /**
-     * PAGE: past events
+     * PAGE: Overwatch events
      * This method handles what happens when you move to http://yourproject/tournaments/ow
      */
     public function ow()

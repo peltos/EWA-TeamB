@@ -257,6 +257,14 @@
   font-weight: bold;
 }
 
+/* Description Box: Score text */
+.timeline-container .score {
+  color: var(--orange-color);
+  font-size: 19px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 /* Flag Title: Event Name */
 .timeline-container .event-name {
   font-size: 13px;
