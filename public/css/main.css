@@ -176,8 +176,9 @@ header.active{
         MAINCONTAINER
 ************************ */
 
-.main-container{
-
+.main-container {
+  margin-left: 9px;
+  margin-right: 9px;
 }
 
 
@@ -263,13 +264,15 @@ header.active{
         SWITCH
 ************************ */
 
-.switch-container{
+.switch-container {
     display:flex;
     margin:1em;
     justify-content: flex-end;
     align-items: center;
 }
+
 .switch-container p{
+    font-size: 12px;
     margin:0 1em 0 0;
     font-weight: 900;
 }

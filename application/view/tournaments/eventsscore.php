@@ -85,11 +85,11 @@
         }
     } else {
       ?>
-      <span class="noTimeline">No running events available.</span>
+      <span class="noTimeline">No current events available.</span>
       <?php
     }
     ?>
-
+     
     </ul>
 
 </div>

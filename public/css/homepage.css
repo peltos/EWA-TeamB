@@ -1,5 +1,6 @@
 .homepage-container .homepage-title {
-  border-bottom: 2px solid var(--primary-color);
+  color: var(--filterIcon-color); 
+  border-bottom: 2px solid var(--orange-color);
     line-height: 2;
 }
 
