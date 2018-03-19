@@ -1,14 +1,20 @@
-.homepage .slider {
+.homepage-container .homepage-title {
+  color: var(--orange-color);
+  border-bottom: 2px solid var(--orange-color);
+    line-height: 2;
+}
+
+.homepage-container .slider {
     display: flex;
     list-style-type: none;
     padding: 0;
     flex-wrap: wrap;
 }
 
-.homepage .slider p {
+.homepage-container .slider p {
     margin: 0;
 }
-.homepage .slider-item {
+.homepage-container .slider-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,34 +22,44 @@
     padding:1em 0;
 }
 
-.homepage .slider-item + .slider-item {
+.homepage-container .slider-item + .slider-item {
     border-top:1px solid var(--linewire-color);
     position: relative;
 
 }
 
-.homepage .slider-item--icon {
+.homepage-container .slider-item--icon {
     width: 5em;
     position: relative;
 }
 
-.homepage .slider-item--icon__image {
+.homepage-container .slider-item--icon__image {
     width: 100%;
 }
 
-.homepage .slider-item--content {
+.homepage-container .slider-item--content {
     display: flex;
     flex-direction: column;
     align-items: center;
     width:100%;
 }
-.homepage .slider-item--content__time,
-.homepage .slider-item--content__name,
-.homepage .slider-item--content__tournament{
+
+.homepage-container .slider-item--date {
+  color: var(--orange-color);
+  text-transform: uppercase;
+}
+
+.homepage-container .slider-item--content__tournament {
+  color: var(--orange-color);
+}
+
+.homepage-container .slider-item--content__time,
+.homepage-container .slider-item--content__name,
+.homepage-container .slider-item--content__tournament{
     font-weight: 900;
 }
 
-.homepage .slider-desc--matchup {
+.homepage-container .slider-desc--matchup {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,29 +68,29 @@
     padding:1em 0 ;
     margin:1em 0;
 }
-.homepage .slider-desc--matchup__vs{
+.homepage-container .slider-desc--matchup__vs{
     color:var(--orange-color);
     font-weight: 900;
 }
 
-.homepage .slider-desc--matchup__item {
+.homepage-container .slider-desc--matchup__item {
     display: flex;
     align-items: center;
 
 }
 
-.homepage .slider-desc--matchup__img {
+.homepage-container .slider-desc--matchup__img {
     height: 2em;
 }
 
 
 @media (min-width: 900px) {
 
-    .homepage .slider-item {
+    .homepage-container .slider-item {
         width:calc(20% - 1px);
     }
 
-    .homepage .slider-item + .slider-item {
+    .homepage-container .slider-item + .slider-item {
         border-top:none;
         border-left: 1px solid var(--linewire-color);
     }

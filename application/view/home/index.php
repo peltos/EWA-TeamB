@@ -1,4 +1,6 @@
-<div class="container homepage">
+<div class="container homepage-container">
+
+  <h3 class="homepage-title"> Upcoming events </h3>
 
     <ul class="slider">
         <?php

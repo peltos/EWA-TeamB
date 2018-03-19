@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="<?php echo URL; ?>css/manifest.css" rel="stylesheet">
     </head>
-    <body class="light-theme">
+    <body class="dark-theme">
         <!-- logo -->
         <header id="header">
             <div class="header--inner">
