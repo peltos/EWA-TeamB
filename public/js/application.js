@@ -35,20 +35,4 @@ $(function() {
                 });
         });
     }
-
-    // $(document).ready(function(){
-    //   var url= "https://mixer.com/api/v1/channels";
-    //     $.getJSON(url,function(data1){
-    //
-    //   if(data1.stream==null){
-    //
-    //     $("#fccStatus").html("currently OFFLINE!");
-    //   }
-    //   else{
-    //       $("#fccStatus").html("currently ONLINE!");
-    //
-    //     }
-    //   });
-    //
-    // });
 });
