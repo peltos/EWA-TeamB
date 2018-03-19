@@ -46,11 +46,4 @@
     --desc-border-width: 1.4px;
 }
 
-body {
-    font-family: "ubuntu";
-    font-size: 14px;
-    padding:0;
-    margin:0;
-    background-color: var(--background);
-    color: var(--font-color);
-}
+

@@ -16,27 +16,12 @@ class Home extends Controller
      */
     public function index()
     {
+        $slider = $this->model->timeline();
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/index.php';
         require APP . 'view/_templates/footer.php';
     }
-
-    /**
-     * PAGE: exampleone
-     * This method handles what happens when you move to http://yourproject/home/exampleone
-     * The camelCase writing is just for better readability. The method name is case-insensitive.
-     */
-     
-    // public function events()
-    // {
-    //     $timeline = $this->model->timelineNoFilter();
-    //     // load views
-    //     require APP . 'view/_templates/header.php';
-    //     require APP . 'view/tournaments/events.php';
-    //     require APP . 'view/_templates/footer.php';
-    // }
-
 
     /**
      * PAGE: exampletwo
