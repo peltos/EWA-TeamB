@@ -1,6 +1,15 @@
-<?php require APP . 'view/tournaments/eventsheader.php'; ?>
+<?php require APP . 'view/tournaments/eventsheader.php';
 
-<div class="resultFilter"><?php echo count($timeline); ?> Result(s)</div>
+$counterFilter = 0;
+
+foreach ($timeline as $key => $item) {
+    if ($item["videogame"]['slug'] == 'dota-2') {
+        $counterFilter++;
+    }
+}
+?>
+
+<div class="resultFilter"><?php echo $counterFilter; ?> Result(s)</div>
 <ul class="timeline">
     <?php
     $counter = 0;
@@ -8,7 +17,7 @@
         foreach ($timeline as $key => $item) { ?>
 
             <?php
-            if ($item["videogame"]['name'] == 'dota-2') { ?>
+            if ($item["videogame"]['slug'] == 'dota-2') { ?>
                 <li>
 
                 <?php
