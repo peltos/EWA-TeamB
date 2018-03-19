@@ -23,5 +23,6 @@
     <!-- our JavaScript -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="<?php echo URL; ?>js/application.js"></script>
+    <script src="<?php echo URL; ?>js/streamers.js"></script>
 </body>
 </html>
