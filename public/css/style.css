@@ -53,6 +53,9 @@ h2{
     color: var(--heading-color);
     font-size:1.5em;
 }
+.streamers h2{
+    border-bottom:1px solid var(--heading-color);
+}
 h3{
     color: var(--heading-color);
     font-size:1.25em;
@@ -181,6 +184,7 @@ header{
     transform: rotate(45deg) translate(-0.4em, -0.5em);
 }
 
+
 .active .navigation-menu-icon {
     position:absolute;
     top:0;
@@ -203,6 +207,7 @@ header{
 .main-container{
 
 }
+
 
 .main-container--inner{
     display:flex;
@@ -276,6 +281,7 @@ header{
     color: #fff;
 }
 
+
 /* *********************
         FOOTER
 ************************ */
@@ -302,5 +308,6 @@ header{
     header {
         padding:.25em 1em;
     }
+
 
 }
