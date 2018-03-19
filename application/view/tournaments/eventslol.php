@@ -94,6 +94,10 @@ foreach ($timeline as $key => $item) {
             </li>
             <?php
         }
+    } else {
+      ?>
+      <span class="noTimeline">No League of Legends events available.</span>
+      <?php
     }
     ?>
 </ul>

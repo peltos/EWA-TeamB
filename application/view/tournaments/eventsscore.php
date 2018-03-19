@@ -83,6 +83,10 @@
                 </li>
                 <?php $counter++;
         }
+    } else {
+      ?>
+      <span class="noTimeline">No running events available.</span>
+      <?php
     }
     ?>
 
