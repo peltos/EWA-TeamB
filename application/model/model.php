@@ -126,6 +126,7 @@ class Model
         // fetch() is the PDO method that get exactly one result
         return $query->fetch()->amount_of_songs;
     }
+<<<<<<< HEAD
 
     /**
      * Get all upcoming matches data.
@@ -161,4 +162,13 @@ class Model
 
     }
 
+=======
+    public function getStreamers(){
+        $url = 'https://mixer.com/api/v1/channels';
+        $json = file_get_contents($url);
+        $streamers_array = json_decode($json, true);
+
+        return $streamers_array;
+    }
+>>>>>>> Berna_Events
 }

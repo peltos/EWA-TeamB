@@ -24,12 +24,30 @@ class Home extends Controller
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * PAGE: exampleone
+     * This method handles what happens when you move to http://yourproject/home/exampleone
+     * The camelCase writing is just for better readability. The method name is case-insensitive.
+     */
+    public function events()
+    {
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/home/events.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+
+    /**
+>>>>>>> Berna_Events
      * PAGE: exampletwo
      * This method handles what happens when you move to http://yourproject/home/exampletwo
      * The camelCase writing is just for better readability. The method name is case-insensitive.
      */
     public function streamers()
     {
+        $streamers = $this->model->getStreamers();
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/streamers.php';

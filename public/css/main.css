@@ -24,6 +24,9 @@ h2{
     color: var(--heading-color);
     font-size:1.5em;
 }
+.streamers h2{
+    border-bottom:1px solid var(--heading-color);
+}
 h3{
     color: var(--heading-color);
     font-size:1.25em;
@@ -156,6 +159,7 @@ header.active{
     transform: rotate(45deg) translate(-0.4em, -0.5em);
 }
 
+
 .active .navigation-menu-icon {
     position:absolute;
     top:0;
@@ -179,6 +183,7 @@ header.active{
 
 }
 
+
 .main-container--inner{
     display:flex;
     margin:0 auto;
@@ -199,6 +204,19 @@ header.active{
     font-size: 14px;
     text-transform: uppercase;
     font-weight: bold;
+<<<<<<< HEAD:public/css/main.css
+=======
+}
+.streamers.container .streamers__list{
+  display:flex;
+  flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.streamers.container .streamers--item{
+  width:30%;
+  margin-top:2em;
+
+>>>>>>> Berna_Events:public/css/style.css
 }
 .container table {
     font-size: 11px;
@@ -240,6 +258,7 @@ header.active{
     color: #fff;
 }
 
+
 /* *********************
         FOOTER
 ************************ */
@@ -266,5 +285,6 @@ header.active{
     header {
         padding:.25em 1em;
     }
+
 
 }
