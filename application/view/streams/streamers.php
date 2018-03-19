@@ -1,4 +1,4 @@
-<div class="container streamers">
+<div class="container streamers-container">
     <h1>Streamers</h1>
     <div class="tab">
         <button class="tablinks" onclick="openCity(event, 'all')">All</button>
@@ -8,7 +8,7 @@
     </div>
     <div id="fifa18" class="tabcontent">
 
-        <h2>FIFA 18</h2>
+        <h3>FIFA 18</h3>
         <ul class="streamers__list">
             <?php
             $counter = 0;
@@ -18,7 +18,7 @@
                         echo '<a class="streamers--item" href="https://mixer.com/' . $item["token"] . '" target="_blank">';
                         echo '<div class="streamers--item__container">';
                         echo '<img src="' . $item["type"]["coverUrl"] . '"/>';
-                        echo '<h4>' . $item["token"] . ' - ' . $item["name"] . ' </h4>';
+                        echo '<span class="streamer-title">' . $item["token"] . ' - ' . $item["name"] . ' </span>';
                         echo '</br>';
                         echo '</div>';
                         echo '</a>';
@@ -34,7 +34,7 @@
         </ul>
     </div>
     <div id="battlefield4" class="tabcontent">
-        <h2>Battlefield 4</h2>
+        <h3>Battlefield 4</h3>
         <ul class="streamers__list">
 
             <?php
@@ -46,7 +46,7 @@
                         echo '<a class="streamers--item" href="https://mixer.com/' . $item["token"] . '" target="_blank">';
                         echo '<div class="streamers--item__container">';
                         echo '<img src="' . $item["type"]["coverUrl"] . '"/>';
-                        echo '<h4>' . $item["token"] . ' - ' . $item["name"] . ' </h4>';
+                        echo '<span class="streamer-title">' . $item["token"] . ' - ' . $item["name"] . ' </span>';
                         echo '</br>';
                         echo '</div>';
                         echo '</a>';
