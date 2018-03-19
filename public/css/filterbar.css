@@ -41,7 +41,8 @@
   color: var(--font-color);
 }
 
-.filterBar-container .dateFilter .dateFilter--item:hover {
+.filterBar-container .dateFilter .dateFilter--item:hover,
+.filterBar-container .dateFilter .dateFilter--item.active{
   color: var(--orange-color);
   border-bottom: 2px solid var(--orange-color);
 }
