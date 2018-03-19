@@ -1,3 +1,4 @@
+<?php require APP . 'view/tournaments/eventsheader.php'; ?>
 
     <div class="resultFilter"><?php
         if (!empty($timeline)) {

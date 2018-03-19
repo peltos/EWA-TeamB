@@ -9,7 +9,14 @@ foreach ($timeline as $key => $item) {
 }
 ?>
 
-<div class="resultFilter"><?php echo $counterFilter; ?> Result(s)</div>
+<div class="resultFilter"><?php
+    if (!empty($timeline)) {
+        echo $counterFilter . " Result(s)";
+    }else{
+        echo "No Result(s)";
+    };
+    ?>
+</div>
 <ul class="timeline">
     <?php
     $counter = 0;
