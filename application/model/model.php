@@ -128,8 +128,8 @@ class Model
     }
 
     /**
-     * Get all upcoming matches data.
-     */
+    * Get all upcoming matches data.
+    */
     public function timeline(){
         $timelineVar = $this->timelineFilter();
 
@@ -141,6 +141,9 @@ class Model
         return $timeline_array;
     }
 
+    /**
+    * Get all upcoming/running/past matches data.
+    */
     public function timelineFilter()
     {
         $timelineVar = null;
@@ -160,6 +163,10 @@ class Model
 
 
     }
+
+    /**
+    * Get all streamers data.
+    */
     public function getStreamers(){
         $url = 'https://mixer.com/api/v1/channels';
         $json = file_get_contents($url);

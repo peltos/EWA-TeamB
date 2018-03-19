@@ -1,4 +1,53 @@
 
-.streamers h2{
-  border-bottom:1px solid var(--heading-color);
+.streamers-container h3 {
+  color: var(--orange-color);
+  border-bottom: 1.2px solid var(--orange-color);
+  line-height: 1.4;
+}
+
+.streamers-container .streamers--item {
+  text-align: left;
+  width: 160px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.streamers-container .streamers__list {
+  margin-left: -40px;
+}
+
+.streamers-container img {
+  max-width: 160px;
+}
+
+
+
+/* **************************************
+        MEDIA QUERIES / RESPONSIVE
+***************************************** */
+
+@media only screen and (max-width: 600px) {
+    .streamers-container img {
+        max-width: 80px;
+    }
+
+    .streamers-container .streamers--item {
+      font-size: 11px;
+      width: 70px;
+      height: 130px;
+      overflow: hidden;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .streamers-container img {
+        max-width: 80px;
+    }
+
+    .streamers-container .streamers--item {
+      font-size: 11px;
+      width: 70px;
+      height: 130px;
+      overflow: hidden;
+    }
 }
