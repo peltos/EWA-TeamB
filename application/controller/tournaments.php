@@ -16,7 +16,7 @@ class Tournaments extends Controller
      */
     public function index()
     {
-        $timeline = $this->model->timelineNoFilter();
+        $timeline = $this->model->timeline();
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/tournaments/events.php';
@@ -29,7 +29,8 @@ class Tournaments extends Controller
      */
     public function running()
     {
-        $timeline = $this->model->timelineRunning();
+        $timeline = $this->model->timeline();
+
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/tournaments/events.php';
@@ -42,11 +43,60 @@ class Tournaments extends Controller
      */
     public function past()
     {
-        $timeline = $this->model->timelinePast();
+        $timeline = $this->model->timeline();
+
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/tournaments/events.php';
         require APP . 'view/_templates/footer.php';
     }
+
+    /**
+     * PAGE: past events
+     * This method handles what happens when you move to http://yourproject/tournaments/lol
+     */
+    public function lol()
+    {
+        // $timeline = $this->model->timeline();
+        $timeline = null;
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/tournaments/events.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    /**
+     * PAGE: past events
+     * This method handles what happens when you move to http://yourproject/tournaments/dota2
+     */
+    public function dota2()
+    {
+        // $timeline = $this->model->timeline();
+        $timeline = null;
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/tournaments/events.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    /**
+     * PAGE: past events
+     * This method handles what happens when you move to http://yourproject/tournaments/ow
+     */
+    public function ow()
+    {
+        // $timeline = $this->model->timeline();
+        $timeline = null;
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/tournaments/events.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+
+
 
 }

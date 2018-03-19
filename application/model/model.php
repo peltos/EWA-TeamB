@@ -130,33 +130,44 @@ class Model
     /**
      * Get all upcoming matches data.
      */
-    public function timelineNoFilter(){
-        $url = 'https://api.pandascore.co/matches/upcoming?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+    public function timeline(){
+        $timelineVar = $this->timelineFilter();
+
+        $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+
         $json = file_get_contents($url);
         $timeline_array = json_decode($json, true);
 
         return $timeline_array;
     }
 
-    /**
-     * Get all running matches data.
-     */
-    public function timelineRunning(){
-        $url = 'https://api.pandascore.co/matches/running?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
-        $json = file_get_contents($url);
-        $timeline_array = json_decode($json, true);
+    public function timelineFilter()
+    {
+        $timelineVar = null;
+        $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
-        return $timeline_array;
+        if (strpos($url, 'running') !== false) {
+            $timelineVar = '/matches/running';
+        }
+        elseif(strpos($url, 'past') !== false) {
+            $timelineVar = '/matches/past';
+        }
+        elseif(strpos($url, 'lol') !== false) {
+            $timelineVar = '/lol/games';
+        }
+        elseif(strpos($url, 'dota2') !== false) {
+            $timelineVar = '/dota2/games';
+        }
+        elseif(strpos($url, 'ow') !== false) {
+            $timelineVar = '/ow/games';
+        }
+        else {
+            $timelineVar = '/matches';
+        }
+
+        return $timelineVar;
+
+
     }
 
-    /**
-     * Get all past matches data.
-     */
-    public function timelinePast(){
-        $url = 'https://api.pandascore.co/matches/past?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
-        $json = file_get_contents($url);
-        $timeline_array = json_decode($json, true);
-
-        return $timeline_array;
-    }
 }
