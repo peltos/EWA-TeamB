@@ -1,3 +1,7 @@
+.timeline-container {
+  margin-top: 2.5em;
+}
+
 .timeline-container .noTimeline {
   color: var(--font-color);
 }

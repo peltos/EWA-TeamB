@@ -23,6 +23,8 @@ if (!isset($_SESSION['nightmode'])) {
     }
     ?> ">
         <!-- logo -->
+
+
         <header id="header">
             <div class="header--inner">
                 <div class="logo">
