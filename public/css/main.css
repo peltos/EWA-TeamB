@@ -182,16 +182,14 @@ header.active{
 
 
 .main-container--inner{
-    display:flex;
     margin:0 auto;
     max-width:1200px;
 }
 
 .container {
     border-bottom: 3px solid var(--primary-color);
-    padding: 20px;
     width:100%;
-    margin:1em  0;
+    margin-bottom:1em;
 }
 .container a {
     color: var(--action-color);
@@ -210,8 +208,6 @@ header.active{
 .streamers.container .streamers--item{
   width:30%;
   margin-top:2em;
-
->>>>>>> Berna_Events:public/css/style.css
 }
 .container table {
     font-size: 11px;
@@ -262,6 +258,81 @@ header.active{
 }
 .footer a {
 }
+
+/* *********************
+        SWITCH
+************************ */
+
+.switch-container{
+    display:flex;
+    margin:1em;
+    justify-content: flex-end;
+    align-items: center;
+}
+.switch-container p{
+    margin:0 1em 0 0;
+    font-weight: 900;
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 2em;
+    height: 1em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: .75em;
+    width: .75em;
+    left: .125em;
+    bottom: .125em;
+    background-color: var(--background);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .switch-slider {
+    background-color: var(--orange-color);
+}
+
+input:focus + .switch-slider {
+    box-shadow: 0 0 1px var(--orange-color);
+}
+
+input:checked + .switch-slider:before {
+    -webkit-transform: translateX(1em);
+    -ms-transform: translateX(1em);
+    transform: translateX(1em);
+}
+
+/* Rounded sliders */
+.switch-slider.round {
+    border-radius: 34px;
+}
+
+.switch-slider.round:before {
+    border-radius: 50%;
+}
+
 
 /* **************************************
         MEDIA QUERIES / RESPONSIVE
