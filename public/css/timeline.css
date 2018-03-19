@@ -375,6 +375,9 @@
     min-height: 8em;
     max-height: 15em;
   }
+  .timeline-container .timeline li:last-of-type{
+    max-height: none;
+  }
 }
 
 @media (min-width: 992px) {
