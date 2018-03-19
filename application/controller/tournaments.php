@@ -51,18 +51,18 @@ class Tournaments extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+
     /**
      * PAGE: past events
      * This method handles what happens when you move to http://yourproject/tournaments/lol
      */
     public function lol()
     {
-        // $timeline = $this->model->timeline();
-        $timeline = null;
+        $timeline = $this->model->timeline();
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/tournaments/events.php';
+        require APP . 'view/tournaments/eventslol.php';
         require APP . 'view/_templates/footer.php';
     }
 
@@ -72,12 +72,11 @@ class Tournaments extends Controller
      */
     public function dota2()
     {
-        // $timeline = $this->model->timeline();
-        $timeline = null;
+        $timeline = $this->model->timeline();
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/tournaments/events.php';
+        require APP . 'view/tournaments/eventsdota2.php';
         require APP . 'view/_templates/footer.php';
     }
 
@@ -87,12 +86,11 @@ class Tournaments extends Controller
      */
     public function ow()
     {
-        // $timeline = $this->model->timeline();
-        $timeline = null;
+        $timeline = $this->model->timeline();
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/tournaments/events.php';
+        require APP . 'view/tournaments/eventsow.php';
         require APP . 'view/_templates/footer.php';
     }
 

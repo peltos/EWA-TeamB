@@ -152,17 +152,8 @@ class Model
         elseif(strpos($url, 'past') !== false) {
             $timelineVar = '/matches/past';
         }
-        elseif(strpos($url, 'lol') !== false) {
-            $timelineVar = '/lol/games';
-        }
-        elseif(strpos($url, 'dota2') !== false) {
-            $timelineVar = '/dota2/games';
-        }
-        elseif(strpos($url, 'ow') !== false) {
-            $timelineVar = '/ow/games';
-        }
         else {
-            $timelineVar = '/matches';
+            $timelineVar = '/matches/upcoming';
         }
 
         return $timelineVar;

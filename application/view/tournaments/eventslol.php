@@ -1,27 +1,16 @@
+<?php require APP . 'view/tournaments/eventsheader.php'; ?>
 
-<div class="container timeline-container" data-url="<?php if (!empty($url)) echo $url ?>">
-
-  <div class="filterBar-container">
-    <div class="filterBar--inner">
-      <div class="dateFilter">
-        <a class="dateFilter--item" href="<?php echo URL; ?>tournaments"><i class="filter-icon fas fa-filter"></i></a>
-        <a class="dateFilter--item" href="<?php echo URL; ?>tournaments">upcoming</a>
-        <a class="dateFilter--item" href="<?php echo URL; ?>tournaments/running">running</a>
-        <a class="dateFilter--item" href="<?php echo URL; ?>tournaments/past">past</a>
-      </div>
-    </div>
-  </div>
-  <div class="resultFilter"><?php echo count($timeline); ?> Result(s)</div>
+<div class="resultFilter"><?php echo count($timeline); ?> Result(s)</div>
 
     <ul class="timeline">
         <?php
         $counter = 0;
         if (!empty($timeline)) {
             foreach ($timeline as $key => $item) { ?>
-                <li>
-                  <?php
-                  if ($item["videogame"]['name'] == 'LoL') { ?>
 
+                <?php
+                if ($item["videogame"]['name'] == 'LoL') { ?>
+                    <li>
 
                     <?php
                     if ($counter % 2 == 0) {
@@ -34,16 +23,17 @@
                         <span class="hexa"></span>
                         <div class="flag">
                             <span class="flag-title-league">
-                                <img class="flag-title-league__image" src=" <?php echo $item["league"]["image_url"] ?> "/>
+                                <img class="flag-title-league__image"
+                                     src=" <?php echo $item["league"]["image_url"] ?> "/>
                                 <p class="flag-title-league__name"> &nbsp <?php echo $item["league"]['name'] ?></p>
                             </span>
                             <span class="flag-title-match">
                                 <span class="game-name">
-                                    <?php if($item["videogame"]['name'] == 'LoL'){
-                                        echo  'League of Legends';
-                                    }else{
-                                        echo  $item["videogame"]['name'];
-                                    }?>
+                                    <?php if ($item["videogame"]['name'] == 'LoL') {
+                                        echo 'League of Legends';
+                                    } else {
+                                        echo $item["videogame"]['name'];
+                                    } ?>
                                 </span>
                                 <span class="event-name">&nbsp (<?php echo $item["name"] ?>) </span>
                             </span>
@@ -60,7 +50,7 @@
                         <p class="timeline-desc--title"><?php echo $item["league"]['name'] ?></p>
 
                         <div class="timeline-desc--matchup">
-                        <?php if (!$item["opponents"] == null || !$item["opponents"] == "") { ?>
+                            <?php if (!$item["opponents"] == null || !$item["opponents"] == "") { ?>
                                 <?php foreach ($item["opponents"] as $key => $itemOpponents) { ?>
                                     <div class="timeline-desc--matchup__item">
                                         <?php if (!$itemOpponents["opponent"]["image_url"] == null || !$itemOpponents["opponent"]["image_url"] == "") { ?>
@@ -70,12 +60,10 @@
                                         <p class="game"><?php echo $itemOpponents['opponent']['name'] ?> </p>
                                     </div>
                                 <?php } ?>
-                        <?php }
+                            <?php } else { ?>
+                                <p>No match data available</p>
 
-                        else{ ?>
-                            <p>No match data available</p>
-
-                        <?php } ?>
+                            <?php } ?>
 
                         </div>
                         <span class="rounds"><?php echo $item["number_of_games"] ?> ROUND(S) </span>
@@ -85,10 +73,12 @@
                         <?php } ?>
                     </div>
 
+
+                    <?php $counter++;
+                } ?>
                 </li>
-                <?php $counter++;
+                <?php
             }
-          }
         }
         ?>
     </ul>
