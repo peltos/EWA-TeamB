@@ -1,6 +1,6 @@
 <?php session_start();
 if (!isset($_SESSION['nightmode'])) {
-    $_SESSION['nightmode'] = 'true';
+    $_SESSION['nightmode'] = 'false';
 }
 ?>
 
