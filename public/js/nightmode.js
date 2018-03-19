@@ -10,7 +10,6 @@ $( document ).ready(function() {
             type: "post",
             data: "modus=" + bodyVar,
             success: function (html) {
-                alert(URL + 'ajax/ajaxnightmode');
             }
         });
 
