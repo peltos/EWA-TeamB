@@ -14,9 +14,10 @@ class Model
         }
     }
 
-    function console_log( $data ){
+    function console_log($data)
+    {
         echo '<script>';
-        echo 'console.log('. json_encode( $data ) .')';
+        echo 'console.log(' . json_encode($data) . ')';
         echo '</script>';
     }
 
@@ -134,9 +135,10 @@ class Model
     }
 
     /**
-    * Get all upcoming matches data.
-    */
-    public function timeline(){
+     * Get all upcoming matches data.
+     */
+    public function timeline()
+    {
         $timelineVar = $this->timelineFilter();
 
         $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
@@ -148,8 +150,8 @@ class Model
     }
 
     /**
-    * Get all upcoming/running/past matches data.
-    */
+     * Get all upcoming/running/past matches data.
+     */
     public function timelineFilter()
     {
         $timelineVar = null;
@@ -157,38 +159,29 @@ class Model
 
         if (strpos($url, 'running') !== false) {
             $timelineVar = '/matches/running';
-        }
-        elseif(strpos($url, 'past') !== false) {
+        } elseif (strpos($url, 'past') !== false) {
             $timelineVar = '/matches/past';
-        }
-        else {
+        } else {
             $timelineVar = '/matches/upcoming';
         }
 
         return $timelineVar;
-
-
     }
 
     /**
-    * Get all streamers data.
-    */
-    public function getStreamers($counter){
+     * Get all streamers data.
+     */
+    public function getStreamers($counter)
+    {
         $result = array();
 
-        for ($i = 0 ; $i <= $counter; $i++){
-            ${"urlPage$i"} = 'https://mixer.com/api/v1/channels?limit=100&page='.$i;
+        for ($i = 0; $i <= $counter; $i++) {
+            ${"urlPage$i"} = 'https://mixer.com/api/v1/channels?limit=100&page=' . $i;
             ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
             ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
 
-            if($i == $counter){
-                for($k = 0 ; $k <= $counter; $k++){
-                    $result = array_merge($result, ${"arrayPage$k"});
-                }
-
-            }
+            $result = array_merge($result, ${"arrayPage$i"});
         }
-
         return $result;
     }
 }
