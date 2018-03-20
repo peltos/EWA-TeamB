@@ -2,7 +2,6 @@
 /* ************************
         MAIN VARIABLES
 *************************** */
-
 :root,
 :root body.light-theme {
     --ziggo-color:      var(--action-hover); /* soft white */
@@ -23,6 +22,7 @@
     --flag-text-color:  black;
     --filter-border-width: 0px;
     --desc-border-width: 1px;
+    --shade-opacity:    rgba(255,255,255,0.8);
 }
 
 :root body.dark-theme {
@@ -44,6 +44,7 @@
     --flag-text-color:  #e6ecf0; /* solitude */
     --filter-border-width: 0.5px;
     --desc-border-width: 1.4px;
+    --shade-opacity:    rgba(0,0,0,0.8);
 }
 
 

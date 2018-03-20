@@ -6,6 +6,7 @@
     <!-- backlink to repo on GitHub, and affiliate link to Rackspace if you want to support the project -->
     <div class="footer">
     </div>
+        <div class="modal"><!-- Place at bottom of page --></div>
 
     <!-- jQuery, loaded in the recommended protocol-less way -->
     <!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
@@ -23,6 +24,7 @@
                 header.classList.toggle("active");
             }
         </script>
+        <script src="<?php echo URL; ?>js/loading.js"></script>
     <script src="<?php echo URL; ?>js/application.js"></script>
     <script src="<?php echo URL; ?>js/streamers.js"></script>
     <script src="<?php echo URL; ?>js/nightmode.js"></script>
