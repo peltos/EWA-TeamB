@@ -10,6 +10,16 @@
   width: 160px;
   height: 200px;
   overflow: hidden;
+  position:relative;
+}
+
+.streamers-container .streamers--item__icon{
+  position:absolute;
+  width:2em;
+  height:2em;
+  top:.5em;
+  left:.5em;
+  box-shadow: 10px 10px 8px rgba(0,0,0,0.5);
 }
 
 .streamers-container .streamers__list {
@@ -19,6 +29,8 @@
 .streamers-container img {
   max-width: 160px;
 }
+
+
 
 
 

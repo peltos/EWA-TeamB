@@ -18,6 +18,7 @@
                         echo '<a class="streamers--item" href="https://mixer.com/' . $item["token"] . '" target="_blank">';
                         echo '<div class="streamers--item__container">';
                         echo '<img src="' . $item["type"]["coverUrl"] . '"/>';
+                        echo '<img class="streamers--item__icon" src="https://mixer.com/api/v1/users/' . $item["userId"] . '/avatar?w=128&h=128" /> <br>';
                         echo '<span class="streamer-title">' . $item["token"] . ' - ' . $item["name"] . ' </span>';
                         echo '</br>';
                         echo '</div>';
@@ -46,6 +47,7 @@
                         echo '<a class="streamers--item" href="https://mixer.com/' . $item["token"] . '" target="_blank">';
                         echo '<div class="streamers--item__container">';
                         echo '<img src="' . $item["type"]["coverUrl"] . '"/>';
+                        echo '<img class="streamers--item__icon" src="https://mixer.com/api/v1/users/' . $item["userId"] . '/avatar?w=128&h=128" /> <br>';
                         echo '<span class="streamer-title">' . $item["token"] . ' - ' . $item["name"] . ' </span>';
                         echo '</br>';
                         echo '</div>';
@@ -75,6 +77,7 @@
               echo '<a class="streamers--item" href="https://mixer.com/'.$item["token"].'" target="_blank">';
               echo '<div class="streamers--item__container">';
               echo '<img src="' . $item["type"]["coverUrl"] . '"/> <br>';
+              echo '<img class="streamers--item__icon" src="https://mixer.com/api/v1/users/' . $item["userId"] . '/avatar?w=128&h=128" /> <br>';
               echo '<span class="streamer-title">' . $item["token"] . ' - ' . $item["name"] . ' </span>';
               echo '</br>';
             echo '</div>';
