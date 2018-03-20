@@ -173,11 +173,22 @@ class Model
     /**
     * Get all streamers data.
     */
-    public function getStreamers(){
-        $url = 'https://mixer.com/api/v1/channels';
-        $json = file_get_contents($url);
-        $streamers_array = json_decode($json, true);
+    public function getStreamers($counter){
+        $result = array();
 
-        return $streamers_array;
+        for ($i = 0 ; $i <= $counter; $i++){
+            ${"urlPage$i"} = 'https://mixer.com/api/v1/channels?limit=100&page='.$i;
+            ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
+            ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
+
+            if($i == $counter){
+                for($k = 0 ; $k <= $counter; $k++){
+                    $result = array_merge($result, ${"arrayPage$k"});
+                }
+
+            }
+        }
+
+        return $result;
     }
 }

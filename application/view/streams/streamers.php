@@ -2,19 +2,19 @@
     <h1>Streamers</h1>
     <div class="tab">
         <button class="tablinks" onclick="openCity(event, 'all')">All</button>
-        <button class="tablinks" onclick="openCity(event, 'fifa18')">FIFA 18</button>
-        <button class="tablinks" onclick="openCity(event, 'battlefield4')">Battlefield 4</button>
-        <button class="tablinks" onclick="openCity(event, 'fortnite')">Fortnite</button>
+        <button class="tablinks" onclick="openCity(event, 'lol')">League of legends</button>
+        <button class="tablinks" onclick="openCity(event, 'dota2')">Dota 2</button>
+        <button class="tablinks" onclick="openCity(event, 'overwatch')">Overwatch</button>
     </div>
-    <div id="fifa18" class="tabcontent">
+    <div id="lol" class="tabcontent">
 
-        <h3>FIFA 18</h3>
+        <h3>League of Legends</h3>
         <ul class="streamers__list">
             <?php
             $counter = 0;
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
-                    if ($item["type"]["name"] == "FIFA 18") {
+                    if ($item["type"]["name"] == "League of Legends") {
                         echo '<a class="streamers--item" href="https://mixer.com/' . $item["token"] . '" target="_blank">';
                         echo '<div class="streamers--item__container">';
                         echo '<img src="' . $item["type"]["coverUrl"] . '"/>';
@@ -34,8 +34,8 @@
             ?>
         </ul>
     </div>
-    <div id="battlefield4" class="tabcontent">
-        <h3>Battlefield 4</h3>
+    <div id="dota2" class="tabcontent">
+        <h3>Dota 2</h3>
         <ul class="streamers__list">
 
             <?php
@@ -43,7 +43,7 @@
             if (!empty($streamers)) {
 
                 foreach ($streamers as $key => $item) {
-                    if ($item["type"]["name"] == "Battlefield 4") {
+                    if ($item["type"]["name"] == "Dota 2") {
                         echo '<a class="streamers--item" href="https://mixer.com/' . $item["token"] . '" target="_blank">';
                         echo '<div class="streamers--item__container">';
                         echo '<img src="' . $item["type"]["coverUrl"] . '"/>';
@@ -65,15 +65,15 @@
         </ul>
     </div>
 
-    <div id="fortnite" class="tabcontent">
-    <h3>Fortnite</h3>
+    <div id="overwatch" class="tabcontent">
+    <h3>Overwatch</h3>
     <ul class="streamers__list">
 
     <?php
     $counter = 0;
     if (!empty($streamers)) {
         foreach ($streamers as $key => $item) {
-           if($item["type"]["name"] == "Fortnite"){
+           if($item["type"]["name"] == "Overwatch"){
               echo '<a class="streamers--item" href="https://mixer.com/'.$item["token"].'" target="_blank">';
               echo '<div class="streamers--item__container">';
               echo '<img src="' . $item["type"]["coverUrl"] . '"/> <br>';
