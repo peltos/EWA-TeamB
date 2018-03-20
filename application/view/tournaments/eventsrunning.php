@@ -49,6 +49,11 @@
                     </div>
                     <div class="timeline-desc">
 
+                      <div class="liveIcon">
+                        <a href="<?php echo URL; ?>tournaments/past">
+                            <img src="<?php echo URL?>img/live-icon.svg">
+                        </a>
+                      </div>
                         <p class="timeline-desc--title"><?php echo $item["league"]['name'] ?></p>
 
                         <div class="timeline-desc--matchup">

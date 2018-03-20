@@ -33,7 +33,7 @@ class Tournaments extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/tournaments/eventsscore.php';
+        require APP . 'view/tournaments/eventsrunning.php';
         require APP . 'view/_templates/footer.php';
     }
 

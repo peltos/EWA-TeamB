@@ -215,6 +215,25 @@
   flex-direction: column;
 }
 
+.timeline-container .liveIcon {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.timeline-container .liveIcon:hover {
+  cursor:pointer;
+  margin-right: 4px;
+  margin-top: 4px;
+  transition: .05s;
+}
+
+.timeline-container .liveIcon img {
+  width : 26px;
+  border-radius: 3px;
+  text-align: right;
+}
+
 .timeline-container .timeline-desc--title {
   font-size: 1.0em;
   font-weight: 900;
