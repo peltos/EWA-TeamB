@@ -88,13 +88,10 @@ header.active{
     font-weight: bold;
     background: var(--primary-color);
     color: var(--nav-color);
+    border-bottom: 2px solid var(--orange-color);
 }
 
-.navigation .navigation--item:hover {
-    color: var(--ziggo-color);
-    border-bottom: 2px solid var(--ziggo-color);
-    line-height: 1.6;
-}
+
 
 /* menu button */
 
@@ -136,7 +133,7 @@ header.active{
 }
 
 .active .navigation .navigation--item {
-    display: inline-block;
+    display: block;
     font-size:1em;
     background: transparent;
 
@@ -349,6 +346,10 @@ input:checked + .switch-slider:before {
     }
     .navigation .navigation--item {
         display: inline-block;
+    }
+    .navigation .navigation--item:hover {
+        color: var(--ziggo-color);
+        border-bottom: 2px solid var(--ziggo-color);
     }
 }
 
