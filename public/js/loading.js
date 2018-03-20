@@ -1,6 +1,6 @@
 $body = $("body");
 
 // Initiates an AJAX request on click
-$(document).on("click", function(){
+$(".navigation--item").on("click", function(){
     $body.addClass("loading");
 });
