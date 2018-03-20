@@ -13,12 +13,12 @@
 }
 
 .streamers-container img {
-    width:100%;
 }
 
 .streamers-container .streamers--item {
     text-align: left;
-    width: calc(50% - 30px);
+    padding: 10px 15px;
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -26,8 +26,16 @@
     position:relative;
 }
 .streamers-container .streamers--item--image{
-    position:relative;
+    position: relative;
+    height: 12em;
 }
+.streamers-container .streamers--item__cover{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: 200ms;
+}
+
 
 .streamers-container .streamer--item__title{
     position: absolute;
@@ -68,16 +76,28 @@
         MEDIA QUERIES / RESPONSIVE
 ***************************************** */
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
 
     .streamers-container .streamers--item {
-        width: calc(25% - 30px);
+        width: calc(50% - 30px);
+    }
+}
+@media only screen and (min-width: 900px) {
+
+    .streamers-container .streamers--item {
+        width: calc(33.333333% - 30px);
+    }
+    .streamers-container .streamers--item__cover{
+        filter: grayscale(100%) opacity(0.6);
+    }
+    .streamers-container .streamers--item__container:hover .streamers--item__cover{
+        filter: grayscale(10%) opacity(1);
     }
 }
 
 @media only screen and (min-width: 1200px) {
 
     .streamers-container .streamers--item {
-        width: calc(16.6% - 30px);
+        width: calc(25% - 30px);
     }
 }
