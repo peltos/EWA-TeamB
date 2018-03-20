@@ -5,58 +5,79 @@
     line-height: 1.4;
 }
 
+.streamers-container .streamers__list {
+    padding:0;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.streamers-container img {
+    width:100%;
+}
+
 .streamers-container .streamers--item {
     text-align: left;
-    width: 160px;
-    height: 200px;
+    width: calc(50% - 30px);
     overflow: hidden;
     position: relative;
+}
+.streamers-container .streamers--item__container{
+    position:relative;
+}
+.streamers-container .streamers--item--image{
+    position:relative;
+}
+
+.streamers-container .streamer--item__title{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:calc(100% - 1em);
+    display:inline-block;
+    padding: .5em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.65) 70%, rgba(0,0,0,0) 100%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.65) 70%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0.65) 70%,rgba(0,0,0,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+    font-weight:900;
+    color:#f5f5f5;
 }
 
 .streamers-container .streamers--item__icon {
     position: absolute;
+    bottom: 1em;
+    right: 1em;
     width: 3em;
     height: 3em;
-    top: .5em;
-    left: .5em;
     box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.5);
     border-radius: 50%;
 }
 
-.streamers-container .streamers__list {
-    margin-left: -40px;
-}
-
-.streamers-container img {
-    max-width: 160px;
+.streamers-container  .streamer--item__live{
+    color:#1dd91d;
+    border-radius: 50%;
+    box-shadow: 0px 0px 7px #1dd91d;
+    margin-right: .5em;
 }
 
 /* **************************************
         MEDIA QUERIES / RESPONSIVE
 ***************************************** */
 
-@media only screen and (max-width: 600px) {
-    .streamers-container img {
-        max-width: 80px;
-    }
+@media only screen and (min-width: 768px) {
 
     .streamers-container .streamers--item {
-        font-size: 11px;
-        width: 70px;
-        height: 130px;
-        overflow: hidden;
+        width: calc(25% - 30px);
     }
 }
 
-@media only screen and (max-width: 1025px) {
-    .streamers-container img {
-        max-width: 80px;
-    }
+@media only screen and (min-width: 1200px) {
 
     .streamers-container .streamers--item {
-        font-size: 11px;
-        width: 70px;
-        height: 130px;
-        overflow: hidden;
+        width: calc(16.6% - 30px);
     }
 }

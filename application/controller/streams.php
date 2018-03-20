@@ -19,7 +19,7 @@ class Streams extends Controller
    */
     public function index()
     {
-        $streamers = $this->model->getStreamers(20); // number of pages
+        $streamers = $this->model->getStreamers(10); // number of pages
         
         // load views
         require APP . 'view/_templates/header.php';
