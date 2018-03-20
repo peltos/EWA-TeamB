@@ -195,7 +195,6 @@ header.active{
 .container a {
     color: var(--action-color);
     display: inline-block;
-    padding: 10px 15px;
     text-decoration: none;
     font-size: 14px;
     text-transform: uppercase;
@@ -335,6 +334,9 @@ input:checked + .switch-slider:before {
 .switch-slider.round:before {
     border-radius: 50%;
 }
+.page404{
+
+}
 
 
 /* **************************************
@@ -354,6 +356,5 @@ input:checked + .switch-slider:before {
     header {
         padding:.25em 1em;
     }
-
 
 }

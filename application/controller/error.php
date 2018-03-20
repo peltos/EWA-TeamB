@@ -10,7 +10,7 @@
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Problem extends Controller
+class Error extends Controller
 {
     /**
      * PAGE: index
@@ -20,7 +20,7 @@ class Problem extends Controller
     {
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/problem/index.php';
+        require APP . 'view/error/index.php';
         require APP . 'view/_templates/footer.php';
     }
 }
