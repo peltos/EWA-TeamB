@@ -1,38 +1,35 @@
 
 .streamers-container h3 {
-  color: var(--orange-color);
-  border-bottom: 1.2px solid var(--orange-color);
-  line-height: 1.4;
+    color: var(--orange-color);
+    border-bottom: 1.2px solid var(--orange-color);
+    line-height: 1.4;
 }
 
 .streamers-container .streamers--item {
-  text-align: left;
-  width: 160px;
-  height: 200px;
-  overflow: hidden;
-  position:relative;
+    text-align: left;
+    width: 160px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
 }
 
-.streamers-container .streamers--item__icon{
-  position:absolute;
-  width:2em;
-  height:2em;
-  top:.5em;
-  left:.5em;
-  box-shadow: 10px 10px 8px rgba(0,0,0,0.5);
+.streamers-container .streamers--item__icon {
+    position: absolute;
+    width: 3em;
+    height: 3em;
+    top: .5em;
+    left: .5em;
+    box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
 }
 
 .streamers-container .streamers__list {
-  margin-left: -40px;
+    margin-left: -40px;
 }
 
 .streamers-container img {
-  max-width: 160px;
+    max-width: 160px;
 }
-
-
-
-
 
 /* **************************************
         MEDIA QUERIES / RESPONSIVE
@@ -44,10 +41,10 @@
     }
 
     .streamers-container .streamers--item {
-      font-size: 11px;
-      width: 70px;
-      height: 130px;
-      overflow: hidden;
+        font-size: 11px;
+        width: 70px;
+        height: 130px;
+        overflow: hidden;
     }
 }
 
@@ -57,9 +54,9 @@
     }
 
     .streamers-container .streamers--item {
-      font-size: 11px;
-      width: 70px;
-      height: 130px;
-      overflow: hidden;
+        font-size: 11px;
+        width: 70px;
+        height: 130px;
+        overflow: hidden;
     }
 }
