@@ -20,7 +20,15 @@
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
-                                    <img src="https://thumbs.mixer.com/channel/<?php echo $item["hosteeId"] ?>.small.jpg"/>
+                                    <?php
+                                    $file = 'https://thumbs.mixer.com/channel/' . $item["id"] .'.small.jpg';
+                                    $file_headers = @get_headers($file);
+                                    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                                        ?>
+                                        <img class="streamers--item__cover" src="<?php echo $item["type"]["coverUrl"] ?>"/>
+                                    <?php } else { ?>
+                                        <img class="streamers--item__cover" src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
+                                    <?php } ?>
 
                                     <img class="streamers--item__icon"
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
@@ -55,7 +63,15 @@
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
-                                    <img src="https://thumbs.mixer.com/channel/<?php echo $item["hosteeId"] ?>.small.jpg"/>
+                                    <?php
+                                    $file = 'https://thumbs.mixer.com/channel/' . $item["id"] .'.small.jpg';
+                                    $file_headers = @get_headers($file);
+                                    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                                        ?>
+                                        <img class="streamers--item__cover" src="<?php echo $item["type"]["coverUrl"] ?>"/>
+                                    <?php } else { ?>
+                                        <img class="streamers--item__cover" src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
+                                    <?php } ?>
 
                                     <img class="streamers--item__icon"
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
