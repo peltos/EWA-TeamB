@@ -4,6 +4,7 @@ $active = '//' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 <div class="container timeline-container" data-url="<?php if (!empty($url)) echo $url ?>">
 
+    <h1>Events</h1>
     <div class="filterBar-container">
         <div class="filterBar--inner">
             <div class="dateFilter">

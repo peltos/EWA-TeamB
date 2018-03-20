@@ -88,7 +88,7 @@ header.active{
     font-weight: bold;
     background: var(--primary-color);
     color: var(--nav-color);
-    border-bottom: 2px solid var(--orange-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 

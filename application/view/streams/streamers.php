@@ -1,10 +1,15 @@
 <div class="container streamers-container">
     <h1>Streamers</h1>
-    <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'all')">All</button>
-        <button class="tablinks" onclick="openCity(event, 'lol')">League of legends</button>
-        <button class="tablinks" onclick="openCity(event, 'dota2')">Dota 2</button>
-        <button class="tablinks" onclick="openCity(event, 'overwatch')">Overwatch</button>
+    <div class="filterBar-container">
+        <div class="filterBar--inner">
+            <div class="dateFilter">
+                <a class="tablinks dateFilter--item" href="#"><i class="filter-icon fas fa-filter"></i></a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'overwatch')">Overwatch</a>
+            </div>
+        </div>
     </div>
     <div id="lol" class="tabcontent">
 
