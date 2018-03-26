@@ -1,20 +1,26 @@
 <div class="container signup-controller">
 
-    <h2 class="homepage-title"> Sign up  </h2>
     <form action="<?php echo URL; ?>signup/adduser" method="POST">
+        <div class="fade-line"><h2 class="homepage-title"> Sign Up </h2></div>
+      <div class="signup-box">
         <div class="signup-username">
-            <input type="text" name="username" value="" placeholder="Username" required/>
+            <span class="user-icon"><i class="fas fa-user"></i></span>
+            <input type="text" name="username" value=""placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" required>
         </div>
         <div class="signup-email">
-            <input type="text" name="email" value="" placeholder="Email" required/>
+            <span class="email-icon"><i class="far fa-envelope"></i></span>
+            <input type="text" name="email" value="" placeholder="Email Adress" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Adress'" required/>
         </div>
         <div class="signup-password">
-            <input type="text" name="password" value="" placeholder="Password" required/>
+            <span class="password-icon"><i class="fas fa-lock"></i></span>
+            <input type="password" name="password" value="" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" required/>
         </div>
         <div class="signup-passwordcheck">
-            <input type="text" name="passwordcheck" value="" placeholder="Password Check" required/>
+            <span class="user-icon"><i class="fas fa-check"></i></span>
+            <input type="text" name="passwordcheck" value="" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required/>
         </div>
-        <input class="signup-submit" type="submit" name="adduser" value="Submit"/>
+        <input class="signup-submit" type="submit" name="adduser" value="submit"/>
+      </div>
     </form>
 
 </div>

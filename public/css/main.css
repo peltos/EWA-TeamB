@@ -222,18 +222,27 @@ header.active{
     padding-top: 10px;
     margin-top: 30px;
 }
+
 .container input {
     background-color: var(--background-shade);
     border: 0;
-    padding: 5px 10px;
+    border-radius: 2px;
+    padding: 10px 10px;
 }
+
+.container input:focus {
+  border-bottom: 2px solid var(--orange-color);
+  outline: none;
+}
+
 .container input[type="submit"] {
-    background-color: #ccc;
+    color: var(--orange-color);
+    border: var(--submit-border) solid var(--orange-color);
     cursor: pointer;
 }
 .container input[type="submit"]:hover {
-    background-color: #222;
-    color: #fff;
+    background-color: var(--buttonHover-color);
+    color: var(--ziggo-color);
 }
 .container button {
     background-color: #ccc;

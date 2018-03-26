@@ -19,10 +19,16 @@
     --linewire-color:   #565454; /* matterhorn grey */
     --flag-color:       #f4a169; /* sandy brown */
     --filterIcon-color: #333333; /* soft black */
-    --flag-text-color:  black;
-    --filter-border-width: 0px;
-    --desc-border-width: 1px;
-    --shade-opacity:    rgba(255,255,255,0.8);
+    --buttonHover-color:  var(--orange-color);
+    --buttonBg-color:     var(--background);
+    --buttonBoxBg-color:#f5f5f5;
+    --flag-text-color:    black;
+    --input-border-width: 1.5px;
+    --submit-border:        2px;
+    --filter-border-width:  0px;
+    --desc-border-width:    1px;
+    --shade-opacity:      rgba(255,255,255,0.8);
+    --input-opacity:          0;
 }
 
 :root body.dark-theme {
@@ -38,13 +44,17 @@
     --action-color:     #f9c57f; /* light orange */
     --action-hover:     #f5f5f5; /* soft white */
     --filterIcon-color: #f48c00; /* orange */
-    --desc-color:       var(--primary-color); /* midnight */
+    --desc-color:       var(--primary-color);
     --linewire-color:   rgba(213, 213, 213, 0.4);  /* light grey */
     --flag-color:       #ce6c0c; /* chocolate */
     --flag-text-color:  #e6ecf0; /* solitude */
+    --buttonHover-color:   #222; /*Nero*/
+    --buttonBg-color:       var(--background);
+    --buttonBoxBg-color: var(--primary-color);
     --filter-border-width: 0.5px;
-    --desc-border-width: 1.4px;
+    --submit-border:         1px;
+    --input-border-width:  1.6px;
+    --desc-border-width:   1.4px;
     --shade-opacity:    rgba(0,0,0,0.8);
+    --input-opacity:       0.001;
 }
-
-
