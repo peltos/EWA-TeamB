@@ -1,0 +1,36 @@
+
+.signup-controller h2 {
+    text-align: center;
+}
+.signup-controller form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:2em auto;
+    max-width:600px;
+    position:relative
+;
+}
+.signup-controller .signup-username,
+.signup-controller .signup-email,
+.signup-controller .signup-passwordcheck,
+.signup-controller .signup-password{
+    width:100%;
+}
+.signup-controller label{
+    width:10em;
+    display: inline-block;
+    margin:.75em 0;
+}
+.signup-controller input{
+    width: calc(100% - 20px);
+    margin:.5em 0;
+}
+.signup-controller input::placeholder{
+    color:var(--font-color);
+
+}
+.signup-controller .signup-submit{
+    margin-top:.5em;
+    width:100%;
+}
