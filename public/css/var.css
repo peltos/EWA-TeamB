@@ -15,17 +15,17 @@
     --background-shade: #dedede; /* lighter grey */
     --action-color:     var(--primary-color); /* orange */
     --action-hover:     #f5f5f5; /* soft white */
+    --filterIcon-color: #333333; /* soft black */
     --desc-color:       #f5f5f5; /* soft white */
     --linewire-color:   #565454; /* matterhorn grey */
     --flag-color:       #f4a169; /* sandy brown */
-    --filterIcon-color: #333333; /* soft black */
+    --flag-text-color:    black;
     --buttonHover-color:  var(--orange-color);
     --buttonBg-color:     var(--background);
     --buttonBoxBg-color:#f5f5f5;
-    --flag-text-color:    black;
+    --filter-border-width:  0px;
     --input-border-width: 1.5px;
     --submit-border:        2px;
-    --filter-border-width:  0px;
     --desc-border-width:    1px;
     --shade-opacity:      rgba(255,255,255,0.8);
     --input-opacity:          0;
