@@ -47,6 +47,32 @@
                         <?php $counter++;
                     }
                 }
+
+
+            ?>
+
+            <?php
+            $counter = 0;
+            if (!empty($streamersTwitch)) {
+                foreach ($streamersTwitch["streams"] as $key => $item) {
+                    if ($item["channel"]["game"] == "League of Legends") { ?>
+                      <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
+                         target="_blank">
+                             <div class="streamers--item__container">
+                                 <div class="streamers--item--image">
+
+                                           <img class="streamers--item__cover" src="<?php echo $item["preview"]["medium"] ?>"/>
+
+                                     <img class="streamers--item__icon"
+                                          src="<?php echo $item["channel"]["logo"] ?>"/>
+                                 </div>
+                                     <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["channel"]["display_name"] ?> </span>
+                                 <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
+                             </div>
+                         </a>
+                        <?php $counter++;
+                    }
+                }
             }
             if ($counter == 0) {
                 echo ' No streams available ';
@@ -84,11 +110,35 @@
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
                                 </div>
                                 <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                              <div class="streamer-title-wrapper">
                                 <span class="streamer-title"><?php echo $item["name"] ?></span>
-                              </div>
                             </div>
                         </a>
+                        <?php $counter++;
+                    }
+                }
+
+
+
+            ?>
+            <?php
+            $counter = 0;
+            if (!empty($streamersTwitch)) {
+                foreach ($streamersTwitch["streams"] as $key => $item) {
+                    if ($item["channel"]["game"] == "Dota 2") { ?>
+                      <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
+                         target="_blank">
+                             <div class="streamers--item__container">
+                                 <div class="streamers--item--image">
+
+                                           <img class="streamers--item__cover" src="<?php echo $item["preview"]["medium"] ?>"/>
+
+                                     <img class="streamers--item__icon"
+                                          src="<?php echo $item["channel"]["logo"] ?>"/>
+                                 </div>
+                                     <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["channel"]["display_name"] ?> </span>
+                                 <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
+                             </div>
+                         </a>
                         <?php $counter++;
                     }
                 }
@@ -130,11 +180,35 @@
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
                                 </div>
                                     <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                                  <div class="streamer-title-wrapper">
-                                    <div class="streamer-title"><?php echo $item["name"] ?></div>
-                                  </div>
+                                <span class="streamer-title"><?php echo $item["name"] ?></span>
                             </div>
                         </a>
+                        <?php $counter++;
+                    }
+                }
+
+
+            ?>
+
+            <?php
+            $counter = 0;
+            if (!empty($streamersTwitch)) {
+                foreach ($streamersTwitch["streams"] as $key => $item) {
+                    if ($item["channel"]["game"] == "Overwatch") { ?>
+                      <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
+                         target="_blank">
+                             <div class="streamers--item__container">
+                                 <div class="streamers--item--image">
+
+                                           <img class="streamers--item__cover" src="<?php echo $item["preview"]["medium"] ?>"/>
+
+                                     <img class="streamers--item__icon"
+                                          src="<?php echo $item["channel"]["logo"] ?>"/>
+                                 </div>
+                                     <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["channel"]["display_name"] ?> </span>
+                                 <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
+                             </div>
+                         </a>
                         <?php $counter++;
                     }
                 }
