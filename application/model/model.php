@@ -186,4 +186,20 @@ class Model
         }
         return $result;
     }
+    public function getStreamersTwitch($counter)
+      {
+       for ($i = 0; $i <= $counter; $i++) {
+          $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
+          $jsonPage = file_get_contents($urlPage);
+          $arrayPage = json_decode($jsonPage, true);
+
+          // for ($i = 0; $i <= $counter; $i++) {
+          //     ${"urlPage$i"} = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
+          //     ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
+          //     ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
+          //
+        //  $result = array_merge($result, ${"arrayPage$i"});
+         }
+          return $arrayPage;
+      }
 }
