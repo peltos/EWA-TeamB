@@ -136,6 +136,10 @@ class Model
         return $query->fetch()->amount_of_songs;
     }
 
+/**
+*****************************************************************************************************************
+*****************************************************************************************************************/
+
     /**
      * Get all upcoming matches data.
      */
@@ -147,6 +151,20 @@ class Model
 
         $json = file_get_contents($url);
         $timeline_array = json_decode($json, true);
+
+        return $timeline_array;
+    }
+
+    /**
+    * TEST
+    */
+    public function timelinenl()
+    {
+        $url = 'http://api.sportradar.us/lol-t1/en/matches/sr:match:11753058/lineups.json?api_key=v73qm9gnr3w8dznqdm74bp8x';
+
+        $json = file_get_contents($url);
+        $timeline_array = json_decode($json, true);
+        // var_dump($timeline_array);
 
         return $timeline_array;
     }

@@ -340,7 +340,8 @@ input:checked + .switch-slider:before {
 .switch-slider.round:before {
     border-radius: 50%;
 }
-.page404{
+
+.page404 {
 
 }
 
