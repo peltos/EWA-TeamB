@@ -48,7 +48,7 @@ if (!isset($_SESSION['nightmode'])) {
                     <a class="navigation--item" href="<?php echo URL; ?>tournaments">Events</a>
                     <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
                     <a class="navigation--item" href="<?php echo URL; ?>signup">Sign up</a>
-                    <!--  <a class="navigation--item" href="--><?php //echo URL; ?><!--songs">Songs</a>-->
+                    <a class="navigation--item" href="<?php echo URL; ?>favorite"><i class="fas fa-star"></i>Favorites</a>
                     <a class="navigation--item" href="<?php echo URL; ?>login">Sign In <i class="fas fa-sign-in-alt"></i></a>
 
                 </div>
