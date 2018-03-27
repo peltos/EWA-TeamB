@@ -48,7 +48,7 @@ class Model
      * @param string $track Track
      * @param string $link Link
      */
-    public function addSong($username, $email, $password)
+    public function addUser($username, $email, $password)
     {
         $passwordEncrypt = md5($password);
 
@@ -184,6 +184,64 @@ class Model
 
             $result = array_merge($result, ${"arrayPage$i"});
         }
+
         return $result;
     }
+
+    public function getStreamersID()
+    {
+        $sql = "SELECT streamID FROM Streamer";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
+    public function streamerUpdate($website, $streamersWeb)
+    {
+        $streamersDb = $this->getStreamersID();
+
+        if (!empty($streamersDb)) {
+            $counterStreamersDb = 0;
+            $counterStreamersWeb = 0;
+            foreach ($streamersDb as $Db) {
+                $counterStreamersDb++;
+            }
+
+            foreach ($streamersWeb as $key => $streamerWeb) {
+                foreach ($streamersDb as $Db) {
+                    if (((int)$Db->streamID) == $streamerWeb['id']) {
+                        $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
+                        $query = $this->db->prepare($sql);
+                        $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
+
+                        $query->execute($parameters);
+                        continue;
+                    }
+                    $counterStreamersWeb++;
+                    if ($counterStreamersWeb == $counterStreamersDb) {
+                        $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
+                        $query = $this->db->prepare($sql);
+                        $parameters = array(':streamID' => $streamerWeb['id'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
+
+                        $query->execute($parameters);
+                        $counterStreamersWeb = 0;
+                    }
+                }
+                $counterStreamersWeb = 0;
+
+            }
+        }else{
+            foreach ($streamersWeb as $key => $streamerWeb) {
+                $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
+                $query = $this->db->prepare($sql);
+                $parameters = array(':streamID' => $streamerWeb['id'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
+
+                $query->execute($parameters);
+            }
+
+        }
+    }
+
+
 }

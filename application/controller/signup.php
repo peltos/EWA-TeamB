@@ -29,7 +29,7 @@ class Signup extends Controller
         if (isset($_POST["adduser"])) {
             if ($_POST["password"] == $_POST["passwordcheck"]) {
                 // do addSong() in model/model.php
-                $this->model->addSong($_POST["username"], $_POST["email"], $_POST["password"]);
+                $this->model->addUser($_POST["username"], $_POST["email"], $_POST["password"]);
                 header('location: ' . URL . 'signup/signup');
             }else{
                 header('location: ' . URL . 'signup/signup');
