@@ -23,7 +23,7 @@
                 <input type="text" name="passwordcheck" value="" placeholder="Confirm Password"
                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required/>
             </div>
-            <input class="signup-submit" type="submit" name="adduser" value="submit"/>
+            <input class="signup-submit" type="submit" name="adduser" value="submit" />
         </div>
     </form>
 
