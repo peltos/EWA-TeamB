@@ -47,7 +47,7 @@
                 }
             }
             if ($counter == 0) {
-                echo 'No streams available';
+                echo ' No streams available ';
             }
 
             ?>
@@ -90,7 +90,7 @@
                 }
             }
             if ($counter == 0) {
-                echo 'No streams available';
+                echo ' No streams available ';
             }
 
             ?>
@@ -134,7 +134,7 @@
                 }
             }
             if ($counter == 0) {
-                echo 'No streams available';
+                echo ' No streams available ';
             }
             ?>
     </div>
