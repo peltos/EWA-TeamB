@@ -37,7 +37,7 @@
     height: 12em;
 }
 
-.streamers-container .streamers--item__cover{
+.streamers-container .streamers--item__cover {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -46,12 +46,19 @@
     border-top-right-radius: 5px;
 }
 
+.streamers-container .streamer-title-wrapper {
+    margin: 5px 11px;
+}
+
 .streamers-container .streamer-title  {
     margin-top: 7px;
     margin-bottom: 7px;
-    margin-left: 12px;
     text-transform: none;
     font-weight: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 
