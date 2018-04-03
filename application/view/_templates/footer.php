@@ -25,8 +25,9 @@
             }
         </script>
         <script src="<?php echo URL; ?>js/loading.js"></script>
-    <script src="<?php echo URL; ?>js/application.js"></script>
-    <script src="<?php echo URL; ?>js/streamers.js"></script>
-    <script src="<?php echo URL; ?>js/nightmode.js"></script>
+        <script src="<?php echo URL; ?>js/application.js"></script>
+        <script src="<?php echo URL; ?>js/streamers.js"></script>
+        <script src="<?php echo URL; ?>js/nightmode.js"></script>
+        <script src="<?php echo URL; ?>js/favorite.js"></script>
 </body>
 </html>

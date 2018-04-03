@@ -20,6 +20,7 @@ class Streams extends Controller
     public function index()
     {
         $streamers = $this->model->getStreamers(2); // number of pages
+        $favorites = $this->model->getFavorites('pelt8@hotmail.com'); // number of pages
         
         // load views
         require APP . 'view/_templates/header.php';
@@ -27,6 +28,5 @@ class Streams extends Controller
         require APP . 'view/_templates/footer.php';
 
         $this->model->streamerUpdate('mixer', $streamers);
-        $this->model->streamerUpdate('twitch', $streamers);
     }
 }

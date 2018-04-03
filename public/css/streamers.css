@@ -47,7 +47,7 @@
 }
 
 .streamers-container .streamer-title-wrapper {
-    margin: 5px 5px 5px 26px;
+    margin: 5px 26px 5px 5px;
 }
 
 .streamers-container .streamer-title  {
@@ -61,17 +61,17 @@
     -webkit-box-orient: vertical;
 }
 .streamers-container .streamer-star{
-    color:var(--font-color);
-    font-size:2em;
+    color: var(--font-color);
+    font-size: 1.5em;
     position: absolute;
-    bottom: .4em;
-    left: .6em;
+    bottom: .75em;
+    right: .8em;
     transition: 200ms;
     transform: scale(0.9);
 }
 .streamers-container .streamer-star.active,
 .streamers-container .streamer-star:hover{
-     color:var(--orange-color);
+    color:var(--orange-color);
     transform: scale(1);
  }
 

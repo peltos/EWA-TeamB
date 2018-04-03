@@ -48,7 +48,18 @@
                                     </div>
                                 </div>
                             </a>
-                            <a class="streamer-star" href="#" id="<?php echo $item["token"] ?> ">&#128970;</a>
+                            <a class="streamer-star
+                            <?php
+                            if (!empty($favorites)) {
+                                foreach ($favorites as $favorite) {
+                                    if ($favorite->Streamer_streamID == $item["userId"]) {
+                                        echo ' active';
+                                    } else {
+                                        echo '';
+                                    }
+                                }
+                            } ?>
+                            " href="#" id="<?php echo $item["userId"] ?> "><i class="fas fa-star"></i></a>
                         </li>
                         <?php $counter++;
                     }
@@ -99,7 +110,18 @@
                                     </div>
                                 </div>
                             </a>
-                            <a class="streamer-star" href="#" id="<?php echo $item["token"] ?> ">&#128970;</a>
+                            <a class="streamer-star
+                            <?php
+                            if (!empty($favorites)) {
+                                foreach ($favorites as $favorite) {
+                                    if ($favorite->Streamer_streamID == $item["userId"]) {
+                                        echo ' active';
+                                    } else {
+                                        echo '';
+                                    }
+                                }
+                            } ?>
+                            " href="#" id="<?php echo $item["userId"] ?> "><i class="fas fa-star"></i></a>
                         </li>
                         <?php $counter++;
                     }
@@ -150,7 +172,18 @@
                                     </div>
                                 </div>
                             </a>
-                            <a class="streamer-star" href="#" id="<?php echo $item["token"] ?> ">&#128970;</a>
+                            <a class="streamer-star
+                            <?php
+                            if (!empty($favorites)) {
+                                foreach ($favorites as $favorite) {
+                                    if ($favorite->Streamer_streamID == $item["userId"]) {
+                                        echo ' active';
+                                    } else {
+                                        echo '';
+                                    }
+                                }
+                            } ?>
+                            " href="#" id="<?php echo $item["userId"] ?> "><i class="fas fa-star"></i></a>
                         </li>
                         <?php $counter++;
                     }
