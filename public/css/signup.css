@@ -70,6 +70,9 @@
     color: var(--font-color);
     width: 100%;
     background: var(--background);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;  
+
 }
 
 .signup-controller input::placeholder {

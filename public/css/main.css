@@ -231,7 +231,7 @@ header.active{
 }
 
 .container input:focus {
-  border-bottom: 2px solid var(--orange-color);
+  border-right: 6px solid var(--orange-color);
   outline: none;
 }
 
@@ -340,7 +340,8 @@ input:checked + .switch-slider:before {
 .switch-slider.round:before {
     border-radius: 50%;
 }
-.page404{
+
+.page404 {
 
 }
 

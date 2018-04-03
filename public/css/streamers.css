@@ -17,27 +17,52 @@
 
 .streamers-container .streamers--item {
     text-align: left;
+    display: block;
     padding: 10px 15px;
     width: 100%;
     overflow: hidden;
     position: relative;
 }
-.streamers-container .streamers--item__container{
+
+.streamers-container .streamers--item__container {
+    color: var(--font-color);
+    border: 1px solid var(--boxBorder-color);
+    border-radius: 5px;
+    background: var(--desc-color);
     position:relative;
 }
+
 .streamers-container .streamers--item--image{
     position: relative;
     height: 12em;
 }
-.streamers-container .streamers--item__cover{
+
+.streamers-container .streamers--item__cover {
     object-fit: cover;
     height: 100%;
     width: 100%;
     transition: 200ms;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.streamers-container .streamer-title-wrapper {
+    margin: 5px 11px;
+}
+
+.streamers-container .streamer-title  {
+    margin-top: 7px;
+    margin-bottom: 7px;
+    text-transform: none;
+    font-weight: normal;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
 }
 
 
-.streamers-container .streamer--item__title{
+.streamers-container .streamer--item__title {
     position: absolute;
     top: 0;
     left: 0;
@@ -53,23 +78,27 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
     font-weight:900;
     color:#f5f5f5;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .streamers-container .streamers--item__icon {
     position: absolute;
     bottom: 1em;
-    right: 1em;
-    width: 3em;
-    height: 3em;
+    right: 1.1em;
+    width: 2.2em;
+    height: 2.2em;
     box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.5);
     border-radius: 50%;
 }
 
-.streamers-container  .streamer--item__live{
+.streamers-container  .streamer--item__live {
     color:#1dd91d;
     border-radius: 50%;
     box-shadow: 0px 0px 7px #1dd91d;
     margin-right: .5em;
+    font-size: 9px;
+    vertical-align: 0.145em;
 }
 
 /* **************************************
@@ -88,7 +117,7 @@
         width: calc(33.333333% - 30px);
     }
     .streamers-container .streamers--item__cover{
-        filter: grayscale(100%) opacity(0.6);
+        filter: grayscale(44%) opacity(0.8);
     }
     .streamers-container .streamers--item__container:hover .streamers--item__cover{
         filter: grayscale(10%) opacity(1);

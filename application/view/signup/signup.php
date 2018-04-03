@@ -25,6 +25,7 @@
             </div>
             <input class="signup-submit" type="submit" name="adduser" value="submit"/>
         </div>
+        
     </form>
 
 </div>

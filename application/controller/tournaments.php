@@ -93,8 +93,4 @@ class Tournaments extends Controller
         require APP . 'view/tournaments/eventsow.php';
         require APP . 'view/_templates/footer.php';
     }
-
-
-
-
 }

@@ -39,7 +39,9 @@
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
                                 </div>
                                 <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
+                              <div class="streamer-title-wrapper">
                                 <span class="streamer-title"><?php echo $item["name"] ?></span>
+                              </div>
                             </div>
                         </a>
                         <?php $counter++;
@@ -82,7 +84,9 @@
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
                                 </div>
                                 <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
+                              <div class="streamer-title-wrapper">
                                 <span class="streamer-title"><?php echo $item["name"] ?></span>
+                              </div>
                             </div>
                         </a>
                         <?php $counter++;
@@ -126,7 +130,9 @@
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
                                 </div>
                                     <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                                <span class="streamer-title"><?php echo $item["name"] ?></span>
+                                  <div class="streamer-title-wrapper">
+                                    <div class="streamer-title"><?php echo $item["name"] ?></div>
+                                  </div>
                             </div>
                         </a>
                         <?php $counter++;
