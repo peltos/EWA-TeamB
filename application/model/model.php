@@ -136,9 +136,9 @@ class Model
         return $query->fetch()->amount_of_songs;
     }
 
-/**
-*****************************************************************************************************************
-*****************************************************************************************************************/
+    /**
+     *****************************************************************************************************************
+     *****************************************************************************************************************/
 
     /**
      * Get all upcoming matches data.
@@ -254,7 +254,7 @@ class Model
                 $counterStreamersWeb = 0;
 
             }
-        }else{ // do this when database is empty
+        } else { // do this when database is empty
             foreach ($streamersWeb as $key => $streamerWeb) {
                 $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
                 $query = $this->db->prepare($sql);
@@ -275,5 +275,18 @@ class Model
         $query->execute($parameters);
 
         return $query->fetchAll();
+    }
+
+    public function getFavoritePage($streamers)
+    {
+        $result["favorite"] = array();
+        foreach ($streamers as $streamer) {
+            $urlPage = 'https://mixer.com/api/v1/channels/' . $streamer->Streamer_streamID ;
+            $jsonPage = file_get_contents($urlPage);
+            $arrayPage = json_decode($jsonPage, true);
+
+            $result["favorite"] = array_merge($result["favorite"], $arrayPage);
+        }
+        return $result;
     }
 }

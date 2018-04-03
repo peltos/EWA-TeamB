@@ -17,6 +17,8 @@ class Favorite extends Controller
 
     public function index()
     {
+
+        $favoritePage = $this->model->getFavoritePage($this->model->getFavorites('pelt8@hotmail.com'));
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/favorite/favorite.php';
