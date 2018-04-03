@@ -4,6 +4,8 @@
 $streamerId = $_POST["streamerId"];
 $isActive = $_POST["isActive"];
 
+echo $streamerId . " - " . $isActive;
+
 if ($isActive == 'true'){
     $sql = "INSERT INTO Favorite (Member_memberEmail, Streamer_streamID) VALUES (:useEmail, :streamerId)";
     $query = $this->db->prepare($sql);

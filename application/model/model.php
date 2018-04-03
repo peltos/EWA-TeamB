@@ -225,10 +225,10 @@ class Model
                 foreach ($streamersDb as $streamersDB) {
 
                     // json item equals database item, update the current information about the streamer
-                    if (((int)$streamersDB->streamID) == $streamerWeb['userId']) {
+                    if (((int)$streamersDB->streamID) == $streamerWeb['id']) {
                         $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                         $query = $this->db->prepare($sql);
-                        $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['userId'], ':website' => $website);
+                        $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
 
                         $query->execute($parameters);
 
@@ -242,7 +242,7 @@ class Model
                     if ($counterStreamersWeb == $counterStreamersDb) {
                         $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
                         $query = $this->db->prepare($sql);
-                        $parameters = array(':streamID' => $streamerWeb['userId'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
+                        $parameters = array(':streamID' => $streamerWeb['id'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
 
                         $query->execute($parameters);
 
@@ -258,7 +258,7 @@ class Model
             foreach ($streamersWeb as $key => $streamerWeb) {
                 $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
                 $query = $this->db->prepare($sql);
-                $parameters = array(':streamID' => $streamerWeb['userId'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
+                $parameters = array(':streamID' => $streamerWeb['id'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
 
                 $query->execute($parameters);
             }

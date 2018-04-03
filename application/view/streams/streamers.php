@@ -52,14 +52,14 @@
                             <?php
                             if (!empty($favorites)) {
                                 foreach ($favorites as $favorite) {
-                                    if ($favorite->Streamer_streamID == $item["userId"]) {
+                                    if ($favorite->Streamer_streamID == $item["id"]) {
                                         echo ' active';
                                     } else {
                                         echo '';
                                     }
                                 }
                             } ?>
-                            " href="#" id="<?php echo $item["userId"] ?> "><i class="fas fa-star"></i></a>
+                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
                         </li>
                         <?php $counter++;
                     }
@@ -114,14 +114,14 @@
                             <?php
                             if (!empty($favorites)) {
                                 foreach ($favorites as $favorite) {
-                                    if ($favorite->Streamer_streamID == $item["userId"]) {
+                                    if ($favorite->Streamer_streamID == $item["id"]) {
                                         echo ' active';
                                     } else {
                                         echo '';
                                     }
                                 }
                             } ?>
-                            " href="#" id="<?php echo $item["userId"] ?> "><i class="fas fa-star"></i></a>
+                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
                         </li>
                         <?php $counter++;
                     }
@@ -176,14 +176,14 @@
                             <?php
                             if (!empty($favorites)) {
                                 foreach ($favorites as $favorite) {
-                                    if ($favorite->Streamer_streamID == $item["userId"]) {
+                                    if ($favorite->Streamer_streamID == $item["id"]) {
                                         echo ' active';
                                     } else {
                                         echo '';
                                     }
                                 }
                             } ?>
-                            " href="#" id="<?php echo $item["userId"] ?> "><i class="fas fa-star"></i></a>
+                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
                         </li>
                         <?php $counter++;
                     }
