@@ -93,18 +93,4 @@ class Tournaments extends Controller
         require APP . 'view/tournaments/eventsow.php';
         require APP . 'view/_templates/footer.php';
     }
-
-    public function matchesnl()
-    {
-        $timeline = $this->model->timelinenl();
-
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/tournaments/eventsNL.php';
-        require APP . 'view/_templates/footer.php';
-    }
-
-
-
-
 }

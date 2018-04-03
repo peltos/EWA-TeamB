@@ -156,20 +156,6 @@ class Model
     }
 
     /**
-    * TEST
-    */
-    public function timelinenl()
-    {
-        $url = 'http://api.sportradar.us/lol-t1/en/matches/sr:match:11753058/lineups.json?api_key=v73qm9gnr3w8dznqdm74bp8x';
-
-        $json = file_get_contents($url);
-        $timeline_array = json_decode($json, true);
-        // var_dump($timeline_array);
-
-        return $timeline_array;
-    }
-
-    /**
      * Get all upcoming/running/past matches data.
      */
     public function timelineFilter()
