@@ -1,7 +1,8 @@
 $( document ).ready(function() {
     let star = $(".streamer-star");
 
-    star.click(function(){
+    star.click(function(e){
+        e.preventDefault();
         $(this).toggleClass("active");
         streamerId = $(this).attr('id');
         isActive = $(this).hasClass("active");

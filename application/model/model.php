@@ -222,32 +222,35 @@ class Model
 
             // two foreach loops, one for getting all the json items and another to get all the database items
             foreach ($streamersWeb as $key => $streamerWeb) {
-                foreach ($streamersDb as $streamersDB) {
+                if ($streamerWeb["type"]["name"] == "League of legends" || $streamerWeb["type"]["name"] == "Dota 2" || $streamerWeb["type"]["name"] == "Overwatch") {
+                    foreach ($streamersDb as $streamersDB) {
 
-                    // json item equals database item, update the current information about the streamer
-                    if (((int)$streamersDB->streamID) == $streamerWeb['id']) {
-                        $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
-                        $query = $this->db->prepare($sql);
-                        $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
+                        // json item equals database item, update the current information about the streamer
+                        if (((int)$streamersDB->streamID) == $streamerWeb['id']) {
+                            $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
+                            $query = $this->db->prepare($sql);
+                            $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
 
-                        $query->execute($parameters);
+                            $query->execute($parameters);
 
-                        // be done with this item and start with the next
-                        continue;
-                    }
+                            // be done with this item and start with the next
+                            continue;
+                        }
 
-                    $counterStreamersWeb++;
+                        $counterStreamersWeb++;
 
-                    //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
-                    if ($counterStreamersWeb == $counterStreamersDb) {
-                        $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
-                        $query = $this->db->prepare($sql);
-                        $parameters = array(':streamID' => $streamerWeb['id'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
+                        //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
+                        if ($counterStreamersWeb >= ($counterStreamersDb + 1) && $streamerWeb['online'] == true) {
 
-                        $query->execute($parameters);
+                            $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
+                            $query = $this->db->prepare($sql);
+                            $parameters = array(':streamID' => $streamerWeb['id'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
 
-                        // reset counter
-                        $counterStreamersWeb = 0;
+                            $query->execute($parameters);
+
+                            // reset counter
+                            $counterStreamersWeb = 0;
+                        }
                     }
                 }
                 // reset counter
@@ -256,11 +259,13 @@ class Model
             }
         } else { // do this when database is empty
             foreach ($streamersWeb as $key => $streamerWeb) {
-                $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
-                $query = $this->db->prepare($sql);
-                $parameters = array(':streamID' => $streamerWeb['id'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
+                if ($streamerWeb['online'] == true && ($streamerWeb["type"]["name"] == "League of legends" || $streamerWeb["type"]["name"] == "Dota 2" || $streamerWeb["type"]["name"] == "Overwatch")) {
+                    $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
+                    $query = $this->db->prepare($sql);
+                    $parameters = array(':streamID' => $streamerWeb['id'], ':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':website' => $website);
 
-                $query->execute($parameters);
+                    $query->execute($parameters);
+                }
             }
         }
     }
@@ -279,14 +284,16 @@ class Model
 
     public function getFavoritePage($streamers)
     {
-        $result["favorite"] = array();
+        $result = array();
         foreach ($streamers as $streamer) {
-            $urlPage = 'https://mixer.com/api/v1/channels/' . $streamer->Streamer_streamID ;
+            $urlPage = 'https://mixer.com/api/v1/channels/' . $streamer->Streamer_streamID;
             $jsonPage = file_get_contents($urlPage);
             $arrayPage = json_decode($jsonPage, true);
 
-            $result["favorite"] = array_merge($result["favorite"], $arrayPage);
+            $result[] = $arrayPage;
         }
+//        var_dump(count($result));
+
         return $result;
     }
 }

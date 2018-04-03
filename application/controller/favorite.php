@@ -18,10 +18,14 @@ class Favorite extends Controller
     public function index()
     {
 
-        $favoritePage = $this->model->getFavoritePage($this->model->getFavorites('pelt8@hotmail.com'));
+        $favorites = $this->model->getFavorites('pelt8@hotmail.com');
+        $favoritePage = $this->model->getFavoritePage($favorites);
+
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/favorite/favorite.php';
         require APP . 'view/_templates/footer.php';
+
+        $this->model->streamerUpdate('mixer', $favoritePage);
     }
 }

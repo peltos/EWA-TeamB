@@ -1,5 +1,5 @@
 function openCity(evt, gameName) {
-    if(gameName !== 'all'){
+    if(gameName !== 'all') {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -19,3 +19,17 @@ function openCity(evt, gameName) {
         }
     }
 }
+
+$( document ).ready(function() {
+
+    let onlineNav = $("#onlineNav");
+    let miscNav = $(".tablinks:not(#onlineNav)");
+
+    onlineNav.click(function(e){
+        $(".streamers--item").css( "display", "block" );
+        $(".streamers--item:not(.online)").css( "display", "none" );
+    });
+    miscNav.click(function(e){
+        $(".streamers--item").css( "display", "block" );
+    });
+});

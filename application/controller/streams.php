@@ -19,7 +19,7 @@ class Streams extends Controller
    */
     public function index()
     {
-        $streamers = $this->model->getStreamers(2); // number of pages
+        $streamers = $this->model->getStreamers(13); // number of pages
         $favorites = $this->model->getFavorites('pelt8@hotmail.com');
         
         // load views

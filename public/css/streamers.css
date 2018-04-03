@@ -48,6 +48,7 @@
 
 .streamers-container .streamer-title-wrapper {
     margin: 5px 26px 5px 5px;
+    min-height: 1.25em;
 }
 
 .streamers-container .streamer-title  {
