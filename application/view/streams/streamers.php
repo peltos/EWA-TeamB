@@ -5,7 +5,6 @@
             <div class="dateFilter">
                 <a class="tablinks dateFilter--item" href="#"><i class="filter-icon fas fa-filter"></i></a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
-                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'NL')">Dutch Channels</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'overwatch')">Overwatch</a>
@@ -40,9 +39,7 @@
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
                                 </div>
                                 <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                              <div class="streamer-title-wrapper">
                                 <span class="streamer-title"><?php echo $item["name"] ?></span>
-                              </div>
                             </div>
                         </a>
                         <?php $counter++;
@@ -76,7 +73,7 @@
                 }
             }
             if ($counter == 0) {
-                echo ' No streams available ';
+                echo 'No streams available';
             }
 
             ?>
@@ -145,7 +142,7 @@
                 }
             }
             if ($counter == 0) {
-                echo ' No streams available ';
+                echo 'No streams available';
             }
 
             ?>
@@ -216,7 +213,7 @@
                 }
             }
             if ($counter == 0) {
-                echo ' No streams available ';
+                echo 'No streams available';
             }
             ?>
     </div>
