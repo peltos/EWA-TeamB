@@ -19,8 +19,8 @@ class Streams extends Controller
    */
     public function index()
     {
-        $streamers = $this->model->getStreamers(10); // number of pages
-        $streamersTwitch = $this->model->getStreamersTwitch(40); // number of pages
+        $streamers = $this->model->getStreamers(10); // number of pages of the json file of the mixer api.
+        $streamersTwitch = $this->model->getStreamersTwitch(40); // number of pages of the json file of the twitch api.
 
         // load views
         require APP . 'view/_templates/header.php';
