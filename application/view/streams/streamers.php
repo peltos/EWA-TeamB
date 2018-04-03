@@ -21,29 +21,35 @@
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "League of legends") { ?>
 
-                        <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
-                           target="_blank">
-                            <div class="streamers--item__container">
-                                <div class="streamers--item--image">
-                                    <?php
-                                    $file = 'https://thumbs.mixer.com/channel/' . $item["id"] .'.small.jpg';
-                                    $file_headers = @get_headers($file);
-                                    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
-                                        ?>
-                                        <img class="streamers--item__cover" src="<?php echo $item["type"]["coverUrl"] ?>"/>
-                                    <?php } else { ?>
-                                        <img class="streamers--item__cover" src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
-                                    <?php } ?>
+                        <li class="streamers--item">
+                            <a href="https://mixer.com/<?php echo $item["token"] ?>"
+                               target="_blank">
+                                <div class="streamers--item__container">
+                                    <div class="streamers--item--image">
+                                        <?php
+                                        $file = 'https://thumbs.mixer.com/channel/' . $item["id"] . '.small.jpg';
+                                        $file_headers = @get_headers($file);
+                                        if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                                            ?>
+                                            <img class="streamers--item__cover"
+                                                 src="<?php echo $item["type"]["coverUrl"] ?>"/>
+                                        <?php } else { ?>
+                                            <img class="streamers--item__cover"
+                                                 src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
+                                        <?php } ?>
 
-                                    <img class="streamers--item__icon"
-                                         src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
+                                        <img class="streamers--item__icon"
+                                             src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
+                                    </div>
+                                    <span class="streamer--item__title"><i
+                                                class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
+                                    <div class="streamer-title-wrapper">
+                                        <p class="streamer-title"><?php echo $item["name"] ?></p>
+                                    </div>
                                 </div>
-                                <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                              <div class="streamer-title-wrapper">
-                                <span class="streamer-title"><?php echo $item["name"] ?></span>
-                              </div>
-                            </div>
-                        </a>
+                            </a>
+                            <a class="streamer-star" href="#" id="<?php echo $item["token"] ?> ">&#128970;</a>
+                        </li>
                         <?php $counter++;
                     }
                 }
@@ -66,29 +72,35 @@
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "Dota 2") { ?>
 
-                        <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
-                           target="_blank">
-                            <div class="streamers--item__container">
-                                <div class="streamers--item--image">
-                                    <?php
-                                    $file = 'https://thumbs.mixer.com/channel/' . $item["id"] .'.small.jpg';
-                                    $file_headers = @get_headers($file);
-                                    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
-                                        ?>
-                                        <img class="streamers--item__cover" src="<?php echo $item["type"]["coverUrl"] ?>"/>
-                                    <?php } else { ?>
-                                        <img class="streamers--item__cover" src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
-                                    <?php } ?>
+                        <li class="streamers--item">
+                            <a href="https://mixer.com/<?php echo $item["token"] ?>"
+                               target="_blank">
+                                <div class="streamers--item__container">
+                                    <div class="streamers--item--image">
+                                        <?php
+                                        $file = 'https://thumbs.mixer.com/channel/' . $item["id"] . '.small.jpg';
+                                        $file_headers = @get_headers($file);
+                                        if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                                            ?>
+                                            <img class="streamers--item__cover"
+                                                 src="<?php echo $item["type"]["coverUrl"] ?>"/>
+                                        <?php } else { ?>
+                                            <img class="streamers--item__cover"
+                                                 src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
+                                        <?php } ?>
 
-                                    <img class="streamers--item__icon"
-                                         src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
+                                        <img class="streamers--item__icon"
+                                             src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
+                                    </div>
+                                    <span class="streamer--item__title"><i
+                                                class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
+                                    <div class="streamer-title-wrapper">
+                                        <p class="streamer-title"><?php echo $item["name"] ?></p>
+                                    </div>
                                 </div>
-                                <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                              <div class="streamer-title-wrapper">
-                                <span class="streamer-title"><?php echo $item["name"] ?></span>
-                              </div>
-                            </div>
-                        </a>
+                            </a>
+                            <a class="streamer-star" href="#" id="<?php echo $item["token"] ?> ">&#128970;</a>
+                        </li>
                         <?php $counter++;
                     }
                 }
@@ -111,30 +123,35 @@
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "Overwatch") { ?>
+                        <li class="streamers--item">
+                            <a href="https://mixer.com/<?php echo $item["token"] ?>"
+                               target="_blank">
+                                <div class="streamers--item__container">
+                                    <div class="streamers--item--image">
+                                        <?php
+                                        $file = 'https://thumbs.mixer.com/channel/' . $item["id"] . '.small.jpg';
+                                        $file_headers = @get_headers($file);
+                                        if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                                            ?>
+                                            <img class="streamers--item__cover"
+                                                 src="<?php echo $item["type"]["coverUrl"] ?>"/>
+                                        <?php } else { ?>
+                                            <img class="streamers--item__cover"
+                                                 src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
+                                        <?php } ?>
 
-                        <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
-                           target="_blank">
-                            <div class="streamers--item__container">
-                                <div class="streamers--item--image">
-                                    <?php
-                                    $file = 'https://thumbs.mixer.com/channel/' . $item["id"] .'.small.jpg';
-                                    $file_headers = @get_headers($file);
-                                    if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
-                                    ?>
-                                        <img class="streamers--item__cover" src="<?php echo $item["type"]["coverUrl"] ?>"/>
-                                    <?php } else { ?>
-                                        <img class="streamers--item__cover" src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
-                                    <?php } ?>
-
-                                    <img class="streamers--item__icon"
-                                         src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
+                                        <img class="streamers--item__icon"
+                                             src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
+                                    </div>
+                                    <span class="streamer--item__title"><i
+                                                class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
+                                    <div class="streamer-title-wrapper">
+                                        <p class="streamer-title"><?php echo $item["name"] ?></p>
+                                    </div>
                                 </div>
-                                    <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                                  <div class="streamer-title-wrapper">
-                                    <div class="streamer-title"><?php echo $item["name"] ?></div>
-                                  </div>
-                            </div>
-                        </a>
+                            </a>
+                            <a class="streamer-star" href="#" id="<?php echo $item["token"] ?> ">&#128970;</a>
+                        </li>
                         <?php $counter++;
                     }
                 }
