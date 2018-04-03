@@ -14,7 +14,7 @@
     position: relative;
 }
 
-.signup-controller .fade-line {
+.signup-controller .fade-line { 
     width: calc(105% - 43px - 1em);
     text-align: center;
     margin-bottom: 8px;
@@ -28,7 +28,7 @@
     background: var(--buttonBoxBg-color);
 
 }
-
+/** **/
 .signup-controller .signup-passwordcheck,
 .signup-controller .signup-password,
 .signup-controller .signup-email,
