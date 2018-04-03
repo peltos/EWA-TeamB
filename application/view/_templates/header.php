@@ -21,6 +21,9 @@ if (!isset($_SESSION['nightmode'])) {
         <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#f48c00">
         <meta name="msapplication-TileColor" content="#f48c00">
         <meta name="theme-color" content="#ffffff">
+
+        <!--   Google reCaptcha -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body class=" <?php
     if($_SESSION['nightmode'] == 'false'){

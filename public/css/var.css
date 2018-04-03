@@ -23,6 +23,7 @@
     --buttonHover-color:  var(--orange-color);
     --buttonBg-color:     var(--background);
     --buttonBoxBg-color:#f5f5f5;
+    --Border-color:     #d5d5d5; /* Light Grey*/
     --boxBorder-color:lightgrey;
     --filter-border-width:  0px;
     --input-border-width: 1.5px;
@@ -48,6 +49,7 @@
     --flag-color:       #ce6c0c; /* chocolate */
     --flag-text-color:  #e6ecf0; /* solitude */
     --buttonHover-color:   #222; /*Nero*/
+    --Border-color:       black;
     --boxBorder-color:    black;
     --buttonBg-color:       var(--background);
     --buttonBoxBg-color: var(--primary-color);

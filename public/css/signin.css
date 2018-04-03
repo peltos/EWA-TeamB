@@ -23,7 +23,7 @@
 .signin-controller .signin-box {
     width: calc(105% - 43px - 1em);
     padding: 20px 15px;
-    border: var(--desc-border-width) solid black;
+    border: var(--desc-border-width) solid var(--Border-color);
     border-radius: 5px;
     background: var(--buttonBoxBg-color);
 
@@ -55,7 +55,7 @@
 .signin-controller .signin-password {
     width: 100%;
     background: var(--primary-color);
-    border: var(--desc-border-width) solid black;
+    border: var(--desc-border-width) solid var(--Border-color);
     margin-bottom: 1em;
     border-radius: 5px;
 }
