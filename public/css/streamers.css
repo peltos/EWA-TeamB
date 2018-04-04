@@ -116,7 +116,7 @@
     .streamers-container .streamers--item {
         width: calc(33.333333% - 30px);
     }
-    .streamers-container .streamers--item__cover{
+    .streamers-container .streamers--item__cover {
         filter: grayscale(44%) opacity(0.8);
     }
     .streamers-container .streamers--item__container:hover .streamers--item__cover{
