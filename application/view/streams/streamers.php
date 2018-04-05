@@ -112,6 +112,21 @@
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "Overwatch") { ?>
 
+                      <!-- Social Media links -->
+                      <div class="streamer--item__social">
+                        <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=https://mixer.com/<?php echo $item["token"] ?>">
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a target="_blank" href="http://twitter.com/share?url=https://mixer.com/<?php echo $item["token"] ?>&text=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                        <a target="_blank" href="https://plus.google.com/share?url=https://mixer.com/<?php echo $item["token"] ?>">
+                          <i class="fab fa-google"></i>
+                        </a>
+                        <a target="_blank" href="http://reddit.com/submit?url=https://mixer.com/<?php echo $item["token"] ?>&title=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                          <i class="fab fa-reddit"></i>
+                        </a>
+                      </div>
                         <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">

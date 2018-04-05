@@ -21,6 +21,8 @@ if (!isset($_SESSION['nightmode'])) {
         <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#f48c00">
         <meta name="msapplication-TileColor" content="#f48c00">
         <meta name="theme-color" content="#ffffff">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body class=" <?php
     if($_SESSION['nightmode'] == 'false'){
