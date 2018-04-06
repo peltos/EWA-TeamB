@@ -27,7 +27,7 @@
                         <span class="flag-title-league">
                             <img class="flag-title-league__image"
                                  src=" <?php echo $item["league"]["image_url"] ?> "/>
-                            <p class="flag-title-league__name"> &nbsp <?php echo $item["league"]['name'] ?></p>
+                            <p class="flag-title-league__name"> &nbsp; <?php echo $item["league"]['name'] ?></p>
                         </span>
                             <span class="flag-title-match">
                             <span class="game-name">
@@ -37,7 +37,7 @@
                                     echo $item["videogame"]['name'];
                                 } ?>
                             </span>
-                            <span class="event-name">&nbsp (<?php echo $item["name"] ?>) </span>
+                            <span class="event-name">&nbsp; (<?php echo $item["name"] ?>) </span>
                         </span>
                             <span class="flag-title-season season-name">
                             TOURNAMENT: <?php echo $item["tournament"]['name'] ?>
@@ -70,15 +70,29 @@
                         </div>
                         <span class="rounds"><?php echo $item["number_of_games"] ?> ROUND(S) </span>
                         <?php if (!$item["league"]['url'] == null) { ?>
-                            <a href="<?php echo $item["league"]['url'] ?>" target="_blank"> Go to league
-                                website</a></br>
+                            </br><a href="<?php echo $item["league"]['url'] ?>" target="_blank"> Go to league website</a>
+                            <!-- Social Media links -->
+                            <div class="timeline--desc--social">
+                              <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $item["league"]['url'] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                              </a>
+                              <a target="_blank" href="http://twitter.com/share?url=<?php echo $item["league"]['url'] ?>&text=<?php echo $item["league"]['name'] ?> - <?php echo $item["tournament"]['name'] ?>: <?php echo $item["name"] ?> (at <?php echo date('d F H:i', strtotime($item["begin_at"]) + 60 * 60) ?>) ">
+                                <i class="fab fa-twitter"></i>
+                              </a>
+                              <a target="_blank" href="https://plus.google.com/share?url=<?php echo $item["league"]['url'] ?>">
+                                <i class="fab fa-google"></i>
+                              </a>
+                              <a target="_blank" href="http://reddit.com/submit?url=<?php echo $item["league"]['url'] ?>&title=<?php echo $item["league"]['name'] ?> - <?php echo $item["tournament"]['name'] ?>: <?php echo $item["name"] ?> (at <?php echo date('d F H:i', strtotime($item["begin_at"]) + 60 * 60) ?>) ">
+                                <i class="fab fa-reddit"></i>
+                              </a>
+                            </div>
                         <?php } ?>
                     </div>
 
                 </li>
                 <?php $counter++;
         }
-    } 
+    }
     ?>
 
     </ul>
