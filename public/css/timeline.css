@@ -321,6 +321,25 @@
   z-index: 15;
 }
 
+/** Social Media **/
+
+.timeline-container .timeline--desc--social { margin-top: 8px; }
+
+.timeline-container .timeline--desc--social .svg-inline--fa {
+  padding: 5px;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+
+}
+
+.timeline-container .timeline--desc--social .svg-inline--fa:hover {
+    opacity: 0.7;
+}
+
 /* **************************************
         MEDIA QUERIES / RESPONSIVE
 ***************************************** */
