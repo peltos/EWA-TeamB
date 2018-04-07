@@ -83,6 +83,10 @@
     height: 2em;
 }
 
+.homepage-container .streamers__list{
+    flex-wrap: nowrap;
+}
+
 
 @media (min-width: 900px) {
 
