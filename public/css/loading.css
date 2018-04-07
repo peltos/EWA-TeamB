@@ -12,9 +12,6 @@
         opacity:0;
     }
 
-    body.loading .modal {
-        overflow: hidden;
-    }
 
     body.loading .modal {
         z-index: 1000;
