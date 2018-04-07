@@ -7,7 +7,7 @@
             <div class="dateFilter">
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')"><i
                             class="filter-icon fas fa-filter"></i></a>
-                <a class="tablinks dateFilter--item" href="#" id="onlineNav">online</a>
+                <a class="tablinks dateFilter--item active" href="#" id="onlineNav">online</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
