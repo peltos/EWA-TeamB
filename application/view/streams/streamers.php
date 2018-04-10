@@ -5,6 +5,7 @@
             <div class="dateFilter">
                 <a class="tablinks dateFilter--item" href="#"><i class="filter-icon fas fa-filter"></i></a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'NL')">Dutch Streamers</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'overwatch')">Overwatch</a>
@@ -45,7 +46,7 @@
                         <?php $counter++;
                     }
                 }
-
+}
 
             ?>
 
@@ -115,7 +116,7 @@
                     }
                 }
 
-
+}
 
             ?>
             <?php
@@ -184,7 +185,7 @@
                         <?php $counter++;
                     }
                 }
-
+}
 
             ?>
 
@@ -218,6 +219,43 @@
             ?>
     </div>
 
-    </ul>
+    <div id="NL" class="tabcontent">
+          <?php
+
+            $counter = 0;
+            if (!empty($streamersTwitch)) {
+                foreach ($streamersTwitch["streams"] as $key => $item) {
+                    if ($item["channel"]["language"] == "nl") {?>
+
+
+                      <?php if($counter == 0){?>
+                        <h3>Dutch Streamers <?php echo $item["game"] ?></h3>
+                            <ul class="streamers__list">
+                      <?php } ?>
+                      <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
+                         target="_blank">
+                             <div class="streamers--item__container">
+                                 <div class="streamers--item--image">
+                                           <img class="streamers--item__cover" src="<?php echo $item["preview"]["medium"] ?>"/>
+
+                                     <img class="streamers--item__icon"
+                                          src="<?php echo $item["channel"]["logo"] ?>"/>
+                                 </div>
+                                     <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["channel"]["display_name"] ?> </span>
+                                 <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
+                             </div>
+                         </a>
+                        <?php $counter++;
+
+                    }
+                }
+            }
+            if ($counter == 0) {
+                echo 'No streams available';
+            }
+            ?>
+            </ul>
+
+    </div>
 
 </div>
