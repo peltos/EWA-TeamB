@@ -1,12 +1,11 @@
 <?php
 
-class Model
-{
+class Model {
+
     /**
      * @param object $db A PDO database connection
      */
-    function __construct($db)
-    {
+    function __construct($db) {
         try {
             $this->db = $db;
         } catch (PDOException $e) {
@@ -14,8 +13,7 @@ class Model
         }
     }
 
-    function console_log($data)
-    {
+    function console_log($data) {
         echo '<script>';
         echo 'console.log(' . json_encode($data) . ')';
         echo '</script>';
@@ -24,8 +22,7 @@ class Model
     /**
      * Get all songs from database
      */
-    public function getAllSongs()
-    {
+    public function getAllSongs() {
         $sql = "SELECT id, artist, track, link FROM song";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -48,8 +45,7 @@ class Model
      * @param string $track Track
      * @param string $link Link
      */
-    public function addSong($username, $email, $password)
-    {
+    public function addSong($username, $email, $password) {
         $passwordEncrypt = md5($password);
 
         $sql = "INSERT INTO Member (username, memberEmail, password, firstLogin) VALUES (:username, :email , :password, :datetime)";
@@ -62,14 +58,23 @@ class Model
         $query->execute($parameters);
     }
 
+    public function getUser($email) {
+        $sql = "SELECT memberEmail, password FROM member WHERE memberEmail = :email";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':email' => $email);
+
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     /**
      * Delete a song in the database
      * Please note: this is just an example! In a real application you would not simply let everybody
      * add/update/delete stuff!
      * @param int $song_id Id of song
      */
-    public function deleteSong($song_id)
-    {
+    public function deleteSong($song_id) {
         $sql = "DELETE FROM song WHERE id = :song_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':song_id' => $song_id);
@@ -83,8 +88,7 @@ class Model
     /**
      * Get a song from database
      */
-    public function getSong($song_id)
-    {
+    public function getSong($song_id) {
         $sql = "SELECT id, artist, track, link FROM song WHERE id = :song_id LIMIT 1";
         $query = $this->db->prepare($sql);
         $parameters = array(':song_id' => $song_id);
@@ -110,8 +114,7 @@ class Model
      * @param string $link Link
      * @param int $song_id Id
      */
-    public function updateSong($artist, $track, $link, $song_id)
-    {
+    public function updateSong($artist, $track, $link, $song_id) {
         $sql = "UPDATE song SET artist = :artist, track = :track, link = :link WHERE id = :song_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':artist' => $artist, ':track' => $track, ':link' => $link, ':song_id' => $song_id);
@@ -126,8 +129,7 @@ class Model
      * Get simple "stats". This is just a simple demo to show
      * how to use more than one model in a controller (see application/controller/songs.php for more)
      */
-    public function getAmountOfSongs()
-    {
+    public function getAmountOfSongs() {
         $sql = "SELECT COUNT(id) AS amount_of_songs FROM song";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -136,15 +138,14 @@ class Model
         return $query->fetch()->amount_of_songs;
     }
 
-/**
-*****************************************************************************************************************
-*****************************************************************************************************************/
+    /**
+     * ****************************************************************************************************************
+     * *************************************************************************************************************** */
 
     /**
      * Get all upcoming matches data.
      */
-    public function timeline()
-    {
+    public function timeline() {
         $timelineVar = $this->timelineFilter();
 
         $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
@@ -158,8 +159,7 @@ class Model
     /**
      * Get all upcoming/running/past matches data.
      */
-    public function timelineFilter()
-    {
+    public function timelineFilter() {
         $timelineVar = null;
         $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
@@ -177,8 +177,7 @@ class Model
     /**
      * Get all streamers data.
      */
-    public function getStreamers($counter)
-    {
+    public function getStreamers($counter) {
         $result = array();
 
         for ($i = 0; $i <= $counter; $i++) {
@@ -190,4 +189,5 @@ class Model
         }
         return $result;
     }
+
 }
