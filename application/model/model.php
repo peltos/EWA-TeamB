@@ -207,6 +207,7 @@ class Model
 
         // checks the getStreamersID() function
         $streamersDb = $this->getStreamersID();
+        date_default_timezone_set('Europe/Amsterdam');
 
         // if not empty, try to update. if empty, just insert all of it
         if (!empty($streamersDb)) {
@@ -222,25 +223,27 @@ class Model
 
             // two foreach loops, one for getting all the json items and another to get all the database items
             foreach ($streamersWeb as $key => $streamerWeb) {
-                if ($streamerWeb["type"]["name"] == "League of legends" || $streamerWeb["type"]["name"] == "Dota 2" || $streamerWeb["type"]["name"] == "Overwatch") {
-                    foreach ($streamersDb as $streamersDB) {
+                foreach ($streamersDb as $streamersDB) {
 
-                        // json item equals database item, update the current information about the streamer
-                        if (((int)$streamersDB->streamID) == $streamerWeb['id']) {
-                            $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
-                            $query = $this->db->prepare($sql);
-                            $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
+                    // json item equals database item, update the current information about the streamer
+                    if (((int)$streamersDB->streamID) == $streamerWeb['id']) {
+                        $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
+                        $query = $this->db->prepare($sql);
+                        $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
 
-                            $query->execute($parameters);
+                        $query->execute($parameters);
 
-                            // be done with this item and start with the next
-                            continue;
-                        }
 
-                        $counterStreamersWeb++;
+                        // be done with this item and start with the next
+                        continue;
+                    }
+
+                    $counterStreamersWeb++;
+
+                    if ($streamerWeb["type"]["name"] == "League of legends" || $streamerWeb["type"]["name"] == "Dota 2" || $streamerWeb["type"]["name"] == "Overwatch") {
 
                         //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
-                        if ($counterStreamersWeb >= ($counterStreamersDb + 1) && $streamerWeb['online'] == true) {
+                        if ($counterStreamersWeb == ($counterStreamersDb) && $streamerWeb['online'] == true) {
 
                             $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
                             $query = $this->db->prepare($sql);
