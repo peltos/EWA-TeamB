@@ -26,6 +26,10 @@
     border: var(--desc-border-width) solid var(--Border-color);
     border-radius: 5px;
     background: var(--buttonBoxBg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 /** **/
