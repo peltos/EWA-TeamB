@@ -62,6 +62,16 @@ class Model
         $query->execute($parameters);
     }
 
+    public function getUser($email) {
+        $sql = "SELECT memberEmail, password FROM member WHERE memberEmail = :email";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':email' => $email);
+
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     /**
      * Delete a song in the database
      * Please note: this is just an example! In a real application you would not simply let everybody
@@ -137,8 +147,8 @@ class Model
     }
 
     /**
-     *****************************************************************************************************************
-     *****************************************************************************************************************/
+     * ****************************************************************************************************************
+     * *************************************************************************************************************** */
 
     /**
      * Get all upcoming matches data.

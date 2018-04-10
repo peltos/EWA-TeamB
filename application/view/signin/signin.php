@@ -1,6 +1,6 @@
 <div class="container signin-controller">
 
-    <form action="<?php echo URL; ?>signin" method="POST">
+    <form action="<?php echo URL; ?>signin/checkUser" method="POST">
         <h1 class="homepage-title"> Sign In </h1>
         <div class="signin-box">
             <div class="signin-email">

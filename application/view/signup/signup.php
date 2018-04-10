@@ -10,7 +10,7 @@
     };
   </script>
 
-    <form action="<?php echo URL; ?>signup/signupresponse" method="POST">
+    <form action="<?php echo URL; ?>signup/adduser" method="POST">
         <h1 class="homepage-title"> Sign Up </h1>
         <div class="signup-box">
             <div class="signup-username">

@@ -22,5 +22,20 @@ class Signin extends Controller
         require APP . 'view/signin/signin.php';
         require APP . 'view/_templates/footer.php';
     }
+    public function checkUser()
+    {
+        $getInfoUser = $this->model->getUser($_POST["email"]);
+        
+        // if we have POST data to create a new song entry
+        if (isset($getInfoUser)) {
+            $md5Password = md5($_POST["password"]);
+            
+            if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
+                header('location: ' . URL);
+            }else{
+                header('location: ' . URL . 'error');
+            }
+        }
+    }
 
 }
