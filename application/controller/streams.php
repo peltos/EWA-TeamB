@@ -20,7 +20,7 @@ class Streams extends Controller
     public function index()
     {
         $streamers = $this->model->getStreamers(13); // number of pages
-        $favorites = $this->model->getFavorites('pelt8@hotmail.com');
+        $favorites = $this->model->getFavorites($_SESSION["email"]);
         
         // load views
         require APP . 'view/_templates/header.php';

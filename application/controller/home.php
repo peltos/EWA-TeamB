@@ -30,8 +30,8 @@ class Home extends Controller
     public function logout()
     {
         session_start();
-        unset($_SESSION["username"]);
-        unset($_SESSION["email"]);
+        $_SESSION['username'] = '';
+        $_SESSION['email'] = '';
         header('location: ' . URL);
     }
 }

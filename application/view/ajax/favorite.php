@@ -9,14 +9,14 @@ echo $streamerId . " - " . $isActive;
 if ($isActive == 'true'){
     $sql = "INSERT INTO Favorite (Member_memberEmail, Streamer_streamID) VALUES (:useEmail, :streamerId)";
     $query = $this->db->prepare($sql);
-    $parameters = array(':useEmail' => "pelt8@hotmail.com", ':streamerId' => $streamerId);
+    $parameters = array(':useEmail' => $_SESSION["email"], ':streamerId' => $streamerId);
 
     $query->execute($parameters);
 }
 elseif($isActive == 'false'){
     $sql = "DELETE FROM Favorite WHERE Member_memberEmail = :useEmail AND Streamer_streamID = :streamerId;";
     $query = $this->db->prepare($sql);
-    $parameters = array(':useEmail' => "pelt8@hotmail.com", ':streamerId' => $streamerId);
+    $parameters = array(':useEmail' => $_SESSION["email"], ':streamerId' => $streamerId);
 
     $query->execute($parameters);
 }else{
