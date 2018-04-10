@@ -2,6 +2,12 @@
 if (!isset($_SESSION['nightmode'])) {
     $_SESSION['nightmode'] = 'false';
 }
+if (!isset($_SESSION['username'])) {
+    $_SESSION['username'] = '';
+}
+if (!isset($_SESSION['email'])) {
+    $_SESSION['email'] = '';
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,9 +56,13 @@ if (!isset($_SESSION['nightmode'])) {
                     <a class="navigation--item" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
                     <a class="navigation--item" href="<?php echo URL; ?>tournaments">Events</a>
                     <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
-                    <a class="navigation--item" href="<?php echo URL; ?>signup">Sign up</a>
                     <a class="navigation--item" href="<?php echo URL; ?>favorite"><i class="fas fa-star"></i>Favorites</a>
-                    <a class="navigation--item" href="<?php echo URL; ?>signin">Sign In <i class="fas fa-sign-in-alt"></i></a>
+                    <?php if($_SESSION['username'] == ''){ ?>
+                        <a class="navigation--item" href="<?php echo URL; ?>signup">Sign up</a>
+                        <a class="navigation--item" href="<?php echo URL; ?>signin">Sign In <i class="fas fa-sign-in-alt"></i></a>
+                    <?php } else{ ?>
+                        <a class="navigation--item" href="<?php echo URL; ?>home/logout"><i class="fas fa-power-off"></i>Logout</a>
+                    <?php } ?>
 
                 </div>
                 <div class="navigation-menu-icon" onclick="menuAnimation(this)">

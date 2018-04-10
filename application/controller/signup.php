@@ -62,7 +62,6 @@ class Signup extends Controller
             if ($_POST["password"] == $_POST["passwordcheck"]) {
 
             // POST user input fields to create new recaptcha entry.
-            $username;$email;$password;$passwordcheck;$captcha;
             if(isset($_POST['username'])) {
               $username = $_POST['username'];
             } if(isset($_POST['email'])) {
@@ -95,7 +94,7 @@ class Signup extends Controller
             // If captcha validation is succesfull, return 'sign up correct' page.
             } else {
               // Add user to database.
-              $this->model->addSong($_POST["username"], $_POST["email"], $_POST["password"]);
+              $this->model->addUser($_POST["username"], $_POST["email"], $_POST["password"]);
               header('location: ' . URL . 'signup/signupcorrect');
             }
           }else{

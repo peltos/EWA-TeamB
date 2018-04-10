@@ -27,4 +27,11 @@ class Home extends Controller
 
         $this->model->streamerUpdate('mixer', $favoritePage);
     }
+    public function logout()
+    {
+        session_start();
+        unset($_SESSION["username"]);
+        unset($_SESSION["email"]);
+        header('location: ' . URL);
+    }
 }

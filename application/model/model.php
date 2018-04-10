@@ -63,7 +63,7 @@ class Model
     }
 
     public function getUser($email) {
-        $sql = "SELECT memberEmail, password FROM member WHERE memberEmail = :email";
+        $sql = "SELECT * FROM Member WHERE memberEmail = :email";
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
 
