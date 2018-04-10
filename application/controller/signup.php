@@ -23,6 +23,14 @@ class Signup extends Controller
         require APP . 'view/_templates/footer.php';
     }
 
+    public function signupresponse()
+    {
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/signup/signupresponse.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
     public function adduser()
     {
         // if we have POST data to create a new song entry
@@ -30,9 +38,9 @@ class Signup extends Controller
             if ($_POST["password"] == $_POST["passwordcheck"]) {
                 // do addSong() in model/model.php
                 $this->model->addUser($_POST["username"], $_POST["email"], $_POST["password"]);
-                header('location: ' . URL . 'signup/signup');
+                header('location: ' . URL . 'signup/signupresponse');
             }else{
-                header('location: ' . URL . 'signup/signup');
+                header('location: ' . URL . 'signup/index');
             }
         }
     }

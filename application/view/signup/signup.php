@@ -1,6 +1,16 @@
 <div class="container signup-controller">
 
-    <form action="<?php echo URL; ?>signup/adduser" method="POST">
+  <script>
+    window.onload = function() {
+      var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+      if($recaptcha) {
+          $recaptcha.setAttribute("required", "required");
+      }
+    };
+  </script>
+
+    <form action="<?php echo URL; ?>signup/signupresponse" method="POST">
         <h1 class="homepage-title"> Sign Up </h1>
         <div class="signup-box">
             <div class="signup-username">
@@ -10,8 +20,8 @@
             </div>
             <div class="signup-email">
                 <span class="email-icon"><i class="far fa-envelope"></i></span>
-                <input type="text" name="email" value="" placeholder="Email Adress" onfocus="this.placeholder = ''"
-                       onblur="this.placeholder = 'Email Adress'" required/>
+                <input type="text" name="email" value="" placeholder="Email Address" onfocus="this.placeholder = ''"
+                       onblur="this.placeholder = 'Email Address'" required/>
             </div>
             <div class="signup-password">
                 <span class="password-icon"><i class="fas fa-lock"></i></span>
@@ -20,10 +30,12 @@
             </div>
             <div class="signup-passwordcheck">
                 <span class="user-icon"><i class="fas fa-check"></i></span>
-                <input type="text" name="passwordcheck" value="" placeholder="Confirm Password"
+                <input type="password" name="passwordcheck" value="" placeholder="Confirm Password"
                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required/>
             </div>
-            <input class="signup-submit" type="submit" name="adduser" value="submit" />
+
+            <div class="g-recaptcha" data-sitekey="6LcZoVAUAAAAAJMN1MqE_0s89kpMBxtHzE8J_HQi"></div>
+            <input class="signup-submit" type="submit" name="adduser" value="submit"/>
         </div>
         
     </form>
