@@ -1,15 +1,3 @@
-<?php session_start();
-if (!isset($_SESSION['nightmode'])) {
-    $_SESSION['nightmode'] = 'false';
-}
-if (!isset($_SESSION['username'])) {
-    $_SESSION['username'] = '';
-}
-if (!isset($_SESSION['email'])) {
-    $_SESSION['email'] = '';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -56,11 +44,11 @@ if (!isset($_SESSION['email'])) {
                     <a class="navigation--item" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
                     <a class="navigation--item" href="<?php echo URL; ?>tournaments">Events</a>
                     <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
-                    <a class="navigation--item" href="<?php echo URL; ?>favorite"><i class="fas fa-star"></i>Favorites</a>
-                    <?php if($_SESSION['username'] == ''){ ?>
+                    <?php if($_SESSION['email'] == ''){ ?>
                         <a class="navigation--item" href="<?php echo URL; ?>signup">Sign up</a>
                         <a class="navigation--item" href="<?php echo URL; ?>signin">Sign In <i class="fas fa-sign-in-alt"></i></a>
                     <?php } else{ ?>
+                        <a class="navigation--item" href="<?php echo URL; ?>favorite"><i class="fas fa-star"></i>Favorites</a>
                         <a class="navigation--item" href="<?php echo URL; ?>home/logout"><i class="fas fa-power-off"></i>Logout</a>
                     <?php } ?>
 
