@@ -1,12 +1,11 @@
 <?php
 
-class Model
-{
+class Model {
+
     /**
      * @param object $db A PDO database connection
      */
-    function __construct($db)
-    {
+    function __construct($db) {
         try {
             $this->db = $db;
         } catch (PDOException $e) {
@@ -14,8 +13,7 @@ class Model
         }
     }
 
-    function console_log($data)
-    {
+    function console_log($data) {
         echo '<script>';
         echo 'console.log(' . json_encode($data) . ')';
         echo '</script>';
@@ -24,8 +22,7 @@ class Model
     /**
      * Get all songs from database
      */
-    public function getAllSongs()
-    {
+    public function getAllSongs() {
         $sql = "SELECT id, artist, track, link FROM song";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -48,8 +45,7 @@ class Model
      * @param string $track Track
      * @param string $link Link
      */
-    public function addUser($username, $email, $password)
-    {
+    public function addUser($username, $email, $password) {
         $passwordEncrypt = md5($password);
 
         $sql = "INSERT INTO Member (username, memberEmail, password, firstLogin) VALUES (:username, :email , :password, :datetime)";
@@ -72,14 +68,23 @@ class Model
         return $query->fetch();
     }
 
+    public function checkUsername($username) {
+        $sql = "SELECT username FROM Member WHERE memberEmail = :username";
+        $query = $this->db->prepare($sql);
+        $parameters = array('username' => $username);
+
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     /**
      * Delete a song in the database
      * Please note: this is just an example! In a real application you would not simply let everybody
      * add/update/delete stuff!
      * @param int $song_id Id of song
      */
-    public function deleteSong($song_id)
-    {
+    public function deleteSong($song_id) {
         $sql = "DELETE FROM song WHERE id = :song_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':song_id' => $song_id);
@@ -93,8 +98,7 @@ class Model
     /**
      * Get a song from database
      */
-    public function getSong($song_id)
-    {
+    public function getSong($song_id) {
         $sql = "SELECT id, artist, track, link FROM song WHERE id = :song_id LIMIT 1";
         $query = $this->db->prepare($sql);
         $parameters = array(':song_id' => $song_id);
@@ -120,8 +124,7 @@ class Model
      * @param string $link Link
      * @param int $song_id Id
      */
-    public function updateSong($artist, $track, $link, $song_id)
-    {
+    public function updateSong($artist, $track, $link, $song_id) {
         $sql = "UPDATE song SET artist = :artist, track = :track, link = :link WHERE id = :song_id";
         $query = $this->db->prepare($sql);
         $parameters = array(':artist' => $artist, ':track' => $track, ':link' => $link, ':song_id' => $song_id);
@@ -136,8 +139,7 @@ class Model
      * Get simple "stats". This is just a simple demo to show
      * how to use more than one model in a controller (see application/controller/songs.php for more)
      */
-    public function getAmountOfSongs()
-    {
+    public function getAmountOfSongs() {
         $sql = "SELECT COUNT(id) AS amount_of_songs FROM song";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -153,8 +155,7 @@ class Model
     /**
      * Get all upcoming matches data.
      */
-    public function timeline()
-    {
+    public function timeline() {
         $timelineVar = $this->timelineFilter();
 
         $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
@@ -168,8 +169,7 @@ class Model
     /**
      * Get all upcoming/running/past matches data.
      */
-    public function timelineFilter()
-    {
+    public function timelineFilter() {
         $timelineVar = null;
         $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
@@ -187,8 +187,7 @@ class Model
     /**
      * Get all streamers data.
      */
-    public function getStreamers($counter)
-    {
+    public function getStreamers($counter) {
         $result = array();
 
         for ($i = 0; $i <= $counter; $i++) {
@@ -202,8 +201,7 @@ class Model
         return $result;
     }
 
-    public function getStreamersID()
-    {
+    public function getStreamersID() {
         // gets all the items from the database Streamer table
         $sql = "SELECT streamID FROM Streamer";
         $query = $this->db->prepare($sql);
@@ -212,8 +210,7 @@ class Model
         return $query->fetchAll();
     }
 
-    public function streamerUpdate($website, $streamersWeb)
-    {
+    public function streamerUpdate($website, $streamersWeb) {
 
         // checks the getStreamersID() function
         $streamersDb = $this->getStreamersID();
@@ -236,7 +233,7 @@ class Model
                 foreach ($streamersDb as $streamersDB) {
 
                     // json item equals database item, update the current information about the streamer
-                    if (((int)$streamersDB->streamID) == $streamerWeb['id']) {
+                    if (((int) $streamersDB->streamID) == $streamerWeb['id']) {
                         $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                         $query = $this->db->prepare($sql);
                         $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
@@ -268,7 +265,6 @@ class Model
                 }
                 // reset counter
                 $counterStreamersWeb = 0;
-
             }
         } else { // do this when database is empty
             foreach ($streamersWeb as $key => $streamerWeb) {
@@ -283,8 +279,7 @@ class Model
         }
     }
 
-    public function getfavorites($email)
-    {
+    public function getfavorites($email) {
         // gets all the items from the database Streamer table
         $sql = "SELECT Streamer_streamID FROM Favorite WHERE Member_memberEmail = :email";
         $query = $this->db->prepare($sql);
@@ -295,8 +290,7 @@ class Model
         return $query->fetchAll();
     }
 
-    public function getFavoritePage($streamers)
-    {
+    public function getFavoritePage($streamers) {
         $result = array();
         foreach ($streamers as $streamer) {
             $urlPage = 'https://mixer.com/api/v1/channels/' . $streamer->Streamer_streamID;
@@ -309,4 +303,5 @@ class Model
 
         return $result;
     }
+
 }
