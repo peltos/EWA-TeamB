@@ -53,7 +53,7 @@ class Signup extends Controller {
             // If we have POST data to create a new user entry
             // If password and passwordcheck are similar, check captcha. Or else return 'sign up failed' page.
             $username = ($_POST["username"]);
-            if (strlen($username) < 30) {
+            if (strlen($username) > 30) {
                 $_SESSION['message'] = 'username must be shorter then 30 characters';
                 header('location: ' . URL . 'signup');
             } else {

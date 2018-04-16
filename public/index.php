@@ -15,13 +15,16 @@ if (!isset($_SESSION['username'])) {
 if (!isset($_SESSION['email'])) {
     $_SESSION['email'] = '';
 }
-echo '<pre>' . var_dump($_SESSION) . '</pre>';
 
 // check if a session for cookies are made. if not make one
 if (!isset($_SESSION['cookie'])) {
     $_SESSION['cookie'] = false;
 }
 
+// check if a session for signup messages are made. if not make one
+if (!isset($_SESSION['message'])) {
+    $_SESSION['message'] = false;
+}
 
 // check what is in all sessions
 //echo '<pre>' . var_dump($_SESSION) . '</pre>';

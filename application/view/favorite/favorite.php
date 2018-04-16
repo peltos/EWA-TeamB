@@ -26,6 +26,27 @@
                         <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item["online"] == true) echo ' online' ?>">
+                        <a class="streamer--item__share">
+                            <i class="fas fa-share"></i>
+                        </a>
+                        <div class="streamer--item__social">
+                            <a target="_blank"
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://mixer.com/<?php echo $item["token"] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://twitter.com/share?url=https://mixer.com/<?php echo $item["token"] ?>&text=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank"
+                               href="https://plus.google.com/share?url=https://mixer.com/<?php echo $item["token"] ?>">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://reddit.com/submit?url=https://mixer.com/<?php echo $item["token"] ?>&title=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                <i class="fab fa-reddit"></i>
+                            </a>
+                        </div>
                         <a href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
@@ -84,6 +105,28 @@
                         <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+                        <!-- Social Media links -->
+                        <a class="streamer--item__share">
+                            <i class="fas fa-share"></i>
+                        </a>
+                        <div class="streamer--item__social">
+                            <a target="_blank"
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank"
+                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                <i class="fab fa-reddit"></i>
+                            </a>
+                        </div>
                     <a href="<?php echo $item['stream']["channel"]["url"] ?>"
                        target="_blank">
                         <div class="streamers--item__container">
@@ -132,6 +175,27 @@
                         <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item["online"] == true) echo ' online' ?>">
+                        <a class="streamer--item__share">
+                            <i class="fas fa-share"></i>
+                        </a>
+                        <div class="streamer--item__social">
+                            <a target="_blank"
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://mixer.com/<?php echo $item["token"] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://twitter.com/share?url=https://mixer.com/<?php echo $item["token"] ?>&text=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank"
+                               href="https://plus.google.com/share?url=https://mixer.com/<?php echo $item["token"] ?>">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://reddit.com/submit?url=https://mixer.com/<?php echo $item["token"] ?>&title=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                <i class="fab fa-reddit"></i>
+                            </a>
+                        </div>
                         <a href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
@@ -190,6 +254,28 @@
                         <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+                        <!-- Social Media links -->
+                        <a class="streamer--item__share">
+                            <i class="fas fa-share"></i>
+                        </a>
+                        <div class="streamer--item__social">
+                            <a target="_blank"
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank"
+                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                <i class="fab fa-reddit"></i>
+                            </a>
+                        </div>
                     <a href="<?php echo $item['stream']["channel"]["url"] ?>"
                        target="_blank">
                         <div class="streamers--item__container">
@@ -240,6 +326,27 @@
                         <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item["online"] == true) echo ' online' ?>">
+                        <a class="streamer--item__share">
+                            <i class="fas fa-share"></i>
+                        </a>
+                        <div class="streamer--item__social">
+                            <a target="_blank"
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://mixer.com/<?php echo $item["token"] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://twitter.com/share?url=https://mixer.com/<?php echo $item["token"] ?>&text=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank"
+                               href="https://plus.google.com/share?url=https://mixer.com/<?php echo $item["token"] ?>">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://reddit.com/submit?url=https://mixer.com/<?php echo $item["token"] ?>&title=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                <i class="fab fa-reddit"></i>
+                            </a>
+                        </div>
                         <a href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
@@ -297,6 +404,28 @@
                         <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+                        <!-- Social Media links -->
+                        <a class="streamer--item__share">
+                            <i class="fas fa-share"></i>
+                        </a>
+                        <div class="streamer--item__social">
+                            <a target="_blank"
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank"
+                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                <i class="fab fa-reddit"></i>
+                            </a>
+                        </div>
                     <a href="<?php echo $item['stream']["channel"]["url"] ?>"
                        target="_blank">
                         <div class="streamers--item__container">
@@ -345,6 +474,27 @@
                         <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item["online"] == true) echo ' online' ?>">
+                        <a class="streamer--item__share">
+                            <i class="fas fa-share"></i>
+                        </a>
+                        <div class="streamer--item__social">
+                            <a target="_blank"
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://mixer.com/<?php echo $item["token"] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://twitter.com/share?url=https://mixer.com/<?php echo $item["token"] ?>&text=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank"
+                               href="https://plus.google.com/share?url=https://mixer.com/<?php echo $item["token"] ?>">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://reddit.com/submit?url=https://mixer.com/<?php echo $item["token"] ?>&title=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                <i class="fab fa-reddit"></i>
+                            </a>
+                        </div>
                         <a href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
@@ -402,6 +552,28 @@
                         <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+                        <!-- Social Media links -->
+                        <a class="streamer--item__share">
+                            <i class="fas fa-share"></i>
+                        </a>
+                        <div class="streamer--item__social">
+                            <a target="_blank"
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a target="_blank"
+                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                <i class="fab fa-google"></i>
+                            </a>
+                            <a target="_blank"
+                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                <i class="fab fa-reddit"></i>
+                            </a>
+                        </div>
                     <a href="<?php echo $item['stream']["channel"]["url"] ?>"
                        target="_blank">
                         <div class="streamers--item__container">

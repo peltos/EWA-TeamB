@@ -12,7 +12,6 @@ $( document ).ready(function() {
             type: "post",
             data: "streamerId=" + streamerId + "&isActive=" + isActive,
             success: function (html) {
-                alert(html)
             }
         });
 

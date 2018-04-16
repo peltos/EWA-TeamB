@@ -72,8 +72,7 @@
 }
 
 .streamers-container .streamer-title  {
-    margin-top: 7px;
-    margin-bottom: 7px;
+    margin: .5em 2.25em .5em .5em;
     text-transform: none;
     font-weight: normal;
     overflow: hidden;

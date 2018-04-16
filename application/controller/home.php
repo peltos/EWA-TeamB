@@ -17,7 +17,7 @@ class Home extends Controller
     public function index()
     {
         $slider = $this->model->timeline();
-        $favorites = $this->model->getFavorites('pelt8@hotmail.com');
+        $favorites = $this->model->getFavorites($_SESSION['email']);
         $favoritePage = $this->model->getFavoritePageMixer($favorites);
 
         // load views
