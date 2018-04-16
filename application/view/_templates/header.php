@@ -20,6 +20,13 @@
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <!-- Font Awesome  -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- twitter meta info -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:creator" content="">
+        <meta name="twitter:title" content="Ziggo Esport">
+        <meta name="twitter:description" content="Ziggo Esport homepage">
+        <meta name="twitter:image" content="http://ronpelt.synology.me/ewa/img/logo__twitter.jpg">
     </head>
     <body class=" <?php
     if($_SESSION['nightmode'] == 'false'){
