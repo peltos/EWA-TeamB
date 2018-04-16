@@ -20,14 +20,16 @@ class Favorite extends Controller
         if (!$_SESSION['email'] == '') {
 
             $favorites = $this->model->getFavorites($_SESSION['email']);
-            $favoritePage = $this->model->getFavoritePage($favorites);
+            $favoritePageMixer = $this->model->getFavoritePageMixer($favorites);
+            $favoritePageTwitch = $this->model->getFavoritePageTwitch($favorites);
 
             // load views
             require APP . 'view/_templates/header.php';
             require APP . 'view/favorite/favorite.php';
             require APP . 'view/_templates/footer.php';
 
-            $this->model->streamerUpdateMixer('mixer', $favoritePage);
+            $this->model->streamerUpdateMixer('mixer', $favoritePageMixer);
+            $this->model->streamerUpdateTwitch('twitch', $favoritePageTwitch);
         }else{
             header('location: ' . URL);
         }
