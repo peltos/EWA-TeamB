@@ -1,5 +1,5 @@
 .homepage-container .homepage-title {
-  color: var(--filterIcon-color); 
+  color: var(--filterIcon-color);
   border-bottom: 2px solid var(--orange-color);
     line-height: 2;
 }
@@ -64,9 +64,11 @@
     flex-direction: column;
     align-items: center;
     background: var(--desc-color);
-    width:90%;
-    padding:1em 0 ;
-    margin:1em 0;
+    width: 90%;
+    padding: 1em 0;
+    margin: 1em 0;
+    border: 0.5px solid var(--Border-color);
+    border-radius: 3px;
 }
 .homepage-container .slider-desc--matchup__vs{
     color:var(--orange-color);
@@ -81,6 +83,10 @@
 
 .homepage-container .slider-desc--matchup__img {
     height: 2em;
+}
+
+.homepage-container .streamers__list{
+    flex-wrap: nowrap;
 }
 
 

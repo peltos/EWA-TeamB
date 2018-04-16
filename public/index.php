@@ -1,15 +1,21 @@
 <?php
+session_start();
 
-/**
- * MINI - an extremely simple naked PHP application
- *
- * @package mini
- * @author Panique
- * @link https://github.com/panique/mini/
- * @license http://opensource.org/licenses/MIT MIT License
- */
+// check if a session for nightmode is made. if not make one
+if (!isset($_SESSION['nightmode'])) {
+    $_SESSION['nightmode'] = 'false';
+}
 
-// TODO get rid of this and work with namespaces + composer's autoloader
+// check if a session for the username is made. if not make one
+if (!isset($_SESSION['username'])) {
+    $_SESSION['username'] = '';
+}
+
+// check if a session for the email is made. if not make one
+if (!isset($_SESSION['email'])) {
+    $_SESSION['email'] = '';
+}
+echo '<pre>' . var_dump($_SESSION) . '</pre>';
 
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path

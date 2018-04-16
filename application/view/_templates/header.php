@@ -1,9 +1,3 @@
-<?php session_start();
-if (!isset($_SESSION['nightmode'])) {
-    $_SESSION['nightmode'] = 'false';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,6 +15,9 @@ if (!isset($_SESSION['nightmode'])) {
         <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#f48c00">
         <meta name="msapplication-TileColor" content="#f48c00">
         <meta name="theme-color" content="#ffffff">
+
+        <!--   Google reCaptcha -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body class=" <?php
     if($_SESSION['nightmode'] == 'false'){
@@ -47,9 +44,13 @@ if (!isset($_SESSION['nightmode'])) {
                     <a class="navigation--item" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
                     <a class="navigation--item" href="<?php echo URL; ?>tournaments">Events</a>
                     <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
-                    <a class="navigation--item" href="<?php echo URL; ?>signup">Sign up</a>
-                    <!--  <a class="navigation--item" href="--><?php //echo URL; ?><!--songs">Songs</a>-->
-                    <a class="navigation--item" href="<?php echo URL; ?>login">Sign In <i class="fas fa-sign-in-alt"></i></a>
+                    <?php if($_SESSION['email'] == ''){ ?>
+                        <a class="navigation--item" href="<?php echo URL; ?>signup">Sign up</a>
+                        <a class="navigation--item" href="<?php echo URL; ?>signin">Sign In <i class="fas fa-sign-in-alt"></i></a>
+                    <?php } else{ ?>
+                        <a class="navigation--item" href="<?php echo URL; ?>favorite"><i class="fas fa-star"></i>Favorites</a>
+                        <a class="navigation--item" href="<?php echo URL; ?>home/logout"><i class="fas fa-power-off"></i>Logout</a>
+                    <?php } ?>
 
                 </div>
                 <div class="navigation-menu-icon" onclick="menuAnimation(this)">

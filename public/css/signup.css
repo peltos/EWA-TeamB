@@ -23,12 +23,16 @@
 .signup-controller .signup-box {
     width: calc(105% - 43px - 1em);
     padding: 20px 15px;
-    border: var(--desc-border-width) solid black;
+    border: var(--desc-border-width) solid var(--Border-color);
     border-radius: 5px;
     background: var(--buttonBoxBg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
-
+/** **/
 .signup-controller .signup-passwordcheck,
 .signup-controller .signup-password,
 .signup-controller .signup-email,
@@ -55,7 +59,7 @@
 .signup-controller .signup-password {
     width: 100%;
     background: var(--primary-color);
-    border: var(--desc-border-width) solid black;
+    border: var(--desc-border-width) solid var(--Border-color);
     margin-bottom: 1em;
     border-radius: 5px;
 }
@@ -71,7 +75,7 @@
     width: 100%;
     background: var(--background);
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;  
+    border-bottom-right-radius: 5px;
 
 }
 
@@ -80,10 +84,54 @@
     color: var(--font-color);
 }
 
+/** recaptcha: required message **/
+.signup-controller #g-recaptcha-response {
+    display: block !important;
+    position: absolute;
+    margin: -78px 0 0 0 !important;
+    width: 302px !important;
+    height: 76px !important;
+    z-index: -999999;
+    opacity: 0;
+}
+
+.signup-controller .g-recaptcha {
+  margin: 0 auto;
+  display: table;
+}
+
 .signup-controller .signup-submit {
     color: var(--orange-color);
     background-color: var(--buttonBg-color);
     font-weight: bold;
     margin-top: .5em;
     width: 100%;
+}
+
+/**
+*********** Sign In Response Page ************
+**/
+
+.signup-controller .block-icon {
+  font-size: 10em;
+  color: red;
+}
+
+.signup-controller .passed-icon {
+  font-size: 10em;
+  color: #24bb62;
+}
+
+.signup-controller .signup-response {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em auto;
+  max-width: 400px;
+  position: relative;
+  padding: 20px 15px;
+  border: var(--desc-border-width) solid var(--Border-color);
+  border-radius: 5px;
+  background: var(--buttonBoxBg-color);
+  text-align: center;
 }

@@ -1,0 +1,7 @@
+.favorite-container{
+
+}
+
+.favorite-container .streamers--item:not(.online){
+    display:none;
+}
