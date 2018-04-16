@@ -20,7 +20,7 @@ class Streams extends Controller
     public function index()
     {
         $streamers = $this->model->getStreamers(5); // number of pages of the json file of the mixer api.
-        $streamersTwitch = $this->model->getStreamersTwitch(10); // number of pages of the json file of the twitch api.
+        $streamersTwitch = $this->model->getStreamersTwitch(1); // number of pages of the json file of the twitch api.
         $favorites = $this->model->getFavorites($_SESSION["email"]);
 
         // load views
@@ -28,6 +28,7 @@ class Streams extends Controller
         require APP . 'view/streams/streamers.php';
         require APP . 'view/_templates/footer.php';
 
-        $this->model->streamerUpdate('mixer', $streamers);
+        $this->model->streamerUpdateMixer('mixer', $streamers);
+        $this->model->streamerUpdateTwitch('twitch', $streamersTwitch);
     }
 }

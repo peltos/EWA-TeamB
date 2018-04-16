@@ -15,7 +15,8 @@ if (!isset($_SESSION['username'])) {
 if (!isset($_SESSION['email'])) {
     $_SESSION['email'] = '';
 }
-echo var_dump($_SESSION);
+echo '<pre>' . var_dump($_SESSION) . '</pre>';
+
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path
 define('ROOT', dirname(__DIR__) . DIRECTORY_SEPARATOR);

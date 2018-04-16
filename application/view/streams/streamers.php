@@ -21,8 +21,8 @@
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "League of legends") { ?>
-
-                        <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
+                        <li class="streamers--item">
+                        <a href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -70,7 +70,8 @@
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "League of Legends") { ?>
-                        <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
+                        <li class="streamers--item">
+                        <a href="<?php echo $item["channel"]["url"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -89,14 +90,14 @@
                             <?php
                             if (!empty($favorites)) {
                                 foreach ($favorites as $favorite) {
-                                    if ($favorite->Streamer_streamID == $item["id"]) {
+                                    if ($favorite->Streamer_streamID == $item["_id"]) {
                                         echo ' active';
                                     } else {
                                         echo '';
                                     }
                                 }
                             } ?>
-                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
+                            " href="#" id="<?php echo $item["_id"] ?> "><i class="fas fa-star"></i></a>
                             </li>
                         <?php }
                         $counter++;
@@ -120,8 +121,9 @@
 
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "Dota 2") { ?>
+                        <li class="streamers--item">
 
-                        <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
+                        <a href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -169,7 +171,8 @@
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "Dota 2") { ?>
-                      <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
+                        <li class="streamers--item">
+                      <a href="<?php echo $item["channel"]["url"] ?>"
                          target="_blank">
                              <div class="streamers--item__container">
                                  <div class="streamers--item--image">
@@ -188,14 +191,14 @@
                             <?php
                             if (!empty($favorites)) {
                                 foreach ($favorites as $favorite) {
-                                    if ($favorite->Streamer_streamID == $item["id"]) {
+                                    if ($favorite->Streamer_streamID == $item["_id"]) {
                                         echo ' active';
                                     } else {
                                         echo '';
                                     }
                                 }
                             } ?>
-                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
+                            " href="#" id="<?php echo $item["_id"] ?> "><i class="fas fa-star"></i></a>
                             </li>
                         <?php }
                         $counter++;
@@ -220,8 +223,9 @@
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "Overwatch") { ?>
+                        <li class="streamers--item">
 
-                        <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
+                        <a href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -269,7 +273,8 @@
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "Overwatch") { ?>
-                      <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
+                        <li class="streamers--item">
+                      <a href="<?php echo $item["channel"]["url"] ?>"
                          target="_blank">
                              <div class="streamers--item__container">
                                  <div class="streamers--item--image">
@@ -288,14 +293,14 @@
                             <?php
                             if (!empty($favorites)) {
                                 foreach ($favorites as $favorite) {
-                                    if ($favorite->Streamer_streamID == $item["id"]) {
+                                    if ($favorite->Streamer_streamID == $item["_id"]) {
                                         echo ' active';
                                     } else {
                                         echo '';
                                     }
                                 }
                             } ?>
-                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
+                            " href="#" id="<?php echo $item["_id"] ?> "><i class="fas fa-star"></i></a>
                             </li>
                         <?php }
                         $counter++;
@@ -319,9 +324,10 @@
     if (!empty($streamers)) {
         foreach ($streamers as $key => $item) {
             if ($item["languageId"] == "nl") { ?>
+                <li class="streamers--item">
 
 
-                <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
+                <a href="https://mixer.com/<?php echo $item["token"] ?>"
                    target="_blank">
                     <div class="streamers--item__container">
                         <div class="streamers--item--image">
@@ -342,7 +348,22 @@
                         <span class="streamer-title"><?php echo $item["name"] ?></span>
                     </div>
                 </a>
-                <?php $counter++;
+                <?php if (!$_SESSION['email'] == '') { ?>
+                    <a class="streamer-star
+                            <?php
+                    if (!empty($favorites)) {
+                        foreach ($favorites as $favorite) {
+                            if ($favorite->Streamer_streamID == $item["id"]) {
+                                echo ' active';
+                            } else {
+                                echo '';
+                            }
+                        }
+                    } ?>
+                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
+                    </li>
+                <?php }
+                $counter++;
             }
         }
 }
@@ -354,9 +375,10 @@
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["language"] == "nl") {?>
+                        <li class="streamers--item">
 
 
-                      <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
+                      <a href="<?php echo $item["channel"]["url"] ?>"
                          target="_blank">
                              <div class="streamers--item__container">
                                  <div class="streamers--item--image">
@@ -369,7 +391,22 @@
                                  <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
                              </div>
                          </a>
-                        <?php $counter++;
+                        <?php if (!$_SESSION['email'] == '') { ?>
+                            <a class="streamer-star
+                            <?php
+                            if (!empty($favorites)) {
+                                foreach ($favorites as $favorite) {
+                                    if ($favorite->Streamer_streamID == $item["_id"]) {
+                                        echo ' active';
+                                    } else {
+                                        echo '';
+                                    }
+                                }
+                            } ?>
+                            " href="#" id="<?php echo $item["_id"] ?> "><i class="fas fa-star"></i></a>
+                            </li>
+                        <?php }
+                        $counter++;
 
                     }
                 }

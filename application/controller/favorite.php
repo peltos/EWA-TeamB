@@ -27,7 +27,7 @@ class Favorite extends Controller
             require APP . 'view/favorite/favorite.php';
             require APP . 'view/_templates/footer.php';
 
-            $this->model->streamerUpdate('mixer', $favoritePage);
+            $this->model->streamerUpdateMixer('mixer', $favoritePage);
         }else{
             header('location: ' . URL);
         }

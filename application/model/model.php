@@ -62,7 +62,8 @@ class Model
         $query->execute($parameters);
     }
 
-    public function getUser($email) {
+    public function getUser($email)
+    {
         $sql = "SELECT * FROM Member WHERE memberEmail = :email";
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
@@ -222,12 +223,13 @@ class Model
         return $query->fetchAll();
     }
 
-    public function streamerUpdate($website, $streamersWeb)
+    public function streamerUpdateMixer($website, $streamersWeb)
     {
 
         // checks the getStreamersID() function
         $streamersDb = $this->getStreamersID();
         date_default_timezone_set('Europe/Amsterdam');
+
 
         // if not empty, try to update. if empty, just insert all of it
         if (!empty($streamersDb)) {
@@ -240,13 +242,14 @@ class Model
             foreach ($streamersDb as $streamersDB) {
                 $counterStreamersDb++;
             }
-
             // two foreach loops, one for getting all the json items and another to get all the database items
             foreach ($streamersWeb as $key => $streamerWeb) {
+
+                // if its the mixer api
                 foreach ($streamersDb as $streamersDB) {
 
                     // json item equals database item, update the current information about the streamer
-                    if (((int)$streamersDB->streamID) == $streamerWeb['id']) {
+                    if (((float)$streamersDB->streamID) == $streamerWeb['id']) {
                         $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                         $query = $this->db->prepare($sql);
                         $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
@@ -278,10 +281,11 @@ class Model
                 }
                 // reset counter
                 $counterStreamersWeb = 0;
-
             }
+
         } else { // do this when database is empty
             foreach ($streamersWeb as $key => $streamerWeb) {
+
                 if ($streamerWeb['online'] == true && ($streamerWeb["type"]["name"] == "League of legends" || $streamerWeb["type"]["name"] == "Dota 2" || $streamerWeb["type"]["name"] == "Overwatch")) {
                     $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
                     $query = $this->db->prepare($sql);
@@ -293,7 +297,84 @@ class Model
         }
     }
 
-    public function getfavorites($email)
+    public function streamerUpdateTwitch($website, $streamersWeb)
+    {
+
+
+        // checks the getStreamersID() function
+        $streamersDb = $this->getStreamersID();
+        date_default_timezone_set('Europe/Amsterdam');
+
+
+        // if not empty, try to update. if empty, just insert all of it
+        if (!empty($streamersDb)) {
+
+            // variables for counting the json and database items
+            $counterStreamersDb = 0;
+            $counterStreamersWeb = 0;
+
+            // counts the database items
+            foreach ($streamersDb as $streamersDB) {
+                $counterStreamersDb++;
+            }
+            // two foreach loops, one for getting all the json items and another to get all the database items
+            foreach ($streamersWeb['streams'] as $key => $streamerWeb) {
+
+                // if its the mixer api
+                foreach ($streamersDb as $streamersDB) {
+                    // json item equals database item, update the current information about the streamer
+                    if (((float)$streamersDB->streamID) == $streamerWeb['_id']) {
+                        $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
+                        $query = $this->db->prepare($sql);
+                        $parameters = array(':streamName' => $streamerWeb['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['game'], ':streamID' => $streamerWeb['_id'], ':website' => $website);
+
+                        $query->execute($parameters);
+
+
+                        // be done with this item and start with the next
+                        continue;
+                    }
+
+                    $counterStreamersWeb++;
+
+                    if ($streamerWeb["game"] == "League of legends" || $streamerWeb["game"] == "Dota 2" || $streamerWeb["game"] == "Overwatch") {
+
+                        //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
+                        if ($counterStreamersWeb == ($counterStreamersDb) && $streamerWeb['stream_type'] == 'live') {
+
+                            $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
+                            $query = $this->db->prepare($sql);
+                            $parameters = array(':streamID' => $streamerWeb['_id'], ':streamName' => $streamerWeb['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['game'], ':website' => $website);
+
+//                            var_dump($parameters);
+                            $query->execute($parameters);
+
+                            // reset counter
+                            $counterStreamersWeb = 0;
+                        }
+                    }
+                }
+                // reset counter
+                $counterStreamersWeb = 0;
+            }
+
+        } else { // do this when database is empty
+            foreach ($streamersWeb['streams'] as $key => $streamerWeb) {
+
+                if ($streamerWeb['stream_type'] == 'live' && ($streamerWeb["game"] == "League of legends" || $streamerWeb["game"] == "Dota 2" || $streamerWeb["game"] == "Overwatch")) {
+                    $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
+                    $query = $this->db->prepare($sql);
+                    $parameters = array(':streamID' => $streamerWeb['_id'], ':streamName' => $streamerWeb['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['game'], ':website' => $website);
+
+                    $query->execute($parameters);
+                }
+            }
+        }
+    }
+
+
+    public
+    function getfavorites($email)
     {
         // gets all the items from the database Streamer table
         $sql = "SELECT Streamer_streamID FROM Favorite WHERE Member_memberEmail = :email";
@@ -305,7 +386,8 @@ class Model
         return $query->fetchAll();
     }
 
-    public function getFavoritePage($streamers)
+    public
+    function getFavoritePage($streamers)
     {
         $result = array();
         foreach ($streamers as $streamer) {
@@ -319,20 +401,15 @@ class Model
 
         return $result;
     }
-    public function getStreamersTwitch($counter)
-      {
-       for ($i = 0; $i <= $counter; $i++) {
-          $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
-          $jsonPage = file_get_contents($urlPage);
-          $arrayPage = json_decode($jsonPage, true);
 
-          // for ($i = 0; $i <= $counter; $i++) {
-          //     ${"urlPage$i"} = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
-          //     ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
-          //     ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
-          //
-        //  $result = array_merge($result, ${"arrayPage$i"});
-         }
-          return $arrayPage;
-      }
+    public
+    function getStreamersTwitch($counter)
+    {
+        for ($i = 0; $i <= $counter; $i++) {
+            $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
+            $jsonPage = file_get_contents($urlPage);
+            $arrayPage = json_decode($jsonPage, true);
+        }
+        return $arrayPage;
+    }
 }
