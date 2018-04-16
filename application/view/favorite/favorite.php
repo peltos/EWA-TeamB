@@ -199,13 +199,13 @@
             <?php
         }?>
     </div>
-    <div id="overwatch" class="tabcontent">
+    <div id="other" class="tabcontent">
 
         <?php
         $counter = 0;
         if (!empty($favoritePage)) {
             foreach ($favoritePage as $key => $item) {
-                if ((!$item["type"]["name"] == "Overwatch") || (!$item["type"]["name"] == "Dota 2") || (!$item["type"]["name"] == "League of legends")){
+                if ((!$item["type"]["name"] == "Overwatch") && (!$item["type"]["name"] == "Dota 2") && (!$item["type"]["name"] == "League of legends")){
                     if ($counter == 0) { ?>
                         <h3>other</h3>
                         <ul class="streamers__list">
@@ -260,5 +260,6 @@
             <?php
         }?>
     </div>
+
 
 </div>
