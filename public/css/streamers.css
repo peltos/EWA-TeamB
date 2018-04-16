@@ -115,6 +115,42 @@
     vertical-align: 0.145em;
 }
 
+/** Social Media **/
+
+.streamers-container .streamer--item__social .svg-inline--fa {
+  padding: 5px;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.streamers-container .streamer--item__social .svg-inline--fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook-f {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-reddit {
+  background: #ff5700;
+  color: white;
+}
+
 /* **************************************
         MEDIA QUERIES / RESPONSIVE
 ***************************************** */
@@ -130,7 +166,7 @@
     .streamers-container .streamers--item {
         width: calc(33.333333% - 30px);
     }
-    .streamers-container .streamers--item__cover{
+    .streamers-container .streamers--item__cover {
         filter: grayscale(44%) opacity(0.8);
     }
     .streamers-container .streamers--item__container:hover .streamers--item__cover{

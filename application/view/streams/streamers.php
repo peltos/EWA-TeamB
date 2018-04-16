@@ -21,8 +21,8 @@
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "League of legends") { ?>
-                        <li class="streamers--item">
-                        <a href="https://mixer.com/<?php echo $item["token"] ?>"
+
+                        <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -40,7 +40,9 @@
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
                                 </div>
                                 <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                                <span class="streamer-title"><?php echo $item["name"] ?></span>
+                                <div class="streamer-title-wrapper">
+                                    <span class="streamer-title"><?php echo $item["name"] ?></span>
+                                </div>
                             </div>
                         </a>
                         <?php if (!$_SESSION['email'] == '') { ?>
@@ -141,7 +143,9 @@
                                          src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
                                 </div>
                                 <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                                <span class="streamer-title"><?php echo $item["name"] ?></span>
+                                <div class="streamer-title-wrapper">
+                                    <span class="streamer-title"><?php echo $item["name"] ?></span>
+                                </div>
                             </div>
                         </a>
                         <?php if (!$_SESSION['email'] == '') { ?>
@@ -225,6 +229,21 @@
                     if ($item["type"]["name"] == "Overwatch") { ?>
                         <li class="streamers--item">
 
+                      <!-- Social Media links -->
+                      <div class="streamer--item__social">
+                        <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=https://mixer.com/<?php echo $item["token"] ?>">
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a target="_blank" href="http://twitter.com/share?url=https://mixer.com/<?php echo $item["token"] ?>&text=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                        <a target="_blank" href="https://plus.google.com/share?url=https://mixer.com/<?php echo $item["token"] ?>">
+                          <i class="fab fa-google"></i>
+                        </a>
+                        <a target="_blank" href="http://reddit.com/submit?url=https://mixer.com/<?php echo $item["token"] ?>&title=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                          <i class="fab fa-reddit"></i>
+                        </a>
+                      </div>
                         <a href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
