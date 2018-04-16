@@ -6,7 +6,21 @@
     <!-- backlink to repo on GitHub, and affiliate link to Rackspace if you want to support the project -->
     <div class="footer">
     </div>
-        <div class="modal"><!-- Place at bottom of page --></div>
+
+    <?php // if the username didnt accept the agreement yet. show a footer pop-up
+    if($_SESSION['cookie'] == false){ ?>
+        <div class="cookie">
+            <div class="cookie--inner">
+                <p class="cookie--text">
+                    This website uses cookies to improve user experience.
+                    By using our website you consent to all
+                    cookies in accordance with our Cookie Policy.
+                    <a class="cookie--text--link" href="<?php echo URL; ?>cookie">Read more</a>
+                </p>
+                <a class="cookie--button">I Agree</a>
+            </div>
+        </div>
+    <?php } ?>
 
     <!-- jQuery, loaded in the recommended protocol-less way -->
     <!-- more http://www.paulirish.com/2010/the-protocol-relative-url/ -->
@@ -29,5 +43,6 @@
         <script src="<?php echo URL; ?>js/streamers.js"></script>
         <script src="<?php echo URL; ?>js/nightmode.js"></script>
         <script src="<?php echo URL; ?>js/favorite.js"></script>
+        <script src="<?php echo URL; ?>js/cookie.js"></script>
 </body>
 </html>
