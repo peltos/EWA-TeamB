@@ -137,7 +137,7 @@
                         </a>
                         <?php $counter++;
                     }
-                }
+                 }
             }
             if ($counter == 0) {
                 echo 'No streams available';
