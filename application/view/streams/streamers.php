@@ -217,9 +217,47 @@
                 echo 'No streams available';
             }
             ?>
+            </ul>
     </div>
 
     <div id="NL" class="tabcontent">
+    <h3>Dutch Streamers</h3>
+    <ul class="streamers__list">
+
+    <?php
+    $counter = 0;
+    if (!empty($streamers)) {
+        foreach ($streamers as $key => $item) {
+            if ($item["languageId"] == "nl") { ?>
+
+
+                <a class="streamers--item" href="https://mixer.com/<?php echo $item["token"] ?>"
+                   target="_blank">
+                    <div class="streamers--item__container">
+                        <div class="streamers--item--image">
+                            <?php
+                            $file = 'https://thumbs.mixer.com/channel/' . $item["id"] .'.small.jpg';
+                            $file_headers = @get_headers($file);
+                            if(!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                            ?>
+                                <img class="streamers--item__cover" src="<?php echo $item["type"]["coverUrl"] ?>"/>
+                            <?php } else { ?>
+                                <img class="streamers--item__cover" src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
+                            <?php } ?>
+
+                            <img class="streamers--item__icon"
+                                 src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
+                        </div>
+                            <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
+                        <span class="streamer-title"><?php echo $item["name"] ?></span>
+                    </div>
+                </a>
+                <?php $counter++;
+            }
+        }
+}
+
+    ?>
           <?php
 
             $counter = 0;
@@ -228,10 +266,6 @@
                     if ($item["channel"]["language"] == "nl") {?>
 
 
-                      <?php if($counter == 0){?>
-                        <h3>Dutch Streamers <?php echo $item["game"] ?></h3>
-                            <ul class="streamers__list">
-                      <?php } ?>
                       <a class="streamers--item" href="<?php echo $item["channel"]["url"] ?>"
                          target="_blank">
                              <div class="streamers--item__container">
@@ -255,7 +289,6 @@
             }
             ?>
             </ul>
-
     </div>
 
 </div>
