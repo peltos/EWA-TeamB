@@ -111,19 +111,19 @@
                         </a>
                         <div class="streamer--item__social">
                             <a target="_blank"
-                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                             <a target="_blank"
-                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a target="_blank"
-                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
                                 <i class="fab fa-google"></i>
                             </a>
                             <a target="_blank"
-                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
@@ -260,19 +260,19 @@
                         </a>
                         <div class="streamer--item__social">
                             <a target="_blank"
-                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                             <a target="_blank"
-                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a target="_blank"
-                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
                                 <i class="fab fa-google"></i>
                             </a>
                             <a target="_blank"
-                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
@@ -410,19 +410,19 @@
                         </a>
                         <div class="streamer--item__social">
                             <a target="_blank"
-                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                             <a target="_blank"
-                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a target="_blank"
-                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
                                 <i class="fab fa-google"></i>
                             </a>
                             <a target="_blank"
-                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
@@ -558,19 +558,19 @@
                         </a>
                         <div class="streamer--item__social">
                             <a target="_blank"
-                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                             <a target="_blank"
-                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
                                 <i class="fab fa-twitter"></i>
                             </a>
                             <a target="_blank"
-                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
                                 <i class="fab fa-google"></i>
                             </a>
                             <a target="_blank"
-                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
