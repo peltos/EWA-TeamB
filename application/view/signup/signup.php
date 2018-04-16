@@ -13,6 +13,7 @@
     <form action="<?php echo URL; ?>signup/adduser" method="POST">
         <h1 class="homepage-title"> Sign Up </h1>
         <div class="signup-box">
+            <p><?php echo $_SESSION['message'] ?></p>
             <div class="signup-username">
                 <span class="user-icon"><i class="fas fa-user"></i></span>
                 <input type="text" name="username" value="" placeholder="Username" onfocus="this.placeholder = ''"

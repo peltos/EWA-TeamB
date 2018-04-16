@@ -72,6 +72,16 @@ class Model
         return $query->fetch();
     }
 
+    public function checkUsername($username) {
+        $sql = "SELECT username FROM Member WHERE memberEmail = :username";
+        $query = $this->db->prepare($sql);
+        $parameters = array('username' => $username);
+
+        $query->execute($parameters);
+
+        return $query->fetch();
+    }
+
     /**
      * Delete a song in the database
      * Please note: this is just an example! In a real application you would not simply let everybody
