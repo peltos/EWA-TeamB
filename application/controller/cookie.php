@@ -8,25 +8,20 @@
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Ajax extends Controller
+class Cookie extends Controller
 {
     /**
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
      */
-    public function ajaxnightmode()
+
+    public function index()
     {
-        // ajax javascript query
-        require APP . 'view/ajax/nightmode.php';
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/cookie/cookie.php';
+        require APP . 'view/_templates/footer.php';
     }
-    public function ajaxfavorite()
-    {
-        // ajax javascript query
-        require APP . 'view/ajax/favorite.php';
-    }
-    public function ajaxcookie()
-    {
-        // ajax javascript query
-        require APP . 'view/ajax/cookie.php';
-    }
+
+
 }
