@@ -71,7 +71,10 @@ foreach ($timeline as $key => $item) {
                                     <?php if (!$itemOpponents["opponent"]["image_url"] == null || !$itemOpponents["opponent"]["image_url"] == "") { ?>
                                         <img class="timeline-desc--matchup__img"
                                              src="<?php echo $itemOpponents['opponent']["image_url"] ?>"/>
+                                    <?php } else {?>
+                                        <img class="no-image" src="<?php echo URL?>img/no-photo.png">
                                     <?php } ?>
+
                                     <p class="game"><?php echo $itemOpponents['opponent']['name'] ?> </p>
                                 </div>
                             <?php } ?>
