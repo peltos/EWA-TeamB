@@ -1,4 +1,4 @@
-<?php require APP . 'view/tournaments/eventsheader.php';
+<?php require APP . 'view/matches/eventsheader.php';
 
 $counterFilter = 0;
 

@@ -1,9 +1,9 @@
-<?php require APP . 'view/tournaments/eventsheader.php';
+<?php require APP . 'view/matches/eventsheader.php';
 
 $counterFilter = 0;
 
 foreach ($timeline as $key => $item) {
-    if ($item["videogame"]['slug'] == 'ow') {
+    if ($item["videogame"]['slug'] == 'league-of-legends') {
         $counterFilter++;
     }
 }
@@ -24,7 +24,7 @@ foreach ($timeline as $key => $item) {
         foreach ($timeline as $key => $item) { ?>
 
             <?php
-            if ($item["videogame"]['slug'] == 'ow') { ?>
+            if ($item["videogame"]['slug'] == 'league-of-legends') { ?>
                 <li>
 
                 <?php
@@ -110,10 +110,9 @@ foreach ($timeline as $key => $item) {
         }
     } else {
       ?>
-      <span class="noTimeline">No Overwatch events available.</span>
+      <span class="noTimeline">No League of Legends events available.</span>
       <?php
     }
     ?>
-
-  </ul>
+</ul>
 </div>

@@ -1,4 +1,4 @@
-<?php require APP . 'view/tournaments/eventsheader.php'; ?>
+<?php require APP . 'view/matches/eventsheader.php'; ?>
 
     <div class="resultFilter"><?php
         if (!empty($timeline)) {
@@ -27,7 +27,7 @@
                         <span class="flag-title-league">
                             <img class="flag-title-league__image"
                                  src=" <?php echo $item["league"]["image_url"] ?> "/>
-                            <p class="flag-title-league__name"> &nbsp <?php echo $item["league"]['name'] ?></p>
+                            <p class="flag-title-league__name"> &nbsp; <?php echo $item["league"]['name'] ?></p>
                         </span>
                             <span class="flag-title-match">
                             <span class="game-name">
@@ -37,7 +37,7 @@
                                     echo $item["videogame"]['name'];
                                 } ?>
                             </span>
-                            <span class="event-name">&nbsp (<?php echo $item["name"] ?>) </span>
+                            <span class="event-name">&nbsp; (<?php echo $item["name"] ?>) </span>
                         </span>
                             <span class="flag-title-season season-name">
                             TOURNAMENT: <?php echo $item["tournament"]['name'] ?>
@@ -49,27 +49,17 @@
                     </div>
                     <div class="timeline-desc">
 
-                      <div class="liveIcon">
-                        <a href="<?php echo URL; ?>tournaments/past">
-                            <img src="<?php echo URL?>img/live-icon.svg">
-                        </a>
-                      </div>
                         <p class="timeline-desc--title"><?php echo $item["league"]['name'] ?></p>
 
                         <div class="timeline-desc--matchup">
                             <?php if (!$item["opponents"] == null || !$item["opponents"] == "") { ?>
-
-                                <?php $itemOpponentsCounter = 0; ?>
                                 <?php foreach ($item["opponents"] as $key => $itemOpponents) { ?>
                                     <div class="timeline-desc--matchup__item">
                                         <?php if (!$itemOpponents["opponent"]["image_url"] == null || !$itemOpponents["opponent"]["image_url"] == "") { ?>
                                             <img class="timeline-desc--matchup__img"
                                                  src="<?php echo $itemOpponents['opponent']["image_url"] ?>"/>
                                         <?php } ?>
-
-                                        <p class="game"><?php echo $itemOpponents["opponent"]["name"] ?> </p>
-                                        <p class="score"><?php echo $item["results"][$itemOpponentsCounter ]["score"] ?> </p>
-                                        <?php $itemOpponentsCounter++; ?>
+                                        <p class="game"><?php echo $itemOpponents['opponent']['name'] ?> </p>
                                     </div>
                                 <?php } ?>
                             <?php } else { ?>
@@ -102,10 +92,6 @@
                 </li>
                 <?php $counter++;
         }
-    } else {
-      ?>
-      <span class="noTimeline">No current events available.</span>
-      <?php
     }
     ?>
 
