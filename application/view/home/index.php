@@ -1,6 +1,6 @@
 <div class="container  streamers-container homepage-container">
 
-    <h2 class="homepage-title"> Upcoming events </h2>
+    <h2 class="homepage-title"> Upcoming Matches </h2>
 
     <ul class="slider">
         <?php
