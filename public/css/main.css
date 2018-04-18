@@ -309,6 +309,7 @@ header.active{
 .cookie-container ol {
     counter-reset: item;
 }
+
 .cookie-container li {
     display: block;
     margin: .25em 0;
@@ -321,9 +322,14 @@ header.active{
 }
 
 .cookie-container > ol > li:before {
-    margin-top:.25em;
+    margin-top: 2px;
     margin-right:.5em;
     float:left;
+}
+
+.cookie-container .cookie-title {
+    color: var(--filterIcon-color);
+    font-size: 1.25em;
 }
 
 /* *********************

@@ -1,6 +1,6 @@
 .homepage-container .homepage-title {
-  color: var(--filterIcon-color);
-  border-bottom: 2px solid var(--orange-color);
+    color: var(--filterIcon-color);
+    border-bottom: 2px solid var(--orange-color);
     line-height: 2;
 }
 
@@ -35,6 +35,8 @@
 
 .homepage-container .slider-item--icon__image {
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 3px;
 }
 
 .homepage-container .slider-item--content {
@@ -45,12 +47,12 @@
 }
 
 .homepage-container .slider-item--date {
-  color: var(--orange-color);
-  text-transform: uppercase;
+    color: var(--orange-color);
+    text-transform: uppercase;
 }
 
 .homepage-container .slider-item--content__tournament {
-  color: var(--orange-color);
+    color: var(--orange-color);
 }
 
 .homepage-container .slider-item--content__time,
@@ -69,6 +71,7 @@
     margin: 1em 0;
     border: 0.5px solid var(--Border-color);
     border-radius: 3px;
+    height: 68px;
 }
 .homepage-container .slider-desc--matchup__vs{
     color:var(--orange-color);

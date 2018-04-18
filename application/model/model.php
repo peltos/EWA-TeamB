@@ -90,6 +90,18 @@ class Model
     }
 
     /**
+     * Get all tournaments data.
+     */
+    public function getTournaments() {
+
+      $url = 'https://api.pandascore.co/tournaments?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+      $json = file_get_contents($url);
+      $timeline_array = json_decode($json, true);
+
+      return $timeline_array;
+    }
+
+    /**
      * Get all streamers data.
      */
     public function getStreamers($counter)
@@ -241,7 +253,7 @@ class Model
                                 $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
                                 $query = $this->db->prepare($sql);
                                 $parameters = array(':streamID' => $streamerWeb['_id'], ':streamName' => $streamerWeb['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['game'], ':website' => $website);
-                                
+
 
                                 $query->execute($parameters);
 
@@ -328,8 +340,8 @@ class Model
     function getfavorites($email)
     {
         // gets all the items from the database Streamer table
-        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website 
-                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID 
+        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
+                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
                 WHERE Member_memberEmail = :email";
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);

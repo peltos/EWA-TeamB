@@ -52,6 +52,7 @@
                 <div class="navigation">
                     <a class="navigation--item" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
                     <a class="navigation--item" href="<?php echo URL; ?>matches">Matches</a>
+                    <a class="navigation--item" href="<?php echo URL; ?>tournaments">Tournaments</a>
                     <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
                     <?php if($_SESSION['email'] == ''){ ?>
                         <a class="navigation--item" href="<?php echo URL; ?>signup">Sign up</a>
