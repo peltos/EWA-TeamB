@@ -82,6 +82,18 @@ class Model {
     }
 
     /**
+     * Get all tournaments data.
+     */
+    public function getTournaments() {
+
+      $url = 'https://api.pandascore.co/tournaments?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+      $json = file_get_contents($url);
+      $timeline_array = json_decode($json, true);
+
+      return $timeline_array;
+    }
+
+    /**
      * Get all streamers data.
      */
     public function getStreamers($counter) {
@@ -312,8 +324,8 @@ class Model {
     public
             function getfavorites($email) {
         // gets all the items from the database Streamer table
-        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website 
-                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID 
+        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
+                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
                 WHERE Member_memberEmail = :email";
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
