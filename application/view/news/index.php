@@ -1,4 +1,4 @@
-
+<div class="container news-container">
 <h1>Esport news feed</h1>
 <!-- start sw-rss-feed code -->
 <script type="text/javascript">
