@@ -103,6 +103,10 @@ header.active{
     border: 1.5px solid var(--primary-color);
 }
 
+.navigation .signing-up {
+  color: var(--ziggo-color);
+}
+
 
 /* menu button */
 
