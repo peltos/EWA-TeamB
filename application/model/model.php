@@ -1,12 +1,11 @@
 <?php
 
-class Model
-{
+class Model {
+
     /**
      * @param object $db A PDO database connection
      */
-    function __construct($db)
-    {
+    function __construct($db) {
         try {
             $this->db = $db;
         } catch (PDOException $e) {
@@ -14,15 +13,13 @@ class Model
         }
     }
 
-    function console_log($data)
-    {
+    function console_log($data) {
         echo '<script>';
         echo 'console.log(' . json_encode($data) . ')';
         echo '</script>';
     }
 
-    public function addUser($username, $email, $password)
-    {
+    public function addUser($username, $email, $password) {
         $passwordEncrypt = md5($password);
 
         $sql = "INSERT INTO Member (username, memberEmail, password, firstLogin) VALUES (:username, :email , :password, :datetime)";
@@ -35,8 +32,7 @@ class Model
         $query->execute($parameters);
     }
 
-    public function getUser($email)
-    {
+    public function getUser($email) {
         $sql = "SELECT * FROM Member WHERE memberEmail = :email";
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
@@ -46,8 +42,7 @@ class Model
         return $query->fetch();
     }
 
-    public function checkUsername($username)
-    {
+    public function checkUsername($username) {
         $sql = "SELECT username FROM Member WHERE memberEmail = :username";
         $query = $this->db->prepare($sql);
         $parameters = array('username' => $username);
@@ -57,9 +52,7 @@ class Model
         return $query->fetch();
     }
 
-
-    public function timeline()
-    {
+    public function timeline() {
         $timelineVar = $this->timelineFilter();
 
         $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
@@ -73,8 +66,7 @@ class Model
     /**
      * Get all upcoming/running/past matches data.
      */
-    public function timelineFilter()
-    {
+    public function timelineFilter() {
         $timelineVar = null;
         $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
@@ -92,8 +84,7 @@ class Model
     /**
      * Get all streamers data.
      */
-    public function getStreamers($counter)
-    {
+    public function getStreamers($counter) {
         $result = array();
 
         for ($i = 0; $i <= $counter; $i++) {
@@ -107,8 +98,7 @@ class Model
         return $result;
     }
 
-    public function getStreamersID()
-    {
+    public function getStreamersID() {
         // gets all the items from the database Streamer table
         $sql = "SELECT streamID FROM Streamer";
         $query = $this->db->prepare($sql);
@@ -117,8 +107,7 @@ class Model
         return $query->fetchAll();
     }
 
-    public function streamerUpdateMixer($website, $streamersWeb)
-    {
+    public function streamerUpdateMixer($website, $streamersWeb) {
 
         // checks the getStreamersID() function
         $streamersDb = $this->getStreamersID();
@@ -143,7 +132,7 @@ class Model
                 foreach ($streamersDb as $streamersDB) {
 
                     // json item equals database item, update the current information about the streamer
-                    if (((float)$streamersDB->streamID) == $streamerWeb['id']) {
+                    if (((float) $streamersDB->streamID) == $streamerWeb['id']) {
                         $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                         $query = $this->db->prepare($sql);
                         $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
@@ -176,7 +165,6 @@ class Model
                 // reset counter
                 $counterStreamersWeb = 0;
             }
-
         } else { // do this when database is empty
             foreach ($streamersWeb as $key => $streamerWeb) {
 
@@ -191,8 +179,7 @@ class Model
         }
     }
 
-    public function streamerUpdateTwitch($website, $streamersWeb)
-    {
+    public function streamerUpdateTwitch($website, $streamersWeb) {
 
 
         // checks the getStreamersID() function
@@ -221,7 +208,7 @@ class Model
                     // if its the mixer api
                     foreach ($streamersDb as $streamersDB) {
                         // json item equals database item, update the current information about the streamer
-                        if (((float)$streamersDB->streamID) == $streamerWeb['_id']) {
+                        if (((float) $streamersDB->streamID) == $streamerWeb['_id']) {
                             $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                             $query = $this->db->prepare($sql);
                             $parameters = array(':streamName' => $streamerWeb['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['game'], ':streamID' => $streamerWeb['_id'], ':website' => $website);
@@ -241,7 +228,7 @@ class Model
                                 $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
                                 $query = $this->db->prepare($sql);
                                 $parameters = array(':streamID' => $streamerWeb['_id'], ':streamName' => $streamerWeb['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['game'], ':website' => $website);
-                                
+
 
                                 $query->execute($parameters);
 
@@ -260,7 +247,7 @@ class Model
                     // if its the mixer api
                     foreach ($streamersDb as $streamersDB) {
                         // json item equals database item, update the current information about the streamer
-                        if (((float)$streamersDB->streamID) == $streamerWeb['stream']['_id']) {
+                        if (((float) $streamersDB->streamID) == $streamerWeb['stream']['_id']) {
                             $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                             $query = $this->db->prepare($sql);
                             $parameters = array(':streamName' => $streamerWeb['stream']['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['stream']['game'], ':streamID' => $streamerWeb['stream']['_id'], ':website' => $website);
@@ -295,7 +282,6 @@ class Model
                     $counterStreamersWeb = 0;
                 }
             }
-
         } else { // do this when database is empty
             if (isset($streamersWeb['streams'])) {
                 foreach ($streamersWeb['streams'] as $key => $streamerWeb) {
@@ -308,7 +294,7 @@ class Model
                         $query->execute($parameters);
                     }
                 }
-            } else{
+            } else {
                 foreach ($streamersWeb as $key => $streamerWeb) {
 
                     if ($streamerWeb['stream']['stream_type'] == 'live' && ($streamerWeb['stream']["game"] == "League of legends" || $streamerWeb['stream']["game"] == "Dota 2" || $streamerWeb['stream']["game"] == "Overwatch")) {
@@ -323,10 +309,8 @@ class Model
         }
     }
 
-
     public
-    function getfavorites($email)
-    {
+            function getfavorites($email) {
         // gets all the items from the database Streamer table
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website 
                 FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID 
@@ -340,8 +324,7 @@ class Model
     }
 
     public
-    function getFavoritePageMixer($streamers)
-    {
+            function getFavoritePageMixer($streamers) {
         $result = array();
         foreach ($streamers as $streamer) {
             if ($streamer->website == 'mixer') {
@@ -357,8 +340,7 @@ class Model
     }
 
     public
-    function getFavoritePageTwitch($streamers)
-    {
+            function getFavoritePageTwitch($streamers) {
         $result = array();
         foreach ($streamers as $streamer) {
             if ($streamer->website == 'twitch') {
@@ -374,8 +356,7 @@ class Model
     }
 
     public
-    function getStreamersTwitch($counter)
-    {
+            function getStreamersTwitch($counter) {
         for ($i = 0; $i <= $counter; $i++) {
             $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
             $jsonPage = file_get_contents($urlPage);
@@ -383,4 +364,21 @@ class Model
         }
         return $arrayPage;
     }
+
+    public
+            function getMostFavouriteStreamers() {
+
+
+        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website 
+                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID 
+        group by Streamer_streamID
+        order by COUNT(*) desc
+        limit 5";
+        $query = $this->db->prepare($sql);
+
+        $query->execute();
+
+        return $query->fetchAll();
+    }
+
 }
