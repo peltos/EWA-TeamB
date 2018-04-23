@@ -91,6 +91,17 @@ header.active{
     border-bottom: 2px solid var(--primary-color);
 }
 
+.navigation .menu-box {
+    border: 1.5px solid var(--ziggo-color);
+    background: var(--primary-color);
+    color: var(--ziggo-color);
+    border-radius: 4px;
+    padding: 7px 13px;
+}
+
+.navigation .menu-box:hover {
+    border: 1.5px solid var(--primary-color);
+}
 
 
 /* menu button */
@@ -135,8 +146,6 @@ header.active{
 .active .navigation .navigation--item {
     display: block;
     font-size:1em;
-    background: transparent;
-
 }
 
 .active .navigation-menu-icon .menu-icon__line:nth-child(1) {
