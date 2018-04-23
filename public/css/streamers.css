@@ -82,10 +82,10 @@
 }
 .streamers-container .streamer-star{
     color: var(--font-color);
-    font-size: 1.5em;
+    font-size: 1.1em;
     position: absolute;
-    bottom: .75em;
-    right: .8em;
+    bottom: 1.27em;
+    right: 1.4em;
     transition: 200ms;
     transform: scale(0.9);
 }

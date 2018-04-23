@@ -50,7 +50,7 @@
 
                 <!-- navigation -->
                 <div class="navigation">
-                    <a class="navigation--item" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
+                    <a class="navigation--item" title="Home" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
                     <a class="navigation--item" href="<?php echo URL; ?>matches">Matches</a>
                     <a class="navigation--item" href="<?php echo URL; ?>tournaments">Tournaments</a>
                     <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
@@ -59,7 +59,7 @@
                         <a class="navigation--item menu-box" title="Sign In" href="<?php echo URL; ?>signin"><i class="fas fa-sign-in-alt"></i></a>
                     <?php } else{ ?>
                         <a class="navigation--item" href="<?php echo URL; ?>favorite">Favorites</a>
-                        <a class="navigation--item menu-box" href="<?php echo URL; ?>home/logout"><i class="fas fa-power-off"></i></a>
+                        <a class="navigation--item menu-box" title="Sign Out" href="<?php echo URL; ?>home/logout"><i class="fas fa-sign-out-alt"></i></a>
                     <?php } ?>
 
                 </div>

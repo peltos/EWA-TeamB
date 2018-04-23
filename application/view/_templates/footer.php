@@ -17,7 +17,7 @@
                     cookies in accordance with our Cookie Policy.
                     <a class="cookie--text--link" href="<?php echo URL; ?>cookie">Read more</a>
                 </p>
-                <a class="cookie--button">I Agree</a>
+                    <a class="cookie--button">OK</a>
             </div>
         </div>
     <?php } ?>
