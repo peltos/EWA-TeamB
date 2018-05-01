@@ -1,8 +1,19 @@
-<?php require APP . 'view/matches/eventsheader.php'; ?>
+<?php require APP . 'view/matches/eventsheader.php';
+      require APP . 'view/matches/past/pastfilter.php';
+
+$counterFilter = 0;
+
+foreach ($timeline as $key => $item) {
+    if ($item["videogame"]['slug'] == 'ow') {
+        $counterFilter++;
+    }
+}
+?>
+
 
     <div class="resultFilter"><?php
         if (!empty($timeline)) {
-            echo count($timeline) . " Result(s)";
+            echo $counterFilter  . " Result(s)";
         }else{
             echo "No Result(s)";
         };
@@ -13,6 +24,9 @@
     $counter = 0;
     if (!empty($timeline)) {
         foreach ($timeline as $key => $item) { ?>
+
+          <?php
+          if ($item["videogame"]['slug'] == 'ow') { ?>
                 <li>
                     <?php
                     if ($counter % 2 == 0) {
@@ -96,9 +110,10 @@
                             </div>
                         <?php } ?>
                     </div>
-
+                  <?php $counter++;
+                }  ?>
                 </li>
-                <?php $counter++;
+                <?php
         }
     } else {
       ?>

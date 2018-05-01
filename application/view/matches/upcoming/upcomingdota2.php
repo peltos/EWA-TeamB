@@ -1,15 +1,17 @@
 <?php require APP . 'view/matches/eventsheader.php';
+      require APP . 'view/matches/upcoming/upcomingfilter.php';
 
 $counterFilter = 0;
 
 foreach ($timeline as $key => $item) {
-    if ($item["videogame"]['slug'] == 'ow') {
+    if ($item["videogame"]['slug'] == 'dota-2') {
         $counterFilter++;
     }
 }
 ?>
 
-<div class="resultFilter"><?php
+
+<div class="resultFilter" id="dota"><?php
     if (!empty($timeline)) {
         echo $counterFilter . " Result(s)";
     }else{
@@ -17,14 +19,15 @@ foreach ($timeline as $key => $item) {
     };
     ?>
 </div>
-<ul class="timeline">
+
+<ul class="timeline" id="dota">
     <?php
     $counter = 0;
     if (!empty($timeline)) {
         foreach ($timeline as $key => $item) { ?>
 
             <?php
-            if ($item["videogame"]['slug'] == 'ow') { ?>
+            if ($item["videogame"]['slug'] == 'dota-2') { ?>
                 <li>
 
                 <?php
@@ -74,7 +77,7 @@ foreach ($timeline as $key => $item) {
                                     <?php } else {?>
                                         <img class="no-image" src="<?php echo URL?>img/no-photo.png">
                                     <?php } ?>
-                                  
+
                                     <p class="game"><?php echo $itemOpponents['opponent']['name'] ?> </p>
                                 </div>
                             <?php } ?>
@@ -86,8 +89,8 @@ foreach ($timeline as $key => $item) {
                     </div>
                     <span class="rounds"><?php echo $item["number_of_games"] ?> ROUND(S) </span>
                     <?php if (!$item["league"]['url'] == null) { ?>
-                        </br><a href="<?php echo $item["league"]['url'] ?>" target="_blank"> Go to league website</a>
-                        <!-- Social Media links -->
+                    </br><a href="<?php echo $item["league"]['url'] ?>" target="_blank"> Go to league
+                            website</a>
                         <div class="timeline--desc--social">
                           <a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $item["league"]['url'] ?>">
                             <i class="fab fa-facebook-f"></i>
@@ -113,10 +116,10 @@ foreach ($timeline as $key => $item) {
         }
     } else {
       ?>
-      <span class="noTimeline">No Overwatch events available.</span>
+      <span class="noTimeline">No Dota 2 events available.</span>
       <?php
     }
     ?>
-
-  </ul>
+</ul>
+</div>
 </div>

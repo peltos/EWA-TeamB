@@ -91,6 +91,7 @@
 .tournaments-container .slider-item--info .fa-info-circle:hover,
 .tournaments-container .slider-item--teams .fa-users:hover {
     color: var(--orange-color);
+    transform: scale(0.9);
 }
 
 .tournaments-container .slider--item__info-match {

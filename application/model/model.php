@@ -381,8 +381,8 @@ class Model {
             function getMostFavouriteStreamers() {
 
 
-        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website 
-                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID 
+        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
+                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
         group by Streamer_streamID
         order by COUNT(*) desc
         limit 5";

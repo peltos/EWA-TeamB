@@ -1,7 +1,7 @@
-.favorite-container{
+.favorite-container {
 
 }
 
-.favorite-container .streamers--item:not(.online){
+.favorite-container .streamers--item:not(.online) {
     display:none;
 }

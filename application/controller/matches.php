@@ -19,7 +19,7 @@ class Matches extends Controller
         $timeline = $this->model->timeline();
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/matches/events.php';
+        require APP . 'view/matches/upcoming/upcoming.php';
         require APP . 'view/_templates/footer.php';
     }
 
@@ -33,24 +33,9 @@ class Matches extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/matches/eventsrunning.php';
+        require APP . 'view/matches/running/running.php';
         require APP . 'view/_templates/footer.php';
     }
-
-    /**
-     * PAGE: past matches
-     * This method handles what happens when you move to http://yourproject/matches/past
-     */
-    public function past()
-    {
-        $timeline = $this->model->timeline();
-
-        // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/matches/eventsscore.php';
-        require APP . 'view/_templates/footer.php';
-    }
-
 
     /**
      * PAGE: league of legends matches
@@ -62,7 +47,7 @@ class Matches extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/matches/eventslol.php';
+        require APP . 'view/matches/upcoming/upcominglol.php';
         require APP . 'view/_templates/footer.php';
     }
 
@@ -76,7 +61,7 @@ class Matches extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/matches/eventsdota2.php';
+        require APP . 'view/matches/upcoming/upcomingdota2.php';
         require APP . 'view/_templates/footer.php';
     }
 
@@ -90,7 +75,63 @@ class Matches extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/matches/eventsow.php';
+        require APP . 'view/matches/upcoming/upcomingow.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    /**
+     * PAGE: past matches
+     * This method handles what happens when you move to http://yourproject/matches/past
+     */
+    public function past()
+    {
+        $timeline = $this->model->timeline();
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/matches/past/past.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    /**
+     * PAGE: league of legends past matches
+     * This method handles what happens when you move to http://yourproject/matches/lolscore
+     */
+    public function lolscore()
+    {
+        $timeline = $this->model->timeline();
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/matches/past/pastlol.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    /**
+     * PAGE: Dota 2 past matches
+     * This method handles what happens when you move to http://yourproject/matches/dota2score
+     */
+    public function dota2score()
+    {
+        $timeline = $this->model->timeline();
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/matches/past/pastdota2.php';
+        require APP . 'view/_templates/footer.php';
+    }
+
+    /**
+     * PAGE: Overwatch past matches
+     * This method handles what happens when you move to http://yourproject/matches/owscore
+     */
+    public function owscore()
+    {
+        $timeline = $this->model->timeline();
+
+        // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/matches/past/pastow.php';
         require APP . 'view/_templates/footer.php';
     }
 }

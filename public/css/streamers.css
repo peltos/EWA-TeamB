@@ -80,8 +80,9 @@
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
+
 .streamers-container .streamer-star{
-    color: var(--font-color);
+    color: grey;
     font-size: 1.1em;
     position: absolute;
     bottom: 1.27em;
@@ -89,6 +90,7 @@
     transition: 200ms;
     transform: scale(0.9);
 }
+
 .streamers-container .streamer-star.active,
 .streamers-container .streamer-star:hover{
     color:var(--orange-color);

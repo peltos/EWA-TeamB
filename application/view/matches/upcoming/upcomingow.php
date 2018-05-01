@@ -1,15 +1,17 @@
 <?php require APP . 'view/matches/eventsheader.php';
+      require APP . 'view/matches/upcoming/upcomingfilter.php';
 
 $counterFilter = 0;
 
 foreach ($timeline as $key => $item) {
-    if ($item["videogame"]['slug'] == 'league-of-legends') {
+    if ($item["videogame"]['slug'] == 'ow') {
         $counterFilter++;
     }
 }
 ?>
 
-<div class="resultFilter"><?php
+
+<div class="resultFilter" id="ow"><?php
     if (!empty($timeline)) {
         echo $counterFilter . " Result(s)";
     }else{
@@ -17,14 +19,15 @@ foreach ($timeline as $key => $item) {
     };
     ?>
 </div>
-<ul class="timeline">
+
+<ul class="timeline" id="ow">
     <?php
     $counter = 0;
     if (!empty($timeline)) {
         foreach ($timeline as $key => $item) { ?>
 
             <?php
-            if ($item["videogame"]['slug'] == 'league-of-legends') { ?>
+            if ($item["videogame"]['slug'] == 'ow') { ?>
                 <li>
 
                 <?php
@@ -113,9 +116,11 @@ foreach ($timeline as $key => $item) {
         }
     } else {
       ?>
-      <span class="noTimeline">No League of Legends events available.</span>
+      <span class="noTimeline">No Overwatch events available.</span>
       <?php
     }
     ?>
-</ul>
+
+  </ul>
+</div>
 </div>

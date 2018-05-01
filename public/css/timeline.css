@@ -2,6 +2,15 @@
   margin-top: 2.5em;
 }
 
+/* Filter: Filter Result Box */
+.timeline-container .resultFilter {
+  text-align: right;
+  margin-top: 5px;
+  font-size: 10px;
+  color: var(--flag-text-color);
+  font-family: monospace;
+}
+
 .timeline-container .noTimeline {
   color: var(--font-color);
 }
@@ -126,6 +135,8 @@
   padding: 6px 10px;
   text-align: left;
   border: 1px solid var(--orange-color);
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
   border-radius: 5px;
   flex-direction: column;
 }
