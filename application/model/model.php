@@ -191,4 +191,18 @@ class Model
         return $result;
     }
 
+    public function getNews($counter)
+    {
+      $result = array();
+
+      for ($i = 0; $i <= $counter; $i++) {
+          ${"urlPage$i"} = 'https://news.google.com/news/rss/search/section/q/esport/esport?hl=en&gl=US&ned=us' . $i;
+          ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
+          ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
+
+          $result = array_merge($result, ${"arrayPage$i"});
+      }
+      return $result;
+    }
+
 }
