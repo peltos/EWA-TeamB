@@ -60,6 +60,7 @@ header.header--search {
     border: 0;
     border-radius: 2px;
     padding: .25em;
+    margin-right: 6px;
 }
 
 .header--search input:focus {
@@ -164,6 +165,10 @@ header.header--search .header--inner {
 
 .navigation .signing-up {
     color: var(--ziggo-color);
+}
+
+.navigation .navigation--item .fa-user-circle {
+  font-size: 19px;
 }
 
 /* menu button */
