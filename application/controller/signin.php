@@ -24,7 +24,6 @@ class Signin extends Controller
     }
     public function checkUser()
     {
-        session_start();
         $getInfoUser = $this->model->getUser($_POST["email"]);
         
         // if we have POST data to create a new song entry
@@ -34,11 +33,20 @@ class Signin extends Controller
             if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
                 $_SESSION["email"] = $getInfoUser->memberEmail;
                 $_SESSION["username"] = $getInfoUser->username;
+                $_SESSION["profilePicture"] = $getInfoUser->profilePicture;
 
+                $_SESSION['message'] = '';
+                $_SESSION['signinEmail'] = '';
                 header('location: ' . URL);
             }else{
-                header('location: ' . URL . 'error');
+                $_SESSION['message'] = 'Your Username or Password is incorrect';
+                $_SESSION['signinEmail'] = $_POST["email"];
+                header('location: ' . URL  . 'signin');
             }
+        }else{
+            $_SESSION['message'] = 'Your Username or Password is incorrect';
+            header('location: ' . URL . 'signin' );
+
         }
     }
 

@@ -36,6 +36,7 @@ class Home extends Controller {
         session_start();
         $_SESSION['username'] = '';
         $_SESSION['email'] = '';
+        $_SESSION['profilePicture'] = '';
         header('location: ' . URL);
     }
 

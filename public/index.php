@@ -6,6 +6,11 @@ if (!isset($_SESSION['nightmode'])) {
     $_SESSION['nightmode'] = 'false';
 }
 
+// check if a session for the profile picture is made. if not make one
+if (!isset($_SESSION['profilePicture'])) {
+    $_SESSION['profilePicture'] = '';
+}
+
 // check if a session for the username is made. if not make one
 if (!isset($_SESSION['username'])) {
     $_SESSION['username'] = '';
@@ -26,8 +31,13 @@ if (!isset($_SESSION['message'])) {
     $_SESSION['message'] = false;
 }
 
+// check if a session for signup messages are made. if not make one
+if (!isset($_SESSION['signinEmail'])) {
+    $_SESSION['signinEmail'] = '';
+}
+
 // check what is in all sessions
-//echo '<pre>' . var_dump($_SESSION) . '</pre>';
+echo '<pre>' . var_dump($_SESSION) . '</pre>';
 
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path

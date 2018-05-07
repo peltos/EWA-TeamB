@@ -8,9 +8,8 @@
         <div class="signin-box">
             <p><?php echo $_SESSION['message'] ?></p>
             <div class="signin-email">
-
                 <span class="email-icon"><i class="far fa-envelope"></i></span>
-                <input type="text" name="email" value="" placeholder="Email Adress" onfocus="this.placeholder = ''"
+                <input type="text" name="email" value="<?php echo $_SESSION['signinEmail'] ?>" placeholder="Email Adress" onfocus="this.placeholder = ''"
                        onblur="this.placeholder = 'Email Adress'" required/>
             </div>
             <div class="signin-password">
