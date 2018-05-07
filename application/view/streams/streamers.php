@@ -131,6 +131,7 @@
 
                                         <img class="streamers--item__icon"
                                              src="<?php echo $item["channel"]["logo"] ?>"/>
+                                             
                                     </div>
                                     <span class="streamer--item__title"><i
                                                 class="streamer--item__live fas fa-circle"></i> <?php echo $item["channel"]["display_name"] ?> </span>
