@@ -47,7 +47,7 @@
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
-                        <a href="https://mixer.com/<?php echo $item["token"] ?>"
+                        <a class="streamer--item__content" href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -127,7 +127,7 @@
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
-                    <a href="<?php echo $item['stream']["channel"]["url"] ?>"
+                    <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
                        target="_blank">
                         <div class="streamers--item__container">
                             <div class="streamers--item--image">
@@ -196,7 +196,7 @@
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
-                        <a href="https://mixer.com/<?php echo $item["token"] ?>"
+                        <a class="streamer--item__content" href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -276,7 +276,7 @@
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
-                    <a href="<?php echo $item['stream']["channel"]["url"] ?>"
+                    <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
                        target="_blank">
                         <div class="streamers--item__container">
                             <div class="streamers--item--image">
@@ -347,7 +347,7 @@
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
-                        <a href="https://mixer.com/<?php echo $item["token"] ?>"
+                        <a class="streamer--item__content" href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -426,7 +426,7 @@
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
-                    <a href="<?php echo $item['stream']["channel"]["url"] ?>"
+                    <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
                        target="_blank">
                         <div class="streamers--item__container">
                             <div class="streamers--item--image">
@@ -495,7 +495,7 @@
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
-                        <a href="https://mixer.com/<?php echo $item["token"] ?>"
+                        <a class="streamer--item__content" href="https://mixer.com/<?php echo $item["token"] ?>"
                            target="_blank">
                             <div class="streamers--item__container">
                                 <div class="streamers--item--image">
@@ -574,7 +574,7 @@
                                 <i class="fab fa-reddit"></i>
                             </a>
                         </div>
-                    <a href="<?php echo $item['stream']["channel"]["url"] ?>"
+                    <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
                        target="_blank">
                         <div class="streamers--item__container">
                             <div class="streamers--item--image">

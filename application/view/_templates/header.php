@@ -42,7 +42,7 @@
         <!-- logo -->
 
 
-        <header id="header">
+        <header class="header--main" id="header">
             <div class="header--inner">
                 <div class="logo">
                     <a href="<?php echo URL; ?>">
@@ -70,6 +70,14 @@
                     <div class="menu-icon__line"></div>
                     <div class="menu-icon__line"></div>
                 </div>
+            </div>
+        </header>
+        <header class="header--search">
+            <div class="header--inner">
+            <form class="navigation--item--search" action="<?php echo URL; ?>search/redirect" method="POST">
+                <input class="navigation--item--search__input" placeholder="Search..." type="text" name="search-input" value=""/>
+                <input type="submit" name="search" value="Submit">
+            </form>
             </div>
         </header>
         <div class="main-container">

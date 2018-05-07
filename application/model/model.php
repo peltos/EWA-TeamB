@@ -321,8 +321,7 @@ class Model {
         }
     }
 
-    public
-            function getfavorites($email) {
+    public function getfavorites($email) {
         // gets all the items from the database Streamer table
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
                 FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
@@ -335,8 +334,7 @@ class Model {
         return $query->fetchAll();
     }
 
-    public
-            function getFavoritePageMixer($streamers) {
+    public function getFavoritePageMixer($streamers) {
         $result = array();
         foreach ($streamers as $streamer) {
             if ($streamer->website == 'mixer') {
@@ -351,8 +349,7 @@ class Model {
         return $result;
     }
 
-    public
-            function getFavoritePageTwitch($streamers) {
+    public function getFavoritePageTwitch($streamers) {
         $result = array();
         foreach ($streamers as $streamer) {
             if ($streamer->website == 'twitch') {
@@ -367,8 +364,7 @@ class Model {
         return $result;
     }
 
-    public
-            function getStreamersTwitch($counter) {
+    public function getStreamersTwitch($counter) {
         for ($i = 0; $i <= $counter; $i++) {
             $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
             $jsonPage = file_get_contents($urlPage);
@@ -378,9 +374,7 @@ class Model {
     }
 
     public
-            function getMostFavouriteStreamers() {
-
-
+    function getMostFavouriteStreamers() {
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
                 FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
         group by Streamer_streamID
@@ -391,6 +385,46 @@ class Model {
         $query->execute();
 
         return $query->fetchAll();
+    }
+
+    public function getSearchResults($search) {
+
+        $sql = "SELECT * FROM mini.Streamer WHERE streamName LIKE :search OR categorie LIKE :search limit 20";
+        $query = $this->db->prepare($sql);
+        $parameters = array(':search' => '%' . $search . '%');
+
+        $query->execute($parameters);
+
+        return $query->fetchAll();
+    }
+    public function getSearchResultsMixer($streamers) {
+        $result = array();
+        foreach ($streamers as $streamer) {
+            if ($streamer->website == 'mixer') {
+                $urlPage = 'https://mixer.com/api/v1/channels/' . $streamer->streamID;
+                $jsonPage = file_get_contents($urlPage);
+                $arrayPage = json_decode($jsonPage, true);
+
+                $result[] = $arrayPage;
+            }
+        }
+
+        return $result;
+    }
+
+    public function getSearchResultsTwitch($streamers) {
+        $result = array();
+        foreach ($streamers as $streamer) {
+            if ($streamer->website == 'twitch') {
+                $urlPage = 'https://api.twitch.tv/kraken/streams/' . $streamer->streamName . '?client_id=r9b3owuwk195oo5gbohveasv11v76c&id=28354917152';
+                $jsonPage = file_get_contents($urlPage);
+                $arrayPage = json_decode($jsonPage, true);
+
+                $result[] = $arrayPage;
+            }
+        }
+
+        return $result;
     }
 
 }

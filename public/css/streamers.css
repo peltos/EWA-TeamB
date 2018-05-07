@@ -25,6 +25,9 @@
 .streamers-container .streamer--item__social.social{
     display: flex;
 }
+.streamers-container .streamer--item__content {
+    width:100%;
+}
 .streamers-container .streamer--item__share {
     position: absolute;
     z-index: 2;

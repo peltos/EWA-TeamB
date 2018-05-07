@@ -9,7 +9,7 @@
             foreach ($slider as $key => $item) { ?>
                 <li class="slider-item">
                     <span class="slider-item--date">
-                        <p class="slider-item--content__time"><?php echo date('d F H:i', strtotime($item["begin_at"]) + 60 * 60) ?></p>
+                        <p class="slider-item--content__time "><?php echo date('d F H:i', strtotime($item["begin_at"]) + 60 * 60) ?></p>
                     </span>
                     <span class="slider-item--icon">
                         <img class="slider-item--icon__image" src=" <?php echo $item["league"]["image_url"] ?> "/>
