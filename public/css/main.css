@@ -51,30 +51,38 @@ header.header--main {
 }
 
 header.header--search {
-    background-color: var(--secondary-color);
+    background-color: var(--background);
     height: 1em;
 }
 
 .header--search input {
-    background-color: var(--nav-color);
-    border: 0;
-    border-radius: 2px;
+    color: var(--font-color);
+    background-color: rgba(0, 0, 0, 0);
+    border: var(--submit-border) solid var(--font-color);
+    border-radius: 4px;
     padding: .25em;
-    margin-right: 6px;
+    margin-left: 6px;
 }
 
 .header--search input:focus {
+    outline: none;
+    border-left-width: 3.5px;
 }
 
 .header--search input[type="submit"] {
-    color: var(--orange-color);
-    border: var(--submit-border) solid var(--orange-color);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 10px;
+    width: 58px;
+    color: var(--font-color);
+    border: var(--submit-border) solid var(--font-color);
     cursor: pointer;
 }
 
 .header--search input[type="submit"]:hover {
-    background-color: var(--buttonHover-color);
-    color: var(--ziggo-color);
+    background-color: var(--orange-color);
+    color: var(--nav-color);
+    border: 0;
 }
 
 header.active {
@@ -341,6 +349,44 @@ header.header--search .header--inner {
 }
 
 /* *********************
+        SEARCH PAGE
+************************ */
+
+.search-page input {
+  height: 22px;
+  width: 230px;
+  color: var(--font-color);
+  background-color: rgba(0, 0, 0, 0);
+  border: var(--submit-border) solid var(--font-color);
+  border-radius: 4px;
+  padding: .25em;
+  margin-right: 6px;
+}
+
+.search-page input:focus {
+    outline: none;
+    border-left-width: 3.5px;
+    border-right: var(--submit-border) solid var(--font-color);
+    border
+}
+
+.search-page input[type="submit"] {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 10px;
+    width: 58px;
+    height: 31.2px;
+    color: var(--font-color);
+    border: var(--submit-border) solid var(--font-color);
+    cursor: pointer;
+}
+
+.search-page input[type="submit"]:hover {
+    background-color: var(--orange-color);
+    color: var(--nav-color);
+    border: 0;
+}
+/* *********************
         FOOTER
 ************************ */
 
@@ -437,6 +483,18 @@ header.header--search .header--inner {
     font-size: 12px;
     margin: 0 1em 0 0;
     font-weight: 900;
+}
+
+.switch-container .search-icon {
+    margin-right: 20px;
+    color: var(--font-color);
+    border: 1px solid;
+    padding: 4px 7px;
+    border-radius: 2px;
+}
+
+.switch-container .search-icon:hover {
+    color: var(--orange-color);
 }
 
 /* The switch - the box around the slider */

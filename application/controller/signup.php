@@ -131,7 +131,7 @@ class Signup extends Controller {
                 }
             }
         } else {
-            $_SESSION['message'] = 'Two passwords do not match!';
+            $_SESSION['message'] = 'Passwords do not match!';
             header('location: ' . URL . 'signup');
         }
     }

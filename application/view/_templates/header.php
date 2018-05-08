@@ -73,20 +73,33 @@
                 </div>
             </div>
         </header>
-        <header class="header--search">
-            <div class="header--inner">
-            <form class="navigation--item--search" action="<?php echo URL; ?>search/redirect" method="POST">
-                <input class="navigation--item--search__input" placeholder="Search..." type="text" name="search-input" value=""/>
-                <input type="submit" name="search" value="Submit">
-            </form>
-            </div>
-        </header>
         <div class="main-container">
             <div class="main-container--inner">
                 <div class="switch-container">
+                    <div class="search-icon" onclick="myFunction()"><i class="fas fa-search"></i></div>
                     <p>Night Mode</p>
                     <label class="switch">
                         <input type="checkbox" <?php if($_SESSION['nightmode'] == 'true'){ echo 'checked';}?>>
                         <span id="nightmode" class="switch-slider round "></span>
                     </label>
                 </div>
+
+        <header class="header--search" id="searchbar" hidden>
+            <div class="header--inner">
+            <form class="navigation--item--search" action="<?php echo URL; ?>search/redirect" method="POST">
+                <input class="navigation--item--search__input" placeholder="Search..." type="text" name="search-input" value="" required/>
+                <input type="submit" name="search" value="Search">
+            </form>
+            </div>
+        </header>
+
+        <script>
+        function myFunction() {
+            var x = document.getElementById("searchbar");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        </script>

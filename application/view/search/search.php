@@ -1,9 +1,9 @@
 <div class="container streamers-container search-container">
 
-    <h3>Searches</h3>
-    <form action="<?php echo URL; ?>search/redirect" method="POST">
-        <input type="text" name="search-input" value=""/>
-        <input type="submit" name="search" value="Submit"/>
+    <h3>Search Results</h3>
+    <form class="search-page" action="<?php echo URL; ?>search/redirect" method="POST">
+        <input type="text" name="search-input" placeholder="Search..." value=""/>
+        <input type="submit" name="search" value="Search"/>
         <p><?php echo $message ?></p>
     </form>
     <?php if ($favoritePageMixer !== null && $favoritePageTwitch !== null) { ?>
