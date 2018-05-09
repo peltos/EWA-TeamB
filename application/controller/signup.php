@@ -120,7 +120,19 @@ class Signup extends Controller {
 
                                                 $_SESSION['message'] = '';
                                                 $this->model->addUser($_POST["username"], $_POST["email"], $_POST["password"]);
-                                                header('location: ' . URL . 'signup/signupcorrect');
+                                                $getInfoUser = $this->model->getUser($_POST["email"]);
+
+                                                // if we have POST data to create a new song entry
+                                                if (isset($getInfoUser)) {
+                                                    $md5Password = md5($_POST["password"]);
+
+                                                    if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
+                                                        $_SESSION["email"] = $getInfoUser->memberEmail;
+                                                        $_SESSION["username"] = $getInfoUser->username;
+
+                                                        header('location: ' . URL . 'signup/signupcorrect');
+                                                    }
+                                                }
                                             }
                                         }
                                     }
