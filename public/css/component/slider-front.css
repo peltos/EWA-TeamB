@@ -14,8 +14,9 @@
     padding: 0;
     margin: 0;
     flex-wrap: wrap;
-    overflow: hidden;
     position: relative;
+}
+.slider-front .slick-list{
     background: black;
 }
 
@@ -75,7 +76,7 @@
 
 .slider-item--content__info__name,
 .slider-item--content__info__tournament {
-    color: var(--primary-color);
+    color: var(--orange-color);
     font-size: 1.25em;
 }
 
@@ -108,6 +109,22 @@
 
 .slider-front .slider-item--content__info__tournamentname {
     margin: 0;
+}
+
+.slider-front .slick-dots{
+    display: flex;
+    justify-content: center;
+    bottom: -2em;
+}
+.slider-front .slick-dots li{
+    background:white;
+    color:white;
+    border-radius: 50%;
+    text-indent: 9999px;
+}
+.slider-front .slick-dots li.slick-active{
+    background: var(--orange-color);
+    color: var(--orange-color);
 }
 
 @media (min-width: 900px) {
