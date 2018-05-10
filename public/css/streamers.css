@@ -48,11 +48,15 @@
 }
 
 .streamers-container .streamers--item__container {
-    color: var(--font-color);
     border: 1px solid var(--boxBorder-color);
     border-radius: 5px;
-    background: var(--desc-color);
     position:relative;
+    background: var(--font-color);
+    color: var(--desc-color);
+}
+.streamers-container .online .streamers--item__container {
+    color: var(--font-color);
+    background: var(--desc-color);
 }
 
 .streamers-container .streamers--item--image{
@@ -227,10 +231,13 @@
         width: calc(33.333333% - 30px);
     }
     .streamers-container .streamers--item__cover {
+        filter: grayscale(100%) opacity(0.25);
+    }
+    .streamers-container .online .streamers--item__cover {
         filter: grayscale(44%) opacity(0.8);
     }
     .streamers-container .streamers--item__container:hover .streamers--item__cover{
-        filter: grayscale(10%) opacity(1);
+        filter: grayscale(0%) opacity(1);
     }
 }
 
