@@ -1,6 +1,13 @@
+/* Main css*/
 @import url("var.css");
 @import url("error.css");
 @import url("main.css");
+
+/* Components */
+@import url("component/slider.css");
+@import url("component/streamer-item.css");
+
+/* Pages */
 @import url("homepage.css");
 @import url("timeline.css");
 @import url("tournaments.css");

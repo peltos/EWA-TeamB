@@ -1,4 +1,4 @@
-<div class="container streamers-container search-container">
+<div class="container search-container">
 
     <h3>Search Results</h3>
     <form class="search-page" action="<?php echo URL; ?>search/redirect" method="POST">

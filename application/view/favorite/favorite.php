@@ -1,4 +1,4 @@
-<div class="container streamers-container favorite-container">
+<div class="container favorite-container">
 
     <h1 class="homepage-title"> Favorites </h1>
 
@@ -25,7 +25,7 @@
                         <h3>League of Legends</h3>
                         <ul class="streamers__list">
                     <?php } ?>
-                    <li class="streamers--item <?php if ($item["online"] == true) echo ' online' ?>">
+                    <li class="streamers--item <?php if ($item["online"] == true) echo 'online' ?>">
                         <a class="streamer--item__share">
                             <i class="fas fa-share"></i>
                         </a>
@@ -92,7 +92,6 @@
                     <?php $counter++;
                 }
             } ?>
-            </ul>
             <?php
         } ?>
         <?php
@@ -108,7 +107,7 @@
         <h3>League of Legends</h3>
         <ul class="streamers__list">
             <?php } ?>
-            <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+            <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo 'online' ?>">
                 <!-- Social Media links -->
                 <a class="streamer--item__share">
                     <i class="fas fa-share"></i>
@@ -168,6 +167,7 @@
         }
         }
         ?>
+        </ul>
     </div>
     <div id="dota2" class="tabcontent">
 
@@ -247,7 +247,6 @@
                     <?php $counter++;
                 }
             } ?>
-            </ul>
             <?php
         } ?>
         <?php
@@ -323,6 +322,7 @@
         }
         }
         ?>
+        </ul>
 
     </div>
 
@@ -404,7 +404,6 @@
                     <?php $counter++;
                 }
             } ?>
-            </ul>
             <?php
         } ?>
         <?php
@@ -479,6 +478,7 @@
         }
         }
         ?>
+        </ul>
     </div>
     <div id="other" class="tabcontent">
 

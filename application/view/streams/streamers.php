@@ -22,7 +22,7 @@
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "League of legends") { ?>
 
-                        <li class="streamers--item">
+                        <li class="streamers--item online">
                             <a class="streamer--item__share">
                                 <i class="fas fa-share"></i>
                             </a>
@@ -98,7 +98,7 @@
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "League of Legends") { ?>
-                        <li class="streamers--item">
+                        <li class="streamers--item online">
                             <!-- Social Media links -->
                             <a class="streamer--item__share">
                                 <i class="fas fa-share"></i>
@@ -174,7 +174,7 @@
 
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "Dota 2") { ?>
-                        <li class="streamers--item">
+                        <li class="streamers--item online">
                             <a class="streamer--item__share">
                                 <i class="fas fa-share"></i>
                             </a>
@@ -250,7 +250,7 @@
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "Dota 2") { ?>
-                        <li class="streamers--item">
+                        <li class="streamers--item online">
                             <!-- Social Media links -->
                             <a class="streamer--item__share">
                                 <i class="fas fa-share"></i>
@@ -326,7 +326,7 @@
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "Overwatch") { ?>
-                        <li class="streamers--item">
+                        <li class="streamers--item online">
 
                             <!-- Social Media links -->
                             <a class="streamer--item__share">
@@ -402,7 +402,7 @@
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "Overwatch") { ?>
-                        <li class="streamers--item">
+                        <li class="streamers--item online">
                             <!-- Social Media links -->
                             <a class="streamer--item__share">
                                 <i class="fas fa-share"></i>
@@ -477,7 +477,7 @@
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
                     if ($item["languageId"] == "nl") { ?>
-                        <li class="streamers--item">
+                        <li class="streamers--item online">
 
                             <!-- Social Media links -->
                             <a class="streamer--item__share">
@@ -552,7 +552,7 @@
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["language"] == "nl") { ?>
-                        <li class="streamers--item">
+                        <li class="streamers--item online">
                             <!-- Social Media links -->
                             <a class="streamer--item__share">
                                 <i class="fas fa-share"></i>

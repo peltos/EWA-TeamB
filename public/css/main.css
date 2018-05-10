@@ -367,7 +367,6 @@ header.header--search .header--inner {
     outline: none;
     border-left-width: 3.5px;
     border-right: var(--submit-border) solid var(--font-color);
-    border
 }
 
 .search-page input[type="submit"] {
