@@ -94,72 +94,78 @@
             } ?>
             </ul>
             <?php
-        }?>
+        } ?>
         <?php
         $counter = 0;
         if (!empty($favoritePageTwitch)) {
-            foreach ($favoritePageTwitch as $key => $item) {
-                if ($item['stream']["channel"]["game"] == "League of Legends") {
-                    if ($counter == 0) { ?>
-                        <h3>League of Legends</h3>
-                        <ul class="streamers__list">
-                    <?php } ?>
-                    <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
-                        <!-- Social Media links -->
-                        <a class="streamer--item__share">
-                            <i class="fas fa-share"></i>
-                        </a>
-                        <div class="streamer--item__social">
-                            <a target="_blank"
-                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a target="_blank"
-                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a target="_blank"
-                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a target="_blank"
-                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
-                                <i class="fab fa-reddit"></i>
-                            </a>
-                        </div>
-                    <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
-                       target="_blank">
-                        <div class="streamers--item__container">
-                            <div class="streamers--item--image">
+        foreach ($favoritePageTwitch
 
-                                <img class="streamers--item__cover" src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
+        as $key => $item) {
 
-                                <img class="streamers--item__icon"
-                                     src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
-                            </div>
-                            <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item['stream']["channel"]["display_name"] ?> </span>
-                            <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
-                        </div>
+        if (!$item['stream'] == null){
+        if ($item['stream']["channel"]["game"] == "League of Legends") {
+        if ($counter == 0) { ?>
+        <h3>League of Legends</h3>
+        <ul class="streamers__list">
+            <?php } ?>
+            <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+                <!-- Social Media links -->
+                <a class="streamer--item__share">
+                    <i class="fas fa-share"></i>
+                </a>
+                <div class="streamer--item__social">
+                    <a target="_blank"
+                       href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
-                        <?php if (!$_SESSION['email'] == '') { ?>
-                        <a class="streamer-star
-                            <?php
-                        if (!empty($favorites)) {
-                            foreach ($favorites as $favorite) {
-                                if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
-                                    echo ' active';
-                                } else {
-                                    echo '';
-                                }
-                            }
-                        } ?>
-                            " href="#" id="<?php echo $item['stream']["_id"] ?> "><i class="fas fa-star"></i></a>
-                        </li>
-                    <?php }
-                    $counter++;
+                    <a target="_blank"
+                       href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a target="_blank"
+                       href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a target="_blank"
+                       href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                </div>
+                <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
+                   target="_blank">
+                    <div class="streamers--item__container">
+                        <div class="streamers--item--image">
 
-                }
-            }
+                            <img class="streamers--item__cover"
+                                 src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
+
+                            <img class="streamers--item__icon"
+                                 src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
+                        </div>
+                        <span class="streamer--item__title"><i
+                                    class="streamer--item__live fas fa-circle"></i> <?php echo $item['stream']["channel"]["display_name"] ?> </span>
+                        <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
+                    </div>
+                </a>
+                <?php if (!$_SESSION['email'] == '') { ?>
+                <a class="streamer-star
+                            <?php
+                if (!empty($favorites)) {
+                    foreach ($favorites as $favorite) {
+                        if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
+                            echo ' active';
+                        } else {
+                            echo '';
+                        }
+                    }
+                } ?>
+                            " href="#" id="<?php echo $item['stream']["_id"] ?> "><i class="fas fa-star"></i></a>
+            </li>
+        <?php }
+        $counter++;
+        }
+        }
+        }
         }
         ?>
     </div>
@@ -243,72 +249,78 @@
             } ?>
             </ul>
             <?php
-        }?>
+        } ?>
         <?php
         $counter = 0;
         if (!empty($favoritePageTwitch)) {
-            foreach ($favoritePageTwitch as $key => $item) {
-                if ($item['stream']["channel"]["game"] == "Dota 2") {
-                    if ($counter == 0) { ?>
-                        <h3>Dota 2</h3>
-                        <ul class="streamers__list">
-                    <?php } ?>
-                    <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
-                        <!-- Social Media links -->
-                        <a class="streamer--item__share">
-                            <i class="fas fa-share"></i>
-                        </a>
-                        <div class="streamer--item__social">
-                            <a target="_blank"
-                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a target="_blank"
-                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a target="_blank"
-                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a target="_blank"
-                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
-                                <i class="fab fa-reddit"></i>
-                            </a>
-                        </div>
-                    <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
-                       target="_blank">
-                        <div class="streamers--item__container">
-                            <div class="streamers--item--image">
+        foreach ($favoritePageTwitch
 
-                                <img class="streamers--item__cover" src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
+        as $key => $item) {
 
-                                <img class="streamers--item__icon"
-                                     src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
-                            </div>
-                            <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item['stream']["channel"]["display_name"] ?> </span>
-                            <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
-                        </div>
+        if (!$item['stream'] == null){
+        if ($item['stream']["channel"]["game"] == "Dota 2") {
+        if ($counter == 0) { ?>
+        <h3>Dota 2</h3>
+        <ul class="streamers__list">
+            <?php } ?>
+            <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+                <!-- Social Media links -->
+                <a class="streamer--item__share">
+                    <i class="fas fa-share"></i>
+                </a>
+                <div class="streamer--item__social">
+                    <a target="_blank"
+                       href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
-                    <?php if (!$_SESSION['email'] == '') { ?>
-                        <a class="streamer-star
-                            <?php
-                        if (!empty($favorites)) {
-                            foreach ($favorites as $favorite) {
-                                if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
-                                    echo ' active';
-                                } else {
-                                    echo '';
-                                }
-                            }
-                        } ?>
-                            " href="#" id="<?php echo $item['stream']["_id"] ?> "><i class="fas fa-star"></i></a>
-                        </li>
-                    <?php }
-                    $counter++;
+                    <a target="_blank"
+                       href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a target="_blank"
+                       href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a target="_blank"
+                       href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                </div>
+                <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
+                   target="_blank">
+                    <div class="streamers--item__container">
+                        <div class="streamers--item--image">
 
-                }
-            }
+                            <img class="streamers--item__cover"
+                                 src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
+
+                            <img class="streamers--item__icon"
+                                 src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
+                        </div>
+                        <span class="streamer--item__title"><i
+                                    class="streamer--item__live fas fa-circle"></i> <?php echo $item['stream']["channel"]["display_name"] ?> </span>
+                        <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
+                    </div>
+                </a>
+                <?php if (!$_SESSION['email'] == '') { ?>
+                <a class="streamer-star
+                            <?php
+                if (!empty($favorites)) {
+                    foreach ($favorites as $favorite) {
+                        if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
+                            echo ' active';
+                        } else {
+                            echo '';
+                        }
+                    }
+                } ?>
+                            " href="#" id="<?php echo $item['stream']["_id"] ?> "><i class="fas fa-star"></i></a>
+            </li>
+        <?php }
+        $counter++;
+        }
+        }
+        }
         }
         ?>
 
@@ -394,71 +406,77 @@
             } ?>
             </ul>
             <?php
-        }?>
+        } ?>
         <?php
         if (!empty($favoritePageTwitch)) {
-            foreach ($favoritePageTwitch as $key => $item) {
-                if ($item['stream']["channel"]["game"] == "Overwatch") {
-                    if ($counter == 0) { ?>
-                        <h3>Overwatch</h3>
-                        <ul class="streamers__list">
-                    <?php } ?>
-                    <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
-                        <!-- Social Media links -->
-                        <a class="streamer--item__share">
-                            <i class="fas fa-share"></i>
-                        </a>
-                        <div class="streamer--item__social">
-                            <a target="_blank"
-                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a target="_blank"
-                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a target="_blank"
-                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a target="_blank"
-                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
-                                <i class="fab fa-reddit"></i>
-                            </a>
-                        </div>
-                    <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
-                       target="_blank">
-                        <div class="streamers--item__container">
-                            <div class="streamers--item--image">
+        foreach ($favoritePageTwitch
 
-                                <img class="streamers--item__cover" src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
+        as $key => $item) {
 
-                                <img class="streamers--item__icon"
-                                     src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
-                            </div>
-                            <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item['stream']["channel"]["display_name"] ?> </span>
-                            <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
-                        </div>
+        if (!$item['stream'] == null){
+        if ($item['stream']["channel"]["game"] == "Overwatch") {
+        if ($counter == 0) { ?>
+        <h3>Overwatch</h3>
+        <ul class="streamers__list">
+            <?php } ?>
+            <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+                <!-- Social Media links -->
+                <a class="streamer--item__share">
+                    <i class="fas fa-share"></i>
+                </a>
+                <div class="streamer--item__social">
+                    <a target="_blank"
+                       href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
-                        <?php if (!$_SESSION['email'] == '') { ?>
-                        <a class="streamer-star
-                            <?php
-                        if (!empty($favorites)) {
-                            foreach ($favorites as $favorite) {
-                                if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
-                                    echo ' active';
-                                } else {
-                                    echo '';
-                                }
-                            }
-                        } ?>
-                            " href="#" id="<?php echo $item['stream']["_id"] ?> "><i class="fas fa-star"></i></a>
-                        </li>
-                    <?php }
-                    $counter++;
+                    <a target="_blank"
+                       href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a target="_blank"
+                       href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a target="_blank"
+                       href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                </div>
+                <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
+                   target="_blank">
+                    <div class="streamers--item__container">
+                        <div class="streamers--item--image">
 
-                }
-            }
+                            <img class="streamers--item__cover"
+                                 src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
+
+                            <img class="streamers--item__icon"
+                                 src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
+                        </div>
+                        <span class="streamer--item__title"><i
+                                    class="streamer--item__live fas fa-circle"></i> <?php echo $item['stream']["channel"]["display_name"] ?> </span>
+                        <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
+                    </div>
+                </a>
+                <?php if (!$_SESSION['email'] == '') { ?>
+                <a class="streamer-star
+                            <?php
+                if (!empty($favorites)) {
+                    foreach ($favorites as $favorite) {
+                        if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
+                            echo ' active';
+                        } else {
+                            echo '';
+                        }
+                    }
+                } ?>
+                            " href="#" id="<?php echo $item['stream']["_id"] ?> "><i class="fas fa-star"></i></a>
+            </li>
+        <?php }
+        $counter++;
+        }
+        }
+        }
         }
         ?>
     </div>
@@ -542,71 +560,77 @@
             } ?>
             </ul>
             <?php
-        }?>
+        } ?>
         <?php
         if (!empty($favoritePageTwitch)) {
-            foreach ($favoritePageTwitch as $key => $item) {
-                if ((!$item['stream']["channel"]["game"] == "Overwatch") && (!$item['stream']["channel"]["game"] == "Dota 2") && (!$item['stream']["channel"]["game"] == "League of legends")){
-                    if ($counter == 0) { ?>
-                        <h3>Other</h3>
-                        <ul class="streamers__list">
-                    <?php } ?>
-                    <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
-                        <!-- Social Media links -->
-                        <a class="streamer--item__share">
-                            <i class="fas fa-share"></i>
-                        </a>
-                        <div class="streamer--item__social">
-                            <a target="_blank"
-                               href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a target="_blank"
-                               href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a target="_blank"
-                               href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
-                                <i class="fab fa-google"></i>
-                            </a>
-                            <a target="_blank"
-                               href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
-                                <i class="fab fa-reddit"></i>
-                            </a>
-                        </div>
-                    <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
-                       target="_blank">
-                        <div class="streamers--item__container">
-                            <div class="streamers--item--image">
+        foreach ($favoritePageTwitch
 
-                                <img class="streamers--item__cover" src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
+        as $key => $item) {
 
-                                <img class="streamers--item__icon"
-                                     src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
-                            </div>
-                            <span class="streamer--item__title"><i class="streamer--item__live fas fa-circle"></i> <?php echo $item['stream']["channel"]["display_name"] ?> </span>
-                            <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
-                        </div>
+        if (!$item['stream'] == null){
+        if ((!$item['stream']["channel"]["game"] == "Overwatch") && (!$item['stream']["channel"]["game"] == "Dota 2") && (!$item['stream']["channel"]["game"] == "League of legends")){
+        if ($counter == 0) { ?>
+        <h3>Other</h3>
+        <ul class="streamers__list">
+            <?php } ?>
+            <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
+                <!-- Social Media links -->
+                <a class="streamer--item__share">
+                    <i class="fas fa-share"></i>
+                </a>
+                <div class="streamer--item__social">
+                    <a target="_blank"
+                       href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
-                        <?php if (!$_SESSION['email'] == '') { ?>
-                        <a class="streamer-star
-                            <?php
-                        if (!empty($favorites)) {
-                            foreach ($favorites as $favorite) {
-                                if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
-                                    echo ' active';
-                                } else {
-                                    echo '';
-                                }
-                            }
-                        } ?>
-                            " href="#" id="<?php echo $item['stream']["_id"] ?> "><i class="fas fa-star"></i></a>
-                        </li>
-                    <?php }
-                    $counter++;
+                    <a target="_blank"
+                       href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&text=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a target="_blank"
+                       href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>">
+                        <i class="fab fa-google"></i>
+                    </a>
+                    <a target="_blank"
+                       href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item['stream']["channel"]["display_name"] ?>&title=<?php echo $item['stream']["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item['stream']["channel"]["status"] ?>:">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                </div>
+                <a class="streamer--item__content" href="<?php echo $item['stream']["channel"]["url"] ?>"
+                   target="_blank">
+                    <div class="streamers--item__container">
+                        <div class="streamers--item--image">
 
-                }
-            }
+                            <img class="streamers--item__cover"
+                                 src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
+
+                            <img class="streamers--item__icon"
+                                 src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
+                        </div>
+                        <span class="streamer--item__title"><i
+                                    class="streamer--item__live fas fa-circle"></i> <?php echo $item['stream']["channel"]["display_name"] ?> </span>
+                        <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
+                    </div>
+                </a>
+                <?php if (!$_SESSION['email'] == '') { ?>
+                <a class="streamer-star
+                            <?php
+                if (!empty($favorites)) {
+                    foreach ($favorites as $favorite) {
+                        if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
+                            echo ' active';
+                        } else {
+                            echo '';
+                        }
+                    }
+                } ?>
+                            " href="#" id="<?php echo $item['stream']["_id"] ?> "><i class="fas fa-star"></i></a>
+            </li>
+        <?php }
+        $counter++;
+        }
+        }
+        }
         }
         ?>
 
