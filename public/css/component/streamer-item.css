@@ -81,7 +81,7 @@
     -webkit-box-orient: vertical;
 }
 
-.streamer-star{
+.streamers--item .streamer-star{
     color: grey;
     font-size: 1.1em;
     position: absolute;
@@ -91,8 +91,8 @@
     transform: scale(0.9);
 }
 
-.streamer-star.active,
-.streamer-star:hover{
+.streamers--item .streamer-star.active,
+.streamers--item .streamer-star:hover{
     color:var(--orange-color);
     transform: scale(1);
  }
