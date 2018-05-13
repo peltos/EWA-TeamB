@@ -60,7 +60,7 @@
                         <a class="navigation--item signing-up" href="<?php echo URL; ?>signup">Sign Up</a>
                         <a class="navigation--item menu-box" title="Sign In" href="<?php echo URL; ?>signin"><i class="fas fa-sign-in-alt"></i></a>
                     <?php } else{ ?>
-                        <a class="navigation--item" href="<?php echo URL; ?>favorite">Favorites</a>
+                        <a class="navigation--item" href="<?php echo URL; ?>favorite">Followers</a>
                         <a class="navigation--item menu-box" title="Sign Out" href="<?php echo URL; ?>home/logout"><i class="fas fa-sign-out-alt"></i></a>
                     <?php } ?>
 

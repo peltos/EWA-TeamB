@@ -1,6 +1,6 @@
 <div class="container streamers-container favorite-container">
 
-    <h1 class="homepage-title"> Favorites </h1>
+    <h1 class="homepage-title"> Followers </h1>
 
     <div class="filterBar-container">
         <div class="filterBar--inner">
