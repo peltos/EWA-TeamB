@@ -20,6 +20,7 @@ class Home extends Controller {
         $slider = $this->model->timeline();
         $favorites = $this->model->getFavorites($_SESSION['email']);
         $favoritePage = $this->model->getFavoritePageMixer($favorites);
+        $favoritePageTwitch = $this->model->getFavoritePageTwitch($favorites);
 
         $mostFavorited = $this->model->getMostFavouriteStreamers();
         $favoritePageRecommended = $this->model->getFavoritePageMixer($mostFavorited);
@@ -36,6 +37,7 @@ class Home extends Controller {
         session_start();
         $_SESSION['username'] = '';
         $_SESSION['email'] = '';
+        $_SESSION['profilePicture'] = '';
         header('location: ' . URL);
     }
 

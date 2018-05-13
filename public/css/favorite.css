@@ -1,7 +1,11 @@
 .favorite-container {
 
 }
-
+.favorite-container h3 {
+    color: var(--orange-color);
+    border-bottom: 1.2px solid var(--orange-color);
+    line-height: 1.4;
+}
 .favorite-container .streamers--item:not(.online) {
     display:none;
 }

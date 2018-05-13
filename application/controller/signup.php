@@ -97,25 +97,7 @@ class Signup extends Controller {
                                         } else {
 
 
-                                            // If captcha isn't checked, return 'sign up failed page'.
-                                            if (!$captcha) {
-                                                header('location: ' . URL . 'signup/signupfail');
-                                            }
-                                            // recaptcha secret key:
-                                            $secretKey = "6LcZoVAUAAAAAHZTu5bzXwNcPHflIM_YZ-XqwwwQ";
-                                            // Get client user IP:
-                                            $ip = $_SERVER['REMOTE_ADDR'];
-                                            // Get response from Google recaptcha API:
-                                            $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
-                                            // Decode response in JSON:
-                                            $responseKeys = json_decode($response, true);
-
-                                            // If captcha validation failed, return 'sign up failed' page.
-                                            if (intval($responseKeys["success"]) !== 1) {
-                                                header('location: ' . URL . 'signup/signupfail');
-
-                                                // If captcha validation is succesfull, return 'sign up correct' page.
-                                            } else {
+                                            
                                                 // Add user to database.
 
                                                 $_SESSION['message'] = '';
@@ -126,12 +108,12 @@ class Signup extends Controller {
                                     }
                                 }
                             }
-                        }
+                        
                     }
                 }
             }
         } else {
-            $_SESSION['message'] = 'Two passwords do not match!';
+            $_SESSION['message'] = 'Passwords do not match!';
             header('location: ' . URL . 'signup');
         }
     }

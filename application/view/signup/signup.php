@@ -34,9 +34,9 @@
                 <input type="password" name="passwordcheck" value="" placeholder="Confirm Password"
                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required/>
             </div>
-
+<!--
             <div class="g-recaptcha" data-sitekey="6LcZoVAUAAAAAJMN1MqE_0s89kpMBxtHzE8J_HQi"></div>
-            <input class="signup-submit" type="submit" name="adduser" value="submit"/>
+-->            <input class="signup-submit" type="submit" name="adduser" value="submit"/>
         </div>
         
     </form>

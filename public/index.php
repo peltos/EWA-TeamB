@@ -6,6 +6,11 @@ if (!isset($_SESSION['nightmode'])) {
     $_SESSION['nightmode'] = 'false';
 }
 
+// check if a session for the profile picture is made. if not make one
+if (!isset($_SESSION['profilePicture'])) {
+    $_SESSION['profilePicture'] = '';
+}
+
 // check if a session for the username is made. if not make one
 if (!isset($_SESSION['username'])) {
     $_SESSION['username'] = '';
@@ -24,6 +29,11 @@ if (!isset($_SESSION['cookie'])) {
 // check if a session for signup messages are made. if not make one
 if (!isset($_SESSION['message'])) {
     $_SESSION['message'] = false;
+}
+
+// check if a session for signup messages are made. if not make one
+if (!isset($_SESSION['signinEmail'])) {
+    $_SESSION['signinEmail'] = '';
 }
 
 // check what is in all sessions

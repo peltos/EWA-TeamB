@@ -1,71 +1,117 @@
 body {
     font-family: "ubuntu";
     font-size: 14px;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     background-color: var(--background);
     color: var(--font-color);
 }
 
-img{
-    max-width:1200px;
+img {
+    max-width: 1200px;
 }
 
 /* *********************
         HEADERS
 ************************ */
 
-h1{
+h1 {
     color: var(--heading-color);
-    font-size:2em;
+    font-size: 2em;
 }
 
-h2{
+h2 {
     color: var(--heading-color);
-    font-size:1.5em;
+    font-size: 1.5em;
 }
-h3{
+
+h3 {
     color: var(--heading-color);
-    font-size:1.25em;
+    font-size: 1.25em;
 }
-h4{
+
+h4 {
     color: var(--heading-color);
-    font-size:1.125em;
+    font-size: 1.125em;
 }
 
 /* *****************
         HEADER
 ******************** */
 
-header{
+header {
     font-size: 2em;
-    background-color: var(--primary-color);
     color: var(--nav-color);
-    padding:.25em .25em;
+    padding: .25em .25em;
     height: 1.4em;
 }
-header.active{
-    position:relative;
-    z-index:2000;
+
+header.header--main {
+    background-color: var(--primary-color);
 }
 
-.header--inner{
-    display:flex;
+header.header--search {
+    background-color: var(--background);
+    height: 1em;
+}
+
+.header--search input {
+    color: var(--font-color);
+    background-color: rgba(0, 0, 0, 0);
+    border: var(--submit-border) solid var(--font-color);
+    border-radius: 4px;
+    padding: .25em;
+    margin-left: 6px;
+}
+
+.header--search input:focus {
+    outline: none;
+    border-left-width: 3.5px;
+}
+
+.header--search input[type="submit"] {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 10px;
+    width: 58px;
+    color: var(--font-color);
+    border: var(--submit-border) solid var(--font-color);
+    cursor: pointer;
+}
+
+.header--search input[type="submit"]:hover {
+    background-color: var(--orange-color);
+    color: var(--nav-color);
+    border: 0;
+}
+
+header.active {
+    position: relative;
+    z-index: 2000;
+}
+
+.header--inner {
+    display: flex;
     align-items: center;
-    margin:0 auto;
-    max-width:1200px;
+    margin: 0 auto;
+    max-width: 1200px;
     height: 100%;
-    position:relative;
+    position: relative;
+}
+
+header.header--search .header--inner {
+    justify-content: flex-end;
 }
 
 /* logo menu */
 
-.logo{
+.logo {
     color: var(--background);
-    max-height:75%;
+    max-height: 75%;
 }
-.logo img{
-    height:100%;
+
+.logo img {
+    height: 100%;
     width: 3.0em;
 
 }
@@ -73,11 +119,11 @@ header.active{
 /* navigation */
 
 .navigation {
-    display:flex;
+    display: flex;
     justify-content: flex-end;
     align-items: center;
-    width:100%;
-    transition:400ms;
+    width: 100%;
+    transition: 400ms;
 }
 
 .navigation .navigation--item {
@@ -89,6 +135,21 @@ header.active{
     background: var(--primary-color);
     color: var(--nav-color);
     border-bottom: 2px solid var(--primary-color);
+}
+
+.navigation--item--search {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin:0;
+}
+
+.navigation--item--search__input {
+
+}
+
+.navigation--item--search__button {
+
 }
 
 .navigation .menu-box {
@@ -107,14 +168,17 @@ header.active{
     border-bottom: 1.5px solid var(--ziggo-color);
     border-left: 1.5px solid var(--ziggo-color);
     border-right: 1.5px solid var(--ziggo-color);
-    background:var(--ziggo-color);
-    color:var(--primary-color) !important;
+    background: var(--ziggo-color);
+    color: var(--primary-color) !important;
 }
 
 .navigation .signing-up {
-  color: var(--ziggo-color);
+    color: var(--ziggo-color);
 }
 
+.navigation .navigation--item .fa-user-circle {
+  font-size: 19px;
+}
 
 /* menu button */
 
@@ -142,12 +206,12 @@ header.active{
 
 /* active elements */
 
-.active .navigation{
-    position:fixed;
-    height:100%;
-    width:100%;
-    top:0;
-    left:0;
+.active .navigation {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
     background: var(--primary-color);
     flex-direction: column;
     justify-content: flex-start;
@@ -157,7 +221,7 @@ header.active{
 
 .active .navigation .navigation--item {
     display: block;
-    font-size:1em;
+    font-size: 1em;
 }
 
 .active .navigation-menu-icon .menu-icon__line:nth-child(1) {
@@ -174,11 +238,10 @@ header.active{
     transform: rotate(45deg) translate(-0.4em, -0.5em);
 }
 
-
 .active .navigation-menu-icon {
-    position:absolute;
-    top:0;
-    right:0;
+    position: absolute;
+    top: 0;
+    right: 0;
     display: inline-block;
     cursor: pointer;
     padding: 10px 15px;
@@ -195,21 +258,21 @@ header.active{
 ************************ */
 
 .main-container {
-  margin-left: 9px;
-  margin-right: 9px;
+    margin-left: 9px;
+    margin-right: 9px;
 }
 
-
-.main-container--inner{
-    margin:0 auto;
-    max-width:1200px;
+.main-container--inner {
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .container {
     border-bottom: 3px solid var(--primary-color);
-    width:100%;
-    margin-bottom:1em;
+    width: 100%;
+    margin-bottom: 1em;
 }
+
 .container a {
     color: var(--action-color);
     display: inline-block;
@@ -218,26 +281,32 @@ header.active{
     text-transform: uppercase;
     font-weight: bold;
 }
-.streamers.container .streamers__list{
-  display:flex;
-  flex-wrap: wrap;
+
+.streamers.container .streamers__list {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
 }
-.streamers.container .streamers--item{
-  width:30%;
-  margin-top:2em;
+
+.streamers.container .streamers--item {
+    width: 30%;
+    margin-top: 2em;
 }
+
 .container table {
     font-size: 11px;
     margin-top: 20px;
 }
+
 .container table thead td {
     background-color: var(--background-shade);
     padding: 4px 10px;
 }
+
 .container table tbody td {
     padding: 4px 10px;
 }
+
 .container .box {
     border-top: 1px solid var(--primary-color);
     padding-top: 10px;
@@ -252,8 +321,8 @@ header.active{
 }
 
 .container input:focus {
-  border-right: 6px solid var(--orange-color);
-  outline: none;
+    border-right: 6px solid var(--orange-color);
+    outline: none;
 }
 
 .container input[type="submit"] {
@@ -261,74 +330,114 @@ header.active{
     border: var(--submit-border) solid var(--orange-color);
     cursor: pointer;
 }
+
 .container input[type="submit"]:hover {
     background-color: var(--buttonHover-color);
     color: var(--ziggo-color);
 }
+
 .container button {
     background-color: #ccc;
     border: 0;
     padding: 5px 10px;
     cursor: pointer;
 }
+
 .container button:hover {
     background-color: #222;
     color: #fff;
 }
 
+/* *********************
+        SEARCH PAGE
+************************ */
 
+.search-page input {
+  height: 22px;
+  width: 230px;
+  color: var(--font-color);
+  background-color: rgba(0, 0, 0, 0);
+  border: var(--submit-border) solid var(--font-color);
+  border-radius: 4px;
+  padding: .25em;
+  margin-right: 6px;
+}
+
+.search-page input:focus {
+    outline: none;
+    border-left-width: 3.5px;
+    border-right: var(--submit-border) solid var(--font-color);
+}
+
+.search-page input[type="submit"] {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 10px;
+    width: 58px;
+    height: 31.2px;
+    color: var(--font-color);
+    border: var(--submit-border) solid var(--font-color);
+    cursor: pointer;
+}
+
+.search-page input[type="submit"]:hover {
+    background-color: var(--orange-color);
+    color: var(--nav-color);
+    border: 0;
+}
 /* *********************
         FOOTER
 ************************ */
 
 .footer {
 }
+
 .footer a {
 }
 
 /* cookies */
 .cookie {
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:calc(100% - 1em);
-    background:rgba(0,0,0,0.75);
-    color:white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 1em);
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
     z-index: 100;
-    padding:.5em;
+    padding: .5em;
 }
 
 .cookie.hidden {
-    display:none;
+    display: none;
 }
 
 .cookie--inner {
-    max-width:1200px;
-    margin:0 auto;
-    display:flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
     justify-content: center;
 }
 
 .cookie--text--link {
     text-decoration: underline;
-    color:white;
+    color: white;
 }
 
 .cookie--text--link:hover {
-    color:var(--orange-color);
+    color: var(--orange-color);
 }
 
 .cookie--button {
-    background:var(--orange-color);
-    padding:.25em .5em;
-    margin:.75em;
+    background: var(--orange-color);
+    padding: .25em .5em;
+    margin: .75em;
     border-radius: .25em;
     cursor: pointer;
- }
+}
 
 .cookie--button:active {
-    color:var(--orange-color);
-    background:white;
+    color: var(--orange-color);
+    background: white;
 }
 
 .cookie-container ol {
@@ -339,6 +448,7 @@ header.active{
     display: block;
     margin: .25em 0;
 }
+
 .cookie-container li:before {
     content: counters(item, ".") " ";
     counter-increment: item;
@@ -348,8 +458,8 @@ header.active{
 
 .cookie-container > ol > li:before {
     margin-top: 2px;
-    margin-right:.5em;
-    float:left;
+    margin-right: .5em;
+    float: left;
 }
 
 .cookie-container .cookie-title {
@@ -362,16 +472,28 @@ header.active{
 ************************ */
 
 .switch-container {
-    display:flex;
-    margin:1em;
+    display: flex;
+    margin: 1em;
     justify-content: flex-end;
     align-items: center;
 }
 
-.switch-container p{
+.switch-container p {
     font-size: 12px;
-    margin:0 1em 0 0;
+    margin: 0 1em 0 0;
     font-weight: 900;
+}
+
+.switch-container .search-icon {
+    margin-right: 20px;
+    color: var(--font-color);
+    border: 1px solid;
+    padding: 4px 7px;
+    border-radius: 2px;
+}
+
+.switch-container .search-icon:hover {
+    color: var(--orange-color);
 }
 
 /* The switch - the box around the slider */
@@ -383,7 +505,9 @@ header.active{
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input {
+    display: none;
+}
 
 /* The slider */
 .switch-slider {
@@ -433,10 +557,6 @@ input:checked + .switch-slider:before {
     border-radius: 50%;
 }
 
-
-
-
-
 /* **************************************
         MEDIA QUERIES / RESPONSIVE
 ***************************************** */
@@ -445,9 +565,11 @@ input:checked + .switch-slider:before {
     .navigation-menu-icon {
         display: none;
     }
+
     .navigation .navigation--item {
         display: inline-block;
     }
+
     .navigation .navigation--item:hover {
         color: var(--ziggo-color);
         border-bottom: 2px solid var(--ziggo-color);
@@ -456,7 +578,7 @@ input:checked + .switch-slider:before {
 
 @media only screen and (min-width: 1200px) {
     header {
-        padding:.25em 1em;
+        padding: .25em 1em;
     }
 
 }
