@@ -77,9 +77,9 @@ class Signup extends Controller {
                 $_SESSION['message'] .= 'username must be shorter then 30 and longer than 5 characters <br/>';
                 $checkCounter++;
             }
-                $getUserName = $this->model->checkUsername($_POST['username']);
-                if (isset($getUserName)) {
-                    $_SESSION['message'] .= 'username already taken <br/>';
+                $getUserName = $this->model->checkUsername($username);
+                if (!$getUserName ==  false) {
+                    $_SESSION['message'] .= 'username already taken  <br/>';
                     $checkCounter++;
                 }
                     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
