@@ -26,8 +26,16 @@ if (!isset($_SESSION['message'])) {
     $_SESSION['message'] = false;
 }
 
+if (!isset($_SESSION['addUserUsername'])) {
+    $_SESSION['addUserUsername'] = '';
+}
+
+if (!isset($_SESSION['addUserEmail'])) {
+    $_SESSION['addUserEmail'] = '';
+}
+
 // check what is in all sessions
-//echo '<pre>' . var_dump($_SESSION) . '</pre>';
+// echo '<pre>' . var_dump($_SESSION) . '</pre>';
 
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path

@@ -55,9 +55,13 @@ class Signup extends Controller {
 
 
 
+
+
             $username = ($_POST["username"]);
+            $_SESSION['addUserUsername'] = $username;
             if (isset($_POST['email'])) {
                 $email = $_POST['email'];
+                $_SESSION['addUserEmail'] = $email;
             } if (isset($_POST['password'])) {
                 $password = $_POST['password'];
             } if (isset($_POST['passwordcheck'])) {
@@ -74,7 +78,7 @@ class Signup extends Controller {
                 $checkCounter++;
             }
                 $getUserName = $this->model->checkUsername($_POST['username']);
-                if (!$getUserName == false) {
+                if (isset($getUserName)) {
                     $_SESSION['message'] .= 'username already taken <br/>';
                     $checkCounter++;
                 }
@@ -134,6 +138,10 @@ class Signup extends Controller {
                                                     if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
                                                         $_SESSION["email"] = $getInfoUser->memberEmail;
                                                         $_SESSION["username"] = $getInfoUser->username;
+
+
+                                                        $_SESSION['addUserUsername'] = '';
+                                                        $_SESSION['addUserEmail'] = '';
 
                                                       header('location: ' . URL . 'signup/signupcorrect');
                                                     }
