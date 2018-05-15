@@ -21,6 +21,11 @@ if (!isset($_SESSION['email'])) {
     $_SESSION['email'] = '';
 }
 
+// check if a session for the email is made. if not make one
+if (!isset($_SESSION['token'])) {
+    $_SESSION['token'] = '';
+}
+
 // check if a session for cookies are made. if not make one
 if (!isset($_SESSION['cookie'])) {
     $_SESSION['cookie'] = false;
@@ -45,7 +50,7 @@ if (!isset($_SESSION['signinEmail'])) {
 }
 
 // check what is in all sessions
-//echo '<pre>' . var_dump($_SESSION) . '</pre>';
+echo '<pre>' . var_dump($_SESSION) . '</pre>';
 
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path

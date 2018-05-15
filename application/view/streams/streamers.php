@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <?php if (!$_SESSION['email'] == '') { ?>
+                            <?php if (!$_SESSION['token'] == '') { ?>
                                 <a class="streamer-star
                             <?php
                                 if (!empty($favorites)) {
@@ -138,7 +138,7 @@
                                     <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
                                 </div>
                             </a>
-                            <?php if (!$_SESSION['email'] == '') { ?>
+                            <?php if (!$_SESSION['token'] == '') { ?>
                                 <a class="streamer-star
                             <?php
                                 if (!empty($favorites)) {
@@ -224,7 +224,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <?php if (!$_SESSION['email'] == '') { ?>
+                            <?php if (!$_SESSION['token'] == '') { ?>
                                 <a class="streamer-star
                             <?php
                                 if (!empty($favorites)) {
@@ -290,7 +290,7 @@
                                     <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
                                 </div>
                             </a>
-                            <?php if (!$_SESSION['email'] == '') { ?>
+                            <?php if (!$_SESSION['token'] == '') { ?>
                                 <a class="streamer-star
                             <?php
                                 if (!empty($favorites)) {
@@ -377,7 +377,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <?php if (!$_SESSION['email'] == '') { ?>
+                            <?php if (!$_SESSION['token'] == '') { ?>
                                 <a class="streamer-star
                             <?php
                                 if (!empty($favorites)) {
@@ -442,7 +442,7 @@
                                     <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
                                 </div>
                             </a>
-                            <?php if (!$_SESSION['email'] == '') { ?>
+                            <?php if (!$_SESSION['token'] == '') { ?>
                                 <a class="streamer-star
                             <?php
                                 if (!empty($favorites)) {
@@ -526,7 +526,7 @@
                                     <span class="streamer-title"><?php echo $item["name"] ?></span>
                                 </div>
                             </a>
-                            <?php if (!$_SESSION['email'] == '') { ?>
+                            <?php if (!$_SESSION['token'] == '') { ?>
                                 <a class="streamer-star
                             <?php
                                 if (!empty($favorites)) {
@@ -592,7 +592,7 @@
                                     <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
                                 </div>
                             </a>
-                            <?php if (!$_SESSION['email'] == '') { ?>
+                            <?php if (!$_SESSION['token'] == '') { ?>
                                 <a class="streamer-star
                             <?php
                                 if (!empty($favorites)) {

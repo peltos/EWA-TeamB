@@ -38,7 +38,7 @@
                 <span class="streamer-title"><?php echo $item['stream']["channel"]["status"] ?></span>
             </div>
         </a>
-        <?php if (!$_SESSION['email'] == '') { ?>
+        <?php if (!$_SESSION['token'] == '') { ?>
             <a class="streamer-star <?php if (!empty($favorites)) {
                 foreach ($favorites as $favorite) {
                     if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
@@ -91,7 +91,7 @@
                 <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
             </div>
         </a>
-        <?php if (!$_SESSION['email'] == '') { ?>
+        <?php if (!$_SESSION['token'] == '') { ?>
             <a class="streamer-star
                             <?php
             if (!empty($favorites)) {

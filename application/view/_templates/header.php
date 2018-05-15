@@ -57,7 +57,7 @@ if ($_SESSION['nightmode'] == 'false') {
             <a class="navigation--item" href="<?php echo URL; ?>tournaments">Tournaments</a>
             <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
             <a class="navigation--item" href="<?php echo URL; ?>news">News</a>
-            <?php if ($_SESSION['email'] == '') { ?>
+            <?php if ($_SESSION['token'] == '') { ?>
                 <a class="navigation--item signing-up" href="<?php echo URL; ?>signup">Sign Up</a>
                 <a class="navigation--item menu-box" title="Sign In" href="<?php echo URL; ?>signin"><i
                             class="fas fa-sign-in-alt"></i></a>

@@ -17,7 +17,7 @@ class Favorite extends Controller
 
     public function index()
     {
-        if (!$_SESSION['email'] == '') {
+        if (!$_SESSION['token'] == '') {
 
             $favorites = $this->model->getFavorites($_SESSION['email']);
             $favoritePageMixer = $this->model->getFavoritePageMixer($favorites);

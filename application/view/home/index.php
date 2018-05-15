@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                         </a>
-                        <?php if (!$_SESSION['email'] == '') { ?>
+                        <?php if (!$_SESSION['token'] == '') { ?>
                             <a class="streamer-star
                             <?php
                             if (!empty($favorites)) {
@@ -68,7 +68,7 @@
         ?>
     </ul>
     <?php ?>
-    <?php if (!$_SESSION['email'] == '') { ?>
+    <?php if (!$_SESSION['token'] == '') { ?>
 
         <h2 class="homepage-title">Favorites</h2>
         <ul class="streamers__list">

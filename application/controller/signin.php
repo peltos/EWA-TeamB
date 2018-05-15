@@ -33,10 +33,13 @@ class Signin extends Controller
             if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
                 $_SESSION["email"] = $getInfoUser->memberEmail;
                 $_SESSION["username"] = $getInfoUser->username;
+                $_SESSION["token"] = md5($getInfoUser->username . $getInfoUser->memberEmail);
                 $_SESSION["profilePicture"] = $getInfoUser->profilePicture;
 
                 $_SESSION['message'] = '';
                 $_SESSION['signinEmail'] = '';
+
+
                 header('location: ' . URL);
             }else{
                 $_SESSION['message'] = 'Your Username or Password is incorrect';

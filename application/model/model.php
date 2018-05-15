@@ -11,7 +11,23 @@ class Model {
         } catch (PDOException $e) {
             exit('Database connection could not be established.');
         }
+        if(!$_SESSION['token'] == ''){
+            $this->checkToken($_SESSION['username'], $_SESSION['email'], $_SESSION['token']);
+        }
     }
+
+    public function checkToken($username, $email, $token) {
+
+        $varMD5 = md5($username . $email);
+
+        if (!($varMD5 == $token)){
+            $_SESSION['username'] = '';
+            $_SESSION['email'] = '';
+            $_SESSION['token'] = '';
+        }
+
+    }
+
 
     function console_log($data) {
         echo '<script>';
