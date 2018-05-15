@@ -1,6 +1,6 @@
 <div class="container search-container">
 
-    <h3>Search Results</h3>
+    <h3>Search</h3>
     <form class="search-page" action="<?php echo URL; ?>search/redirect" method="POST">
         <input type="text" name="search-input" placeholder="Search..." value=""/>
         <input type="submit" name="search" value="Search"/>
@@ -91,7 +91,7 @@
                 foreach ($favoritePageTwitch as $key => $item) {
                     if(!$item['stream'] ==  null){
                     if ($counter == 0) { ?>
-                <h3>Searches</h3>
+                <h3>Search Results</h3>
                 <ul class="streamers__list">
                     <?php } ?>
                     <li class="streamers--item <?php if ($item['stream']["stream_type"] == 'live') echo ' online' ?>">
