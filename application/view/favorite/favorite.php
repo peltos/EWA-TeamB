@@ -15,7 +15,6 @@
             </div>
         </div>
     </div>
-    <?php // asdjaskjdjajssdkjasdjasjkd ?>
     <div id="lol" class="tabcontent">
         <h3>League of Legends</h3>
         <ul class="streamers__list">
