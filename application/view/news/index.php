@@ -1,6 +1,7 @@
 <div class="container news-container">
 <h1>Esport news feed</h1>
 <!-- start sw-rss-feed code -->
+ <?php //This is the rss feed for the three news topics.?>
 <script type="text/javascript">
 <!--
 rssfeed_url = new Array();
@@ -130,7 +131,5 @@ rssfeed_cache = "a39c98bedf11b8d29a077951534630ae";
 //-->
 </script>
 <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
-<!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. -->
-<div style="text-align:right; width:500px;">powered by <a href="http://www.surfing-waves.com" rel="noopener" target="_blank" style="color:#ccc;font-size:10px">Surfing Waves</a></div>
-<!-- end sw-rss-feed code -->
+
 </div>

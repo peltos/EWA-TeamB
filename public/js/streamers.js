@@ -1,4 +1,7 @@
+
+//This is for the filter function in the streamers page.
 function openCity(evt, gameName) {
+  //If the value is 'all', you will get all the streamers of all the games. But if the 'all' value is not pressed you will get the game that you have pressed in the filter. 
     if(gameName !== 'all'){
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
