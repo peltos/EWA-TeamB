@@ -1,9 +1,3 @@
-<?php session_start();
-if (!isset($_SESSION['nightmode'])) {
-    $_SESSION['nightmode'] = 'false';
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -168,7 +162,14 @@ if (URL == (URL_PROTOCOL . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])) { ?
 <div class="main-container">
     <div class="main-container--inner">
         <div class="switch-container">
-            <div class="search-icon" onclick="myFunction()"><i class="fas fa-search"></i></div>
+            <div class="header--search hidden" id="searchbar">
+                <form class="navigation--item--search" action="<?php echo URL; ?>search/redirect" method="POST">
+                    <input class="navigation--item--search__input" placeholder="Search..." type="text"
+                           name="search-input" value="" required/>
+                    <input type="submit" name="search" value="Search">
+                </form>
+            </div>
+            <a href="#" id="search-icon" class="search-icon"><i class="fas fa-search"></i></a>
             <p>Night Mode</p>
             <label class="switch">
                 <input type="checkbox" <?php if ($_SESSION['nightmode'] == 'true') {
@@ -177,24 +178,3 @@ if (URL == (URL_PROTOCOL . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])) { ?
                 <span id="nightmode" class="switch-slider round "></span>
             </label>
         </div>
-
-        <header class="header--search" id="searchbar" hidden>
-            <div class="header--inner">
-                <form class="navigation--item--search" action="<?php echo URL; ?>search/redirect" method="POST">
-                    <input class="navigation--item--search__input" placeholder="Search..." type="text"
-                           name="search-input" value="" required/>
-                    <input type="submit" name="search" value="Search">
-                </form>
-            </div>
-        </header>
-
-        <script>
-            function myFunction() {
-                var x = document.getElementById("searchbar");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-        </script>
