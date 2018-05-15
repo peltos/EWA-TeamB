@@ -44,8 +44,8 @@
     border: 1px solid var(--boxBorder-color);
     border-radius: 5px;
     position:relative;
-    background: var(--font-color);
-    color: var(--desc-color);
+    background: var(--stream-background-color);
+    color: var(--stream-font-color);
 }
 .online .streamers--item__container {
     color: var(--font-color);
