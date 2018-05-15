@@ -31,6 +31,14 @@ if (!isset($_SESSION['message'])) {
     $_SESSION['message'] = false;
 }
 
+if (!isset($_SESSION['addUserUsername'])) {
+    $_SESSION['addUserUsername'] = '';
+}
+
+if (!isset($_SESSION['addUserEmail'])) {
+    $_SESSION['addUserEmail'] = '';
+}
+
 // check if a session for signup messages are made. if not make one
 if (!isset($_SESSION['signinEmail'])) {
     $_SESSION['signinEmail'] = '';

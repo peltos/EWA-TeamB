@@ -51,10 +51,17 @@ class Signup extends Controller {
 
         if (isset($_POST["adduser"])) {
             // If we have POST data to create a new user entry
-            // If password and passwordcheck are similar, check captcha. Or else return 'sign up failed' page.
+            // If password and passwordcheck are similar, check captcha. Or else return 'sign up failed' page
+
+
+
+
+
             $username = ($_POST["username"]);
+            $_SESSION['addUserUsername'] = $username;
             if (isset($_POST['email'])) {
                 $email = $_POST['email'];
+                $_SESSION['addUserEmail'] = $email;
             } if (isset($_POST['password'])) {
                 $password = $_POST['password'];
             } if (isset($_POST['passwordcheck'])) {
@@ -62,46 +69,50 @@ class Signup extends Controller {
             } if (isset($_POST['g-recaptcha-response'])) {
                 $captcha = $_POST['g-recaptcha-response'];
             }
-            if (strlen($username) > 30 && strlen($username) <= 5) {
-                $_SESSION['message'] = 'username must be shorter then 30 and longer than 5 characters ';
-                header('location: ' . URL . 'signup');
-            } else {
-                $getUserName = $this->model->checkUsername($_POST['username']);
-                if (!$getUserName == false) {
-                    $_SESSION['message'] = 'username already taken';
-                    header('location: ' . URL . 'signup');
-                } else {
-                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                        $_SESSION['message'] = 'Invalid email format';
-                        header('location: ' . URL . 'signup');
-                    } else {
-                        if (strlen($password) < 8) {
-                            $_SESSION['message'] = "Your Password Must Contain At Least 8 Characters!";
-                            header('location: ' . URL . 'signup');
-                        } else {
-                            if (!preg_match("#[0-9]+#", $password)) {
-                                $_SESSION['message'] = "Your Password Must Contain At Least 1 Number!";
-                                header('location: ' . URL . 'signup');
-                            } else {
-                                if (!preg_match("#[A-Z]+#", $password)) {
-                                    $_SESSION['message'] = "Your Password Must Contain At Least 1 Capital Letter!";
-                                    header('location: ' . URL . 'signup');
-                                } else {
-                                    if (!preg_match("#[a-z]+#", $password)) {
-                                        $_SESSION['message'] = "Your Password Must Contain At Least 1 Lowercase Letter!";
-                                        header('location: ' . URL . 'signup');
-                                    } else {
-                                        if (!($password == $passwordcheck)) {
-                                            $_SESSION['message'] = "Your Passwords are not the same!";
-                                            header('location: ' . URL . 'signup');
-                                        } else {
 
+            $checkCounter = 0;
+            $_SESSION['message'] = '';
+
+            if (strlen($username) > 30 && strlen($username) <= 5) {
+                $_SESSION['message'] .= 'username must be shorter then 30 and longer than 5 characters <br/>';
+                $checkCounter++;
+            }
+                $getUserName = $this->model->checkUsername($username);
+                if (!$getUserName ==  false) {
+                    $_SESSION['message'] .= 'username already taken  <br/>';
+                    $checkCounter++;
+                }
+                    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        $_SESSION['message'] .= 'Invalid email format <br/>';
+                        $checkCounter++;
+                    }
+                        if (strlen($password) < 8) {
+                            $_SESSION['message'] .= "Your Password Must Contain At Least 8 Characters! <br/>";
+                            $checkCounter++;
+                        }
+                            if (!preg_match("#[0-9]+#", $password)) {
+                                $_SESSION['message'] .= "Your Password Must Contain At Least 1 Number! <br/>";
+                                $checkCounter++;
+                            }
+                                if (!preg_match("#[A-Z]+#", $password)) {
+                                    $_SESSION['message'] .= "Your Password Must Contain At Least 1 Capital Letter! <br/>";
+                                    $checkCounter++;
+                                }
+                                    if (!preg_match("#[a-z]+#", $password)) {
+                                        $_SESSION['message'] .= "Your Password Must Contain At Least 1 Lowercase Letter! <br/>";
+                                        $checkCounter++;
+                                    }
+                                        if (!($password == $passwordcheck)) {
+                                            $_SESSION['message'] .= "Your Passwords are not the same! <br/>";
+                                            $checkCounter++;
+                                        }
+                                            if($checkCounter == 0){
 
                                             // If captcha isn't checked, return 'sign up failed page'.
                                             if (!$captcha) {
-                                                header('location: ' . URL . 'signup/signupfail');
-                                            }
-                                            // recaptcha secret key:
+                                            //     header('location: ' . URL . 'signup/signupfail');
+                                             }
+                                             // recaptcha secret key:
                                             $secretKey = "6LcZoVAUAAAAAHZTu5bzXwNcPHflIM_YZ-XqwwwQ";
                                             // Get client user IP:
                                             $ip = $_SERVER['REMOTE_ADDR'];
@@ -120,16 +131,25 @@ class Signup extends Controller {
 
                                                 $_SESSION['message'] = '';
                                                 $this->model->addUser($_POST["username"], $_POST["email"], $_POST["password"]);
-                                                header('location: ' . URL . 'signup/signupcorrect');
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+                                                $getInfoUser = $this->model->getUser($_POST["email"]);
+                                                if (isset($getInfoUser)) {
+                                                    $md5Password = md5($_POST["password"]);
+
+                                                    if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
+                                                        $_SESSION["email"] = $getInfoUser->memberEmail;
+                                                        $_SESSION["username"] = $getInfoUser->username;
+
+
+                                                        $_SESSION['addUserUsername'] = '';
+                                                        $_SESSION['addUserEmail'] = '';
+
+                                                      header('location: ' . URL . 'signup/signupcorrect');
+                                                    }
+                                                }
+                                            }  }else{
+                                                header('location: ' . URL . 'signup');
+                                              }
+
         } else {
             $_SESSION['message'] = 'Passwords do not match!';
             header('location: ' . URL . 'signup');

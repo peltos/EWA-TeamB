@@ -43,7 +43,7 @@ class Model {
     }
 
     public function checkUsername($username) {
-        $sql = "SELECT username FROM Member WHERE memberEmail = :username";
+        $sql = "SELECT username FROM Member WHERE username = :username";
         $query = $this->db->prepare($sql);
         $parameters = array('username' => $username);
 

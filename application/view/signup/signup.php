@@ -16,12 +16,12 @@
             <p><?php echo $_SESSION['message'] ?></p>
             <div class="signup-username">
                 <span class="user-icon"><i class="fas fa-user"></i></span>
-                <input type="text" name="username" value="" placeholder="Username" onfocus="this.placeholder = ''"
+                <input type="text" name="username" value="<?php echo $_SESSION['addUserUsername'] ?>" placeholder="Username" onfocus="this.placeholder = ''"
                        onblur="this.placeholder = 'Username'" required>
             </div>
             <div class="signup-email">
                 <span class="email-icon"><i class="far fa-envelope"></i></span>
-                <input type="text" name="email" value="" placeholder="Email Address" onfocus="this.placeholder = ''"
+                <input type="text" name="email" value="<?php echo $_SESSION['addUserEmail'] ?>" placeholder="Email Address" onfocus="this.placeholder = ''"
                        onblur="this.placeholder = 'Email Address'" required/>
             </div>
             <div class="signup-password">
@@ -35,10 +35,10 @@
                        onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'" required/>
             </div>
 
-            <div class="g-recaptcha" data-sitekey="6LcZoVAUAAAAAJMN1MqE_0s89kpMBxtHzE8J_HQi"></div>
+            <!-- <div class="g-recaptcha" data-sitekey="6LcZoVAUAAAAAJMN1MqE_0s89kpMBxtHzE8J_HQi"></div> -->
             <input class="signup-submit" type="submit" name="adduser" value="submit"/>
         </div>
-        
+
     </form>
 
 </div>
