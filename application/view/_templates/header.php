@@ -1,3 +1,9 @@
+<?php session_start();
+if (!isset($_SESSION['nightmode'])) {
+    $_SESSION['nightmode'] = 'false';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +62,7 @@ if ($_SESSION['nightmode'] == 'false') {
             <a class="navigation--item" href="<?php echo URL; ?>matches">Matches</a>
             <a class="navigation--item" href="<?php echo URL; ?>tournaments">Tournaments</a>
             <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
+            <a class="navigation--item" href="<?php echo URL; ?>news">News</a>
             <?php if ($_SESSION['email'] == '') { ?>
                 <a class="navigation--item signing-up" href="<?php echo URL; ?>signup">Sign Up</a>
                 <a class="navigation--item menu-box" title="Sign In" href="<?php echo URL; ?>signin"><i
