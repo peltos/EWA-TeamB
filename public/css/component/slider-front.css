@@ -1,10 +1,10 @@
 .slider-front {
     display: none;
+    width: 100%;
 }
 
 .slider-front.slick-initialized,
 .slider-front .slider-item--background {
-    width: 100%;
     height: 40em;
 }
 
@@ -53,7 +53,14 @@
     justify-content: center;
     align-content: center;
     text-align: center;
+    transition: 200ms;
+    transform: scale(0.75);
 }
+.slider-front .slick-current .slider-item--content{
+    transform: scale(.9);
+
+}
+
 
 .slider-front .slider-item--content__date,
 .slider-front .slider-item--content__icon,
