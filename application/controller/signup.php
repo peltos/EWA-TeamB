@@ -152,7 +152,7 @@ class Signup extends Controller
                             header('location: ' . URL . 'signup/signupcorrect');
                         }
                     }
-//                }
+                }
             } else {
                 header('location: ' . URL . 'signup');
             }
