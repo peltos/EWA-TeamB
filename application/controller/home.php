@@ -23,7 +23,8 @@ class Home extends Controller {
         $favoritePageTwitch = $this->model->getFavoritePageTwitch($favorites);
 
         $mostFavorited = $this->model->getMostFavouriteStreamers();
-        $favoritePageRecommended = $this->model->getFavoritePageMixer($mostFavorited);
+        $favoritePageRecommendedMixer = $this->model->getFavoritePageMixer($mostFavorited);
+        $favoritePageRecommendedTwitch = $this->model->getFavoritePageTwitch($mostFavorited);
         
         // load views
         require APP . 'view/_templates/header.php';
@@ -31,6 +32,7 @@ class Home extends Controller {
         require APP . 'view/_templates/footer.php';
 
         $this->model->streamerUpdateMixer('mixer', $favoritePage);
+        $this->model->streamerUpdateMixer('mixer', $favoritePageRecommendedMixer);
     }
 
     public function logout() {

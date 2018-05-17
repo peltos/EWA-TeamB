@@ -1,6 +1,6 @@
 <div class="container favorite-container">
 
-    <h1 class="homepage-title"> Followers </h1>
+    <h1 class="homepage-title"> Followed Channels </h1>
 
     <div class="filterBar-container">
         <div class="filterBar--inner">

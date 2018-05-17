@@ -13,6 +13,17 @@ class Model {
         }
     }
 
+    public function addNewPassword($password, $Email) {
+        $sql = "UPDATE member SET password='$password' WHERE memberEmail = '$Email'";
+        $query = $this->db->prepare($sql);
+
+
+        // useful for debugging: you can see the SQL behind above construction by using:
+        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+        $query->execute();
+    }
+
     function console_log($data) {
         echo '<script>';
         echo 'console.log(' . json_encode($data) . ')';

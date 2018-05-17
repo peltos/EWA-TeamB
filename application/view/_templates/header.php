@@ -61,7 +61,7 @@ if ($_SESSION['nightmode'] == 'false') {
                 <a class="navigation--item menu-box" title="Sign In" href="<?php echo URL; ?>signin"><i
                             class="fas fa-sign-in-alt"></i></a>
             <?php } else { ?>
-                <a class="navigation--item" href="<?php echo URL; ?>favorite">Favorites</a>
+                <a class="navigation--item" href="<?php echo URL; ?>favorite">Following</a>
                 <a class="navigation--item" title="View Profile" href="<?php echo URL; ?>profile"><i
                             class="far fa-user-circle"></i></a>
                 <a class="navigation--item menu-box" title="Sign Out" href="<?php echo URL; ?>home/logout"><i

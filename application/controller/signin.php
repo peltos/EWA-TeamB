@@ -35,7 +35,6 @@ class Signin extends Controller
             if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
                 $_SESSION["email"] = $getInfoUser->memberEmail;
                 $_SESSION["username"] = $getInfoUser->username;
-                $_SESSION["profilePicture"] = $getInfoUser->profilePicture;
 
                 $_SESSION['message'] = '';
                 $_SESSION['signinEmail'] = '';
