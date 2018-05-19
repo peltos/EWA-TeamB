@@ -28,7 +28,7 @@
     background: var(--buttonBoxBg-color);
 
 }
-/** **/
+
 .profile-controller .profile-lastlogin,
 .profile-controller .profile-username,
 .profile-controller .profile-email {
@@ -44,7 +44,7 @@
     font-size: 18px;
     width: 1.25em;
     padding: 5px 6px;
-    margin: 5px .5em;
+    margin: 5px .21em;
     display:flex;
     align-items: center;
 }
@@ -58,6 +58,53 @@
     margin-bottom: 1em;
     border-radius: 5px;
 }
+
+.profile-controller .message-profile {
+    margin-top: -5px;
+}
+
+/** ----- Change User info Input fields ----- **/
+
+.profile-controller .change-username,
+.profile-controller .change-oldpassword,
+.profile-controller .change-newpassword,
+.profile-controller .change-confirm {
+    width: 100%;
+    background: var(--primary-color);
+    border: var(--desc-border-width) solid var(--Border-color);
+    margin-bottom: 1em;
+    border-radius: 5px;
+}
+
+.profile-controller .change-username,
+.profile-controller .change-oldpassword,
+.profile-controller .change-newpassword,
+.profile-controller .change-confirm {
+    position: relative;
+    display: flex;
+}
+
+.profile-controller .change-icon {
+    color: var(--ziggo-color);
+    font-size: 18px;
+    width: 1.25em;
+    margin: 0 .5em;
+    display:flex;
+    align-items: center;
+}
+
+.profile-controller .change-username input,
+.profile-controller .change-oldpassword input,
+.profile-controller .change-newpassword input,
+.profile-controller .change-confirm input {
+    color: var(--font-color);
+    width: 100%;
+    background: var(--background);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/** ----------------------------------------- **/
 
 .profile-controller label {
     width: 10em;

@@ -38,7 +38,7 @@
             <div class="g-recaptcha" data-sitekey="6LcZoVAUAAAAAJMN1MqE_0s89kpMBxtHzE8J_HQi"></div>
 -->            <input class="signup-submit" type="submit" name="adduser" value="submit"/>
         </div>
-        
+
     </form>
 
 </div>

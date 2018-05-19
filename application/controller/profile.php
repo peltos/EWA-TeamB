@@ -17,7 +17,7 @@ class Profile extends Controller {
     public function index() {
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/profile/profile.php';
+        require APP . 'view/profile/index.php';
         require APP . 'view/_templates/footer.php';
     }
 
@@ -36,7 +36,7 @@ class Profile extends Controller {
 
                     $getInfoUser = $this->model->getUser($_SESSION["email"]);
                     if ($_POST["Newpassword"] != $_POST["Confirmnewpassword"]) {
-                        $_SESSION['message'] = 'Your passwords do not match';
+                        $_SESSION['message'] = 'Your passwords do not match!';
                         header('location: ' . URL . 'profile');
                     } else {
 
@@ -88,7 +88,7 @@ class Profile extends Controller {
                                                 header('location: ' . URL . 'profile');
                                             }
                                         } else {
-                                            $_SESSION['message'] = 'Your Username or Password is incorrect';
+                                            $_SESSION['message'] = 'Your Username or Password is incorrect!';
                                             header('location: ' . URL . 'profile');
                                         }
                                     }
@@ -103,17 +103,17 @@ class Profile extends Controller {
                     $_SESSION['message'] = "";
                     $newusername = $_POST["username"];
                     if (strlen($newusername) < 5) {
-                        $_SESSION['message'] = 'username must be shorter then 30 and longer than 5 characters ';
+                        $_SESSION['message'] = 'Username must be shorter then 30 and longer than 5 characters!';
                         header('location: ' . URL . 'profile');
                     } else {
                         $getUserName = $this->model->checkUsername($newusername);
                         if (!$getUserName == false) {
-                            $_SESSION['message'] = 'username already taken';
+                            $_SESSION['message'] = 'Username already taken!';
                             header('location: ' . URL . 'profile');
                         } else {
                             $getInfoUser = $this->model->getUser($_SESSION["email"]);
                             if ($_POST["Newpassword"] != $_POST["Confirmnewpassword"]) {
-                                $_SESSION['message'] = 'Your passwords do not match';
+                                $_SESSION['message'] = 'Your passwords do not match!';
                                 header('location: ' . URL . 'profile');
                             } else {
 
@@ -163,12 +163,12 @@ class Profile extends Controller {
                                                         $_SESSION['message'] = "Your password and username has been changed!";
                                                         header('location: ' . URL . 'profile');
                                                     } else {
-                                                        $_SESSION['message'] = 'Your Username or Password is incorrect';
+                                                        $_SESSION['message'] = 'Your Username or Password is incorrect!';
                                                         $_SESSION['signinEmail'] = $_POST["email"];
                                                         header('location: ' . URL . 'profile');
                                                     }
                                                 } else {
-                                                    $_SESSION['message'] = 'Your Username or Password is incorrect';
+                                                    $_SESSION['message'] = 'Your Username or Password is incorrect!';
                                                     header('location: ' . URL . 'profile');
                                                 }
                                             }
@@ -187,12 +187,12 @@ class Profile extends Controller {
 
                         $oldusername = $_SESSION['username'];
                         if (strlen($newusername) < 5) {
-                            $_SESSION['message'] = 'username must be shorter then 30 and longer than 5 characters ';
+                            $_SESSION['message'] = 'Username must be shorter then 30 and longer than 5 characters!';
                             header('location: ' . URL . 'profile');
                         } else {
                             $getUserName = $this->model->checkUsername($newusername);
                             if (!$getUserName == false) {
-                                $_SESSION['message'] = 'username already taken';
+                                $_SESSION['message'] = 'Username already taken';
                                 header('location: ' . URL . 'profile');
                             } else {
 
