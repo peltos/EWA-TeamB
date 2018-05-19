@@ -30,6 +30,10 @@
     position: relative;
 }
 
+.players-container .fa-trophy {
+  font-size: 11px;
+}
+
 .players-container .slider-item--icon {
     width: 5em;
     height: 9.5em;
@@ -55,14 +59,14 @@
     text-transform: uppercase;
 }
 
-.players-container .slider-item--content__league {
+.players-container .slider-item--content__nickname {
     color: var(--orange-color);
     font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.players-container .slider-item--content__tournament {
+.players-container .slider-item--content__firstLastname {
     font-size: 12px;
     font-family: monospace;
     text-transform: uppercase;
@@ -70,106 +74,21 @@
     margin-top: -11px;
 }
 
-.players-container .slider-item--content__date {
+.players-container .slider-item--content__hometown,
+.players-container .slider-item--content__game {
     font-size: 13px;
     margin-top: -6px;
-}
-
-.players-container .slider-item--content__name {
-    font-size: 15px;
-    font-weight: bold;
-    font-style: italic;
     color: var(--fontCard-color);
 }
 
-.players-container .slider-item--info .fa-info-circle,
-.players-container .slider-item--teams .fa-users {
-    font-size: 1.1em;
-    color: grey;
-}
-
-.players-container .slider-item--info .fa-info-circle:hover,
-.players-container .slider-item--teams .fa-users:hover {
-    color: var(--orange-color);
-    transform: scale(0.9);
+.players-container .slider-item--content__team {
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
 }
 
 .players-container .slider--item__info-match {
     display: none;
-}
-
-.players-container .slider--item__info-match.match {
-    position: absolute;
-    z-index: 1;
-    width: calc(100% - 30px);
-    height: calc(100% - 22px);
-    display: inline-grid;
-    justify-content: center;
-    align-items: center;
-    background: var(--desc-color);
-    border-radius: 5px;
-}
-
-.players-container .match-text {
-    line-height: 22px;
-    text-transform: capitalize;
-    text-align: center;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.players-container .team-text {
-    line-height: 22px;
-    text-transform: capitalize;
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.players-container .result-count {
-    text-transform: none;
-    font-size: 11px;
-    font-weight: normal;
-    margin-top: 5px;
-}
-
-.players-container .slider--item__info-team {
-    display: none;
-}
-
-.players-container .slider--item__info-team.teams {
-    position: absolute;
-    z-index: 1;
-    width: calc(100% - 30px);
-    height: calc(100% - 22px);
-    display: inline-grid;
-    justify-content: center;
-    align-items: center;
-    background: var(--desc-color);
-    border-radius: 5px;
-}
-
-.players-container .slider-item--info {
-    z-index: 2;
-    padding: 10px 28px;
-    color: white;
-    cursor: pointer;
-    height: 16px;
-    margin-top: 10px;
-}
-
-.players-container .slider-item--teams {
-    z-index: 2;
-    padding: 10px 28px;
-    color: white;
-    cursor: pointer;
-    height: 16px;
-    margin-top: 10px;
-}
-
-.players-container .switch-icons {
-    height: 35px;
-    position: relative;
-    z-index: 2;
 }
 
 .players-container .upper-title {
@@ -197,20 +116,6 @@
     margin-top: -29px;
 }
 
-.players-container .match-box {
-    max-height: 150px;
-    margin-top: -73px;
-    overflow: hidden;
-    margin-bottom: -57px;
-}
-
-.players-container .team-box {
-    text-align: left;
-    max-height: 150px;
-    margin-top: -73px;
-    overflow: hidden;
-    margin-bottom: -57px;
-}
 
 .players-container .team-acr {
     font-size: 12px;
@@ -221,12 +126,6 @@
 
 .players-container .team-title {
     font-size: 15px;
-}
-
-.players-container .slider--item__info-match {
-    height: 160px;
-    font-size: 15px;
-    overflow: hidden;
 }
 
 .players-container .team-logo {

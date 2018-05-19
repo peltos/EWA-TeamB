@@ -111,6 +111,7 @@
 }
 
 .tournaments-container .match-text {
+    margin-right: 7px;
     line-height: 22px;
     text-transform: capitalize;
     text-align: center;
@@ -119,6 +120,7 @@
 }
 
 .tournaments-container .team-text {
+    margin-right: 7px;
     line-height: 22px;
     text-transform: capitalize;
     font-weight: bold;
@@ -200,7 +202,7 @@
 .tournaments-container .match-box {
     max-height: 150px;
     margin-top: -73px;
-    overflow: hidden;
+    overflow-x: hidden;
     margin-bottom: -57px;
 }
 
@@ -208,7 +210,7 @@
     text-align: left;
     max-height: 150px;
     margin-top: -73px;
-    overflow: hidden;
+    overflow-x: hidden;
     margin-bottom: -57px;
 }
 
