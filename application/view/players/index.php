@@ -1,6 +1,7 @@
-<?php require APP . 'view/players/playerfilter.php'; ?>
 
 <div class="container players-container">
+
+  <h2> Players </h2>
 
     <ul class="slider">
         <?php
