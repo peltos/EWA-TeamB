@@ -83,13 +83,15 @@
 }
 
 .tournaments-container .slider-item--info .fa-info-circle,
-.tournaments-container .slider-item--teams .fa-users {
+.tournaments-container .slider-item--teams .fa-users,
+.tournaments-container .slider-item--bracket .fa-code-branch {
     font-size: 1.1em;
     color: grey;
 }
 
 .tournaments-container .slider-item--info .fa-info-circle:hover,
-.tournaments-container .slider-item--teams .fa-users:hover {
+.tournaments-container .slider-item--teams .fa-users:hover,
+.tournaments-container .slider-item--bracket .fa-code-branch:hover {
     color: var(--orange-color);
     transform: scale(0.9);
 }
