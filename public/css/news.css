@@ -1,0 +1,13 @@
+.news-container{
+
+}
+.news-container iframe{
+    width:100%;
+}
+
+@media (min-width: 900px) {
+
+    .news-container iframe{
+        width:49%;
+    }
+}
