@@ -1,5 +1,6 @@
 <div class="container streamers-container">
     <h1>Streamers</h1>
+    <?php //This is for the filter bar.?>
     <div class="filterBar-container">
         <div class="filterBar--inner">
             <div class="dateFilter">
@@ -13,11 +14,13 @@
         </div>
     </div>
     <div id="lol" class="tabcontent">
-
+      <?php //Here starts the league of legends part for the streams.?>
         <h3>League of Legends</h3>
         <ul class="streamers__list">
             <?php
             $counter = 0;
+            //If it is not empty and if the item is league of legends, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the mixer API.
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "League of legends") { ?>
@@ -95,6 +98,8 @@
 
             <?php
             $counter = 0;
+            //If it is not empty and if the item is league of legends, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the twitch API.
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "League of Legends") { ?>
@@ -131,7 +136,7 @@
 
                                         <img class="streamers--item__icon"
                                              src="<?php echo $item["channel"]["logo"] ?>"/>
-                                             
+
                                     </div>
                                     <span class="streamer--item__title"><i
                                                 class="streamer--item__live fas fa-circle"></i> <?php echo $item["channel"]["display_name"] ?> </span>
@@ -158,6 +163,7 @@
                     }
                 }
             }
+            //if there are no league of legends streamers, you will get a message that the streams are not available.
             if ($counter == 0) {
                 echo 'No streams available';
             }
@@ -166,11 +172,14 @@
         </ul>
     </div>
     <div id="dota2" class="tabcontent">
+      <?php //Here starts the Dota 2 part for the streams.?>
         <h3>Dota 2</h3>
         <ul class="streamers__list">
 
             <?php
             $counter = 0;
+            //If it is not empty and if the item is dota 2, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the mixer API.
             if (!empty($streamers)) {
 
                 foreach ($streamers as $key => $item) {
@@ -248,6 +257,8 @@
             ?>
             <?php
             $counter = 0;
+            //If it is not empty and if the item is dota 2, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the twitch API.
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "Dota 2") { ?>
@@ -309,6 +320,7 @@
                     }
                 }
             }
+            //if there are no dota 2 streamers, you will get a message that the streams are not available.
             if ($counter == 0) {
                 echo 'No streams available';
             }
@@ -319,11 +331,14 @@
     </div>
 
     <div id="overwatch" class="tabcontent">
+      <?php //Here starts the overwatch part for the streams.?>
         <h3>Overwatch</h3>
         <ul class="streamers__list">
 
             <?php
             $counter = 0;
+            //If it is not empty and if the item is overwatch, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the mixer API.
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
                     if ($item["type"]["name"] == "Overwatch") { ?>
@@ -400,6 +415,8 @@
             ?>
 
             <?php
+            //If it is not empty and if the item is overwatch, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the twitch API.
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["game"] == "Overwatch") { ?>
@@ -462,6 +479,7 @@
                     }
                  }
             }
+            //if there are no overwatch streamers, you will get a message that the streams are not available.
             if ($counter == 0) {
                 echo 'No streams available';
             }
@@ -470,10 +488,13 @@
     </div>
 
     <div id="NL" class="tabcontent">
+      <?php //Here starts the dutch streamers part for the streams.?>
         <h3>Dutch Streamers</h3>
         <ul class="streamers__list">
 
             <?php
+            //If it is not empty and if the item is nl, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the mixer API.
             $counter = 0;
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
@@ -548,7 +569,8 @@
 
             ?>
             <?php
-
+            //If it is not empty and if the item is nl, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the twitch API.
             $counter = 0;
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
@@ -612,6 +634,7 @@
                     }
                 }
             }
+            //if there are no dutch streamers, you will get a message that the streams are not available.
             if ($counter == 0) {
                 echo 'No streams available';
             }

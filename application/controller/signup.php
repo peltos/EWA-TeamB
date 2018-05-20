@@ -136,10 +136,12 @@ class Signup extends Controller
 
                     $_SESSION['message'] = '';
                     $this->model->addUser($_POST["username"], $_POST["email"], $_POST["password"]);
+
+                    // After adding the user to the database it checks the user info and logs automatically in.
                     $getInfoUser = $this->model->getUser($_POST["email"]);
                     if (isset($getInfoUser)) {
                         $md5Password = md5($_POST["password"]);
-
+                        //Checks if the email and password are correct and if it's correct you will be sent to the signupcorrect page and you will be logged in.
                         if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
                             $_SESSION["email"] = $getInfoUser->memberEmail;
                             $_SESSION["username"] = $getInfoUser->username;
@@ -153,10 +155,11 @@ class Signup extends Controller
                         }
                     }
                 }
+                //If it fails you will stay(sent to the signup page) at the signup page.
             } else {
                 header('location: ' . URL . 'signup');
             }
-
+            //If adding the user will fail you will be stayin(sent to the) the signup page.
         } else {
             $_SESSION['message'] = 'Passwords do not match!';
             header('location: ' . URL . 'signup');

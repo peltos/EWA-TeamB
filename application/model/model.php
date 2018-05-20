@@ -111,6 +111,7 @@ class Model {
 
     /**
      * Get all streamers data.
+     *This is the mixer API.
      */
     public function getStreamers($counter) {
         $result = array();
@@ -379,7 +380,10 @@ class Model {
 
         return $result;
     }
-
+    /**
+     * Get all streamers data.
+     *This is the mixer API.
+     */
     public function getStreamersTwitch($counter) {
         for ($i = 0; $i <= $counter; $i++) {
             $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
@@ -443,18 +447,18 @@ class Model {
         return $result;
     }
 
-    public function getNews($counter)
-    {
-      $result = array();
-
-      for ($i = 0; $i <= $counter; $i++) {
-          ${"urlPage$i"} = 'https://news.google.com/news/rss/search/section/q/esport/esport?hl=en&gl=US&ned=us' . $i;
-          ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
-          ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
-
-          $result = array_merge($result, ${"arrayPage$i"});
-      }
-      return $result;
-    }
+    // public function getNews($counter)
+    // {
+    //   $result = array();
+    //
+    //   for ($i = 0; $i <= $counter; $i++) {
+    //       ${"urlPage$i"} = 'https://news.google.com/news/rss/search/section/q/esport/esport?hl=en&gl=US&ned=us' . $i;
+    //       ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
+    //       ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
+    //
+    //       $result = array_merge($result, ${"arrayPage$i"});
+    //   }
+    //   return $result;
+    // }
 
 }
