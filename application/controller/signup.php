@@ -8,15 +8,13 @@
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Signup extends Controller
-{
+class Signup extends Controller {
 
     /**
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
      */
-    public function index()
-    {
+    public function index() {
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/signup/signup.php';
@@ -27,8 +25,7 @@ class Signup extends Controller
      * PAGE: Sign up Correct
      * This method handles what happens when you move to http://EWA-TeamB/signup/signupcorrect
      */
-    public function signupcorrect()
-    {
+    public function signupcorrect() {
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/signup/signupcorrect.php';
@@ -39,8 +36,7 @@ class Signup extends Controller
      * PAGE: Sign up Failed
      * This method handles what happens when you move to http://EWA-TeamB/signup/signupfail
      */
-    public function signupfail()
-    {
+    public function signupfail() {
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/signup/signupfail.php';
@@ -51,8 +47,7 @@ class Signup extends Controller
      * PAGE: signup
      * This method handles what happens when you fill in the sign up form and recaptcha.
      */
-    public function adduser()
-    {
+    public function adduser() {
 
         if (isset($_POST["adduser"])) {
             // If we have POST data to create a new user entry

@@ -28,7 +28,9 @@ class Signin extends Controller
 
         // if we have POST data to create a new song entry
         if (isset($getInfoUser)) {
-            $md5Password = md5($_POST["password"]);
+            $salt="djskdjd1434JFFFFAF23";
+            $password = $_POST["password"].$salt;
+            $md5Password = md5($password);
 
             if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
                 $_SESSION["email"] = $getInfoUser->memberEmail;

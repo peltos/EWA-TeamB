@@ -28,16 +28,13 @@
     background: var(--buttonBoxBg-color);
 
 }
-/** **/
-.signin-controller .signin-passwordcheck,
+
 .signin-controller .signin-password,
-.signin-controller .signin-email,
-.signin-controller .signin-username {
+.signin-controller .signin-email {
     position: relative;
     display: flex;
 }
 
-.signin-controller .user-icon,
 .signin-controller .email-icon,
 .signin-controller .password-icon,
 .signin-controller .confirm-icon {
@@ -49,7 +46,6 @@
     align-items: center;
 }
 
-.signin-controller .signin-username,
 .signin-controller .signin-email,
 .signin-controller .signin-passwordcheck,
 .signin-controller .signin-password {
@@ -72,7 +68,6 @@
     background: var(--background);
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-
 }
 
 .signin-controller input::placeholder {

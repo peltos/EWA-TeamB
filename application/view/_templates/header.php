@@ -179,3 +179,24 @@ if (URL == (URL_PROTOCOL . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])) { ?
                 <span id="nightmode" class="switch-slider round "></span>
             </label>
         </div>
+
+        <header class="header--search" id="searchbar" hidden>
+            <div class="header--inner">
+                <form class="navigation--item--search" action="<?php echo URL; ?>search/redirect" method="POST">
+                    <input class="navigation--item--search__input" placeholder="Search..." type="text"
+                           name="search-input" value="" required/>
+                    <input type="submit" name="search" value="Search">
+                </form>
+            </div>
+        </header>
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("searchbar");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>

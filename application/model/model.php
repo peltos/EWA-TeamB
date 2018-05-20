@@ -29,6 +29,17 @@ class Model {
     }
 
 
+    public function addNewPassword($password, $Email) {
+        $sql = "UPDATE member SET password='$password' WHERE memberEmail = '$Email'";
+        $query = $this->db->prepare($sql);
+
+
+        // useful for debugging: you can see the SQL behind above construction by using:
+        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+
+        $query->execute();
+    }
+
     function console_log($data) {
         echo '<script>';
         echo 'console.log(' . json_encode($data) . ')';
@@ -36,6 +47,8 @@ class Model {
     }
 
     public function addUser($username, $email, $password) {
+        $salt = "djskdjd1434JFFFFAF23";
+        $password = $_POST["password"] . $salt;
         $passwordEncrypt = md5($password);
 
         $sql = "INSERT INTO Member (username, memberEmail, password, firstLogin) VALUES (:username, :email , :password, :datetime)";
@@ -102,11 +115,11 @@ class Model {
      */
     public function getTournaments() {
 
-      $url = 'https://api.pandascore.co/tournaments?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
-      $json = file_get_contents($url);
-      $timeline_array = json_decode($json, true);
+        $url = 'https://api.pandascore.co/tournaments?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+        $json = file_get_contents($url);
+        $timeline_array = json_decode($json, true);
 
-      return $timeline_array;
+        return $timeline_array;
     }
 
     /**
