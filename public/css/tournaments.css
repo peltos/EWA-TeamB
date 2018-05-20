@@ -83,13 +83,15 @@
 }
 
 .tournaments-container .slider-item--info .fa-info-circle,
-.tournaments-container .slider-item--teams .fa-users {
+.tournaments-container .slider-item--teams .fa-users,
+.tournaments-container .slider-item--bracket .fa-code-branch {
     font-size: 1.1em;
     color: grey;
 }
 
 .tournaments-container .slider-item--info .fa-info-circle:hover,
-.tournaments-container .slider-item--teams .fa-users:hover {
+.tournaments-container .slider-item--teams .fa-users:hover,
+.tournaments-container .slider-item--bracket .fa-code-branch:hover {
     color: var(--orange-color);
     transform: scale(0.9);
 }
@@ -111,6 +113,7 @@
 }
 
 .tournaments-container .match-text {
+    margin-right: 7px;
     line-height: 22px;
     text-transform: capitalize;
     text-align: center;
@@ -119,6 +122,7 @@
 }
 
 .tournaments-container .team-text {
+    margin-right: 7px;
     line-height: 22px;
     text-transform: capitalize;
     font-weight: bold;
@@ -200,7 +204,7 @@
 .tournaments-container .match-box {
     max-height: 150px;
     margin-top: -73px;
-    overflow: hidden;
+    overflow-x: hidden;
     margin-bottom: -57px;
 }
 
@@ -208,7 +212,7 @@
     text-align: left;
     max-height: 150px;
     margin-top: -73px;
-    overflow: hidden;
+    overflow-x: hidden;
     margin-bottom: -57px;
 }
 

@@ -23,4 +23,25 @@ $(document).ready(function(){
             }
         ]
     });
+
+    $('#tournament').slick({
+        slidesToShow: 3,
+        autoplay: false,
+        autoplaySpeed: 3000,
+        arrows: false,
+        centerMode: true,
+        dots: false,
+        infinite: false,
+        centerPadding: '60px',
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                    centerMode: false,
+                    arrows: true,
+                }
+            }
+        ]
+    });
 });

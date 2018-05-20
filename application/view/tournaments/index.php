@@ -25,12 +25,15 @@
                         </p>
                         <p class="slider-item--content__date"><?php echo date('d F H:i', strtotime($item["begin_at"]) + 60 * 60) ?> till <?php echo date('d F H:i', strtotime($item["end_at"]) + 60 * 60) ?></p>
                     </div>
-                    <!-- Match & Team Icons -->
+                    <!-- Match, Team & Tournament Tree Icons -->
                     <div class="switch-icons">
-                      <a class="slider-item--info" title="tournament info">
+                      <a class="slider-item--info" title="Tournament Info">
                         <i class="fas fa-info-circle"></i>
                       </a>
-                      <a class="slider-item--teams" title="view teams">
+                      <a class="slider-item--bracket" title="View Tournament Bracket" href="<?php echo URL; ?>bracket" >
+                        <i class="fas fa-code-branch"></i>
+                      </a>
+                      <a class="slider-item--teams" title="View Teams">
                         <i class="fas fa-users"></i>
                       </a>
                     </div>

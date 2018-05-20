@@ -110,6 +110,39 @@ class Model {
     }
 
     /**
+     * Get all Player data.
+     */
+    public function getPlayers() {
+      $playerVar = $this->playerFilter();
+
+      $url = 'https://api.pandascore.co/players?' . $playerVar . 'page[size]=80&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+      $json = file_get_contents($url);
+      $timeline_array = json_decode($json, true);
+
+      return $timeline_array;
+    }
+
+    /**
+     * Get all game-based Player data.
+     */
+    public function playerFilter() {
+        $playerVar = null;
+        $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
+        if (strpos($url, 'lol') !== false) {
+            $timelineVar = 'filter[videogame_id]=1&';
+        } elseif (strpos($url, 'players/ow') !== false) {
+            $timelineVar = 'filter[videogame_id]=14&';
+        } elseif (strpos($url, 'dota2') !== false) {
+            $timelineVar = '/players/dota2';
+        } else {
+            $timelineVar = '';
+        }
+
+        return $playerVar;
+    }
+
+    /**
      * Get all streamers data.
      *This is the mixer API.
      */
