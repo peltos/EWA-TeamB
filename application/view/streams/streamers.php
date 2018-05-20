@@ -571,7 +571,6 @@
             <?php
             //If it is not empty and if the item is nl, you will get the streams from the API with the elements we get out of the json file.
             //This is of the twitch API.
-            $counter = 0;
             if (!empty($streamersTwitch)) {
                 foreach ($streamersTwitch["streams"] as $key => $item) {
                     if ($item["channel"]["language"] == "nl") { ?>
