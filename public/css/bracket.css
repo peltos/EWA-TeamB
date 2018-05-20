@@ -28,13 +28,29 @@
 }
 
 .bracket-container .round {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     justify-content: center;
     width: 250px;
     list-style: none;
     padding: 0;
     margin-right: 20px;
+    height:100%;
+}
+.bracket-container .slick-list,
+.bracket-container .slick-track{
+    min-width:100%;
+}
+.bracket-container .slick-track{
+    height:100%;
+}
+/* the slides */
+.bracket-container .slick-slide {
+    margin: 0 27px;
+}
+/* the parent */
+.bracket-container .slick-list {
+    margin: 0 -27px;
 }
 
 .bracket-container .winner-game {
@@ -45,6 +61,15 @@
 .bracket-container .round .spacer {
     flex-grow:0.9;
 }
+.bracket-container .round .spacer,
+.bracket-container .round .vs-spacer,
+.bracket-container .round .game-spacer{
+    display: flex;
+    justify-content: center;
+    font-size: 1.25em;
+    color: orange;
+    padding: .125em;
+}
 
 .bracket-container .round .spacer:first-child,
 .bracket-container .round .spacer:last-child {
@@ -53,6 +78,7 @@
 
 .bracket-container .round .game-spacer {
     flex-grow: 1;
+    font-size: 1.5em;
 }
 
 .bracket-container .round .vs-spacer {
@@ -62,22 +88,30 @@
 .bracket-container .round .round-spacer {
     flex-grow: 1;
 }
+.bracket-container .match-round{
+    background:var(--background-shade);
+    padding:.5em;
+}
 
 .bracket-container li.game {
     padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .bracket-container li.game.winner {
     font-weight: bold;
     height: 25px;
     padding: 10px;
+
 }
 
 .bracket-container li.game.loser {
     font-weight: normal;
     height: 25px;
     padding: 10px;
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 .bracket-container li.game span {
@@ -127,7 +161,7 @@
 }
 
 .bracket-container .round-titles3 {
-    margin-bottom: -113px;
+    margin-bottom: -244px;
     text-align: center;
 }
 
@@ -145,11 +179,18 @@
 }
 
 .bracket-container .img-hover {
-    margin-bottom: -7px;
     margin-right: 6px;
 }
 
 .bracket-container img {
     max-width: 25px;
     max-height: 25px;
+}
+
+.bracket-container .game-champion{
+    display:flex;
+    float: none;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
 }

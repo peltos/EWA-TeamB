@@ -23,32 +23,35 @@
     line-height: 0;
 
     position: absolute;
-    top: 50%;
+    top: 5%;
 
-    display: block;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 
-    width: 20px;
+    width: 100px;
     height: 20px;
-    padding: 0;
+    padding: 1em !important;
     -webkit-transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
     transform: translate(0, -50%);
 
     cursor: pointer;
 
-    color: transparent;
+    color: black !important;
     border: none;
     outline: none;
-    background: transparent;
+    background: white !important;
+    z-index:1;
 }
 .slick-prev:hover,
 .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus
 {
-    color: transparent;
+    color: white !important;
     outline: none;
-    background: transparent;
+    background: var(--orange-color) !important;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,
@@ -68,10 +71,9 @@
 {
     font-family: 'slick';
     font-size: 20px;
-    line-height: 1;
 
     opacity: .75;
-    color: white;
+    color: black;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -79,7 +81,7 @@
 
 .slick-prev
 {
-    left: -25px;
+    left: 0;
 }
 [dir='rtl'] .slick-prev
 {
@@ -97,7 +99,7 @@
 
 .slick-next
 {
-    right: -25px;
+    right: 0;
 }
 [dir='rtl'] .slick-next
 {
