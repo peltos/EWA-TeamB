@@ -40,7 +40,7 @@ h4 {
 ******************** */
 
 header {
-    font-size: 2em;
+    font-size: 1.5em;
     color: var(--nav-color);
     padding: .25em .25em;
     height: 1.4em;
@@ -176,7 +176,7 @@ header.header--search .header--inner {
 }
 
 .navigation .navigation--item .fa-user-circle {
-  font-size: 19px;
+  font-size: 1.25em;
 }
 
 /* menu button */
@@ -189,7 +189,6 @@ header.header--search .header--inner {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: bold;
-    background: var(--primary-color);
     color: var(--nav-color);
 }
 
@@ -214,7 +213,7 @@ header.header--search .header--inner {
     background: var(--primary-color);
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 3em;
+    padding-top: 2em;
     opacity: 0.91;
 }
 
@@ -596,6 +595,9 @@ input:checked + .switch-slider:before {
     .navigation .navigation--item:hover {
         color: var(--ziggo-color);
         border-bottom: 2px solid var(--ziggo-color);
+    }
+    header{
+        font-size: 2em;
     }
 }
 
