@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class Profile
  *
@@ -7,23 +8,23 @@
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Profile extends Controller
-{
+class Profile extends Controller {
+
     /**
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/profile/index (which is the default page btw)
      */
-    public function index()
-    {
+    public function index() {
 
-        if (!$_SESSION['token'] == '') {
-            // load views
-            require APP . 'view/_templates/header.php';
-            require APP . 'view/profile/index.php';
-            require APP . 'view/_templates/footer.php';
-        }else{
-            header('location: ' . URL);
-        }
+//        if (!$_SESSION['token'] == '') {
+//            // load views
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/profile/index.php';
+        require APP . 'view/_templates/footer.php';
+//        }else{
+//            header('location: ' . URL);
+//        }
+//    }
     }
 
     public function updateProfile() {
@@ -86,7 +87,7 @@ class Profile extends Controller
 
                                                 $this->model->addNewPassword($md5Password2, $_SESSION["email"]);
                                                 $_SESSION['message'] = "Your password has been changed!";
-                                                header('location: ' . URL . 'profile');
+                                                
                                             } else {
                                                 $_SESSION['message'] = 'Your Username or Password is incorrect!';
                                                 $_SESSION['signinEmail'] = $_POST["email"];
@@ -166,7 +167,7 @@ class Profile extends Controller
 
                                                         $this->model->addNewPassword($md5Password2, $_SESSION["email"]);
                                                         $_SESSION['message'] = "Your password and username has been changed!";
-                                                        header('location: ' . URL . 'profile');
+                                                        
                                                     } else {
                                                         $_SESSION['message'] = 'Your Username or Password is incorrect!';
                                                         $_SESSION['signinEmail'] = $_POST["email"];
@@ -214,11 +215,12 @@ class Profile extends Controller
 
 
                             $_SESSION['message'] = "Username has been changed!";
+
                             $_SESSION['username'] = $newusername;
-                            header('location: ' . URL . 'profile');
+                            
                         }
                     } else {
-                        header('location: ' . URL . 'profile');
+                        header('location: ' . URL . 'home');
                     }
                 }
             }

@@ -127,7 +127,7 @@ class Signup extends Controller {
 
                     // If captcha validation is succesfull, return 'sign up correct' page.
                 } else {
-                    // Add user to database.
+//                     Add user to database.
 
                     $_SESSION['message'] = '';
                     $this->model->addUser($_POST["username"], $_POST["email"], $_POST["password"]);
