@@ -13,6 +13,161 @@
             </div>
         </div>
     </div>
+
+    <div id="NL" class="tabcontent">
+        <?php //Here starts the dutch streamers part for the streams.?>
+        <h3>Dutch Streamers</h3>
+        <ul class="streamers__list">
+
+            <?php
+            //If it is not empty and if the item is nl, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the mixer API.
+            $counter = 0;
+            if (!empty($streamers)) {
+                foreach ($streamers as $key => $item) {
+                    if ($item["languageId"] == "nl") { ?>
+                        <li class="streamers--item online">
+
+                            <!-- Social Media links -->
+                            <a class="streamer--item__share">
+                                <i class="fas fa-share"></i>
+                            </a>
+                            <div class="streamer--item__social">
+                                <a target="_blank"
+                                   href="http://www.facebook.com/sharer/sharer.php?u=https://mixer.com/<?php echo $item["token"] ?>">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a target="_blank"
+                                   href="http://twitter.com/share?url=https://mixer.com/<?php echo $item["token"] ?>&text=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a target="_blank"
+                                   href="https://plus.google.com/share?url=https://mixer.com/<?php echo $item["token"] ?>">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                                <a target="_blank"
+                                   href="http://reddit.com/submit?url=https://mixer.com/<?php echo $item["token"] ?>&title=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
+                                    <i class="fab fa-reddit"></i>
+                                </a>
+                            </div>
+                            <a class="streamer--item__content" href="https://mixer.com/<?php echo $item["token"] ?>"
+                               target="_blank">
+                                <div class="streamers--item__container">
+                                    <div class="streamers--item--image">
+                                        <?php
+                                        $file = 'https://thumbs.mixer.com/channel/' . $item["id"] . '.small.jpg';
+                                        $file_headers = @get_headers($file);
+                                        if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
+                                            ?>
+                                            <img class="streamers--item__cover"
+                                                 src="<?php echo $item["type"]["coverUrl"] ?>"/>
+                                        <?php } else { ?>
+                                            <img class="streamers--item__cover"
+                                                 src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
+                                        <?php } ?>
+
+                                        <img class="streamers--item__icon"
+                                             src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
+                                    </div>
+                                    <span class="streamer--item__title"><i
+                                                class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
+                                    <span class="streamer-title"><?php echo $item["name"] ?></span>
+                                </div>
+                            </a>
+                            <?php if (!$_SESSION['token'] == '') { ?>
+                                <a class="streamer-star
+                            <?php
+                                if (!empty($favorites)) {
+                                    foreach ($favorites as $favorite) {
+                                        if ($favorite->Streamer_streamID == $item["id"]) {
+                                            echo ' active';
+                                        } else {
+                                            echo '';
+                                        }
+                                    }
+                                } ?>
+                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
+                            <?php } ?>
+                        </li>
+                        <?php $counter++;
+                    }
+                }
+            }
+
+            ?>
+            <?php
+            //If it is not empty and if the item is nl, you will get the streams from the API with the elements we get out of the json file.
+            //This is of the twitch API.
+            if (!empty($streamersTwitch)) {
+                foreach ($streamersTwitch["streams"] as $key => $item) {
+                    if ($item["channel"]["language"] == "nl") { ?>
+                        <li class="streamers--item online">
+                            <!-- Social Media links -->
+                            <a class="streamer--item__share">
+                                <i class="fas fa-share"></i>
+                            </a>
+                            <div class="streamer--item__social">
+                                <a target="_blank"
+                                   href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a target="_blank"
+                                   href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a target="_blank"
+                                   href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
+                                    <i class="fab fa-google"></i>
+                                </a>
+                                <a target="_blank"
+                                   href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
+                                    <i class="fab fa-reddit"></i>
+                                </a>
+                            </div>
+
+                            <a class="streamer--item__content" href="<?php echo $item["channel"]["url"] ?>"
+                               target="_blank">
+                                <div class="streamers--item__container">
+                                    <div class="streamers--item--image">
+                                        <img class="streamers--item__cover"
+                                             src="<?php echo $item["preview"]["medium"] ?>"/>
+
+                                        <img class="streamers--item__icon"
+                                             src="<?php echo $item["channel"]["logo"] ?>"/>
+                                    </div>
+                                    <span class="streamer--item__title"><i
+                                                class="streamer--item__live fas fa-circle"></i> <?php echo $item["channel"]["display_name"] ?> </span>
+                                    <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
+                                </div>
+                            </a>
+                            <?php if (!$_SESSION['token'] == '') { ?>
+                                <a class="streamer-star
+                            <?php
+                                if (!empty($favorites)) {
+                                    foreach ($favorites as $favorite) {
+                                        if ($favorite->Streamer_streamID == $item["_id"]) {
+                                            echo ' active';
+                                        } else {
+                                            echo '';
+                                        }
+                                    }
+                                } ?>
+                            " href="#" id="<?php echo $item["_id"] ?> "><i class="fas fa-star"></i></a>
+                            <?php } ?>
+                        </li>
+                        <?php $counter++;
+
+                    }
+                }
+            }
+            //if there are no dutch streamers, you will get a message that the streams are not available.
+            if ($counter == 0) {
+                echo 'No streams available';
+            }
+            ?>
+        </ul>
+    </div>
+
     <div id="lol" class="tabcontent">
       <?php //Here starts the league of legends part for the streams.?>
         <h3>League of Legends</h3>
@@ -487,158 +642,6 @@
         </ul>
     </div>
 
-    <div id="NL" class="tabcontent">
-      <?php //Here starts the dutch streamers part for the streams.?>
-        <h3>Dutch Streamers</h3>
-        <ul class="streamers__list">
 
-            <?php
-            //If it is not empty and if the item is nl, you will get the streams from the API with the elements we get out of the json file.
-            //This is of the mixer API.
-            $counter = 0;
-            if (!empty($streamers)) {
-                foreach ($streamers as $key => $item) {
-                    if ($item["languageId"] == "nl") { ?>
-                        <li class="streamers--item online">
-
-                            <!-- Social Media links -->
-                            <a class="streamer--item__share">
-                                <i class="fas fa-share"></i>
-                            </a>
-                            <div class="streamer--item__social">
-                                <a target="_blank"
-                                   href="http://www.facebook.com/sharer/sharer.php?u=https://mixer.com/<?php echo $item["token"] ?>">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a target="_blank"
-                                   href="http://twitter.com/share?url=https://mixer.com/<?php echo $item["token"] ?>&text=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a target="_blank"
-                                   href="https://plus.google.com/share?url=https://mixer.com/<?php echo $item["token"] ?>">
-                                    <i class="fab fa-google"></i>
-                                </a>
-                                <a target="_blank"
-                                   href="http://reddit.com/submit?url=https://mixer.com/<?php echo $item["token"] ?>&title=<?php echo $item["token"] ?>&nbsp;-&nbsp;<?php echo $item["name"] ?>:">
-                                    <i class="fab fa-reddit"></i>
-                                </a>
-                            </div>
-                            <a class="streamer--item__content" href="https://mixer.com/<?php echo $item["token"] ?>"
-                               target="_blank">
-                                <div class="streamers--item__container">
-                                    <div class="streamers--item--image">
-                                        <?php
-                                        $file = 'https://thumbs.mixer.com/channel/' . $item["id"] . '.small.jpg';
-                                        $file_headers = @get_headers($file);
-                                        if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
-                                            ?>
-                                            <img class="streamers--item__cover"
-                                                 src="<?php echo $item["type"]["coverUrl"] ?>"/>
-                                        <?php } else { ?>
-                                            <img class="streamers--item__cover"
-                                                 src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
-                                        <?php } ?>
-
-                                        <img class="streamers--item__icon"
-                                             src="https://mixer.com/api/v1/users/<?php echo $item["userId"] ?>/avatar?w=128&h=128"/>
-                                    </div>
-                                    <span class="streamer--item__title"><i
-                                                class="streamer--item__live fas fa-circle"></i> <?php echo $item["token"] ?> </span>
-                                    <span class="streamer-title"><?php echo $item["name"] ?></span>
-                                </div>
-                            </a>
-                            <?php if (!$_SESSION['token'] == '') { ?>
-                                <a class="streamer-star
-                            <?php
-                                if (!empty($favorites)) {
-                                    foreach ($favorites as $favorite) {
-                                        if ($favorite->Streamer_streamID == $item["id"]) {
-                                            echo ' active';
-                                        } else {
-                                            echo '';
-                                        }
-                                    }
-                                } ?>
-                            " href="#" id="<?php echo $item["id"] ?> "><i class="fas fa-star"></i></a>
-                            <?php } ?>
-                        </li>
-                        <?php $counter++;
-                    }
-                }
-            }
-
-            ?>
-            <?php
-            //If it is not empty and if the item is nl, you will get the streams from the API with the elements we get out of the json file.
-            //This is of the twitch API.
-            if (!empty($streamersTwitch)) {
-                foreach ($streamersTwitch["streams"] as $key => $item) {
-                    if ($item["channel"]["language"] == "nl") { ?>
-                        <li class="streamers--item online">
-                            <!-- Social Media links -->
-                            <a class="streamer--item__share">
-                                <i class="fas fa-share"></i>
-                            </a>
-                            <div class="streamer--item__social">
-                                <a target="_blank"
-                                   href="http://www.facebook.com/sharer/sharer.php?u=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a target="_blank"
-                                   href="http://twitter.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&text=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a target="_blank"
-                                   href="https://plus.google.com/share?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>">
-                                    <i class="fab fa-google"></i>
-                                </a>
-                                <a target="_blank"
-                                   href="http://reddit.com/submit?url=https://twitch.tv/<?php echo $item["channel"]["display_name"] ?>&title=<?php echo $item["channel"]["display_name"] ?>&nbsp;-&nbsp;<?php echo $item["channel"]["status"] ?>:">
-                                    <i class="fab fa-reddit"></i>
-                                </a>
-                            </div>
-
-                            <a class="streamer--item__content" href="<?php echo $item["channel"]["url"] ?>"
-                               target="_blank">
-                                <div class="streamers--item__container">
-                                    <div class="streamers--item--image">
-                                        <img class="streamers--item__cover"
-                                             src="<?php echo $item["preview"]["medium"] ?>"/>
-
-                                        <img class="streamers--item__icon"
-                                             src="<?php echo $item["channel"]["logo"] ?>"/>
-                                    </div>
-                                    <span class="streamer--item__title"><i
-                                                class="streamer--item__live fas fa-circle"></i> <?php echo $item["channel"]["display_name"] ?> </span>
-                                    <span class="streamer-title"><?php echo $item["channel"]["status"] ?></span>
-                                </div>
-                            </a>
-                            <?php if (!$_SESSION['token'] == '') { ?>
-                                <a class="streamer-star
-                            <?php
-                                if (!empty($favorites)) {
-                                    foreach ($favorites as $favorite) {
-                                        if ($favorite->Streamer_streamID == $item["_id"]) {
-                                            echo ' active';
-                                        } else {
-                                            echo '';
-                                        }
-                                    }
-                                } ?>
-                            " href="#" id="<?php echo $item["_id"] ?> "><i class="fas fa-star"></i></a>
-                            <?php } ?>
-                        </li>
-                        <?php $counter++;
-
-                    }
-                }
-            }
-            //if there are no dutch streamers, you will get a message that the streams are not available.
-            if ($counter == 0) {
-                echo 'No streams available';
-            }
-            ?>
-        </ul>
-    </div>
 
 </div>
