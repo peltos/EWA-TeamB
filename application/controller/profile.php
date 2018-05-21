@@ -166,6 +166,7 @@ class Profile extends Controller {
                                                         $query = $this->db->prepare($sql);
 
                                                         $this->model->addNewPassword($md5Password2, $_SESSION["email"]);
+                                                        $_SESSION['username'] = $newusername;
                                                         $_SESSION['message'] = "Your password and username has been changed!";
                                                         
                                                     } else {
