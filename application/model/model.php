@@ -25,13 +25,13 @@ class Model {
     }
 
     public function changeNewUsername($Newusername, $Oldusername) {
-        $sql = "UPDATE member SET username='$Newusername' WHERE username = '$Oldusername'";
+        $sql = "UPDATE Member SET username = '$Newusername' WHERE username = '$Oldusername'";
         $query = $this->db->prepare($sql);
         $query->execute();
     }
 
     public function addNewPassword($password, $Email) {
-        $sql = "UPDATE member SET password='$password' WHERE memberEmail = '$Email'";
+        $sql = "UPDATE Member SET password = '$password' WHERE memberEmail = '$Email'";
         $query = $this->db->prepare($sql);
 
 
