@@ -16,15 +16,14 @@ class Profile extends Controller {
      */
     public function index() {
 
-//        if (!$_SESSION['token'] == '') {
-//            // load views
-        require APP . 'view/_templates/header.php';
-        require APP . 'view/profile/index.php';
-        require APP . 'view/_templates/footer.php';
-//        }else{
-//            header('location: ' . URL);
-//        }
-//    }
+        if (!$_SESSION['token'] == '') {
+            // load views
+            require APP . 'view/_templates/header.php';
+            require APP . 'view/profile/index.php';
+            require APP . 'view/_templates/footer.php';
+        } else {
+            header('location: ' . URL);
+        }
     }
 
     public function updateProfile() {
@@ -87,7 +86,6 @@ class Profile extends Controller {
 
                                                 $this->model->addNewPassword($md5Password2, $_SESSION["email"]);
                                                 $_SESSION['message'] = "Your password has been changed!";
-                                                
                                             } else {
                                                 $_SESSION['message'] = 'Your Username or Password is incorrect!';
                                                 $_SESSION['signinEmail'] = $_POST["email"];
@@ -162,13 +160,12 @@ class Profile extends Controller {
                                                         $md5Password2 = md5($password3);
                                                         $_SESSION['message'] = '';
                                                         $_SESSION['signinEmail'] = '';
-                                                        $sql = "UPDATE member SET username='$newusername' WHERE username = '$oldusername'";
-                                                        $query = $this->db->prepare($sql);
+                                                        $this->model->changeNewUsername($newusername, $oldusername);
+
 
                                                         $this->model->addNewPassword($md5Password2, $_SESSION["email"]);
                                                         $_SESSION['username'] = $newusername;
                                                         $_SESSION['message'] = "Your password and username has been changed!";
-                                                        
                                                     } else {
                                                         $_SESSION['message'] = 'Your Username or Password is incorrect!';
                                                         $_SESSION['signinEmail'] = $_POST["email"];
@@ -203,21 +200,11 @@ class Profile extends Controller {
                                 header('location: ' . URL . 'profile');
                             } else {
 
-                                $sql = "UPDATE member SET username='$newusername' WHERE username = '$oldusername'";
-                                $query = $this->db->prepare($sql);
-
-
-                                // useful for debugging: you can see the SQL behind above construction by using:
-                                // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-
-                                $query->execute();
-                            }
-
-
-
-                            $_SESSION['message'] = "Username has been changed!";
+                                $this->model->changeNewUsername($newusername, $oldusername);
+                                $_SESSION['message'] = "Username has been changed!";
 
                             $_SESSION['username'] = $newusername;
+                            }
                             
                         }
                     } else {

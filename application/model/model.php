@@ -11,21 +11,24 @@ class Model {
         } catch (PDOException $e) {
             exit('Database connection could not be established.');
         }
-        
     }
 
     public function checkToken($username, $email, $token) {
 
         $varMD5 = md5($username . $email);
 
-        if (!($varMD5 == $token)){
+        if (!($varMD5 == $token)) {
             $_SESSION['username'] = '';
             $_SESSION['email'] = '';
             $_SESSION['token'] = '';
         }
-
     }
 
+    public function changeNewUsername($Newusername, $Oldusername) {
+        $sql = "UPDATE member SET username='$Newusername' WHERE username = '$Oldusername'";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+    }
 
     public function addNewPassword($password, $Email) {
         $sql = "UPDATE member SET password='$password' WHERE memberEmail = '$Email'";
@@ -124,13 +127,13 @@ class Model {
      * Get all Player data.
      */
     public function getPlayers() {
-      $playerVar = $this->playerFilter();
+        $playerVar = $this->playerFilter();
 
-      $url = 'https://api.pandascore.co/players?' . $playerVar . 'page[size]=80&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
-      $json = file_get_contents($url);
-      $timeline_array = json_decode($json, true);
+        $url = 'https://api.pandascore.co/players?' . $playerVar . 'page[size]=80&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+        $json = file_get_contents($url);
+        $timeline_array = json_decode($json, true);
 
-      return $timeline_array;
+        return $timeline_array;
     }
 
     /**
@@ -155,7 +158,7 @@ class Model {
 
     /**
      * Get all streamers data.
-     *This is the mixer API.
+     * This is the mixer API.
      */
     public function getStreamers($counter) {
         $result = array();
@@ -424,9 +427,10 @@ class Model {
 
         return $result;
     }
+
     /**
      * Get all streamers data.
-     *This is the mixer API.
+     * This is the mixer API.
      */
     public function getStreamersTwitch($counter) {
         for ($i = 0; $i <= $counter; $i++) {
@@ -438,7 +442,7 @@ class Model {
     }
 
     public
-    function getMostFavouriteStreamers() {
+            function getMostFavouriteStreamers() {
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
                 FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
         group by Streamer_streamID
@@ -461,6 +465,7 @@ class Model {
 
         return $query->fetchAll();
     }
+
     public function getSearchResultsMixer($streamers) {
         $result = array();
         foreach ($streamers as $streamer) {
@@ -504,5 +509,4 @@ class Model {
     //   }
     //   return $result;
     // }
-
 }
