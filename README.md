@@ -1,4 +1,4 @@
-#Installation Manual
+# Installation Manual
 
 - Download the package
 - Go inside the **folder _Install**
