@@ -1,5 +1,5 @@
 .slider__heading{
-    position: fixed;
+    position: absolute;
     z-index: 1;
     width: 100%;
     text-align: center;
