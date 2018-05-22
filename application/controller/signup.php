@@ -109,24 +109,24 @@ class Signup extends Controller {
             if ($checkCounter == 0) {
 
                 // If captcha isn't checked, return 'sign up failed page'.
-//                if (!$captcha) {
-//                    //     header('location: ' . URL . 'signup/signupfail');
-//                }
-//                // recaptcha secret key:
-//                $secretKey = "6LcZoVAUAAAAAHZTu5bzXwNcPHflIM_YZ-XqwwwQ";
-//                // Get client user IP:
-//                $ip = $_SERVER['REMOTE_ADDR'];
-//                // Get response from Google recaptcha API:
-//                $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
-//                // Decode response in JSON:
-//                $responseKeys = json_decode($response, true);
-
-                // If captcha validation failed, return 'sign up failed' page.
-//                if (intval($responseKeys["success"]) !== 1) {
-//                    header('location: ' . URL . 'signup/signupfail');
+                if (!$captcha) {
+                    //     header('location: ' . URL . 'signup/signupfail');
+                }
+                // recaptcha secret key:
+                $secretKey = "6LcZoVAUAAAAAHZTu5bzXwNcPHflIM_YZ-XqwwwQ";
+                // Get client user IP:
+                $ip = $_SERVER['REMOTE_ADDR'];
+                // Get response from Google recaptcha API:
+                $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
+                // Decode response in JSON:
+                $responseKeys = json_decode($response, true);
 //
-//                    // If captcha validation is succesfull, return 'sign up correct' page.
-//                } else {
+//                 If captcha validation failed, return 'sign up failed' page.
+                if (intval($responseKeys["success"]) !== 1) {
+                    header('location: ' . URL . 'signup/signupfail');
+
+                    // If captcha validation is succesfull, return 'sign up correct' page.
+                } else {
 //                     Add user to database.
 
                     $_SESSION['message'] = '';
@@ -151,7 +151,7 @@ class Signup extends Controller {
 
                             header('location: ' . URL . 'signup/signupcorrect');
                         }
-//                    }
+                    }
                 }
                 //If it fails you will stay(sent to the signup page) at the signup page.
             } else {
