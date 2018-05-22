@@ -29,4 +29,9 @@ class Ajax extends Controller
         // ajax javascript query
         require APP . 'view/ajax/cookie.php';
     }
+    public function messageClear()
+    {
+        // ajax javascript query
+        require APP . 'view/ajax/messageClear.php';
+    }
 }

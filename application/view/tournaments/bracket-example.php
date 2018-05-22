@@ -16,7 +16,7 @@
             <p class="round-stages"> Quarterfinals </p>
             <p class="round-number"> BEST OF 3 </p>
           </span>
-            <li class="spacer">&nbsp;</li>
+            <li class="spacer"></li>
             <div class="match-round">
                 <li class="game game-top winner">
                     <img class="img-hover"

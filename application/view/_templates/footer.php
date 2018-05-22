@@ -50,5 +50,6 @@
         <script type="text/javascript"  src="<?php echo URL; ?>js/slick.min.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/slider.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/search.js"></script>
+        <script type="text/javascript"  src="<?php echo URL; ?>js/messageClear.js"></script>
 </body>
 </html>

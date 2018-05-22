@@ -32,7 +32,7 @@
 .bracket-container .round {
     display: flex !important;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 250px;
     list-style: none;
     padding: 0;
@@ -48,11 +48,11 @@
 }
 /* the slides */
 .bracket-container .slick-slide {
-    margin: 0 27px;
+    margin: 0 1em;
 }
 /* the parent */
 .bracket-container .slick-list {
-    margin: 0 -27px;
+    margin: 0 -1em;
 }
 
 .bracket-container .winner-game {
@@ -60,9 +60,7 @@
     font-size: 14px;
 }
 
-.bracket-container .round .spacer {
-    flex-grow:0.9;
-}
+
 .bracket-container .round .spacer,
 .bracket-container .round .vs-spacer,
 .bracket-container .round .game-spacer{
@@ -70,26 +68,10 @@
     justify-content: center;
     font-size: 1.25em;
     color: orange;
-    padding: .125em;
+    padding: .5em;
 }
 
-.bracket-container .round .spacer:first-child,
-.bracket-container .round .spacer:last-child {
-    flex-grow: .5;
-}
 
-.bracket-container .round .game-spacer {
-    flex-grow: 1;
-    font-size: 1.5em;
-}
-
-.bracket-container .round .vs-spacer {
-    flex-grow: 0;
-}
-
-.bracket-container .round .round-spacer {
-    flex-grow: 1;
-}
 .bracket-container .match-round{
     background:var(--background-shade);
     padding:.5em;
@@ -133,7 +115,7 @@
 }
 
 .bracket-container li.game-spacer {
-    min-height:40px;
+    max-height:0;
 }
 
 .bracket-container li.game-bottom {
@@ -158,12 +140,10 @@
 }
 
 .bracket-container .round-titles2 {
-    margin-bottom: -111px;
     text-align: center;
 }
 
 .bracket-container .round-titles3 {
-    margin-bottom: -244px;
     text-align: center;
 }
 
@@ -195,4 +175,44 @@
     margin: 0;
     align-items: center;
     justify-content: center;
+}
+
+@media (min-width: 900px) {
+    .bracket-container .round-titles2 {
+        margin-bottom: -111px;
+    }
+    .bracket-container .round-titles3 {
+        margin-bottom: -244px;
+    }
+    .bracket-container .round {
+        justify-content: center;
+    }
+    .bracket-container li.game-spacer {
+        max-height:none;
+    }
+    .bracket-container .round .spacer,
+    .bracket-container .round .vs-spacer,
+    .bracket-container .round .game-spacer{
+        padding: .125em;
+    }
+    .bracket-container .round .spacer {
+        flex-grow:0.9;
+    }
+    .bracket-container .round .spacer:first-child,
+    .bracket-container .round .spacer:last-child {
+        flex-grow: .5;
+    }
+
+    .bracket-container .round .game-spacer {
+        flex-grow: 1;
+        font-size: 1.5em;
+    }
+
+    .bracket-container .round .vs-spacer {
+        flex-grow: 0;
+    }
+
+    .bracket-container .round .round-spacer {
+        flex-grow: 1;
+    }
 }

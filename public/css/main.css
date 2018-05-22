@@ -254,6 +254,23 @@ header.header--search .header--inner {
 .hidden{
     display:none;
 }
+.view-more__container{
+    display:flex;
+    width:100%;
+    justify-content: flex-end;
+}
+
+.container a.view-more{
+    padding: .5em 1em;
+    margin: .5em;
+    background: var(--orange-color);
+    color:var(--action-hover);
+    border-radius: 5px;
+}
+.container a.view-more:hover{
+    background: var(--action-hover);
+    color: var(--orange-color);
+}
 
 /* *********************
         SCROLLBAR
@@ -305,6 +322,10 @@ header.header--search .header--inner {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: bold;
+}
+.container.homepage-container a {
+    color: inherit;
+    font-size: inherit;
 }
 
 .streamers.container .streamers__list {

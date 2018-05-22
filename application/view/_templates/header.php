@@ -84,6 +84,8 @@ if ($_SESSION['nightmode'] == 'false') {
 <?php // HOMEPAGE SLIDER
 if (URL == (URL_PROTOCOL . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])) { ?>
 
+    <h2 class="slider__heading">Tournaments</h2>
+
     <ul class="slider-front">
         <?php
         $break = 0;
