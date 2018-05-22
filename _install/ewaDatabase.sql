@@ -41,39 +41,6 @@ CREATE TABLE IF NOT EXISTS `mini`.`Streamer` (
   PRIMARY KEY (`streamID`))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `mini`.`Game`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mini`.`Game` (
-  `gameID` INT NOT NULL,
-  `gameName` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`gameID`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `mini`.`Plays`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mini`.`Plays` (
-  `Streamer_streamID` BIGINT NOT NULL,
-  `Game_gameID` INT NOT NULL,
-  PRIMARY KEY (`Streamer_streamID`, `Game_gameID`),
-  INDEX `fk_Streamer_has_Game_Game1_idx` (`Game_gameID` ASC),
-  INDEX `fk_Streamer_has_Game_Streamer_idx` (`Streamer_streamID` ASC),
-  CONSTRAINT `fk_Streamer_has_Game_Streamer`
-    FOREIGN KEY (`Streamer_streamID`)
-    REFERENCES `mini`.`Streamer` (`streamID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Streamer_has_Game_Game1`
-    FOREIGN KEY (`Game_gameID`)
-    REFERENCES `mini`.`Game` (`gameID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
 -- -----------------------------------------------------
 -- Table `mini`.`Favorite`
 -- -----------------------------------------------------
@@ -93,6 +60,23 @@ CREATE TABLE IF NOT EXISTS `mini`.`Favorite` (
     REFERENCES `mini`.`Streamer` (`streamID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mini`.`Member`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `mini`.`Teams` (
+  `playerID` INT NOT NULL,
+  `playerName` VARCHAR(255) NOT NULL,
+  `playerFirstName` VARCHAR(255) NULL,
+  `playerLastName` VARCHAR(255) NULL,
+  `playerTeamID` INT NOT NULL,
+  `playerTeamName` VARCHAR(255) NOT NULL,
+  `playerTeamImage` VARCHAR(255) NULL,
+  `playerGame` VARCHAR(255) NULL,
+  PRIMARY KEY (`playerID`))
+  
 ENGINE = InnoDB;
 
 
