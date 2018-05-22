@@ -9,11 +9,39 @@
                             class="filter-icon fas fa-filter"></i></a>
                 <a class="tablinks dateFilter--item active" href="#" id="onlineNav">online</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dutch')">Dutch streamers</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'overwatch')">Overwatch</a>
             </div>
         </div>
+    </div>
+    <div id="dutch" class="tabcontent">
+        <h3>Dutch streamers</h3>
+        <ul class="streamers__list">
+            <?php
+            $counter = 0;
+
+            $filter = 'nl';
+            if (!empty($favoritePageMixer)) {
+                foreach ($favoritePageMixer as $key => $item) {
+                    if ($item["languageId"] == $filter) {
+                        include APP . 'view/_templates/streamer-mixer.php';
+                    }
+                }
+            }
+
+            $filter = 'nl';
+            if (!empty($favoritePageTwitch)) {
+                foreach ($favoritePageTwitch as $key => $item) {
+                    if (!$item['stream'] == null) {
+                        if ($item['stream']["channel"]["language"] == $filter) {
+                            include APP . 'view/_templates/streamer-twitch.php';
+                        }
+                    }
+                }
+            } ?>
+        </ul>
     </div>
     <div id="lol" class="tabcontent">
         <h3>League of Legends</h3>
