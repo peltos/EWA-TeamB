@@ -186,7 +186,7 @@ class Profile extends Controller {
                     if (isset($_POST["username"]) && ($_POST["oldpassword"] == "" || $_POST["Newpassword"] == "" || $_POST["Confirmnewpassword"] == "")) {
                         $_SESSION['message'] = "";
                         $newusername = $_POST["username"];
-
+ 
 
 
                         $oldusername = $_SESSION['username'];
