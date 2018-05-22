@@ -32,7 +32,7 @@
         <?php  ?>
         <?php if (!$_SESSION['email'] == '') { ?>
 
-            <h2 class="homepage-title">Favorites</h2>
+            <h2 class="homepage-title">Followed Channels</h2>
             <ul class="streamers__list">
                 <?php
                 $counter = 0;

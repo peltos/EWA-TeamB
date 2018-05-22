@@ -112,7 +112,7 @@ class Profile extends Controller {
                     } else {
                         $getUserName = $this->model->checkUsername($newusername);
                         if (!$getUserName == false) {
-                            $_SESSION['message'] = 'Username already taken!';
+                            $_SESSION['message'] = 'Username already in use!';
                             header('location: ' . URL . 'profile');
                         } else {
                             $getInfoUser = $this->model->getUser($_SESSION["email"]);
@@ -196,7 +196,7 @@ class Profile extends Controller {
                         } else {
                             $getUserName = $this->model->checkUsername($newusername);
                             if (!$getUserName == false) {
-                                $_SESSION['message'] = 'Username already taken';
+                                $_SESSION['message'] = 'Username already in use';
                                 header('location: ' . URL . 'profile');
                             } else {
 

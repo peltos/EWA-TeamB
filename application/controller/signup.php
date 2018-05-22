@@ -79,7 +79,7 @@ class Signup extends Controller {
             }
             $getUserName = $this->model->checkUsername($username);
             if (!$getUserName == false) {
-                $_SESSION['message'] .= 'username already taken  <br/>';
+                $_SESSION['message'] .= 'username already in use  <br/>';
                 $checkCounter++;
             }
             if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
