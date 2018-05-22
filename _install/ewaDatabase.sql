@@ -22,9 +22,6 @@ CREATE TABLE IF NOT EXISTS `mini`.`Member` (
   `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `firstLogin` DATETIME NOT NULL,
-  `lastLogin` DATETIME NULL,
-  `profilePicture` VARCHAR(255) NULL ,
-  `theme` VARCHAR(45) NULL,
   PRIMARY KEY (`memberEmail`))
 ENGINE = InnoDB;
 
