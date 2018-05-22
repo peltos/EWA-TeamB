@@ -1,3 +1,16 @@
+.slider__heading{
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    font-size: 1.75em;
+    margin-top: 0;
+    background: rgba(0,0,0,0.5);
+    padding: .666666em 0;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
 .slider-front {
     display: none;
     width: 100%;
