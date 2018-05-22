@@ -68,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `mini`.`Teams` (
   `playerName` VARCHAR(255) NOT NULL,
   `playerFirstName` VARCHAR(255) NULL,
   `playerLastName` VARCHAR(255) NULL,
-  `playerTeamID` INT NOT NULL,
-  `playerTeamName` VARCHAR(255) NOT NULL,
+  `playerTeamID` INT NULL,
+  `playerTeamName` VARCHAR(255) NULL,
   `playerTeamImage` VARCHAR(255) NULL,
   `playerGame` VARCHAR(255) NULL,
   PRIMARY KEY (`playerID`))

@@ -20,6 +20,8 @@ class Players extends Controller
         require APP . 'view/_templates/header.php';
         require APP . 'view/players/index.php';
         require APP . 'view/_templates/footer.php';
+
+        $this->model->sendPlayers2Db($slider);
     }
 
     /**
