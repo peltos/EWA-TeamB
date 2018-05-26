@@ -251,16 +251,18 @@ header.header--search .header--inner {
     color: var(--nav-color);
 }
 
-.hidden{
+.hidden {
     display:none;
 }
-.view-more__container{
+
+.view-more__container {
     display:flex;
     width:100%;
     justify-content: flex-end;
 }
 
-.container a.view-more{
+.container a.view-more {
+    font-size: 11px !important;
     padding: .5em 1em;
     margin: .5em;
     background: var(--orange-color);
@@ -392,6 +394,44 @@ header.header--search .header--inner {
 .container button:hover {
     background-color: #222;
     color: #fff;
+}
+
+.container .home-title {
+    text-transform: none;
+}
+
+/** Tooltip Icon **/
+
+.container .tooltip {
+    font-size: 13px;
+    padding: 1.5px;
+    color: grey;
+}
+
+.container .tooltip .tooltiptext {
+    font-weight: normal;
+    line-height: 19px;
+    visibility: hidden;
+    width: 180px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px 4px;
+
+    /* Position of the tooltip */
+    position: absolute;
+    z-index: 5;
+    margin-top: 38px;
+    margin-left: -100px;
+}
+
+.container .tooltip:hover {
+    color: var(--orange-color);
+}
+
+.container .tooltip:hover .tooltiptext {
+    visibility: visible;
 }
 
 /* *********************

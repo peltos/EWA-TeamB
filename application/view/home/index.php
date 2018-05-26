@@ -1,6 +1,8 @@
 <div class="container homepage-container">
 
-    <h2 class="homepage-title"><a href="streams">Recommended Streams</a></h2>
+    <h2 class="homepage-title"><a href="streams" class="home-title">Recommended Streams</a>
+      <span class="tooltip"><i class="fas fa-info-circle"></i>
+        <span class="tooltiptext">Our recommendations based on currently most followed channels.</span></span></h2>
     <ul class="streamers__list">
         <?php
         $counter = 0;
@@ -30,7 +32,9 @@
     </div>
 
     <?php if (!$_SESSION['email'] == '') { ?>
-        <h2 class="homepage-title"><a href="favorite">Followed Channels</a></h2>
+        <h2 class="homepage-title"><a href="favorite" class="home-title">Followed Channels</a>
+          <span class="tooltip"><i class="fas fa-info-circle"></i>
+            <span class="tooltiptext"> Check out your favorite streamers that are online. </span></span></h2>
         <ul class="streamers__list">
             <?php
             $counter = 0;

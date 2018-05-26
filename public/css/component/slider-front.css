@@ -94,6 +94,15 @@
     font-weight: 900;
 }
 
+.slider-front .slider-item--content__date {
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.slider-front .slider-item--content__info__matchup__item__game {
+    font-size: 15px;
+}
+
 .slider-item--content__info__name,
 .slider-item--content__info__tournament {
     color: var(--orange-color);
