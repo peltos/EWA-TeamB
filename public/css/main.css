@@ -559,7 +559,8 @@ header.header--search .header--inner {
 
 .switch-container {
     display: flex;
-    margin: 1em;
+    margin-top: 42px;
+    margin-right: 10px;
     justify-content: flex-end;
     align-items: center;
 }

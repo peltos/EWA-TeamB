@@ -1,6 +1,8 @@
 <div class="container bracket-container">
 
-    <h2> Tournament Bracket </h2>
+    <h2> Tournament Bracket
+      <span class="tooltip"><i class="fas fa-info-circle"></i>
+        <span class="tooltiptext">View tournament formation in bracket layout.</span></span></h2>
 
     <div class="uppertitle">
         <img class="img-hover" src="https://img.abiosgaming.com/games/flat-overwatch-logo-round.png">

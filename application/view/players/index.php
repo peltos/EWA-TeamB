@@ -1,7 +1,9 @@
 
 <div class="container players-container">
 
-  <h2> Players </h2>
+  <h2> Players
+    <span class="tooltip"><i class="fas fa-info-circle"></i>
+      <span class="tooltiptext">View proffesional eSport teams & players.</span></span></h2>
 
     <ul class="slider">
         <?php

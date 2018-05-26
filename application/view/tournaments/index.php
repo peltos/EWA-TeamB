@@ -1,6 +1,8 @@
 <div class="container tournaments-container">
 
-  <h2> Tournaments </h2>
+  <h2> Tournaments
+    <span class="tooltip"><i class="fas fa-info-circle"></i>
+      <span class="tooltiptext">View the stages and participants of upcoming/running tournaments.</span></span></h2>
 
     <ul class="slider">
         <?php

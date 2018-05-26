@@ -4,7 +4,9 @@ $active = '//' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 <div class="container timeline-container" data-url="<?php if (!empty($url)) echo $url ?>">
 
-<h1>Matches</h1>
+<h1>Matches
+  <span class="tooltip"><i class="fas fa-info-circle"></i>
+    <span class="tooltiptext">View upcoming matches or check out the score of previous games.</span></span></h1>
 <div class="filterBar-container">
     <div class="filterBar--inner">
         <div class="dateFilter">

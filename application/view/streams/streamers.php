@@ -1,5 +1,7 @@
 <div class="container streamers-container">
-    <h1>Streamers</h1>
+    <h1>Streamers
+      <span class="tooltip"><i class="fas fa-info-circle"></i>
+        <span class="tooltiptext">View all currently streaming channels. Filter by game title or language.</span></span></h1>
     <?php //This is for the filter bar.?>
     <div class="filterBar-container">
         <div class="filterBar--inner">

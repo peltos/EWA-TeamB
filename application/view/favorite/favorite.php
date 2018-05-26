@@ -1,6 +1,8 @@
 <div class="container favorite-container">
 
-    <h1 class="homepage-title"> Followed Channels </h1>
+    <h2 class="homepage-title"> Followed Channels
+      <span class="tooltip"><i class="fas fa-info-circle"></i>
+        <span class="tooltiptext">Manage your followed channels.</span></span></h2>
 
     <div class="filterBar-container">
         <div class="filterBar--inner">
