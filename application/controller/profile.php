@@ -102,7 +102,7 @@ class Profile extends Controller {
                     }
                 }
             } else {
-                if ($_POST["username"] != "" && ($_POST["oldpassword"] != "" || $_POST["Newpassword"] != "" || $_POST["Confirmnewpassword"] != "")) {
+                if ($_POST["username"] != "" && $_POST["oldpassword"] != "" && $_POST["Newpassword"] != "" && $_POST["Confirmnewpassword"] != "") {
                     $oldusername = $_SESSION['username'];
                     $_SESSION['message'] = "";
                     $newusername = $_POST["username"];
@@ -183,29 +183,34 @@ class Profile extends Controller {
                         }
                     }
                 } else {
-                    if (isset($_POST["username"]) && ($_POST["oldpassword"] == "" || $_POST["Newpassword"] == "" || $_POST["Confirmnewpassword"] == "")) {
-                        $_SESSION['message'] = "";
-                        $newusername = $_POST["username"];
- 
-
-
-                        $oldusername = $_SESSION['username'];
-                        if (strlen($newusername) < 5) {
-                            $_SESSION['message'] = 'Username must be shorter then 30 and longer than 5 characters!';
-                            header('location: ' . URL . 'profile');
+                    if (isset($_POST["username"]) && ($_POST["Newpassword"] == "" || $_POST["Confirmnewpassword"] == "")) {
+                        if (($_POST["oldpassword"] =="")) {
+                            $_SESSION['message'] = "Please fill in your Old password to change your username";
                         } else {
-                            $getUserName = $this->model->checkUsername($newusername);
-                            if (!$getUserName == false) {
-                                $_SESSION['message'] = 'Username already in use';
+
+
+                            $_SESSION['message'] = "";
+                            $newusername = $_POST["username"];
+
+
+
+                            $oldusername = $_SESSION['username'];
+                            if (strlen($newusername) < 5) {
+                                $_SESSION['message'] = 'Username must be shorter then 30 and longer than 5 characters!';
                                 header('location: ' . URL . 'profile');
                             } else {
+                                $getUserName = $this->model->checkUsername($newusername);
+                                if (!$getUserName == false) {
+                                    $_SESSION['message'] = 'Username already in use';
+                                    header('location: ' . URL . 'profile');
+                                } else {
 
-                                $this->model->changeNewUsername($newusername, $oldusername);
-                                $_SESSION['message'] = "Username has been changed!";
+                                    $this->model->changeNewUsername($newusername, $oldusername);
+                                    $_SESSION['message'] = "Your username has been changed";
 
-                            $_SESSION['username'] = $newusername;
+                                    $_SESSION['username'] = $newusername;
+                                }
                             }
-                            
                         }
                     } else {
                         header('location: ' . URL . 'home');
