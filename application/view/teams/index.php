@@ -42,7 +42,9 @@
 
                 <?php // Start: team item ?>
 
-                <li class="slider-item">
+
+                <li class="slider-item <?php if ($teamDb[0][0]['playerTeamID'] == null) echo 'other'; ?>">
+
 
                     <?php // A For loop used to get all players of the same team. The $counter is used for array positions ?>
 
