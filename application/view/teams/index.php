@@ -53,8 +53,13 @@
                         <?php if ($counter == 0) { ?>
 
                             <div class="slider-item--icon">
-                                <img class="slider-item--icon__image"
-                                     src="<?php echo $teamDb[$counter][0]['playerTeamImage']; ?>"/>
+                                <?php if ($teamDb[$counter][0]['playerTeamImage'] != null) { ?>
+                                    <img class="slider-item--icon__image"
+                                         src="<?php echo $teamDb[$counter][0]['playerTeamImage']; ?>"/>
+                                <?php } else { ?>
+                                    <img class="slider-item--icon__image"
+                                         src="<?php echo URL ?>img/no-photo.png"/>
+                                <?php } ?>
                             </div>
 
                             <?php if ($teamDb[$counter][0]['playerTeamName'] != null) { ?>
@@ -78,7 +83,7 @@
                                     <img class="slider-item--icon__image"
                                          src=" <?php echo $teamDb[$counter][0]['playerImage'] ?> "/>
 
-                                <?php }else{ ?>
+                                <?php } else { ?>
                                     <img class="slider-item--icon__image" src="<?php echo URL ?>img/no-photo.png">
                                 <?php } ?>
                             </div>
@@ -95,24 +100,24 @@
                                         <p class="slider-item--content__firstLastname"><?php echo $teamDb[$counter][0]['playerFirstName'] ?><?php echo $teamDb[$counter][0]['playerLastName'] ?></p>
                                     <?php } ?>
                                 </span>
-                                    <p class="slider-item--content__hometown">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <?php if ($teamDb[$counter][0]['playerHometown'] != null) { ?>
-                                        <?php echo $teamDb[$counter][0]['playerHometown'] ?></p>
-                                    <?php } else { ?>
-                                        Unkown </p>
-                                    <?php } ?>
-                                    <p class="slider-item--content__game">
-                                        <i class="fas fa-trophy"></i>
-                                        <?php if ($teamDb[$counter][0]['playerGame'] != null) { ?>
-                                        <?php if ($teamDb[$counter][0]['playerGame'] != 'LoL') { ?>
-                                        <?php echo $teamDb[$counter][0]['playerGame'] ?></p>
-                                <?php } else { ?>
-                                    League of Legends
-                                <?php } ?>
+                                <p class="slider-item--content__hometown">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <?php if ($teamDb[$counter][0]['playerHometown'] != null) { ?>
+                                    <?php echo $teamDb[$counter][0]['playerHometown'] ?></p>
                                 <?php } else { ?>
                                     Unkown </p>
                                 <?php } ?>
+                                <p class="slider-item--content__game">
+                                    <i class="fas fa-trophy"></i>
+                                    <?php if ($teamDb[$counter][0]['playerGame'] != null) { ?>
+                                    <?php if ($teamDb[$counter][0]['playerGame'] != 'LoL') { ?>
+                                    <?php echo $teamDb[$counter][0]['playerGame'] ?></p>
+                            <?php } else { ?>
+                                League of Legends
+                            <?php } ?>
+                            <?php } else { ?>
+                                Unkown </p>
+                            <?php } ?>
                             </div>
 
                             <?php // End: Player Info ?>
