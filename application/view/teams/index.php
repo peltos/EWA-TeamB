@@ -23,7 +23,7 @@
     ?>
 
 
-    <h2> Players
+    <h2> Teams
         <span class="tooltip">
             <i class="fas fa-info-circle"></i>
             <span class="tooltiptext">View proffesional eSport teams & players.</span>
