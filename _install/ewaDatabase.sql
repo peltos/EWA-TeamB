@@ -72,6 +72,8 @@ CREATE TABLE IF NOT EXISTS `mini`.`Teams` (
   `playerTeamName` VARCHAR(255) NULL,
   `playerTeamImage` VARCHAR(255) NULL,
   `playerGame` VARCHAR(255) NULL,
+  `playerImage` VARCHAR(255) NULL,
+  `playerHometown` VARCHAR(255) NULL,
   PRIMARY KEY (`playerID`))
   
 ENGINE = InnoDB;
