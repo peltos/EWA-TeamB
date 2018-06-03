@@ -1,7 +1,7 @@
 
 <div class="container players-container">
 
-  <h2> Players </h2>
+  <h2> Teams </h2>
 
     <ul class="slider">
         <?php

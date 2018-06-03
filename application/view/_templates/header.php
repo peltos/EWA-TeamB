@@ -55,7 +55,7 @@ if ($_SESSION['nightmode'] == 'false') {
             <a class="navigation--item" title="Home" href="<?php echo URL; ?>"><i class="fas fa-home"></i></a>
             <a class="navigation--item" href="<?php echo URL; ?>matches">Matches</a>
             <a class="navigation--item" href="<?php echo URL; ?>tournaments">Tournaments</a>
-            <a class="navigation--item" href="<?php echo URL; ?>players">Players</a>
+            <a class="navigation--item" href="<?php echo URL; ?>players">Teams</a>
             <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
             <a class="navigation--item" href="<?php echo URL; ?>news">News</a>
             <?php if ($_SESSION['email'] == '') {
