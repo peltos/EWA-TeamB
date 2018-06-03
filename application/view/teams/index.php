@@ -78,6 +78,8 @@
                                     <img class="slider-item--icon__image"
                                          src=" <?php echo $teamDb[$counter][0]['playerImage'] ?> "/>
 
+                                <?php }else{ ?>
+                                    <img class="slider-item--icon__image" src="<?php echo URL ?>img/no-photo.png">
                                 <?php } ?>
                             </div>
 

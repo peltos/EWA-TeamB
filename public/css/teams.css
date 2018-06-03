@@ -45,6 +45,7 @@
 .teams-container .slider-item--icon {
     position: relative;
     max-width: 50%;
+    width: 100%;
 }
 
 .teams-container .slider-item--icon__image {
