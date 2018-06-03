@@ -1,21 +1,20 @@
-.players-container .homepage-title {
+.teams-container .homepage-title {
     color: var(--filterIcon-color);
     border-bottom: 2px solid var(--orange-color);
     line-height: 2;
 }
 
-.players-container .slider {
+.teams-container .slider {
     display: flex;
     list-style-type: none;
     padding: 0;
     flex-wrap: wrap;
 }
 
-.players-container .slider-item {
+.teams-container .slider-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     text-align: center;
     width:100%;
     padding:1em 19px;
@@ -26,45 +25,52 @@
     position:relative;
 }
 
-.players-container .slider-item + .slider-item {
+.teams-container .slider-item + .slider-item {
     position: relative;
 }
+.teams-container .slider-item__player{
+    width:100%;
+    margin-top:1em;
+    padding: .5em;
+    background:var(--background-shade);
+    border-radius: 5px;
+    display:flex;
+    align-items: center;
 
-.players-container .fa-trophy {
+}
+.teams-container .fa-trophy {
   font-size: 11px;
 }
 
-.players-container .slider-item--icon {
-    width: 6em;
-    height: 9.5em;
+.teams-container .slider-item--icon {
     position: relative;
+    max-width: 50%;
 }
 
-.players-container .slider-item--icon__image {
+.teams-container .slider-item--icon__image {
     width: 100%;
     margin:0;
 }
 
-.players-container .slider-item--content {
+.teams-container .slider-item--content {
     display: flex;
     flex-direction: column;
     align-items: center;
     width:100%;
-    height: 75px;
   }
 
-.players-container .slider-item--titles {
+.teams-container .slider-item--titles {
     text-transform: uppercase;
 }
 
-.players-container .slider-item--content__nickname {
+.teams-container .slider-item--content__nickname {
     color: var(--orange-color);
     font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.players-container .slider-item--content__firstLastname {
+.teams-container .slider-item--content__firstLastname {
     font-size: 12px;
     font-family: monospace;
     text-transform: uppercase;
@@ -72,30 +78,30 @@
     margin-top: -11px;
 }
 
-.players-container .slider-item--content__hometown,
-.players-container .slider-item--content__game {
+.teams-container .slider-item--content__hometown,
+.teams-container .slider-item--content__game {
     font-size: 13px;
     margin-top: -6px;
     color: var(--fontCard-color);
 }
 
-.players-container .slider-item--content__team {
+.teams-container .slider-item--content__team {
     font-size: 15px;
     font-weight: bold;
     font-style: italic;
 }
 
-.players-container .slider--item__info-match {
+.teams-container .slider--item__info-match {
     display: none;
 }
 
-.players-container .upper-title {
+.teams-container .upper-title {
     color: var(--orange-color);
     text-transform: uppercase;
     font-weight: bold;
 }
 
-.players-container .lower-title {
+.teams-container .lower-title {
     font-size: 12px;
     font-family: monospace;
     text-transform: uppercase;
@@ -103,36 +109,36 @@
     margin-top: 4px;
 }
 
-.players-container .lower-titleNone {
+.teams-container .lower-titleNone {
     font-size: 12px;
     font-family: monospace;
     font-weight: bold;
     margin-top: 4px;
 }
 
-.players-container .title-box {
+.teams-container .title-box {
     margin-top: -29px;
 }
 
 
-.players-container .team-acr {
+.teams-container .team-acr {
     font-size: 12px;
     font-family: monospace;
     color: var(--fontCard-color);
     text-transform: uppercase;
 }
 
-.players-container .team-title {
+.teams-container .team-title {
     font-size: 15px;
 }
 
-.players-container .team-logo {
+.teams-container .team-logo {
     max-width: 10%;
 }
 
 @media (min-width: 900px) {
 
-    .players-container .slider-item {
+    .teams-container .slider-item {
         width:calc(20% - 1px);
     }
 }

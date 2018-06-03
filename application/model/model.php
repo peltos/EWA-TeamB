@@ -152,7 +152,7 @@ class Model
     public function getPlayersFromDb()
     {
         // gets all the items from the database Streamer table
-        $sql = "SELECT playerID FROM Teams";
+        $sql = "SELECT * FROM Teams";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -184,12 +184,13 @@ class Model
                     // json item equals database item, update the current information about the players
                     if ($playerDb->playerID == $playerWeb['id']) {
                         $sql = "UPDATE Teams SET playerName = :playerName, playerFirstName = :playerFirstName, playerLastName = :playerLastName, 
-                              playerTeamID = :playerTeamID, playerTeamName = :playerTeamName, playerTeamImage = :playerTeamImage, playerGame = :playerGame WHERE playerID = :playerID";
+                              playerTeamID = :playerTeamID, playerTeamName = :playerTeamName, playerTeamImage = :playerTeamImage, playerGame = :playerGame, 
+                              playerImage = :playerImage, playerHometown = :playerHometown WHERE playerID = :playerID";
                         $query = $this->db->prepare($sql);
 
                         $parameters = array(':playerID' => $playerWeb['id'], ':playerName' => $playerWeb['name'], ':playerFirstName' => $playerWeb['first_name'], ':playerLastName' => $playerWeb['last_name'],
                             ':playerTeamID' => $playerWeb['current_team']['id'], ':playerTeamName' => $playerWeb['current_team']['name'], ':playerTeamImage' => $playerWeb['current_team']['image_url'],
-                            ':playerGame' => $playerWeb['current_videogame']['name']);
+                            ':playerGame' => $playerWeb['current_videogame']['name'], ':playerImage' => $playerWeb['image_url'], ':playerHometown' => $playerWeb['hometown']);
 
                         $query->execute($parameters);
 
@@ -203,12 +204,12 @@ class Model
                     //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
                     if ($counterPlayersWeb == $counterPlayersDb) {
 
-                        $sql = "INSERT INTO Teams (playerID, playerName, playerFirstName, playerLastName, playerTeamID, playerTeamName, playerTeamImage, playerGame) VALUES 
-                            (:playerID, :playerName, :playerFirstName, :playerLastName, :playerTeamID, :playerTeamName, :playerTeamImage, :playerGame)";
+                        $sql = "INSERT INTO Teams (playerID, playerName, playerFirstName, playerLastName, playerTeamID, playerTeamName, playerTeamImage, playerGame, playerImage, playerHometown) VALUES 
+                            (:playerID, :playerName, :playerFirstName, :playerLastName, :playerTeamID, :playerTeamName, :playerTeamImage, :playerGame, :playerImage, :playerHometown)";
                         $query = $this->db->prepare($sql);
                         $parameters = array(':playerID' => $playerWeb['id'], ':playerName' => $playerWeb['name'], ':playerFirstName' => $playerWeb['first_name'], ':playerLastName' => $playerWeb['last_name'],
                             ':playerTeamID' => $playerWeb['current_team']['id'], ':playerTeamName' => $playerWeb['current_team']['name'], ':playerTeamImage' => $playerWeb['current_team']['image_url'],
-                            ':playerGame' => $playerWeb['current_videogame']['name']);
+                            ':playerGame' => $playerWeb['current_videogame']['name'], ':playerImage' => $playerWeb['image_url'], ':playerHometown' => $playerWeb['hometown']);
 
                         $query->execute($parameters);
                     }
@@ -220,16 +221,75 @@ class Model
         } else { // do this when database is empty
             foreach ($playersWeb as $key => $playerWeb) {
 
-                $sql = "INSERT INTO Teams (playerID, playerName, playerFirstName, playerLastName, playerTeamID, playerTeamName, playerTeamImage, playerGame) VALUES 
-                            (:playerID, :playerName, :playerFirstName, :playerLastName, :playerTeamID, :playerTeamName, :playerTeamImage, :playerGame)";
+                $sql = "INSERT INTO Teams (playerID, playerName, playerFirstName, playerLastName, playerTeamID, playerTeamName, playerTeamImage, playerGame, playerImage, playerHometown) VALUES 
+                            (:playerID, :playerName, :playerFirstName, :playerLastName, :playerTeamID, :playerTeamName, :playerTeamImage, :playerGame, :playerImage, :playerHometown)";
                 $query = $this->db->prepare($sql);
                 $parameters = array(':playerID' => $playerWeb['id'], ':playerName' => $playerWeb['name'], ':playerFirstName' => $playerWeb['first_name'], ':playerLastName' => $playerWeb['last_name'],
                     ':playerTeamID' => $playerWeb['current_team']['id'], ':playerTeamName' => $playerWeb['current_team']['name'], ':playerTeamImage' => $playerWeb['current_team']['image_url'],
-                    ':playerGame' => $playerWeb['current_videogame']['name']);
+                    ':playerGame' => $playerWeb['current_videogame']['name'], ':playerImage' => $playerWeb['image_url'], ':playerHometown' => $playerWeb['hometown']);
 
                 $query->execute($parameters);
             }
         }
+    }
+
+    public function getTeams()
+    {
+        // checks the getStreamersID() function
+        $playersDb = $this->getPlayersFromDb();
+        $teamArray = array();
+        $teamsCheck = array();
+
+        $counterPlayersDb = 0;
+
+        // counts the database items
+        foreach ($playersDb as $playerDb) {
+            $counterPlayersDb++;
+        }
+
+        foreach ($playersDb as $playerDb) {
+            if (!in_array($playerDb->playerTeamID, $teamsCheck, true)) {
+                array_push($teamsCheck, $playerDb->playerTeamID);
+            }
+        }
+
+        if (!empty($playersDb)) {
+            $counter = 0;
+            foreach ($playersDb as $key => $playerDb) {
+                if (($playerDb->playerTeamID) != null) {
+
+                    $teamArray[$playerDb->playerTeamID][] = array(
+                        "playerID" => $playerDb->playerID, array(
+                            "playerName" => $playerDb->playerName,
+                            "playerFirstName" => $playerDb->playerFirstName,
+                            "playerLastName" => $playerDb->playerLastName,
+                            "playerTeamID" => $playerDb->playerTeamID,
+                            "playerTeamName" => $playerDb->playerTeamName,
+                            "playerTeamImage" => $playerDb->playerTeamImage,
+                            "playerGame" => $playerDb->playerGame,
+                            "playerImage" => $playerDb->playerImage,
+                            "playerHometown" => $playerDb->playerHometown));
+
+                } else {
+                    $teamArray['other'][] = array(
+                        "playerID" => $playerDb->playerID, array(
+                            "playerName" => $playerDb->playerName,
+                            "playerFirstName" => $playerDb->playerFirstName,
+                            "playerLastName" => $playerDb->playerLastName,
+                            "playerTeamID" => $playerDb->playerTeamID,
+                            "playerTeamName" => $playerDb->playerTeamName,
+                            "playerTeamImage" => $playerDb->playerTeamImage,
+                            "playerGame" => $playerDb->playerGame,
+                            "playerImage" => $playerDb->playerImage,
+                            "playerHometown" => $playerDb->playerHometown));
+                }
+            }
+
+//            var_dump($teamArray);
+        }
+
+        array_values($teamArray);
+        return $teamArray;
     }
 
     /**
