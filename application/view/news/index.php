@@ -26,7 +26,7 @@ rssfeed_scroll="off";
 rssfeed_scroll_step="6";
 rssfeed_scroll_bar="on";
 rssfeed_target="_blank";
-rssfeed_font_size="12";
+rssfeed_font_size="15";
 rssfeed_font_face="";
 rssfeed_border="on";
 
@@ -73,7 +73,7 @@ rssfeed_scroll="off";
 rssfeed_scroll_step="6";
 rssfeed_scroll_bar="on";
 rssfeed_target="_blank";
-rssfeed_font_size="12";
+rssfeed_font_size="15";
 rssfeed_font_face="";
 rssfeed_border="on";
 
@@ -120,7 +120,7 @@ rssfeed_scroll="off";
 rssfeed_scroll_step="6";
 rssfeed_scroll_bar="on";
 rssfeed_target="_blank";
-rssfeed_font_size="12";
+rssfeed_font_size="15";
 rssfeed_font_face="";
 rssfeed_border="on";
 
