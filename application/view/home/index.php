@@ -1,6 +1,6 @@
 <div class="container homepage-container">
 
-    <h2 class="homepage-title">.homepage-container .homepage-title
+    <h2 class="homepage-title">
         <div>
             <a href="streams" class="home-title">Recommended Streams</a>
             <span class="tooltip">
