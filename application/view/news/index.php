@@ -1,18 +1,32 @@
 <div class="container news-container">
 <h1>Esport news feed</h1>
 <!-- start sw-rss-feed code -->
+<div class="filterBar-container">
+    <div class="filterBar--inner">
+        <div class="dateFilter">
+            <a class="tablinks dateFilter--item" href="#"><i class="filter-icon fas fa-filter"></i></a>
+            <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
+            <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'esport')">esport</a>
+            <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
+            <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
+        </div>
+    </div>
+</div>
+
+  <div id="esport" class="tabcontent newstab">
+    <h3>Esport</h3>
  <?php //This is the rss feed for the three news topics.?>
 <script type="text/javascript">
 <!--
 rssfeed_url = new Array();
 rssfeed_url[0]="https://news.google.com/news/rss/search/section/q/esport/esport?hl=nl&gl=NL&ned=nl_nl";
-rssfeed_frame_width="500";
+rssfeed_frame_width="1200";
 rssfeed_frame_height="500";
 rssfeed_scroll="off";
 rssfeed_scroll_step="6";
 rssfeed_scroll_bar="on";
 rssfeed_target="_blank";
-rssfeed_font_size="12";
+rssfeed_font_size="15";
 rssfeed_font_face="";
 rssfeed_border="on";
 
@@ -43,20 +57,23 @@ rssfeed_cache = "2b6f506a13c521c8498830fd126117aa";
 //-->
 </script>
 <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
+</div>
 <!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. -->
 <!-- end sw-rss-feed code -->
 <!-- start sw-rss-feed code -->
+<div id="dota2" class="tabcontent newstab">
+  <h3>Dota 2</h3>
 <script type="text/javascript">
 <!--
 rssfeed_url = new Array();
 rssfeed_url[0]="http://blog.dota2.com/feed/";
-rssfeed_frame_width="500";
+rssfeed_frame_width="1200";
 rssfeed_frame_height="500";
 rssfeed_scroll="off";
 rssfeed_scroll_step="6";
 rssfeed_scroll_bar="on";
 rssfeed_target="_blank";
-rssfeed_font_size="12";
+rssfeed_font_size="15";
 rssfeed_font_face="";
 rssfeed_border="on";
 
@@ -87,20 +104,23 @@ rssfeed_cache = "f76ca177db00ff81e99758d4175711be";
 //-->
 </script>
 <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
+</div>
 <!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. -->
 <!-- end sw-rss-feed code -->
 <!-- start sw-rss-feed code -->
+<div id="lol" class="tabcontent newstab">
+  <h3>League of Legends</h3>
 <script type="text/javascript">
 <!--
 rssfeed_url = new Array();
 rssfeed_url[0]="https://na.leagueoflegends.com/en/rss.xml";
-rssfeed_frame_width="500";
+rssfeed_frame_width="1200";
 rssfeed_frame_height="500";
 rssfeed_scroll="off";
 rssfeed_scroll_step="6";
 rssfeed_scroll_bar="on";
 rssfeed_target="_blank";
-rssfeed_font_size="12";
+rssfeed_font_size="15";
 rssfeed_font_face="";
 rssfeed_border="on";
 
@@ -131,5 +151,5 @@ rssfeed_cache = "a39c98bedf11b8d29a077951534630ae";
 //-->
 </script>
 <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
-
+</div>
 </div>
