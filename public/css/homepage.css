@@ -2,6 +2,9 @@
     color: var(--filterIcon-color);
     border-bottom: 2px solid var(--orange-color);
     line-height: 2;
+
+    display: flex;
+    justify-content: space-between;
 }
 .homepage-container .homepage-title a:hover {
     color: var(--font-color);
