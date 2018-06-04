@@ -1,5 +1,5 @@
 <?php
-// do any authentication first, then add POST variable to session
+// set cookie confirmation to true if true
 
 session_start();
 $cookie = $_POST["cookie"];

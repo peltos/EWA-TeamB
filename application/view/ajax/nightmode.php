@@ -1,5 +1,5 @@
 <?php
-// do any authentication first, then add POST variable to session
+// set nightmode to true if true
 
 session_start();
 $nightmode = $_POST["modus"];

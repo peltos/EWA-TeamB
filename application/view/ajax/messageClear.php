@@ -1,5 +1,5 @@
 <?php
-// do any authentication first, then add POST variable to session
+// Clear message when you leave the page
 
 session_start();
 $messageClear = $_POST["messageClear"];

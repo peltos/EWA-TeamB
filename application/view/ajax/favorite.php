@@ -1,5 +1,5 @@
 <?php
-// do any authentication first, then add POST variable to session
+// set followed stream as active/non-active when clicked.
 
 $streamerId = $_POST["streamerId"];
 $isActive = $_POST["isActive"];
