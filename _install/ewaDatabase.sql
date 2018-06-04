@@ -44,6 +44,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mini`.`follow` (
   `Member_memberEmail` VARCHAR(255) NOT NULL,
   `Streamer_streamID` BIGINT NOT NULL,
+  `likes` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`Member_memberEmail`, `Streamer_streamID`),
   INDEX `fk_Member_has_Streamer_Streamer1_idx` (`Streamer_streamID` ASC),
   INDEX `fk_Member_has_Streamer_Member1_idx` (`Member_memberEmail` ASC),
