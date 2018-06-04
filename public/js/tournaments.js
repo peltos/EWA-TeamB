@@ -5,8 +5,8 @@ $( document ).ready(function() {
     let switchIconsTeams = $(".switch-icons");
 
     itemTeams.click(function(){
-        $(this).parent(switchIcons).next().toggleClass("teams");
-        $(this).parent(switchIcons).next().next().removeClass("match");
+        $(this).parent(switchIconsTeams).next().toggleClass("teams");
+        $(this).parent(switchIconsTeams).next().next().removeClass("match");
     });
 
     // show the tournaments screen when clicked on the tournaments icon
@@ -15,7 +15,7 @@ $( document ).ready(function() {
     let switchIconsTournaments = $(".switch-icons");
 
     itemTournaments.click(function(){
-        $(this).parent(switchIcons).next().next().toggleClass("match");
-        $(this).parent(switchIcons).next().removeClass("teams");
+        $(this).parent(switchIconsTournaments).next().next().toggleClass("match");
+        $(this).parent(switchIconsTournaments).next().removeClass("teams");
     });
 });
