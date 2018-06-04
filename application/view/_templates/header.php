@@ -67,7 +67,7 @@ if ($_SESSION['nightmode'] == 'false') {
             <a class="navigation--item" href="<?php echo URL; ?>teams">Teams</a>
             <a class="navigation--item" href="<?php echo URL; ?>streams">Streamers</a>
             <a class="navigation--item" href="<?php echo URL; ?>news">News</a>
-            <?php if ($_SESSION['email'] == '') { 
+            <?php if ($_SESSION['email'] == '') {
                 ?>
                 <a class="navigation--item signing-up" href="<?php echo URL; ?>signup">Sign Up</a>
                 <a class="navigation--item menu-box" title="Sign In" href="<?php echo URL; ?>signin"><i
@@ -77,7 +77,7 @@ if ($_SESSION['nightmode'] == 'false') {
                 <a class="navigation--item" title="View Profile" href="<?php echo URL; ?>profile"><i
                             class="far fa-user-circle"></i></a>
                 <a class="navigation--item menu-box" title="Sign Out" href="<?php echo URL;  ?>home/logout"><i
-                            class="fas fa-sign-out-alt"></i></a> 
+                            class="fas fa-sign-out-alt"></i></a>
             <?php } ?>
         </div>
 

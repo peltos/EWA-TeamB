@@ -9,7 +9,7 @@
             <p><?php echo $_SESSION['message'] ?></p>
             <div class="signin-email">
                 <span class="email-icon"><i class="far fa-envelope"></i></span>
-                <?php // If form input is incorrect --> Keep input data. ?>
+                <?php // If form input is incorrect --> Keep input data for convience. ?>
                 <input type="text" name="email" value="<?php echo $_SESSION['signinEmail'] ?>" placeholder="Email Adress" onfocus="this.placeholder = ''"
                        onblur="this.placeholder = 'Email Adress'" required/>
             </div>
