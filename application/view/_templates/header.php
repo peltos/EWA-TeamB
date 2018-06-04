@@ -103,7 +103,7 @@ if ($_SESSION['nightmode'] == 'false') {
     <?php include APP . 'view/_templates/slider.php'; ?>
 <? } ?>
 
-<?php//End: Homepage slider. Only appear if you are on the homepage ?>
+<?php //End: Homepage slider. Only appear if you are on the homepage ?>
 
 <div class="main-container">
     <div class="main-container--inner">
