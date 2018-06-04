@@ -1,14 +1,15 @@
-<?php
-
-?>
 <div class="container signin-controller">
 
+  <?php // On form submission --> POST input to signin/checkUser controller. ?>
     <form action="<?php echo URL; ?>signin/checkUser" method="POST">
         <h1 class="homepage-title"> Sign In </h1>
         <div class="signin-box">
+
+          <?php // If form input is incorrect --> show message. ?>
             <p><?php echo $_SESSION['message'] ?></p>
             <div class="signin-email">
                 <span class="email-icon"><i class="far fa-envelope"></i></span>
+                <?php // If form input is incorrect --> Keep input data. ?>
                 <input type="text" name="email" value="<?php echo $_SESSION['signinEmail'] ?>" placeholder="Email Adress" onfocus="this.placeholder = ''"
                        onblur="this.placeholder = 'Email Adress'" required/>
             </div>

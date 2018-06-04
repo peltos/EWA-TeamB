@@ -1,6 +1,6 @@
 <div class="container signup-controller">
 
-    <!-- Sign up: Failed signed up -->
+   <?php //  Sign up:  Sign Up Failed. ?>
      <div class="signup-response">
         <span class="block-icon"><i class="far fa-times"></i></span>
                            <h2 class="response-title">Sign Up Failed,</h2>

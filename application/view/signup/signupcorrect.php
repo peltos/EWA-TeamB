@@ -1,6 +1,6 @@
 <div class="container signup-controller">
 
-    <!-- Sign up: Succesfully signed up -->
+  <?php //  Sign up: Succesfully signed up. ?>
     <div class="signup-response">
         <span class="passed-icon"><i class="far fa-check-circle"></i></span>
                            <h2 class="response-title">Congratulations!</h2>

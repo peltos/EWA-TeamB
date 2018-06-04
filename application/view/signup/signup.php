@@ -11,9 +11,12 @@
     };
   </script>
 
+  <?php // On form submission --> POST input to signup/adduser controller. ?>
     <form action="<?php echo URL; ?>signup/adduser" method="POST">
         <h1 class="homepage-title"> Sign Up </h1>
         <div class="signup-box">
+
+          <?php // If form input is incorrect --> show message. ?>
             <p><?php echo $_SESSION['message'] ?></p>
             <div class="signup-username">
                 <span class="user-icon"><i class="fas fa-user"></i></span>
