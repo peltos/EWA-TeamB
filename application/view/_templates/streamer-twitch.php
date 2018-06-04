@@ -92,9 +92,9 @@
         <?php //Start: Follow Button (Star) ?>
 
         <?php if (!$_SESSION['token'] == '') { ?>
-            <a class="streamer-star <?php if (!empty($favorites)) {
-                foreach ($favorites as $favorite) {
-                    if ($favorite->Streamer_streamID == $item['stream']["_id"]) {
+            <a class="streamer-star <?php if (!empty($followed)) {
+                foreach ($followed as $follow) {
+                    if ($follow->Streamer_streamID == $item['stream']["_id"]) {
                         echo ' active';
                     } else {
                         echo '';
@@ -205,9 +205,9 @@
         <?php if (!$_SESSION['token'] == '') { ?>
             <a class="streamer-star
                             <?php
-            if (!empty($favorites)) {
-                foreach ($favorites as $favorite) {
-                    if ($favorite->Streamer_streamID == $item["_id"]) {
+            if (!empty($followed)) {
+                foreach ($followed as $follow) {
+                    if ($follow->Streamer_streamID == $item["_id"]) {
                         echo ' active';
                     } else {
                         echo '';

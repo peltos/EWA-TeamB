@@ -19,14 +19,14 @@ class Search extends Controller
     {
         $searches = null;
         $message = '';
-        $favoritePageMixer = null;
-        $favoritePageTwitch = null;
+        $followPageMixer = null;
+        $followPageTwitch = null;
 
         if (isset($_GET['s']) ) {
             if (strlen($_GET['s']) >= 3){
                 $searches = $this->model->getSearchResults($_GET['s']);
-                $favoritePageMixer = $this->model->getSearchResultsMixer($searches);
-                $favoritePageTwitch = $this->model->getSearchResultsTwitch($searches);
+                $followPageMixer = $this->model->getSearchResultsMixer($searches);
+                $followPageTwitch = $this->model->getSearchResultsTwitch($searches);
             }else{
                 $message = 'Please search for a word that\'s equal or longer than 3 characters';
             }

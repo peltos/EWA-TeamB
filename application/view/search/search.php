@@ -9,15 +9,15 @@
 
     <?php //Start: Searching for streamers ?>
 
-    <?php if ($favoritePageMixer !== null && $favoritePageTwitch !== null) { ?>
+    <?php if ($followPageMixer !== null && $followPageTwitch !== null) { ?>
         <ul class="streamers__list">
             <?php
             $counter = 0;
 
             // Mixer streamers
 
-            if (!empty($favoritePageMixer)) {
-                foreach ($favoritePageMixer as $key => $item) {
+            if (!empty($followPageMixer)) {
+                foreach ($followPageMixer as $key => $item) {
                     if ($item["online"] == true) {
                         if ($counter < 4) {
                             include APP . 'view/_templates/streamer-mixer.php';
@@ -28,8 +28,8 @@
 
             // Twitch streamers
 
-            if (!empty($favoritePageTwitch)) {
-                foreach ($favoritePageTwitch as $key => $item) {
+            if (!empty($followPageTwitch)) {
+                foreach ($followPageTwitch as $key => $item) {
                     if (!$item['stream'] == null) {
                         if ($counter < 4) {
                             include APP . 'view/_templates/streamer-twitch.php';

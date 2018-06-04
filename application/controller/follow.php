@@ -8,7 +8,7 @@
  * This is really weird behaviour, but documented here: http://php.net/manual/en/language.oop5.decon.php
  *
  */
-class Favorite extends Controller
+class Follow extends Controller
 {
     /**
      * PAGE: index
@@ -17,20 +17,21 @@ class Favorite extends Controller
 
     public function index()
     {
+
         if (!$_SESSION['token'] == '') {
 
-            $favorites = $this->model->getFavorites($_SESSION['email']);
-            $favoritePageMixer = $this->model->getFavoritePageMixer($favorites);
-            $favoritePageTwitch = $this->model->getFavoritePageTwitch($favorites);
+            $followed = $this->model->getFollowed($_SESSION['email']);
+            $followPageMixer = $this->model->getFollowPageMixer($followed);
+            $followPageTwitch = $this->model->getFollowPageTwitch($followed);
 
             // load views
             require APP . 'view/_templates/header.php';
-            require APP . 'view/favorite/favorite.php';
+            require APP . 'view/follow/follow.php';
             require APP . 'view/_templates/footer.php';
 
-            $this->model->streamerUpdateMixer('mixer', $favoritePageMixer);
-            $this->model->streamerUpdateTwitch('twitch', $favoritePageTwitch);
-        }else{
+            $this->model->streamerUpdateMixer('mixer', $followPageMixer);
+            $this->model->streamerUpdateTwitch('twitch', $followPageTwitch);
+        } else {
             header('location: ' . URL);
         }
 

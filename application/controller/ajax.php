@@ -19,10 +19,10 @@ class Ajax extends Controller
         // ajax javascript query
         require APP . 'view/ajax/nightmode.php';
     }
-    public function ajaxfavorite()
+    public function ajaxfollow()
     {
         // ajax javascript query
-        require APP . 'view/ajax/favorite.php';
+        require APP . 'view/ajax/follow.php';
     }
     public function ajaxcookie()
     {

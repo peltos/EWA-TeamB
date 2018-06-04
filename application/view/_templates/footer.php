@@ -44,7 +44,7 @@
         <script type="text/javascript"  src="<?php echo URL; ?>js/tournaments.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/nightmode.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/share.js"></script>
-        <script type="text/javascript"  src="<?php echo URL; ?>js/favorite.js"></script>
+        <script type="text/javascript"  src="<?php echo URL; ?>js/follow.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/cookie.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/slick.min.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/slider.js"></script>

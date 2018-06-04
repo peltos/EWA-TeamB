@@ -546,11 +546,11 @@ class Model
         }
     }
 
-    public function getfavorites($email)
+    public function getFollowed($email)
     {
         // gets all the items from the database Streamer table
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
-                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
+                FROM mini.follow f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
                 WHERE Member_memberEmail = :email";
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
@@ -560,7 +560,7 @@ class Model
         return $query->fetchAll();
     }
 
-    public function getFavoritePageMixer($streamers)
+    public function getFollowPageMixer($streamers)
     {
         $result = array();
         foreach ($streamers as $streamer) {
@@ -576,7 +576,7 @@ class Model
         return $result;
     }
 
-    public function getFavoritePageTwitch($streamers)
+    public function getFollowPageTwitch($streamers)
     {
         $result = array();
         foreach ($streamers as $streamer) {
@@ -610,7 +610,7 @@ class Model
     function getMostFavouriteStreamers()
     {
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
-                FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
+                FROM mini.follow f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
         group by Streamer_streamID
         order by COUNT(*) desc
         limit 5";

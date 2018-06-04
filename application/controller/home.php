@@ -18,21 +18,21 @@ class Home extends Controller {
      */
     public function index() {
         $slider = $this->model->timeline();
-        $favorites = $this->model->getFavorites($_SESSION['email']);
-        $favoritePage = $this->model->getFavoritePageMixer($favorites);
-        $favoritePageTwitch = $this->model->getFavoritePageTwitch($favorites);
+        $followed = $this->model->getFollowed($_SESSION['email']);
+        $followPage = $this->model->getFollowPageMixer($followed);
+        $followPageTwitch = $this->model->getFollowPageTwitch($followed);
 
-        $mostFavorited = $this->model->getMostFavouriteStreamers();
-        $favoritePageRecommendedMixer = $this->model->getFavoritePageMixer($mostFavorited);
-        $favoritePageRecommendedTwitch = $this->model->getFavoritePageTwitch($mostFavorited);
-        
+        $mostFollowed = $this->model->getMostFavouriteStreamers();
+        $followPageRecommendedMixer = $this->model->getFollowPageMixer($mostFollowed);
+        $followPageRecommendedTwitch = $this->model->getFollowPageTwitch($mostFollowed);
+
         // load views
         require APP . 'view/_templates/header.php';
         require APP . 'view/home/home.php';
         require APP . 'view/_templates/footer.php';
 
-        $this->model->streamerUpdateMixer('mixer', $favoritePage);
-        $this->model->streamerUpdateMixer('mixer', $favoritePageRecommendedMixer);
+        $this->model->streamerUpdateMixer('mixer', $followPage);
+        $this->model->streamerUpdateMixer('mixer', $followPageRecommendedMixer);
     }
 
     public function logout() {

@@ -11,7 +11,7 @@ $( document ).ready(function() {
         isActive = $(this).hasClass("active");
 
         $.ajax({
-            url: URL + 'ajax/ajaxfavorite',
+            url: URL + 'ajax/ajaxfollow',
             type: "post",
             data: "streamerId=" + streamerId + "&isActive=" + isActive,
             success: function (html) {

@@ -39,9 +39,9 @@ CREATE TABLE IF NOT EXISTS `mini`.`Streamer` (
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
--- Table `mini`.`Favorite`
+-- Table `mini`.`follow`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mini`.`Favorite` (
+CREATE TABLE IF NOT EXISTS `mini`.`follow` (
   `Member_memberEmail` VARCHAR(255) NOT NULL,
   `Streamer_streamID` BIGINT NOT NULL,
   PRIMARY KEY (`Member_memberEmail`, `Streamer_streamID`),

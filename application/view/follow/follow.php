@@ -1,4 +1,4 @@
-<div class="container favorite-container">
+<div class="container follow-container">
 
     <h2 class="homepage-title"> Followed Channels
       <span class="tooltip"><i class="fas fa-info-circle"></i>
@@ -30,8 +30,8 @@
             // Use Filter variable to determine what streamers you get for mixer
 
             $filter = 'nl';
-            if (!empty($favoritePageMixer)) {
-                foreach ($favoritePageMixer as $key => $item) {
+            if (!empty($followPageMixer)) {
+                foreach ($followPageMixer as $key => $item) {
                     if ($item["languageId"] == $filter) {
                         include APP . 'view/_templates/streamer-mixer.php';
                     }
@@ -41,8 +41,8 @@
             // Use Filter variable to determine what streamers you get for twitch
 
             $filter = 'nl';
-            if (!empty($favoritePageTwitch)) {
-                foreach ($favoritePageTwitch as $key => $item) {
+            if (!empty($followPageTwitch)) {
+                foreach ($followPageTwitch as $key => $item) {
                     if (!$item['stream'] == null) {
                         if ($item['stream']["channel"]["language"] == $filter) {
                             include APP . 'view/_templates/streamer-twitch.php';
@@ -66,8 +66,8 @@
             // Use Filter variable to determine what streamers you get for mixer
 
             $filter = 'League of legends';
-            if (!empty($favoritePageMixer)) {
-                foreach ($favoritePageMixer as $key => $item) {
+            if (!empty($followPageMixer)) {
+                foreach ($followPageMixer as $key => $item) {
                     if ($item["type"]["name"] == $filter) {
                         include APP . 'view/_templates/streamer-mixer.php';
                     }
@@ -77,8 +77,8 @@
             // Use Filter variable to determine what streamers you get for twitch
 
             $filter = 'League of Legends';
-            if (!empty($favoritePageTwitch)) {
-                foreach ($favoritePageTwitch as $key => $item) {
+            if (!empty($followPageTwitch)) {
+                foreach ($followPageTwitch as $key => $item) {
                     if (!$item['stream'] == null) {
                         if ($item['stream']["channel"]["game"] == $filter) {
                             include APP . 'view/_templates/streamer-twitch.php';
@@ -102,8 +102,8 @@
             // Use Filter variable to determine what streamers you get for mixer
 
             $filter = 'Dota 2';
-            if (!empty($favoritePageMixer)) {
-                foreach ($favoritePageMixer as $key => $item) {
+            if (!empty($followPageMixer)) {
+                foreach ($followPageMixer as $key => $item) {
                     if ($item["type"]["name"] == $filter) {
                         include APP . 'view/_templates/streamer-mixer.php';
                     }
@@ -113,8 +113,8 @@
             // Use Filter variable to determine what streamers you get for twitch
 
             $filter = 'Dota 2';
-            if (!empty($favoritePageTwitch)) {
-                foreach ($favoritePageTwitch as $key => $item) {
+            if (!empty($followPageTwitch)) {
+                foreach ($followPageTwitch as $key => $item) {
                     if (!$item['stream'] == null) {
                         if ($item['stream']["channel"]["game"] == $filter) {
                             include APP . 'view/_templates/streamer-twitch.php';
@@ -138,8 +138,8 @@
             // Use Filter variable to determine what streamers you get for mixer
 
             $filter = 'Overwatch';
-            if (!empty($favoritePageMixer)) {
-                foreach ($favoritePageMixer as $key => $item) {
+            if (!empty($followPageMixer)) {
+                foreach ($followPageMixer as $key => $item) {
                     if ($item["type"]["name"] == $filter) {
                         include APP . 'view/_templates/streamer-mixer.php';
                     }
@@ -149,8 +149,8 @@
             // Use Filter variable to determine what streamers you get for twitch
 
             $filter = 'Overwatch';
-            if (!empty($favoritePageTwitch)) {
-                foreach ($favoritePageTwitch as $key => $item) {
+            if (!empty($followPageTwitch)) {
+                foreach ($followPageTwitch as $key => $item) {
                     if (!$item['stream'] == null) {
                         if ($item['stream']["channel"]["game"] == $filter) {
                             include APP . 'view/_templates/streamer-twitch.php';

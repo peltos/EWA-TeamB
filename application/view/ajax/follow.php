@@ -7,14 +7,14 @@ $isActive = $_POST["isActive"];
 echo $streamerId . " - " . $isActive;
 
 if ($isActive == 'true'){
-    $sql = "INSERT INTO Favorite (Member_memberEmail, Streamer_streamID) VALUES (:useEmail, :streamerId)";
+    $sql = "INSERT INTO follow (Member_memberEmail, Streamer_streamID) VALUES (:useEmail, :streamerId)";
     $query = $this->db->prepare($sql);
     $parameters = array(':useEmail' => $_SESSION["email"], ':streamerId' => $streamerId);
 
     $query->execute($parameters);
 }
 elseif($isActive == 'false'){
-    $sql = "DELETE FROM Favorite WHERE Member_memberEmail = :useEmail AND Streamer_streamID = :streamerId;";
+    $sql = "DELETE FROM follow WHERE Member_memberEmail = :useEmail AND Streamer_streamID = :streamerId;";
     $query = $this->db->prepare($sql);
     $parameters = array(':useEmail' => $_SESSION["email"], ':streamerId' => $streamerId);
 

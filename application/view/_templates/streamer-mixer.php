@@ -98,9 +98,9 @@
 
     <?php //Start: Follow Button (Star) ?>
 
-    <a class="streamer-star <?php if (!empty($favorites)) {
-        foreach ($favorites as $favorite) {
-            if ($favorite->Streamer_streamID == $item["id"]) {
+    <a class="streamer-star <?php if (!empty($followed)) {
+        foreach ($followed as $follow) {
+            if ($follow->Streamer_streamID == $item["id"]) {
                 echo ' active';
             } else {
                 echo '';

@@ -21,7 +21,7 @@ class Streams extends Controller
     {
         $streamers = $this->model->getStreamers(5); // number of pages of the json file of the mixer api.
         $streamersTwitch = $this->model->getStreamersTwitch(1); // number of pages of the json file of the twitch api.
-        $favorites = $this->model->getFavorites($_SESSION["email"]);
+        $followed = $this->model->getFollowed($_SESSION["email"]);
 
         // load views
         require APP . 'view/_templates/header.php';
