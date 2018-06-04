@@ -35,8 +35,8 @@ class Model {
         $query = $this->db->prepare($sql);
 
 
-        // useful for debugging: you can see the SQL behind above construction by using:
-        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+// useful for debugging: you can see the SQL behind above construction by using:
+// echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
 
         $query->execute();
     }
@@ -56,8 +56,8 @@ class Model {
         $query = $this->db->prepare($sql);
         $parameters = array(':username' => $username, ':email' => $email, ':password' => $passwordEncrypt, ':datetime' => date("Y-m-d H:i:s"));
 
-        // useful for debugging: you can see the SQL behind above construction by using:
-        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+// useful for debugging: you can see the SQL behind above construction by using:
+// echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
 
         $query->execute($parameters);
     }
@@ -175,7 +175,7 @@ class Model {
     }
 
     public function getStreamersID() {
-        // gets all the items from the database Streamer table
+// gets all the items from the database Streamer table
         $sql = "SELECT streamID FROM Streamer";
         $query = $this->db->prepare($sql);
         $query->execute();
@@ -185,29 +185,29 @@ class Model {
 
     public function streamerUpdateMixer($website, $streamersWeb) {
 
-        // checks the getStreamersID() function
+// checks the getStreamersID() function
         $streamersDb = $this->getStreamersID();
         date_default_timezone_set('Europe/Amsterdam');
 
 
-        // if not empty, try to update. if empty, just insert all of it
+// if not empty, try to update. if empty, just insert all of it
         if (!empty($streamersDb)) {
 
-            // variables for counting the json and database items
+// variables for counting the json and database items
             $counterStreamersDb = 0;
             $counterStreamersWeb = 0;
 
-            // counts the database items
+// counts the database items
             foreach ($streamersDb as $streamersDB) {
                 $counterStreamersDb++;
             }
-            // two foreach loops, one for getting all the json items and another to get all the database items
+// two foreach loops, one for getting all the json items and another to get all the database items
             foreach ($streamersWeb as $key => $streamerWeb) {
 
-                // if its the mixer api
+// if its the mixer api
                 foreach ($streamersDb as $streamersDB) {
 
-                    // json item equals database item, update the current information about the streamer
+// json item equals database item, update the current information about the streamer
                     if (((float) $streamersDB->streamID) == $streamerWeb['id']) {
                         $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                         $query = $this->db->prepare($sql);
@@ -216,7 +216,7 @@ class Model {
                         $query->execute($parameters);
 
 
-                        // be done with this item and start with the next
+// be done with this item and start with the next
                         continue;
                     }
 
@@ -224,7 +224,7 @@ class Model {
 
                     if ($streamerWeb["type"]["name"] == "League of legends" || $streamerWeb["type"]["name"] == "Dota 2" || $streamerWeb["type"]["name"] == "Overwatch" || $streamerWeb["languageId"] == "nl") {
 
-                        //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
+//if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
                         if ($counterStreamersWeb == ($counterStreamersDb) && $streamerWeb['online'] == true) {
 
                             $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
@@ -233,12 +233,12 @@ class Model {
 
                             $query->execute($parameters);
 
-                            // reset counter
+// reset counter
                             $counterStreamersWeb = 0;
                         }
                     }
                 }
-                // reset counter
+// reset counter
                 $counterStreamersWeb = 0;
             }
         } else { // do this when database is empty
@@ -258,32 +258,32 @@ class Model {
     public function streamerUpdateTwitch($website, $streamersWeb) {
 
 
-        // checks the getStreamersID() function
+// checks the getStreamersID() function
         $streamersDb = $this->getStreamersID();
         date_default_timezone_set('Europe/Amsterdam');
 
 
-        // if not empty, try to update. if empty, just insert all of it
+// if not empty, try to update. if empty, just insert all of it
         if (!empty($streamersDb)) {
 
-            // variables for counting the json and database items
+// variables for counting the json and database items
             $counterStreamersDb = 0;
             $counterStreamersWeb = 0;
 
-            // counts the database items
+// counts the database items
             foreach ($streamersDb as $streamersDB) {
                 $counterStreamersDb++;
             }
-            // check if the json is a single streamer or mutiple streamers
+// check if the json is a single streamer or mutiple streamers
             if (isset($streamersWeb['streams'])) {
 
 
-                // two foreach loops, one for getting all the json items and another to get all the database items
+// two foreach loops, one for getting all the json items and another to get all the database items
                 foreach ($streamersWeb['streams'] as $key => $streamerWeb) {
 
-                    // if its the mixer api
+// if its the mixer api
                     foreach ($streamersDb as $streamersDB) {
-                        // json item equals database item, update the current information about the streamer
+// json item equals database item, update the current information about the streamer
                         if (((float) $streamersDB->streamID) == $streamerWeb['_id']) {
                             $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                             $query = $this->db->prepare($sql);
@@ -292,13 +292,13 @@ class Model {
                             $query->execute($parameters);
 
 
-                            // be done with this item and start with the next
+// be done with this item and start with the next
                             continue;
                         }
 
                         $counterStreamersWeb++;
                         if ($streamerWeb["game"] == "League of Legends" || $streamerWeb["game"] == "Dota 2" || $streamerWeb["game"] == "Overwatch" || $streamerWeb["channel"]["language"] == "nl") {
-                            //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
+//if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
                             if ($counterStreamersWeb == ($counterStreamersDb) && $streamerWeb['stream_type'] == 'live') {
 
                                 $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
@@ -308,21 +308,21 @@ class Model {
 
                                 $query->execute($parameters);
 
-                                // reset counter
+// reset counter
                                 $counterStreamersWeb = 0;
                             }
                         }
                     }
-                    // reset counter
+// reset counter
                     $counterStreamersWeb = 0;
                 }
             } else {
-                // two foreach loops, one for getting all the json items and another to get all the database items
+// two foreach loops, one for getting all the json items and another to get all the database items
                 foreach ($streamersWeb as $key => $streamerWeb) {
 
-                    // if its the mixer api
+// if its the mixer api
                     foreach ($streamersDb as $streamersDB) {
-                        // json item equals database item, update the current information about the streamer
+// json item equals database item, update the current information about the streamer
                         if (((float) $streamersDB->streamID) == $streamerWeb['stream']['_id']) {
                             $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                             $query = $this->db->prepare($sql);
@@ -331,7 +331,7 @@ class Model {
                             $query->execute($parameters);
 
 
-                            // be done with this item and start with the next
+// be done with this item and start with the next
                             continue;
                         }
 
@@ -339,7 +339,7 @@ class Model {
 
                         if ($streamerWeb['stream']["game"] == "League of legends" || $streamerWeb['stream']["game"] == "Dota 2" || $streamerWeb['stream']["game"] == "Overwatch" || $streamerWeb['stream']["channel"]["language"] == "nl") {
 
-                            //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
+//if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
                             if ($counterStreamersWeb == ($counterStreamersDb) && $streamerWeb['stream']['stream_type'] == 'live') {
 
                                 $sql = "INSERT INTO Streamer (streamID, streamName, lastOnline, categorie, website) VALUES (:streamID, :streamName , :lastOnline, :categorie, :website)";
@@ -349,12 +349,12 @@ class Model {
 
                                 $query->execute($parameters);
 
-                                // reset counter
+// reset counter
                                 $counterStreamersWeb = 0;
                             }
                         }
                     }
-                    // reset counter
+// reset counter
                     $counterStreamersWeb = 0;
                 }
             }
@@ -386,10 +386,16 @@ class Model {
     }
 
     public function getfavorites($email) {
-        // gets all the items from the database Streamer table
-        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
+// gets all the items from the database Streamer table
+
+        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, f.likes, s.streamName, s.website
                 FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
-                WHERE Member_memberEmail = :email";
+                WHERE Member_memberEmail = :email
+                order by likes desc
+                limit 5"
+                
+                ;
+// and mostrecent <5
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
 
@@ -443,9 +449,9 @@ class Model {
 
     public
             function getMostFavouriteStreamers() {
-        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
+        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, f.likes, s.streamName, s.website
                 FROM mini.Favorite f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
-        group by Streamer_streamID
+        group by likes
         order by COUNT(*) desc
         limit 5";
         $query = $this->db->prepare($sql);
@@ -496,17 +502,72 @@ class Model {
         return $result;
     }
 
-    // public function getNews($counter)
-    // {
-    //   $result = array();
-    //
-    //   for ($i = 0; $i <= $counter; $i++) {
-    //       ${"urlPage$i"} = 'https://news.google.com/news/rss/search/section/q/esport/esport?hl=en&gl=US&ned=us' . $i;
-    //       ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
-    //       ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
-    //
-    //       $result = array_merge($result, ${"arrayPage$i"});
-    //   }
-    //   return $result;
-    // }
+    public function setLikesToOne() {
+        $sql = "UPDATE favorite
+SET likes = 1;";
+///// ik hoop dat de haakjes hier geen probleem geven
+        $query = $this->db->prepare($sql);
+        $query->execute();
+    }
+
+    public function addLikeStream($email, $streamerId) {
+
+
+        $sql = "UPDATE Favorite
+  SET likes = likes + 1 
+  WHERE Member_memberEmail = :useEmail AND Streamer_streamID = :streamerId";
+///// ik hoop dat de haakjes hier geen probleem geven
+        $query = $this->db->prepare($sql);
+        $parameters = array(':useEmail' => $_SESSION["email"], ':streamerId' => $streamerId);
+
+        $query->execute($parameters);
+    }
+
 }
+
+//    public function addRecentfavorite(){
+//        $sql = "INSERT INTO favorite (username, memberEmail, password, firstLogin) VALUES (:username, :email , :password, :datetime)";
+//        $query = $this->db->prepare($sql);
+//        $parameters = array(':username' => $username, ':email' => $email, ':password' => $passwordEncrypt, ':datetime' => date("Y-m-d H:i:s"));
+//
+//        // useful for debugging: you can see the SQL behind above construction by using:
+//        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+//
+//        $query->execute($parameters);
+//        
+//    }
+//    public function updateWatchedStreams($streamerId, $Email) {
+//        $infoRecentStream = $this->model->getRecentStream($Email);
+//        $newValue = $infoRecentStream .= $streamerId;
+//        $sql = "UPDATE Member SET recentStream = '$newValue' WHERE memberEmail = '$Email'";
+//
+//        $query = $this->db->prepare($sql);
+//
+//        $query->execute();
+//
+//        return $query->fetchAll();
+//    }
+//
+//    public function getRecentStream($email) {
+//        $sql = "SELECT recentStream FROM Member WHERE memberEmail = :email";
+//        $query = $this->db->prepare($sql);
+//        $parameters = array(':email' => $email);
+//
+//        $query->execute($parameters);
+//
+//        return $query->fetch();
+//    }
+// public function getNews($counter)
+// {
+//   $result = array();
+//
+//   for ($i = 0; $i <= $counter; $i++) {
+//       ${"urlPage$i"} = 'https://news.google.com/news/rss/search/section/q/esport/esport?hl=en&gl=US&ned=us' . $i;
+//       ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
+//       ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
+//
+//       $result = array_merge($result, ${"arrayPage$i"});
+//   }
+//   return $result;
+// }
+

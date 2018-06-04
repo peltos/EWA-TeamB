@@ -33,8 +33,8 @@
         <?php if (!$_SESSION['email'] == '') { ?>
 
             <h2 class="homepage-title">Followed Channels</h2>
-            <ul class="streamers__list">
-                <?php
+            <ul class="streamers__list" >
+                <?php 
                 $counter = 0;
                 if (!empty($favoritePage)) {
                     foreach ($favoritePage as $key => $item) {
@@ -55,7 +55,9 @@
                         }
                     }
                 }
+                
                 ?>
+                
             </ul>
 
         <?php } ?>
