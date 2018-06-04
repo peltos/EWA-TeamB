@@ -1,7 +1,6 @@
 
 <?php //Start: Slider ?>
 
-<h2 class="slider__heading">Tournaments</h2>
 
 <ul class="slider-front">
 
@@ -132,5 +131,7 @@
     <?php //End: Loop for the first 5 tournaments  ?>
 
 </ul>
+
+<h2 class="slider__heading">Tournaments</h2>
 
 <?php //End: Slider ?>

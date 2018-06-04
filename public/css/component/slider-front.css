@@ -1,4 +1,8 @@
 .slider__heading{
+    display:none;
+}
+
+.slick-initialized + .slider__heading{
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -9,6 +13,8 @@
     padding: .666666em 0;
     text-transform: uppercase;
     font-weight: 100;
+    top: 1.666em;
+    display: inline;
 }
 
 .slider-front {
@@ -26,6 +32,7 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
+    margin-top: 2.5em;
     flex-wrap: wrap;
     position: relative;
 }
@@ -156,6 +163,13 @@
     color: var(--orange-color);
 }
 
-@media (min-width: 900px) {
+@media only screen and (min-width: 768px) {
+    .slider-front.slick-initialized {
+        margin-top:3.5em;
+    }
+
+    .slick-initialized + .slider__heading{
+        top:2.125em;
+    }
 
 }
