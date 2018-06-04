@@ -121,8 +121,8 @@ class Signup extends Controller {
 //                $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
 //                // Decode response in JSON:
 //                $responseKeys = json_decode($response, true);
-
-                // If captcha validation failed, return 'sign up failed' page.
+////
+////                 If captcha validation failed, return 'sign up failed' page.
 //                if (intval($responseKeys["success"]) !== 1) {
 //                    header('location: ' . URL . 'signup/signupfail');
 //
