@@ -18,11 +18,16 @@
             </div>
         </div>
     </div>
+
+    <?php //Start: Dutch Streamers ?>
+
     <div id="dutch" class="tabcontent">
         <h3>Dutch streamers</h3>
         <ul class="streamers__list">
             <?php
             $counter = 0;
+
+            // Use Filter variable to determine what streamers you get for mixer
 
             $filter = 'nl';
             if (!empty($favoritePageMixer)) {
@@ -32,6 +37,8 @@
                     }
                 }
             }
+
+            // Use Filter variable to determine what streamers you get for twitch
 
             $filter = 'nl';
             if (!empty($favoritePageTwitch)) {
@@ -45,11 +52,18 @@
             } ?>
         </ul>
     </div>
+
+    <?php //End: Dutch Streamers ?>
+
+    <?php //Start: League of Legends Streamers ?>
+
     <div id="lol" class="tabcontent">
         <h3>League of Legends</h3>
         <ul class="streamers__list">
             <?php
             $counter = 0;
+
+            // Use Filter variable to determine what streamers you get for mixer
 
             $filter = 'League of legends';
             if (!empty($favoritePageMixer)) {
@@ -59,6 +73,8 @@
                     }
                 }
             }
+
+            // Use Filter variable to determine what streamers you get for twitch
 
             $filter = 'League of Legends';
             if (!empty($favoritePageTwitch)) {
@@ -73,11 +89,17 @@
         </ul>
     </div>
 
+    <?php //End: League of Legends Streamers ?>
+
+    <?php //Start: Dota 2 Streamers ?>
+
     <div id="dota2" class="tabcontent">
         <h3>Dota 2</h3>
         <ul class="streamers__list">
             <?php
             $counter = 0;
+
+            // Use Filter variable to determine what streamers you get for mixer
 
             $filter = 'Dota 2';
             if (!empty($favoritePageMixer)) {
@@ -87,6 +109,8 @@
                     }
                 }
             }
+
+            // Use Filter variable to determine what streamers you get for twitch
 
             $filter = 'Dota 2';
             if (!empty($favoritePageTwitch)) {
@@ -100,6 +124,10 @@
             } ?>
         </ul>
     </div>
+
+    <?php //End: Dota 2 Streamers ?>
+
+    <?php //Start: Overwatch Streamers ?>
 
     <div id="overwatch" class="tabcontent">
         <h3>Overwatch</h3>
@@ -107,6 +135,8 @@
             <?php
             $counter = 0;
 
+            // Use Filter variable to determine what streamers you get for mixer
+
             $filter = 'Overwatch';
             if (!empty($favoritePageMixer)) {
                 foreach ($favoritePageMixer as $key => $item) {
@@ -115,6 +145,8 @@
                     }
                 }
             }
+
+            // Use Filter variable to determine what streamers you get for twitch
 
             $filter = 'Overwatch';
             if (!empty($favoritePageTwitch)) {
@@ -128,5 +160,7 @@
             } ?>
         </ul>
     </div>
+
+    <?php //End: Overwatch Streamers ?>
 
 </div>
