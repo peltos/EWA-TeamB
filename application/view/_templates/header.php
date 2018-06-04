@@ -103,7 +103,7 @@ if ($_SESSION['nightmode'] == 'false') {
     <?php include APP . 'view/_templates/slider.php'; ?>
 <? } ?>
 
-<?php//End: Homepage slider. Only appear if you are on the homepage ?>
+<?php //End: Homepage slider. Only appear if you are on the homepage ?>
 
 <div class="main-container">
     <div class="main-container--inner">
@@ -119,7 +119,7 @@ if ($_SESSION['nightmode'] == 'false') {
             <p>Night Mode</p>
             <label class="switch">
 
-                <?php// Checks if night mode is enabled. If its enabled then set input checked ?>
+                <?php // Checks if night mode is enabled. If its enabled then set input checked ?>
 
                 <input type="checkbox" <?php if ($_SESSION['nightmode'] == 'true') {
                     echo 'checked';
