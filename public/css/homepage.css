@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-between;
 }
-.homepage-container .homepage-title a:hover {
+.homepage-container .homepage-title div a:hover {
     color: var(--font-color);
 }
 .light-theme .homepage-container .homepage-title a:hover {

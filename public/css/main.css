@@ -325,7 +325,7 @@ header.header--search .header--inner {
     text-transform: uppercase;
     font-weight: bold;
 }
-.container.homepage-container a {
+.container.homepage-container div a {
     color: inherit;
     font-size: inherit;
 }

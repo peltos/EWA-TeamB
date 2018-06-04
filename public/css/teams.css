@@ -33,7 +33,7 @@
     width:100%;
     margin-top:1em;
     padding: .5em;
-    background:var(--background-shade);
+    background:var(--background);
     border-radius: 5px;
     display:flex;
     align-items: center;
@@ -41,6 +41,11 @@
 }
 .teams-container .fa-trophy {
   font-size: 11px;
+}
+
+.teams-container .slider-item--teamname {
+    font-size: 1.6em;
+    color: var(--orange-color);
 }
 
 .teams-container .slider-item--icon {
