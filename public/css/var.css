@@ -2,6 +2,9 @@
 /* ************************
         MAIN VARIABLES
 *************************** */
+
+/*********** LIGHT MODE ***********/
+
 :root,
 :root body.light-theme {
     --ziggo-color:      var(--action-hover); /* soft white */
@@ -34,6 +37,8 @@
     --submit-border:        2px;
     --desc-border-width:    1px;
 }
+
+/*********** NIGHT MODE ***********/
 
 :root body.dark-theme {
     --ziggo-color:      #f48c00; /* orange */

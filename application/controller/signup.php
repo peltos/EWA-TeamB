@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Home
+ * Class Sign Up
  *
  * Please note:
  * Don't use the same name for class and method, as this might trigger an (unintended) __construct of the class.
@@ -12,7 +12,7 @@ class Signup extends Controller {
 
     /**
      * PAGE: index
-     * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
+     * This method handles what happens when you move to http://yourproject/signup (which is the default page btw)
      */
     public function index() {
         // load views
@@ -51,7 +51,7 @@ class Signup extends Controller {
 
         if (isset($_POST["adduser"])) {
             // If we have POST data to create a new user entry
-            // If password and passwordcheck are similar, check captcha. Or else return 'sign up failed' page
+            // If password and passwordcheck are similar --> check reCaptcha. Or else: return 'sign up failed' page.
 
 
             $username = ($_POST["username"]);
@@ -109,26 +109,26 @@ class Signup extends Controller {
             if ($checkCounter == 0) {
 
 
-                // If captcha isn't checked, return 'sign up failed page'.
+                // If reCaptcha isn't checked, return 'sign up failed page'.
                 if (!$captcha) {
                     //     header('location: ' . URL . 'signup/signupfail');
                 }
-                // recaptcha secret key:
+                // reCaptcha secret key:
                 $secretKey = "6LcZoVAUAAAAAHZTu5bzXwNcPHflIM_YZ-XqwwwQ";
                 // Get client user IP:
                 $ip = $_SERVER['REMOTE_ADDR'];
-                // Get response from Google recaptcha API:
+                // Get response from Google reCaptcha API:
                 $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $secretKey . "&response=" . $captcha . "&remoteip=" . $ip);
                 // Decode response in JSON:
                 $responseKeys = json_decode($response, true);
 
-                // If captcha validation failed, return 'sign up failed' page.
+                // If reCaptcha validation failed --> return 'sign up failed' page.
                 if (intval($responseKeys["success"]) !== 1) {
                     header('location: ' . URL . 'signup/signupfail');
 
-                    // If captcha validation is succesfull, return 'sign up correct' page.
+                    // If reCaptcha validation is succesfull --> return 'sign up correct' page.
                 } else {
-                // Add user to database.
+                // Add user record to database.
 
                     $_SESSION['message'] = '';
                     $this->model->addUser($_POST["username"], $_POST["email"], $_POST["password"]);
@@ -158,7 +158,7 @@ class Signup extends Controller {
             } else {
                 header('location: ' . URL . 'signup');
             }
-            //If adding the user will fail you will be stayin(sent to the) the signup page.
+            //If $_POST['adduser'] fails --> stay on Sign Up page. 
         } else {
             $_SESSION['message'] = 'Passwords do not match!';
             header('location: ' . URL . 'signup');
