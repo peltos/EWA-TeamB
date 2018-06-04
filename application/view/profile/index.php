@@ -29,10 +29,10 @@
                       onblur="this.placeholder = 'New Username'" >
             </div>
 
-            <div class="change-oldpassword" title="Type in your old password">
+            <div class="change-oldpassword" title="Type in your current password">
               <span class="change-icon"><i class="fas fa-lock"></i></span>
-                <input type="password" name="oldpassword" value="" placeholder="Old Password" onfocus="this.placeholder = ''"
-                      autocomplete="new-password" onblur="this.placeholder = 'Old Password'" >
+                <input type="password" name="currentpassword" value="" placeholder="Current Password" onfocus="this.placeholder = ''"
+                      autocomplete="new-password" onblur="this.placeholder = 'Current Password'" >
             </div>
 
             <div class="change-newpassword" title="Create new password">

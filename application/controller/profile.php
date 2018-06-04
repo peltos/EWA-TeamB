@@ -27,14 +27,14 @@ class Profile extends Controller {
     }
 
     public function updateProfile() {
-        if ($_POST["username"] == "" && $_POST["oldpassword"] == "" && $_POST["Newpassword"] == "" && $_POST["Confirmnewpassword"] == "") {
+        if ($_POST["username"] == "" && $_POST["currentpassword"] == "" && $_POST["Newpassword"] == "" && $_POST["Confirmnewpassword"] == "") {
             $_SESSION['message'] = "";
             header('location: ' . URL . 'profile');
         } else {
             if ($_POST["username"] == "") {
 
-                if ($_POST["oldpassword"] == "" && ($_POST["Newpassword"] != "" || $_POST["Confirmnewpassword"] != "")) {
-                    $_SESSION['message'] = 'You must fill in your old password to change your password';
+                if ($_POST["currentpassword"] == "" && ($_POST["Newpassword"] != "" || $_POST["Confirmnewpassword"] != "")) {
+                    $_SESSION['message'] = 'You must fill in your current password to change your password';
                     header('location: ' . URL . 'profile');
                 } else {
 
@@ -46,7 +46,7 @@ class Profile extends Controller {
                     } else {
 
                         $password = $_POST["Newpassword"];
-                        $password2 = $_POST["oldpassword"];
+                        $password2 = $_POST["currentpassword"];
                         if (strlen($password) < 8) {
                             $_SESSION['message'] = "Your Password Must Contain At Least 8 Characters!";
                             header('location: ' . URL . 'profile');
@@ -102,7 +102,7 @@ class Profile extends Controller {
                     }
                 }
             } else {
-                if ($_POST["username"] != "" && $_POST["oldpassword"] != "" && $_POST["Newpassword"] != "" && $_POST["Confirmnewpassword"] != "") {
+                if ($_POST["username"] != "" && $_POST["currentpassword"] != "" && $_POST["Newpassword"] != "" && $_POST["Confirmnewpassword"] != "") {
                     $oldusername = $_SESSION['username'];
                     $_SESSION['message'] = "";
                     $newusername = $_POST["username"];
@@ -123,7 +123,7 @@ class Profile extends Controller {
 
 
                                 $password = $_POST["Newpassword"];
-                                $password2 = $_POST["oldpassword"];
+                                $password2 = $_POST["currentpassword"];
                                 if (strlen($password) < 8) {
                                     $_SESSION['message'] = "Your Password Must Contain At Least 8 Characters!";
                                     header('location: ' . URL . 'profile');
@@ -184,8 +184,8 @@ class Profile extends Controller {
                     }
                 } else {
                     if (isset($_POST["username"]) && ($_POST["Newpassword"] == "" || $_POST["Confirmnewpassword"] == "")) {
-                        if (($_POST["oldpassword"] =="")) {
-                            $_SESSION['message'] = "Please fill in your Old password to change your username";
+                        if (($_POST["currentpassword"] =="")) {
+                            $_SESSION['message'] = "Please fill in your Current password to change your username";
                         } else {
 
 
