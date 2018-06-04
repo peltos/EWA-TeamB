@@ -10,7 +10,7 @@
     </div>
     <p class="bracket-date"> May 19th - June 18th </p>
 
-
+  <?php // Display Tournament Brackets. ?>
     <main id="tournament">
         <!--        ROUND 1: Quarterfinals         -->
         <ul class="round round-1">
