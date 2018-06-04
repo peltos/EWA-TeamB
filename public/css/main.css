@@ -406,6 +406,7 @@ header.header--search .header--inner {
     font-size: 13px;
     padding: 1.5px;
     color: grey;
+    position: relative;
 }
 
 .container .tooltip .tooltiptext {
@@ -424,6 +425,8 @@ header.header--search .header--inner {
     z-index: 5;
     margin-top: 38px;
     margin-left: -100px;
+    top: -1em;
+    left: 1em;
 }
 
 .container .tooltip:hover {
