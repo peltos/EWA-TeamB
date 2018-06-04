@@ -98,9 +98,12 @@ if ($_SESSION['nightmode'] == 'false') {
 
 
 <?php //Start: Homepage slider. Only appear if you are on the homepage ?>
+
 <?php if (URL == (URL_PROTOCOL . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])) { ?>
     <?php include APP . 'view/_templates/slider.php'; ?>
-<? }  //End: Homepage slider. Only appear if you are on the homepage ?>
+<? } ?>
+
+<?php//End: Homepage slider. Only appear if you are on the homepage ?>
 
 <div class="main-container">
     <div class="main-container--inner">
@@ -115,6 +118,9 @@ if ($_SESSION['nightmode'] == 'false') {
             <a href="#" id="search-icon" class="search-icon"><i class="fas fa-search"></i></a>
             <p>Night Mode</p>
             <label class="switch">
+
+                <?php// Checks if night mode is enabled. If its enabled then set input checked ?>
+
                 <input type="checkbox" <?php if ($_SESSION['nightmode'] == 'true') {
                     echo 'checked';
                 } ?>>
@@ -131,14 +137,3 @@ if ($_SESSION['nightmode'] == 'false') {
                 </form>
             </div>
         </header>
-
-        <script>
-            function myFunction() {
-                var x = document.getElementById("searchbar");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                } else {
-                    x.style.display = "none";
-                }
-            }
-        </script>
