@@ -2,7 +2,7 @@
 
     <h2 class="homepage-title">
         <div>
-            <a href="streams" class="home-title">Recommended Streams</a>
+            <a href="streams" class="home-title">Recommended</a>
             <span class="tooltip">
                 <i class="fas fa-info-circle"></i>
                 <span class="tooltiptext">Our recommendations based on currently most followed channels.</span>
