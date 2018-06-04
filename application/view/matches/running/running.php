@@ -11,6 +11,9 @@
     <ul class="timeline">
     <?php
     $counter = 0;
+
+    // Start: all Matches Items
+
     if (!empty($timeline)) {
         foreach ($timeline as $key => $item) { ?>
                 <li>
@@ -113,4 +116,4 @@
 
     </ul>
 
-</div>
+<?php //End: all Matches Items ?>

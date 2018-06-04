@@ -23,6 +23,9 @@ foreach ($timeline as $key => $item) {
 <ul class="timeline" id="dota">
     <?php
     $counter = 0;
+
+    // Start: all Matches Items
+
     if (!empty($timeline)) {
         foreach ($timeline as $key => $item) { ?>
 
@@ -121,5 +124,5 @@ foreach ($timeline as $key => $item) {
     }
     ?>
 </ul>
-</div>
-</div>
+
+<?php //End: all Matches Items ?>
