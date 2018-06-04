@@ -119,7 +119,7 @@ if ($_SESSION['nightmode'] == 'false') {
             <p>Night Mode</p>
             <label class="switch">
 
-                <?php// Checks if night mode is enabled. If its enabled then set input checked ?>
+                <?php // Checks if night mode is enabled. If its enabled then set input checked ?>
 
                 <input type="checkbox" <?php if ($_SESSION['nightmode'] == 'true') {
                     echo 'checked';
