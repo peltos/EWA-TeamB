@@ -19,7 +19,7 @@ class News extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/news/index.php';
+        require APP . 'view/news/news.php';
         require APP . 'view/_templates/footer.php';
     }
 }
