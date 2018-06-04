@@ -30,6 +30,8 @@ function openCity(evt, gameName) {
 
 $( document ).ready(function() {
 
+    // if on Followed page item is not online. hide it. show it again when clicked on 'All'
+
     let onlineNav = $("#onlineNav");
     let miscNav = $(".tablinks:not(#onlineNav)");
 

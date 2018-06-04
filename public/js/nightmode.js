@@ -1,4 +1,7 @@
 $( document ).ready(function() {
+
+    // send nightmode clear data to ajax/nightmode.php
+
     let nightmode = $("#nightmode");
     let bodyClass = $("body");
 

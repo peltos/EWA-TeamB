@@ -1,4 +1,7 @@
 $( document ).ready(function() {
+
+    // send message clear data to ajax/messageClear.php
+
     let navigationItem = $(".navigation--item");
 
     navigationItem.click(function(e){

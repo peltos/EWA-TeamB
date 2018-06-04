@@ -1,3 +1,7 @@
+
+// Homepage slider configurations.
+// Documentation on http://kenwheeler.github.io/slick/
+
 $(document).ready(function(){
     $('.slider-front').slick({
         slidesToShow: 3,

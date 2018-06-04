@@ -1,4 +1,7 @@
 $( document ).ready(function() {
+
+    // send cookie data to ajax/cookie.php
+
     let cookie = $(".cookie");
     let cookieButton = $(".cookie--button");
 

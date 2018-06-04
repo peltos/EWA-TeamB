@@ -42,7 +42,6 @@
         <script type="text/javascript"  src="<?php echo URL; ?>js/application.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/streamers.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/tournaments.js"></script>
-        <script type="text/javascript"  src="<?php echo URL; ?>js/teams.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/nightmode.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/share.js"></script>
         <script type="text/javascript"  src="<?php echo URL; ?>js/favorite.js"></script>
