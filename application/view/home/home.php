@@ -10,9 +10,15 @@
         </div>
         <a class="view-more btn" href="streams">View More...</a>
     </h2>
+
+    <?php //Start: Recommended Streamers ?>
+
     <ul class="streamers__list">
         <?php
         $counter = 0;
+
+        // Mixer streamers
+
         if (!empty($favoritePageRecommendedMixer)) {
             foreach ($favoritePageRecommendedMixer as $key => $item) {
                 if ($item["online"] == true) {
@@ -22,6 +28,8 @@
                 }
             }
         }
+
+        // Twitch streamers
 
         if (!empty($favoritePageRecommendedTwitch)) {
             foreach ($favoritePageRecommendedTwitch as $key => $item) {
@@ -34,6 +42,10 @@
         }
         ?>
     </ul>
+
+    <?php //End: Recommended Streamers ?>
+
+    <?php //Start: Followed Streamers ?>
 
     <?php if (!$_SESSION['email'] == '') { ?>
         <h2 class="homepage-title">
@@ -49,6 +61,9 @@
         <ul class="streamers__list">
             <?php
             $counter = 0;
+
+            // Mixer streamers
+
             if (!empty($favoritePage)) {
                 foreach ($favoritePage as $key => $item) {
                     if ($item["online"] == true) {
@@ -58,6 +73,8 @@
                     }
                 }
             }
+
+            // Twitch streamers
 
             if (!empty($favoritePageTwitch)) {
                 foreach ($favoritePageTwitch as $key => $item) {
@@ -73,4 +90,7 @@
         <div class="view-more__container">
         </div>
     <?php } ?>
+
+    <?php //End: Followed Streamers ?>
+
 </div>
