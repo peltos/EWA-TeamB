@@ -18,7 +18,7 @@ class Tournaments extends Controller
         $slider = $this->model->getTournaments();
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/tournaments/index.php';
+        require APP . 'view/tournaments/tournaments.php';
         require APP . 'view/_templates/footer.php';
     }
 }

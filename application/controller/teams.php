@@ -23,7 +23,7 @@ class Teams extends Controller
 
         // load views
         require APP . 'view/_templates/header.php';
-        require APP . 'view/teams/index.php';
+        require APP . 'view/teams/teams.php';
         require APP . 'view/_templates/footer.php';
 
     }

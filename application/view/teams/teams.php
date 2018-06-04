@@ -134,7 +134,6 @@
                 <?php // End: Team item ?>
 
                 <?php
-//                var_dump($teamDb);
             }
         }
         ?>
