@@ -43,7 +43,8 @@ header {
     font-size: 1.5em;
     color: var(--nav-color);
     padding: .25em .25em;
-    height: 1.4em;
+    box-sizing: border-box;
+    height: 2em;
 }
 
 header.header--main {
@@ -325,6 +326,7 @@ header.header--search .header--inner {
     border-bottom: 3px solid var(--primary-color);
     width: 100%;
     margin-bottom: 1em;
+    position: relative;
 }
 
 .container a {
