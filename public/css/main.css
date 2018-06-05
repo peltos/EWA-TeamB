@@ -416,7 +416,6 @@ header.header--search .header--inner {
     font-size: 13px;
     padding: 1.5px;
     color: grey;
-    position: relative;
 }
 
 .container .tooltip .tooltiptext {
@@ -434,9 +433,8 @@ header.header--search .header--inner {
     position: absolute;
     z-index: 5;
     margin-top: 38px;
-    margin-left: -100px;
-    top: -1em;
-    left: 1em;
+    top: 0;
+    left: 0;
 }
 
 .container .tooltip:hover {
@@ -681,6 +679,15 @@ input:checked + .switch-slider:before {
     .main-container {
         margin-top: 5em;
     }
+    .container .tooltip {
+        position: relative;
+    }
+    .container .tooltip .tooltiptext {
+        margin-left: -100px;
+        top: -1em;
+        left: 1em;
+    }
+
 }
 
 @media only screen and (min-width: 1200px) {

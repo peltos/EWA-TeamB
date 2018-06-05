@@ -5,6 +5,7 @@
 
     display: flex;
     justify-content: space-between;
+    position:relative;
 }
 .homepage-container .homepage-title div a:hover {
     color: var(--font-color);
