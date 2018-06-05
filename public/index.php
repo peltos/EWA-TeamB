@@ -50,7 +50,7 @@ if (!isset($_SESSION['signinEmail'])) {
 }
 
 // check what is in all sessions
-echo '<pre>' . var_dump($_SESSION) . '</pre>';
+//echo '<pre>' . var_dump($_SESSION) . '</pre>';
 
 // set a constant that holds the project's folder path, like "/var/www/".
 // DIRECTORY_SEPARATOR adds a slash to the end of the path

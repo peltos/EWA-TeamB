@@ -237,9 +237,17 @@
     max-width: 10%;
 }
 
+@media (min-width: 600px) {
+
+    .tournaments-container .slider-item {
+        width:calc(50% - 3.5em);
+    }
+}
+
 @media (min-width: 900px) {
 
     .tournaments-container .slider-item {
-        width:calc(20% - 1px);
+        width:calc(25% - 3.5em);
     }
 }
+
