@@ -1,6 +1,6 @@
 <div class="container news-container">
 <h1>Esport news feed</h1>
-<!-- start sw-rss-feed code -->
+
 <div class="filterBar-container">
     <div class="filterBar--inner">
         <div class="dateFilter">
@@ -15,9 +15,9 @@
 
   <div id="esport" class="tabcontent newstab">
     <h3>Esport</h3>
- <?php //This is the rss feed for the three news topics.?>
+
 <script type="text/javascript">
-<!--
+
 rssfeed_url = new Array();
 rssfeed_url[0]="https://news.google.com/news/rss/search/section/q/esport/esport?hl=nl&gl=NL&ned=nl_nl";
 rssfeed_frame_width="1200";
@@ -54,17 +54,15 @@ rssfeed_item_description_link_color="#333";
 rssfeed_item_description_tag="off";
 rssfeed_no_items="0";
 rssfeed_cache = "2b6f506a13c521c8498830fd126117aa";
-//-->
+
 </script>
 <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
 </div>
-<!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. -->
-<!-- end sw-rss-feed code -->
-<!-- start sw-rss-feed code -->
+
 <div id="dota2" class="tabcontent newstab">
   <h3>Dota 2</h3>
 <script type="text/javascript">
-<!--
+
 rssfeed_url = new Array();
 rssfeed_url[0]="http://blog.dota2.com/feed/";
 rssfeed_frame_width="1200";
@@ -101,17 +99,15 @@ rssfeed_item_description_link_color="#333";
 rssfeed_item_description_tag="off";
 rssfeed_no_items="0";
 rssfeed_cache = "f76ca177db00ff81e99758d4175711be";
-//-->
+
 </script>
 <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
 </div>
-<!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. -->
-<!-- end sw-rss-feed code -->
-<!-- start sw-rss-feed code -->
+
 <div id="lol" class="tabcontent newstab">
   <h3>League of Legends</h3>
 <script type="text/javascript">
-<!--
+
 rssfeed_url = new Array();
 rssfeed_url[0]="https://na.leagueoflegends.com/en/rss.xml";
 rssfeed_frame_width="1200";
@@ -148,7 +144,7 @@ rssfeed_item_description_link_color="#333";
 rssfeed_item_description_tag="off";
 rssfeed_no_items="0";
 rssfeed_cache = "a39c98bedf11b8d29a077951534630ae";
-//-->
+
 </script>
 <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
 </div>
