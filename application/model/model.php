@@ -63,9 +63,6 @@ class Model
         $query = $this->db->prepare($sql);
         $parameters = array(':username' => $username, ':email' => $email, ':password' => $passwordEncrypt, ':datetime' => date("Y-m-d H:i:s"));
 
-        // useful for debugging: you can see the SQL behind above construction by using:
-        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-
         $query->execute($parameters);
     }
 
@@ -284,8 +281,6 @@ class Model
                             "playerHometown" => $playerDb->playerHometown));
                 }
             }
-
-//            var_dump($teamArray);
         }
 
         array_values($teamArray);

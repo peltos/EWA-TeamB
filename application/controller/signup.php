@@ -136,10 +136,8 @@ class Signup extends Controller {
                     // After adding the user to the database it checks the user info and logs automatically in.
                     $getInfoUser = $this->model->getUser($_POST["email"]);
                     if (isset($getInfoUser)) {
-                        var_dump($getInfoUser);
                         $salt = "djskdjd1434JFFFFAF23";
                         $md5Password = md5($_POST["password"] . $salt);
-                        var_dump($md5Password);
                         //Checks if the email and password are correct and if it's correct you will be sent to the signupcorrect page and you will be logged in.
                         if (($md5Password == $getInfoUser->password) && ($_POST["email"] == $getInfoUser->memberEmail)) {
                             $_SESSION["email"] = $getInfoUser->memberEmail;

@@ -36,7 +36,6 @@ class Home extends Controller {
     }
 
     public function logout() {
-        session_start();
         $_SESSION['username'] = '';
         $_SESSION['email'] = '';
         $_SESSION['profilePicture'] = '';
