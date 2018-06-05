@@ -85,10 +85,11 @@
     color: grey;
     font-size: 1.1em;
     position: absolute;
-    bottom: 1.27em;
-    right: 1.4em;
+    bottom: .5em;
+    right: 0.75em;
     transition: 200ms;
     transform: scale(0.9);
+    padding: .75em;
 }
 
 .streamers--item .streamer-star.active,
