@@ -8,6 +8,7 @@
     </div>
 
     <?php // if the username didnt accept the agreement yet. show a footer pop-up
+    var_dump($_SESSION["email"]);
     if($_SESSION['cookie'] == false){ ?>
         <div class="cookie">
             <div class="cookie--inner">
@@ -20,6 +21,7 @@
                     <a class="cookie--button">OK</a>
             </div>
         </div>
+    
     <?php } ?>
 
     <!-- jQuery, loaded in the recommended protocol-less way -->

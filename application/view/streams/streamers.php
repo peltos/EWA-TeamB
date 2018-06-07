@@ -25,7 +25,7 @@
             $counter = 0;
             if (!empty($streamers)) {
                 foreach ($streamers as $key => $item) {
-                    $this->model->addLikeStream($_SESSION["email"], $item["id"]);
+                   
                     if ($item["languageId"] == "nl") { ?>
                         <li class="streamers--item online">
 

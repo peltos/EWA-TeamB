@@ -510,18 +510,7 @@ SET likes = 1;";
         $query->execute();
     }
 
-    public function addLikeStream($email, $streamerId) {
-
-
-        $sql = "UPDATE Favorite
-  SET likes = likes + 1 
-  WHERE Member_memberEmail = :useEmail AND Streamer_streamID = :streamerId";
-///// ik hoop dat de haakjes hier geen probleem geven
-        $query = $this->db->prepare($sql);
-        $parameters = array(':useEmail' => $_SESSION["email"], ':streamerId' => $streamerId);
-
-        $query->execute($parameters);
-    }
+    
 
 }
 
