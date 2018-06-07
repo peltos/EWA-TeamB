@@ -544,9 +544,9 @@ class Model
     public function getFollowed($email)
     {
         // gets all the items from the database Streamer table
-        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
+        $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, f.likes, s.streamName, s.website
                 FROM mini.follow f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
-                WHERE Member_memberEmail = :email";
+                WHERE Member_memberEmail = :email order by likes desc";
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
 

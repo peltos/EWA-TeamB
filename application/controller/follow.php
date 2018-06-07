@@ -20,6 +20,7 @@ class Follow extends Controller
 
         if (!$_SESSION['token'] == '') {
 
+            //get the users followers
             $followed = $this->model->getFollowed($_SESSION['email']);
             $followPageMixer = $this->model->getFollowPageMixer($followed);
             $followPageTwitch = $this->model->getFollowPageTwitch($followed);

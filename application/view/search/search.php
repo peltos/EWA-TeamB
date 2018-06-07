@@ -10,7 +10,7 @@
     <?php //Start: Searching for streamers ?>
 
     <?php if ($followPageMixer !== null && $followPageTwitch !== null) { ?>
-        <ul class="streamers__list">
+        <ul class="streamers__list" > 
             <?php
             $counter = 0;
 

@@ -109,7 +109,7 @@ class Signup extends Controller {
             if ($checkCounter == 0) {
 
 
-                // If reCaptcha isn't checked, return 'sign up failed page'.
+          //       If reCaptcha isn't checked, return 'sign up failed page'.
                 if (!$captcha) {
                     //     header('location: ' . URL . 'signup/signupfail');
                 }

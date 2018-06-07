@@ -28,6 +28,21 @@ function openCity(evt, gameName) {
     }
 }
 
+function addLike(streamerID) {
+  //Sends an ajax with the streamer ID to like.php
+    $(this).toggleClass("active");
+        streamerId = streamerID;
+        
+
+        $.ajax({
+            url: URL + 'ajax/ajaxlike',
+            type: "post",
+            data: "streamerId=" + streamerId,
+            success: function (html) {
+            }
+        });
+}
+
 $( document ).ready(function() {
 
     // if on Followed page item is not online. hide it. show it again when clicked on 'All'

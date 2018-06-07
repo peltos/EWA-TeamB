@@ -93,7 +93,7 @@
 
     <?php //Start: Dota 2 Streamers ?>
 
-    <div id="dota2" class="tabcontent">
+    <div id="dota2" class="tabcontent" >
         <h3>Dota 2</h3>
         <ul class="streamers__list">
             <?php
@@ -129,7 +129,7 @@
 
     <?php //Start: Overwatch Streamers ?>
 
-    <div id="overwatch" class="tabcontent">
+    <div id="overwatch" class="tabcontent" >
         <h3>Overwatch</h3>
         <ul class="streamers__list">
             <?php

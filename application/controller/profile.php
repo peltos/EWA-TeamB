@@ -25,7 +25,7 @@ class Profile extends Controller {
             header('location: ' . URL);
         }
     }
-
+//resets password and/or username. In order to do this you have to fill in your current password.
     public function updateProfile() {
         if ($_POST["username"] == "" && $_POST["currentpassword"] == "" && $_POST["Newpassword"] == "" && $_POST["Confirmnewpassword"] == "") {
             $_SESSION['message'] = "";

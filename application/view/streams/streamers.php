@@ -9,7 +9,7 @@
                 <a class="tablinks dateFilter--item" href="#"><i class="filter-icon fas fa-filter"></i></a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'NL')">Dutch Streamers</a>
-                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'LoL')">League of Legends</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'overwatch')">Overwatch</a>
             </div>
@@ -55,16 +55,16 @@
                             <a class="streamer--item__content" href="https://mixer.com/<?php echo $item["token"] ?>"
                                target="_blank">
                                 <div class="streamers--item__container">
-                                    <div class="streamers--item--image">
+                                    <div class="streamers--item--image" > 
                                         <?php
                                         $file = 'https://thumbs.mixer.com/channel/' . $item["id"] . '.small.jpg';
                                         $file_headers = @get_headers($file);
                                         if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
                                             ?>
-                                            <img class="streamers--item__cover"
+                                        <img class="streamers--item__cover" onclick="addLike(<?php echo $item["id"] ?>)"
                                                  src="<?php echo $item["type"]["coverUrl"] ?>"/>
                                         <?php } else { ?>
-                                            <img class="streamers--item__cover"
+                                            <img class="streamers--item__cover" onclick="addLike(<?php echo $item["id"] ?>)"
                                                  src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
                                         <?php } ?>
 
@@ -130,8 +130,8 @@
                             <a class="streamer--item__content" href="<?php echo $item["channel"]["url"] ?>"
                                target="_blank">
                                 <div class="streamers--item__container">
-                                    <div class="streamers--item--image">
-                                        <img class="streamers--item__cover"
+                                    <div class="streamers--item--image" 
+                                        <img class="streamers--item__cover" 
                                              src="<?php echo $item["preview"]["medium"] ?>"/>
 
                                         <img class="streamers--item__icon"
@@ -214,10 +214,10 @@
                                         $file_headers = @get_headers($file);
                                         if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
                                             ?>
-                                            <img class="streamers--item__cover"
+                                            <img class="streamers--item__cover" onclick="addLike(<?php echo $item["id"] ?>)"
                                                  src="<?php echo $item["type"]["coverUrl"] ?>"/>
                                         <?php } else { ?>
-                                            <img class="streamers--item__cover"
+                                            <img class="streamers--item__cover" onclick="addLike(<?php echo $item["id"] ?>)"
                                                  src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
                                         <?php } ?>
 
@@ -288,7 +288,7 @@
                                 <div class="streamers--item__container">
                                     <div class="streamers--item--image">
 
-                                        <img class="streamers--item__cover"
+                                        <img class="streamers--item__cover" 
                                              src="<?php echo $item["preview"]["medium"] ?>"/>
 
                                         <img class="streamers--item__icon"
@@ -373,10 +373,10 @@
                                         $file_headers = @get_headers($file);
                                         if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
                                             ?>
-                                            <img class="streamers--item__cover"
+                                            <img class="streamers--item__cover" onclick="addLike(<?php echo $item["id"] ?>)"
                                                  src="<?php echo $item["type"]["coverUrl"] ?>"/>
                                         <?php } else { ?>
-                                            <img class="streamers--item__cover"
+                                            <img class="streamers--item__cover" onclick="addLike(<?php echo $item["id"] ?>)"
                                                  src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
                                         <?php } ?>
 
@@ -447,7 +447,7 @@
                                 <div class="streamers--item__container">
                                     <div class="streamers--item--image">
 
-                                        <img class="streamers--item__cover"
+                                        <img class="streamers--item__cover" 
                                              src="<?php echo $item["preview"]["medium"] ?>"/>
 
                                         <img class="streamers--item__icon"
@@ -532,10 +532,10 @@
                                         $file_headers = @get_headers($file);
                                         if (!$file_headers || $file_headers[0] == 'HTTP/1.1 404 Not Found') {
                                             ?>
-                                            <img class="streamers--item__cover"
+                                            <img class="streamers--item__cover" onclick="addLike(<?php echo $item["id"] ?>)"
                                                  src="<?php echo $item["type"]["coverUrl"] ?>"/>
                                         <?php } else { ?>
-                                            <img class="streamers--item__cover"
+                                            <img class="streamers--item__cover" onclick="addLike(<?php echo $item["id"] ?>)"
                                                  src="https://thumbs.mixer.com/channel/<?php echo $item["id"] ?>.small.jpg"/>
                                         <?php } ?>
 
@@ -603,10 +603,10 @@
                             <a class="streamer--item__content" href="<?php echo $item["channel"]["url"] ?>"
                                target="_blank">
                                 <div class="streamers--item__container">
-                                    <div class="streamers--item--image">
+                                    <div class="streamers--item--image" >
 
-                                        <img class="streamers--item__cover"
-                                             src="<?php echo $item["preview"]["medium"] ?>"/>
+                                        <img class="streamers--item__cover" 
+                                             src="<?php echo $item["preview"]["medium"] ?>" />
 
                                         <img class="streamers--item__icon"
                                              src="<?php echo $item["channel"]["logo"] ?>"/>
