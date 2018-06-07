@@ -9,7 +9,7 @@
                 <a class="tablinks dateFilter--item" href="#"><i class="filter-icon fas fa-filter"></i></a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'NL')">Dutch Streamers</a>
-                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'LoL')">League of Legends</a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'overwatch')">Overwatch</a>
             </div>
