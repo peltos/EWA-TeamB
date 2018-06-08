@@ -1,13 +1,11 @@
 <?php
 
-class Model
-{
+class Model {
 
     /**
      * @param object $db A PDO database connection
      */
-    function __construct($db)
-    {
+    function __construct($db) {
         try {
             $this->db = $db;
         } catch (PDOException $e) {
@@ -15,8 +13,7 @@ class Model
         }
     }
 
-    public function checkToken($username, $email, $token)
-    {
+    public function checkToken($username, $email, $token) {
 
         $varMD5 = md5($username . $email);
 
@@ -27,15 +24,13 @@ class Model
         }
     }
 
-    public function changeNewUsername($Newusername, $Oldusername)
-    {
+    public function changeNewUsername($Newusername, $Oldusername) {
         $sql = "UPDATE Member SET username = '$Newusername' WHERE username = '$Oldusername'";
         $query = $this->db->prepare($sql);
         $query->execute();
     }
 
-    public function addNewPassword($password, $Email)
-    {
+    public function addNewPassword($password, $Email) {
         $sql = "UPDATE Member SET password = '$password' WHERE memberEmail = '$Email'";
         $query = $this->db->prepare($sql);
 
@@ -46,15 +41,13 @@ class Model
         $query->execute();
     }
 
-    function console_log($data)
-    {
+    function console_log($data) {
         echo '<script>';
         echo 'console.log(' . json_encode($data) . ')';
         echo '</script>';
     }
 
-    public function addUser($username, $email, $password)
-    {
+    public function addUser($username, $email, $password) {
         $salt = "djskdjd1434JFFFFAF23";
         $password = $_POST["password"] . $salt;
         $passwordEncrypt = md5($password);
@@ -66,8 +59,7 @@ class Model
         $query->execute($parameters);
     }
 
-    public function getUser($email)
-    {
+    public function getUser($email) {
         $sql = "SELECT * FROM Member WHERE memberEmail = :email";
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
@@ -77,8 +69,7 @@ class Model
         return $query->fetch();
     }
 
-    public function checkUsername($username)
-    {
+    public function checkUsername($username) {
         $sql = "SELECT username FROM Member WHERE username = :username";
         $query = $this->db->prepare($sql);
         $parameters = array('username' => $username);
@@ -88,8 +79,7 @@ class Model
         return $query->fetch();
     }
 
-    public function timeline()
-    {
+    public function timeline() {
         $timelineVar = $this->timelineFilter();
 
         $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
@@ -103,8 +93,7 @@ class Model
     /**
      * Get all upcoming/running/past matches data.
      */
-    public function timelineFilter()
-    {
+    public function timelineFilter() {
         $timelineVar = null;
         $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
@@ -122,8 +111,7 @@ class Model
     /**
      * Get all tournaments data.
      */
-    public function getTournaments()
-    {
+    public function getTournaments() {
 
         $url = 'https://api.pandascore.co/tournaments?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
         $json = file_get_contents($url);
@@ -135,8 +123,7 @@ class Model
     /**
      * Get all Player data.
      */
-    public function getPlayers()
-    {
+    public function getPlayers() {
         $playerVar = $this->playerFilter();
 
         $url = 'https://api.pandascore.co/players?' . $playerVar . 'page[size]=80&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
@@ -290,8 +277,7 @@ class Model
     /**
      * Get all game-based Player data.
      */
-    public function playerFilter()
-    {
+    public function playerFilter() {
         $playerVar = null;
         $url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
@@ -312,8 +298,7 @@ class Model
      * Get all streamers data.
      * This is the mixer API.
      */
-    public function getStreamers($counter)
-    {
+    public function getStreamers($counter) {
         $result = array();
 
         for ($i = 0; $i <= $counter; $i++) {
@@ -363,7 +348,7 @@ class Model
                 foreach ($streamersDb as $streamersDB) {
 
                     // json item equals database item, update the current information about the streamer
-                    if (((float)$streamersDB->streamID) == $streamerWeb['id']) {
+                    if (((float) $streamersDB->streamID) == $streamerWeb['id']) {
                         $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                         $query = $this->db->prepare($sql);
                         $parameters = array(':streamName' => $streamerWeb['token'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['type']['name'], ':streamID' => $streamerWeb['id'], ':website' => $website);
@@ -410,8 +395,7 @@ class Model
         }
     }
 
-    public function streamerUpdateTwitch($website, $streamersWeb)
-    {
+    public function streamerUpdateTwitch($website, $streamersWeb) {
 
 
         // checks the getStreamersID() function
@@ -440,7 +424,7 @@ class Model
                     // if its the mixer api
                     foreach ($streamersDb as $streamersDB) {
                         // json item equals database item, update the current information about the streamer
-                        if (((float)$streamersDB->streamID) == $streamerWeb['_id']) {
+                        if (((float) $streamersDB->streamID) == $streamerWeb['_id']) {
                             $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                             $query = $this->db->prepare($sql);
                             $parameters = array(':streamName' => $streamerWeb['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['game'], ':streamID' => $streamerWeb['_id'], ':website' => $website);
@@ -479,7 +463,7 @@ class Model
                     // if its the mixer api
                     foreach ($streamersDb as $streamersDB) {
                         // json item equals database item, update the current information about the streamer
-                        if (((float)$streamersDB->streamID) == $streamerWeb['stream']['_id']) {
+                        if (((float) $streamersDB->streamID) == $streamerWeb['stream']['_id']) {
                             $sql = "UPDATE Streamer SET streamName = :streamName, lastOnline = :lastOnline, categorie = :categorie, website = :website WHERE streamID = :streamID";
                             $query = $this->db->prepare($sql);
                             $parameters = array(':streamName' => $streamerWeb['stream']['channel']['name'], ':lastOnline' => date("Y-m-d H:i:s"), ':categorie' => $streamerWeb['stream']['game'], ':streamID' => $streamerWeb['stream']['_id'], ':website' => $website);
@@ -541,12 +525,15 @@ class Model
         }
     }
 
-    public function getFollowed($email)
-    {
-        // gets all the items from the database Streamer table
+    public function getFollowed($email) {
+// gets all the items from the database Streamer table
+
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, f.likes, s.streamName, s.website
                 FROM mini.follow f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
-                WHERE Member_memberEmail = :email order by likes desc";
+                WHERE Member_memberEmail = :email
+                order by likes desc
+                limit 5";
+// and mostrecent <5
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
 
@@ -591,8 +578,7 @@ class Model
      * Get all streamers data.
      * This is the mixer API.
      */
-    public function getStreamersTwitch($counter)
-    {
+    public function getStreamersTwitch($counter) {
         for ($i = 0; $i <= $counter; $i++) {
             $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
             $jsonPage = file_get_contents($urlPage);
@@ -616,8 +602,7 @@ class Model
         return $query->fetchAll();
     }
 
-    public function getSearchResults($search)
-    {
+    public function getSearchResults($search) {
 
         $sql = "SELECT * FROM mini.Streamer WHERE streamName LIKE :search OR categorie LIKE :search limit 20";
         $query = $this->db->prepare($sql);
@@ -628,8 +613,7 @@ class Model
         return $query->fetchAll();
     }
 
-    public function getSearchResultsMixer($streamers)
-    {
+    public function getSearchResultsMixer($streamers) {
         $result = array();
         foreach ($streamers as $streamer) {
             if ($streamer->website == 'mixer') {
@@ -644,8 +628,7 @@ class Model
         return $result;
     }
 
-    public function getSearchResultsTwitch($streamers)
-    {
+    public function getSearchResultsTwitch($streamers) {
         $result = array();
         foreach ($streamers as $streamer) {
             if ($streamer->website == 'twitch') {
@@ -660,17 +643,61 @@ class Model
         return $result;
     }
 
-    // public function getNews($counter)
-    // {
-    //   $result = array();
-    //
-    //   for ($i = 0; $i <= $counter; $i++) {
-    //       ${"urlPage$i"} = 'https://news.google.com/news/rss/search/section/q/esport/esport?hl=en&gl=US&ned=us' . $i;
-    //       ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
-    //       ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
-    //
-    //       $result = array_merge($result, ${"arrayPage$i"});
-    //   }
-    //   return $result;
-    // }
+    public function setLikesToOne() {
+        $sql = "UPDATE favorite
+SET likes = 1;";
+///// ik hoop dat de haakjes hier geen probleem geven
+        $query = $this->db->prepare($sql);
+        $query->execute();
+    }
+
+
+
 }
+
+//    public function addRecentfavorite(){
+//        $sql = "INSERT INTO favorite (username, memberEmail, password, firstLogin) VALUES (:username, :email , :password, :datetime)";
+//        $query = $this->db->prepare($sql);
+//        $parameters = array(':username' => $username, ':email' => $email, ':password' => $passwordEncrypt, ':datetime' => date("Y-m-d H:i:s"));
+//
+//        // useful for debugging: you can see the SQL behind above construction by using:
+//        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
+//
+//        $query->execute($parameters);
+//
+//    }
+//    public function updateWatchedStreams($streamerId, $Email) {
+//        $infoRecentStream = $this->model->getRecentStream($Email);
+//        $newValue = $infoRecentStream .= $streamerId;
+//        $sql = "UPDATE Member SET recentStream = '$newValue' WHERE memberEmail = '$Email'";
+//
+//        $query = $this->db->prepare($sql);
+//
+//        $query->execute();
+//
+//        return $query->fetchAll();
+//    }
+//
+//    public function getRecentStream($email) {
+//        $sql = "SELECT recentStream FROM Member WHERE memberEmail = :email";
+//        $query = $this->db->prepare($sql);
+//        $parameters = array(':email' => $email);
+//
+//        $query->execute($parameters);
+//
+//        return $query->fetch();
+//    }
+// public function getNews($counter)
+// {
+//   $result = array();
+//
+//   for ($i = 0; $i <= $counter; $i++) {
+//       ${"urlPage$i"} = 'https://news.google.com/news/rss/search/section/q/esport/esport?hl=en&gl=US&ned=us' . $i;
+//       ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
+//       ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
+//
+//       $result = array_merge($result, ${"arrayPage$i"});
+//   }
+//   return $result;
+// }
+
