@@ -531,8 +531,7 @@ class Model {
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, f.likes, s.streamName, s.website
                 FROM mini.follow f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
                 WHERE Member_memberEmail = :email
-                order by likes desc
-                limit 5";
+                order by likes desc";
 // and mostrecent <5
         $query = $this->db->prepare($sql);
         $parameters = array(':email' => $email);
@@ -588,13 +587,12 @@ class Model {
     }
 
     public
-    function getMostFavouriteStreamers()
+    function getMostFollowedStreamers()
     {
         $sql = "SELECT f.Member_memberEmail, f.Streamer_streamID, s.streamName, s.website
                 FROM mini.follow f LEFT JOIN mini.Streamer s ON f.Streamer_streamID = s.streamID
         group by Streamer_streamID
-        order by COUNT(*) desc
-        limit 5";
+        order by COUNT(*) desc";
         $query = $this->db->prepare($sql);
 
         $query->execute();

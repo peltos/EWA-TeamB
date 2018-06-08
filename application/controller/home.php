@@ -22,7 +22,7 @@ class Home extends Controller {
         $followPage = $this->model->getFollowPageMixer($followed);
         $followPageTwitch = $this->model->getFollowPageTwitch($followed);
 
-        $mostFollowed = $this->model->getMostFavouriteStreamers();
+        $mostFollowed = $this->model->getMostFollowedStreamers();
         $followPageRecommendedMixer = $this->model->getFollowPageMixer($mostFollowed);
         $followPageRecommendedTwitch = $this->model->getFollowPageTwitch($mostFollowed);
 
