@@ -114,7 +114,7 @@ class Signup extends Controller {
                     //     header('location: ' . URL . 'signup/signupfail');
                 }
                 // reCaptcha secret key:
-                $secretKey = "6LcZoVAUAAAAAHZTu5bzXwNcPHflIM_YZ-XqwwwQ";
+                $secretKey = CAPTCHA_SECRET_KEY;
                 // Get client user IP:
                 $ip = $_SERVER['REMOTE_ADDR'];
                 // Get response from Google reCaptcha API:

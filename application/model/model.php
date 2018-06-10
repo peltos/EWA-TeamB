@@ -83,7 +83,7 @@ class Model {
         $timelineVar = $this->timelineFilter();
 
         // Pandascore API url
-        $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+        $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=' . PANDASCORE_TOKEN;
 
         // Read JSON data from API url
         $json = file_get_contents($url);
@@ -116,7 +116,7 @@ class Model {
      */
     public function getTournaments() {
 
-        $url = 'https://api.pandascore.co/tournaments?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+        $url = 'https://api.pandascore.co/tournaments?page[number]=1&token=' . PANDASCORE_TOKEN;
         $json = file_get_contents($url);
         $timeline_array = json_decode($json, true);
 
@@ -129,7 +129,7 @@ class Model {
     public function getPlayers() {
         $playerVar = $this->playerFilter();
 
-        $url = 'https://api.pandascore.co/players?' . $playerVar . 'page[size]=80&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
+        $url = 'https://api.pandascore.co/players?' . $playerVar . 'page[size]=80&token=' . PANDASCORE_TOKEN;
         $json = file_get_contents($url);
         $timeline_array = json_decode($json, true);
 
@@ -565,7 +565,7 @@ class Model {
         $result = array();
         foreach ($streamers as $streamer) {
             if ($streamer->website == 'twitch') {
-                $urlPage = 'https://api.twitch.tv/kraken/streams/' . $streamer->streamName . '?client_id=r9b3owuwk195oo5gbohveasv11v76c&id=28354917152';
+                $urlPage = 'https://api.twitch.tv/kraken/streams/' . $streamer->streamName . '?client_id=' . TWITCH_CLIENT_ID;
                 $jsonPage = file_get_contents($urlPage);
                 $arrayPage = json_decode($jsonPage, true);
 
@@ -582,7 +582,7 @@ class Model {
      */
     public function getStreamersTwitch($counter) {
         for ($i = 0; $i <= $counter; $i++) {
-            $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=r9b3owuwk195oo5gbohveasv11v76c';
+            $urlPage = 'https://api.twitch.tv/kraken/streams?client_id=' . TWITCH_CLIENT_ID;
             $jsonPage = file_get_contents($urlPage);
             $arrayPage = json_decode($jsonPage, true);
         }
@@ -633,7 +633,7 @@ class Model {
         $result = array();
         foreach ($streamers as $streamer) {
             if ($streamer->website == 'twitch') {
-                $urlPage = 'https://api.twitch.tv/kraken/streams/' . $streamer->streamName . '?client_id=r9b3owuwk195oo5gbohveasv11v76c&id=28354917152';
+                $urlPage = 'https://api.twitch.tv/kraken/streams/' . $streamer->streamName . '?client_id=' . TWITCH_CLIENT_ID;
                 $jsonPage = file_get_contents($urlPage);
                 $arrayPage = json_decode($jsonPage, true);
 
