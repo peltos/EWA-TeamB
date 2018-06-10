@@ -167,8 +167,8 @@ class Model {
 
                     // json item equals database item, update the current information about the players
                     if ($playerDb->playerID == $playerWeb['id']) {
-                        $sql = "UPDATE Teams SET playerName = :playerName, playerFirstName = :playerFirstName, playerLastName = :playerLastName, 
-                              playerTeamID = :playerTeamID, playerTeamName = :playerTeamName, playerTeamImage = :playerTeamImage, playerGame = :playerGame, 
+                        $sql = "UPDATE Teams SET playerName = :playerName, playerFirstName = :playerFirstName, playerLastName = :playerLastName,
+                              playerTeamID = :playerTeamID, playerTeamName = :playerTeamName, playerTeamImage = :playerTeamImage, playerGame = :playerGame,
                               playerImage = :playerImage, playerHometown = :playerHometown WHERE playerID = :playerID";
                         $query = $this->db->prepare($sql);
 
@@ -188,7 +188,7 @@ class Model {
                     //if the amount of items checked with the database is the same amount of items checked with json, then dont update but insert as a new item
                     if ($counterPlayersWeb == $counterPlayersDb) {
 
-                        $sql = "INSERT INTO Teams (playerID, playerName, playerFirstName, playerLastName, playerTeamID, playerTeamName, playerTeamImage, playerGame, playerImage, playerHometown) VALUES 
+                        $sql = "INSERT INTO Teams (playerID, playerName, playerFirstName, playerLastName, playerTeamID, playerTeamName, playerTeamImage, playerGame, playerImage, playerHometown) VALUES
                             (:playerID, :playerName, :playerFirstName, :playerLastName, :playerTeamID, :playerTeamName, :playerTeamImage, :playerGame, :playerImage, :playerHometown)";
                         $query = $this->db->prepare($sql);
                         $parameters = array(':playerID' => $playerWeb['id'], ':playerName' => $playerWeb['name'], ':playerFirstName' => $playerWeb['first_name'], ':playerLastName' => $playerWeb['last_name'],
@@ -205,7 +205,7 @@ class Model {
         } else { // do this when database is empty
             foreach ($playersWeb as $key => $playerWeb) {
 
-                $sql = "INSERT INTO Teams (playerID, playerName, playerFirstName, playerLastName, playerTeamID, playerTeamName, playerTeamImage, playerGame, playerImage, playerHometown) VALUES 
+                $sql = "INSERT INTO Teams (playerID, playerName, playerFirstName, playerLastName, playerTeamID, playerTeamName, playerTeamImage, playerGame, playerImage, playerHometown) VALUES
                             (:playerID, :playerName, :playerFirstName, :playerLastName, :playerTeamID, :playerTeamName, :playerTeamImage, :playerGame, :playerImage, :playerHometown)";
                 $query = $this->db->prepare($sql);
                 $parameters = array(':playerID' => $playerWeb['id'], ':playerName' => $playerWeb['name'], ':playerFirstName' => $playerWeb['first_name'], ':playerLastName' => $playerWeb['last_name'],
@@ -652,50 +652,3 @@ SET likes = 1;";
 
 
 }
-
-//    public function addRecentfavorite(){
-//        $sql = "INSERT INTO favorite (username, memberEmail, password, firstLogin) VALUES (:username, :email , :password, :datetime)";
-//        $query = $this->db->prepare($sql);
-//        $parameters = array(':username' => $username, ':email' => $email, ':password' => $passwordEncrypt, ':datetime' => date("Y-m-d H:i:s"));
-//
-//        // useful for debugging: you can see the SQL behind above construction by using:
-//        // echo '[ PDO DEBUG ]: ' . Helper::debugPDO($sql, $parameters);  exit();
-//
-//        $query->execute($parameters);
-//
-//    }
-//    public function updateWatchedStreams($streamerId, $Email) {
-//        $infoRecentStream = $this->model->getRecentStream($Email);
-//        $newValue = $infoRecentStream .= $streamerId;
-//        $sql = "UPDATE Member SET recentStream = '$newValue' WHERE memberEmail = '$Email'";
-//
-//        $query = $this->db->prepare($sql);
-//
-//        $query->execute();
-//
-//        return $query->fetchAll();
-//    }
-//
-//    public function getRecentStream($email) {
-//        $sql = "SELECT recentStream FROM Member WHERE memberEmail = :email";
-//        $query = $this->db->prepare($sql);
-//        $parameters = array(':email' => $email);
-//
-//        $query->execute($parameters);
-//
-//        return $query->fetch();
-//    }
-// public function getNews($counter)
-// {
-//   $result = array();
-//
-//   for ($i = 0; $i <= $counter; $i++) {
-//       ${"urlPage$i"} = 'https://news.google.com/news/rss/search/section/q/esport/esport?hl=en&gl=US&ned=us' . $i;
-//       ${"jsonPage$i"} = file_get_contents(${"urlPage$i"});
-//       ${"arrayPage$i"} = json_decode(${"jsonPage$i"}, true);
-//
-//       $result = array_merge($result, ${"arrayPage$i"});
-//   }
-//   return $result;
-// }
-
