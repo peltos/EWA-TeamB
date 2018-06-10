@@ -82,9 +82,12 @@ class Model {
     public function timeline() {
         $timelineVar = $this->timelineFilter();
 
+        // Pandascore API url
         $url = 'https://api.pandascore.co' . $timelineVar . '?page[number]=1&token=n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk';
 
+        // Read JSON data from API url
         $json = file_get_contents($url);
+        // Decodes JSON array and converts it into PHP  
         $timeline_array = json_decode($json, true);
 
         return $timeline_array;
