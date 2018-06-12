@@ -1,7 +1,7 @@
 
 //This is for the filter function in the streamers page.
 function openCity(evt, gameName) {
-  //If the value is 'all', you will get all the streamers of all the games. But if the 'all' value is not pressed you will get the game that you have pressed in the filter.
+  //If the value is 'all', you will get all the news values. But if the 'all' value is not pressed you will get the news value that you have pressed in the filter.
     if(gameName !== 'all'){
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
@@ -27,19 +27,3 @@ function openCity(evt, gameName) {
         evt.currentTarget.className += " active";
     }
 }
-
-$( document ).ready(function() {
-
-    // if on Followed page item is not online. hide it. show it again when clicked on 'All'
-
-    let onlineNav = $("#onlineNav");
-    let miscNav = $(".tablinks:not(#onlineNav)");
-
-    onlineNav.click(function(e){
-        $(".streamers--item").css( "display", "block" );
-        $(".streamers--item:not(.online)").css( "display", "none" );
-    });
-    miscNav.click(function(e){
-        $(".streamers--item").css( "display", "block" );
-    });
-});

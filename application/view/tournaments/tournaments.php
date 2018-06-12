@@ -6,6 +6,9 @@
 
     <ul class="slider">
         <?php
+
+        // Start: Tournament Item Iteration.
+
         $break = 0;
         if (!empty($slider)) {
             foreach ($slider as $key => $item) { ?>
@@ -85,29 +88,34 @@
                       <div class="match-box">
                         <div class="match-text">
                           <?php $itemMatchesCounter = 0; ?>
-                          <!-- reverse tournament match array -->
+                          <?php // Store & Reverse Tournament Matches Array ?>
                           <?php $original = $item["matches"]; ?>
                           <?php $reversed = array_reverse($original); ?>
 
-                          <!-- store only unique name values for matches instead of duplicates-->
+                          <?php // Store only unique name values for matches in a new array ?>
                           <?php $unique = array(); ?>
                           <?php foreach ($reversed as $key => $itemMatches) {
                                      $unique[] = $itemMatches['name'];
                                 } ?>
                           <?php $uniqueMatch = array_unique($unique); ?>
 
+                          <?php // If 'Matches' value is not empty --> Display all items from unique array $uniqueMatch ?>
                           <?php if (!$item["matches"] == null || !$item["matches"] == "") { ?>
                               <?php foreach ($uniqueMatch as $val) { ?>
                                 <div class="info-title"><?php echo $val; ?></div>
                                 <?php $itemMatchesCounter++; ?>
                               <?php } ?>
+                          <?php // If 'Matches' value is empty --> Display text placeholder ?>
                           <?php } else { ?>
                               <p> stages unkown </p>
                           <?php } ?>
                         </div>
                     </div>
+
+                      <?php // If 'Matches' value is not empty --> Display total stage count $itemMatchesCounter ?>
                       <?php if (!$item["matches"] == null || !$item["matches"] == "") { ?>
                             <div class="result-count"><?php echo $itemMatchesCounter ?> stage(s)</div>
+                      <?php // If 'Matches' value is empty --> Display text placeholder ?>
                       <?php } else { ?>
                             <div class="result-count">no stage(s)</div>
                       <?php } ?>
@@ -115,10 +123,15 @@
                     </div>
                 </li>
                 <?php
+                
+                // Break Iteration at 48 items
                 $break++;
                 if ($break == 48) break;
             }
         } ?>
 
     </ul>
+
+  <?php // End: all Tournament Items ?>
+
 </div>

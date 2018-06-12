@@ -1,5 +1,6 @@
 <?php
 $page = 'timeline';
+// Get current url path
 $active = '//' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 ?>
 <div class="container timeline-container" data-url="<?php if (!empty($url)) echo $url ?>">
@@ -11,6 +12,7 @@ $active = '//' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
     <div class="filterBar--inner">
         <div class="dateFilter">
             <a class="dateFilter--item" href="<?php echo URL; ?>matches"><i class="filter-icon fas fa-filter"></i></a>
+            <?php // If current $active url path equals 'matches' or 'matches/X' --> Add 'active' as class ?>
             <a class="dateFilter--item <?php if($active == (URL . 'matches') ||
                                                 $active == (URL . 'matches/lol') ||
                                                 $active == (URL . 'matches/dota2') ||

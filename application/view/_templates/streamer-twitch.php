@@ -61,10 +61,10 @@
 
                 <div class="streamers--item--image">
 
-                    <img class="streamers--item__cover"
+                    <img class="streamers--item__cover" onclick="addLike(<?php echo $item['stream']["_id"] ?>)"
                          src="<?php echo $item['stream']["preview"]["medium"] ?>"/>
 
-                    <img class="streamers--item__icon"
+                    <img class="streamers--item__icon" onclick="addLike(<?php echo $item['stream']["_id"] ?>)"
                          src="<?php echo $item['stream']["channel"]["logo"] ?>"/>
                 </div>
 
@@ -172,10 +172,10 @@
                 <?php //Start: Streamer Thumbnail ?>
 
                 <div class="streamers--item--image">
-                    <img class="streamers--item__cover"
+                    <img class="streamers--item__cover" onclick="addLike(<?php echo $item['stream']["_id"] ?>)"
                          src="<?php echo $item["preview"]["medium"] ?>"/>
 
-                    <img class="streamers--item__icon"
+                    <img class="streamers--item__icon" onclick="addLike(<?php echo $item['stream']["_id"] ?>)"
                          src="<?php echo $item["channel"]["logo"] ?>"/>
                 </div>
 

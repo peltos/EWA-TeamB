@@ -44,12 +44,12 @@ class Signin extends Controller
             }else{
                 $_SESSION['message'] = 'Your Username or Password is incorrect';
                 $_SESSION['signinEmail'] = $_POST["email"];
+                header('location: ' . URL  . 'signin');
             }
         }else{
             $_SESSION['message'] = 'Your Username or Password is incorrect';
+            header('location: ' . URL  . 'signin');
         }
-
-        header('location: ' . URL  . 'signin');
     }
 
 }

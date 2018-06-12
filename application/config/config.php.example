@@ -58,3 +58,11 @@ define('DB_NAME', 'mini');
 define('DB_USER', 'root');
 define('DB_PASS', 'mysql');
 define('DB_CHARSET', 'utf8');
+
+/**
+ * Configuration for: API's
+ * This is the place where you define your API tokens
+ */
+define('PANDASCORE_TOKEN', 'n-ijk1gBxy_DM-hg574l6Eaft6-QobYBdLVsobvIoA9vCFxm8yk');
+define('TWITCH_CLIENT_ID', 'r9b3owuwk195oo5gbohveasv11v76c&id=28354917152');
+define('CAPTCHA_SECRET_KEY', '6LcZoVAUAAAAAHZTu5bzXwNcPHflIM_YZ-XqwwwQ');

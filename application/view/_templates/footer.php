@@ -20,6 +20,7 @@
                     <a class="cookie--button">OK</a>
             </div>
         </div>
+    
     <?php } ?>
 
     <!-- jQuery, loaded in the recommended protocol-less way -->

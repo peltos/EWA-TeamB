@@ -15,7 +15,7 @@
     <?php
     $counter = 0;
 
-    // Start: all Matches Items
+    // Start: Match Item Iteration.
 
     if (!empty($timeline)) {
         foreach ($timeline as $key => $item) { ?>
@@ -105,4 +105,4 @@
 
     </ul>
 
-<?php //End: all Matches Items ?>
+<?php // End: All Match Items ?>
