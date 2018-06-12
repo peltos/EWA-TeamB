@@ -39,7 +39,6 @@ function addLike(streamerID) {
             type: "post",
             data: "streamerId=" + streamerId,
             success: function (html) {
-                alert(html);
             }
         });
 }

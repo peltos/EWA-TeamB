@@ -1,5 +1,10 @@
 <div class="container streamers-container">
-    <h1>Streamers</h1>
+    <h1>Streamers
+    <span class="tooltip">
+        <i class="fas fa-info-circle"></i>
+        <span class="tooltiptext">View all currently streaming channels. Filter by game title or language.</span>
+    </span>
+    </h1>
     <?php //This is for the filter bar.?>
     <div class="filterBar-container">
         <div class="filterBar--inner">
@@ -7,7 +12,7 @@
                 <a class="tablinks dateFilter--item" href="#"><i class="filter-icon fas fa-filter"></i></a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'all')">all</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'NL')">Dutch Streamers</a>
-                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'lol')">League of Legends</a>
+                <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'LoL')">League of Legends</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'dota2')">Dota 2</a>
                 <a class="tablinks dateFilter--item" href="#" onclick="openCity(event, 'overwatch')">Overwatch</a>
             </div>
